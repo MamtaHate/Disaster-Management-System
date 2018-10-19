@@ -231,7 +231,15 @@ public class AdminCreateScreen extends javax.swing.JPanel {
      
     private boolean passwordPatternCorrect(){
         Pattern p = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[$+_])(?=\\S+$).*[A-Za-z0-9]$");
-        Matcher m = p.matcher(txtPword.getText());
+        String pwd="";
+        char[] password = new char[txtPword.getPassword().length];
+                password = txtPword.getPassword();
+                
+                for(char c : password){
+                    pwd+=c;
+                }
+                
+        Matcher m = p.matcher(pwd);
            
         return m.matches();
 //        boolean b = m.find();

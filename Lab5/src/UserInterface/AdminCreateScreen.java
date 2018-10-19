@@ -47,6 +47,7 @@ public class AdminCreateScreen extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        radioGroup = new javax.swing.ButtonGroup();
         btnCreate = new javax.swing.JButton();
         txtUser = new javax.swing.JTextField();
         txtPword = new javax.swing.JTextField();
@@ -95,6 +96,7 @@ public class AdminCreateScreen extends javax.swing.JPanel {
 
         jLabel3.setText("re-enter password :");
 
+        radioGroup.add(radioCustomer);
         radioCustomer.setText("Customer");
         radioCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +104,7 @@ public class AdminCreateScreen extends javax.swing.JPanel {
             }
         });
 
+        radioGroup.add(radioSupplier);
         radioSupplier.setText("Supplier");
 
         btnBack.setText("< BACK");
@@ -168,9 +171,98 @@ public class AdminCreateScreen extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
+              if(!userNamePatternCorrect()){
+            JOptionPane.showMessageDialog(this, "Username must be an email ID with _ and @ as the only allowed special characters but should not begin with an _");
+            return;
+        }  
+        if(!passwordPatternCorrect()){
+            JOptionPane.showMessageDialog(this, "Password must contain a combination of uppercase and lowercase letter, number and special characters. ");
+            return;
+        }
+        if(!txtPword.getText().equals(txtRePword.getText())){
+            JOptionPane.showMessageDialog(this, "Passwords dont match !!");
+            return;
+        }       
+        if(txtUser.getText().equals(txtPword.getText())){
+            JOptionPane.showMessageDialog(this, "User ID and password cannot be same !!");
+            return;
+        }
+        if(radioGroup.isSelected(radioCustomer.getModel())){
+
+            Customer customer = new Customer(new Date(), txtPword.getText(), txtUser.getText());
+            admin.getCustDir().getCustomerList().add(customer);
+            JOptionPane.showMessageDialog(this, "Customer successfully created");
+            clearFields();
+        }
+        else if(radioGroup.isSelected(radioSupplier.getModel())){
+            Supplier supplier = new Supplier(txtPword.getText(), txtUser.getText());
+            admin.getSuppDir().getSupplierList().add(supplier);
+            JOptionPane.showMessageDialog(this, "Supplier successfully created");
+            clearFields();
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "Please select a type");
+        }
         
     }//GEN-LAST:event_btnCreateActionPerformed
 
+    private boolean userNamePatternCorrect(){
+        Pattern p = Pattern.compile("^[a-zA-Z0-9][A-Za-z0-9+_]+@(.+)$");
+        Matcher m = p.matcher(txtUser.getText());
+        
+        return m.matches();
+        
+        
+//        boolean b = m.find();
+//        if (b == true){
+//            System.out.println("There is a special character in the string");
+//            return false;
+//        }
+//        else {
+//             System.out.println("There is no special character in the string");
+//            return true;
+//        }
+        
+    }
+    
+    
+     
+    private boolean passwordPatternCorrect(){
+        Pattern p = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[$+_])(?=\\S+$).*[A-Za-z0-9]$");
+        Matcher m = p.matcher(txtPword.getText());
+           
+        return m.matches();
+//        boolean b = m.find();
+//        if (b == true){
+//            System.out.println("There is a special character in the string");
+//            return false;
+//        }
+//        else {
+//             System.out.println("There is no special character in the string");
+//            return true;
+//        }
+    }  
+    
+     private void clearFields(){
+        txtUser.setText("");
+        txtPword.setText("");
+        txtRePword.setText("");
+    }
+    
+    private void checkFoButtonVisibility(){
+        if(!txtUser.getText().isEmpty() && !txtPword.getText().isEmpty() && !txtRePword.getText().isEmpty()){
+            btnCreate.setEnabled(true);
+        }
+        else {
+             btnCreate.setEnabled(false);
+        }
+            
+    }
+    
+     private void initialize(){
+        checkFoButtonVisibility();
+    }
+    
     private void radioCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioCustomerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_radioCustomerActionPerformed
@@ -263,6 +355,7 @@ public class AdminCreateScreen extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JRadioButton radioCustomer;
+    private javax.swing.ButtonGroup radioGroup;
     private javax.swing.JRadioButton radioSupplier;
     private javax.swing.JTextField txtPword;
     private javax.swing.JTextField txtRePword;

@@ -23,11 +23,13 @@ public class LoginScreen extends javax.swing.JPanel {
      * Creates new form LoginScreen
      */
     List<User> list;
+    String userType;
     JPanel panelRight;
-    public LoginScreen(JPanel panelRight, List<User> list) {
+    public LoginScreen(JPanel panelRight, List<User> list,String userType) {
         initComponents();
         this.list = list;
         this.panelRight = panelRight;
+        this.userType = userType;
         initialize();
     }
 
@@ -112,9 +114,9 @@ public class LoginScreen extends javax.swing.JPanel {
     private void initialize(){
         //text should either be "Supplier Login Screen" OR "Customer Login Screen"
         //Based on the selection
-        txtTitle.setText("****** Login Screen");
+        txtTitle.setText(userType + " Login Screen");
         comboUser.removeAllItems();
-        //only customer or suppliers should be listed based on the selection
+        //only customer or suppliers should be listed based on the selection  
         for(User user : list){
             comboUser.addItem(user);
         }   

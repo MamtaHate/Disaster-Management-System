@@ -248,17 +248,7 @@ public class AdminCreateScreen extends javax.swing.JPanel {
         txtPword.setText("");
         txtRePword.setText("");
     }
-    
-    private void checkFoButtonVisibility(){
-        if(!txtUser.getText().isEmpty() && !txtPword.getText().isEmpty() && !txtRePword.getText().isEmpty()){
-            btnCreate.setEnabled(true);
-        }
-        else {
-             btnCreate.setEnabled(false);
-        }
-            
-    }
-    
+     
      private void initialize(){
         checkFoButtonVisibility();
     }

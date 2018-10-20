@@ -148,16 +148,9 @@ public class AdminCreateScreen extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
+        checkFoButtonVisibility();
         String pwd= "";
         String rePwd = "";
-              if(!userNamePatternCorrect()){
-            JOptionPane.showMessageDialog(this, "Username must be an email ID with _ and @ as the only allowed special characters but should not begin with an _");
-            return;
-        }  
-        if(!passwordPatternCorrect()){
-            JOptionPane.showMessageDialog(this, "Password must contain a combination of uppercase and lowercase letter, number and special characters. ");
-            return;
-        }
         JPasswordField passwordField = new JPasswordField(8);
  
         // add to the container
@@ -176,6 +169,17 @@ public class AdminCreateScreen extends javax.swing.JPanel {
                 for(char c : repassword){
                     rePwd+=c;
                 }
+        
+        
+              if(!userNamePatternCorrect()){
+            JOptionPane.showMessageDialog(this, "Username must be an email ID with _ and @ as the only allowed special characters but should not begin with an _");
+            return;
+        }  
+        if(!passwordPatternCorrect()){
+            JOptionPane.showMessageDialog(this, "Password must contain a combination of uppercase and lowercase letter, number and special characters. ");
+            return;
+        }
+        
                 //txtRePword.getPassword();
         
         //System.out.println(pwd);
@@ -232,12 +236,14 @@ public class AdminCreateScreen extends javax.swing.JPanel {
     private boolean passwordPatternCorrect(){
         Pattern p = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[$+_])(?=\\S+$).*[A-Za-z0-9]$");
         String pwd="";
+        
         char[] password = new char[txtPword.getPassword().length];
                 password = txtPword.getPassword();
                 
                 for(char c : password){
                     pwd+=c;
                 }
+       
                 
         Matcher m = p.matcher(pwd);
            
@@ -260,18 +266,31 @@ public class AdminCreateScreen extends javax.swing.JPanel {
     }
     
     private void checkFoButtonVisibility(){
-        if(!txtUser.getText().isEmpty() && !txtPword.getText().isEmpty() && !txtRePword.getText().isEmpty()){
-            btnCreate.setEnabled(true);
+        String pwd="";
+        String rePwd="";
+        char[] password = new char[txtPword.getPassword().length];
+                password = txtPword.getPassword();
+                
+                for(char c : password){
+                    pwd+=c;
+                }
+         char[] repassword = new char[txtRePword.getPassword().length];
+                repassword = txtRePword.getPassword();
+                
+                for(char c : repassword){
+                    rePwd+=c;
+                }
+        if(!txtUser.getText().isEmpty() && !pwd.isEmpty() && !rePwd.isEmpty()){
+            
+            btnCreate.setEnabled(false);
         }
         else {
-             btnCreate.setEnabled(false);
+            JOptionPane.showMessageDialog(this, "Fields cannot be empty!");
+             btnCreate.setEnabled(true);
         }
             
     }
     
-     private void initialize(){
-        checkFoButtonVisibility();
-    }
     
     private void radioCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioCustomerActionPerformed
         // TODO add your handling code here:

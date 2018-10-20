@@ -30,9 +30,9 @@
                           <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtUser" min="-2" pref="173" max="-2" attributes="0"/>
-                          <Component id="btnCreate" alignment="0" min="-2" pref="173" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txtUser" pref="173" max="32767" attributes="0"/>
+                          <Component id="btnCreate" alignment="0" pref="173" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -40,8 +40,8 @@
                                   <Component id="radioCustomer" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="txtPword" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtRePword" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtPword" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtRePword" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -96,25 +96,7 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtUser">
-      <Events>
-        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtUserKeyTyped"/>
-      </Events>
     </Component>
-<<<<<<< HEAD
-=======
-    <Component class="javax.swing.JTextField" name="txtPword">
-      <Events>
-        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPwordKeyTyped"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtRePword">
-      <Events>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtRePwordKeyPressed"/>
-        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtRePwordKeyReleased"/>
-        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtRePwordKeyTyped"/>
-      </Events>
-    </Component>
->>>>>>> Admin_Login_functionality
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="username:"/>
@@ -158,14 +140,14 @@
       </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="txtPword">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPwordActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="txtRePword">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jPasswordField2"/>
-      </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtRePwordKeyReleased"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -9,11 +9,9 @@ import Business.Users.Admin;
 import Business.Users.Customer;
 import Business.Users.Supplier;
 import java.awt.CardLayout;
-import java.util.Arrays;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -37,8 +35,7 @@ public class AdminCreateScreen extends javax.swing.JPanel {
         this.panelRight = panelRight;
         this.admin = admin;
     }
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,30 +64,6 @@ public class AdminCreateScreen extends javax.swing.JPanel {
             }
         });
 
-        txtUser.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtUserKeyTyped(evt);
-            }
-        });
-
-        txtPword.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtPwordKeyTyped(evt);
-            }
-        });
-
-        txtRePword.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtRePwordKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtRePwordKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtRePwordKeyTyped(evt);
-            }
-        });
-
         jLabel1.setText("username:");
 
         jLabel2.setText("password:");
@@ -115,9 +88,17 @@ public class AdminCreateScreen extends javax.swing.JPanel {
             }
         });
 
-        txtPword.setText("jPasswordField1");
+        txtPword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPwordActionPerformed(evt);
+            }
+        });
 
-        txtRePword.setText("jPasswordField2");
+        txtRePword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtRePwordKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -132,16 +113,16 @@ public class AdminCreateScreen extends javax.swing.JPanel {
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtUser, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                            .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(35, 35, 35)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(radioSupplier)
                                     .addComponent(radioCustomer)))
-                            .addComponent(txtPword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtRePword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtPword)
+                            .addComponent(txtRePword)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addComponent(btnBack)))
@@ -263,7 +244,7 @@ public class AdminCreateScreen extends javax.swing.JPanel {
     
      
     private boolean passwordPatternCorrect(){
-        Pattern p = Pattern.compile("^(?=.*[0-9]+.*)(?=.*[a-z]+.*)(?=.*[A-Z]+.*)(?=.*[!-/:-@]+.*)[!-/:-@0-9a-zA-Z]{4,}$");
+        Pattern p = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[$+_])(?=\\S+$).*[A-Za-z0-9]$");
         String pwd="";
         
         char[] password = new char[txtPword.getPassword().length];
@@ -292,7 +273,6 @@ public class AdminCreateScreen extends javax.swing.JPanel {
         txtUser.setText("");
         txtPword.setText("");
         txtRePword.setText("");
-<<<<<<< HEAD
     }
     
     private void checkFoButtonVisibility(){
@@ -321,12 +301,6 @@ public class AdminCreateScreen extends javax.swing.JPanel {
             
     }
     
-=======
-    } 
-     private void initialize(){
-        checkFoButtonVisibility();
-    }
->>>>>>> e914d0ae1d0325a2c65360b3c1a7811f763dd821
     
     private void radioCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioCustomerActionPerformed
         // TODO add your handling code here:
@@ -334,7 +308,7 @@ public class AdminCreateScreen extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
 
-        panelRight.remove(this);
+panelRight.remove(this);
         CardLayout layout = (CardLayout)panelRight.getLayout();
         layout.previous(panelRight);
         
@@ -347,53 +321,30 @@ public class AdminCreateScreen extends javax.swing.JPanel {
        }
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
+    private void txtPwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPwordActionPerformed
         // TODO add your handling code here:
-        checkFoButtonVisibility();
-    }//GEN-LAST:event_txtUserKeyTyped
-
-    private void txtPwordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPwordKeyTyped
-        // TODO add your handling code here:
-        checkFoButtonVisibility();
-    }//GEN-LAST:event_txtPwordKeyTyped
-
-    private void txtRePwordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRePwordKeyTyped
-        /*// TODO add your handling code here:
-        checkFoButtonVisibility();
-        String check = ""+evt.getKeyChar();
-        String compare = txtRePword.getText();
-        if(!check.isEmpty()){
-            compare+=check;
-        }
-        if(txtPword.getText().equals(compare)){
-            txtRePword.setBackground(Color.white);
-            btnCreate.setEnabled(true);
-        }
-        else{
-            txtRePword.setBackground(Color.red);
-            btnCreate.setEnabled(false);
-        }*/
-    }//GEN-LAST:event_txtRePwordKeyTyped
-
-    private void txtRePwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRePwordKeyPressed
-        // TODO add your handling code here:
-        //System.out.println("key pressed");
-
-    }//GEN-LAST:event_txtRePwordKeyPressed
+    }//GEN-LAST:event_txtPwordActionPerformed
 
     private void txtRePwordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRePwordKeyReleased
         // TODO add your handling code here:
         checkFoButtonVisibility();
-        String check = ""+evt.getKeyChar();
-        System.out.println("key pressed "+check);
         
-        String compare = txtRePword.getText();
-        System.out.println("key compare "+compare);
-        if(!check.isEmpty()){
-            //compare+=check;
-        }
-        System.out.println("key compare c"+compare);
-        if(txtPword.getText().equals(compare)){
+        String pwd="";
+        String rePwd="";
+        char[] password = new char[txtPword.getPassword().length];
+                password = txtPword.getPassword();
+                
+                for(char c : password){
+                    pwd+=c;
+                }
+         char[] repassword = new char[txtRePword.getPassword().length];
+                repassword = txtRePword.getPassword();
+                
+                for(char c : repassword){
+                    rePwd+=c;
+                }
+                        
+        if(pwd.equals(rePwd)){
             txtRePword.setBackground(Color.white);
             btnCreate.setEnabled(true);
         }
@@ -401,17 +352,10 @@ public class AdminCreateScreen extends javax.swing.JPanel {
             txtRePword.setBackground(Color.red);
             btnCreate.setEnabled(false);
         }
+
     }//GEN-LAST:event_txtRePwordKeyReleased
 
-    private void checkFoButtonVisibility(){
-        if(!txtUser.getText().isEmpty() && !txtPword.getText().isEmpty() && !txtRePword.getText().isEmpty()){
-            btnCreate.setEnabled(true);
-        }
-        else {
-             btnCreate.setEnabled(false);
-        }
-            
-    }   
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;

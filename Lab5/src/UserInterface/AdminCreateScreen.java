@@ -10,6 +10,10 @@ import Business.Users.Customer;
 import Business.Users.Supplier;
 import java.awt.CardLayout;
 import java.util.Arrays;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -33,7 +37,8 @@ public class AdminCreateScreen extends javax.swing.JPanel {
         this.panelRight = panelRight;
         this.admin = admin;
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,6 +64,30 @@ public class AdminCreateScreen extends javax.swing.JPanel {
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
+            }
+        });
+
+        txtUser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUserKeyTyped(evt);
+            }
+        });
+
+        txtPword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPwordKeyTyped(evt);
+            }
+        });
+
+        txtRePword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtRePwordKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtRePwordKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtRePwordKeyTyped(evt);
             }
         });
 
@@ -230,7 +259,7 @@ public class AdminCreateScreen extends javax.swing.JPanel {
     
      
     private boolean passwordPatternCorrect(){
-        Pattern p = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[$+_])(?=\\S+$).*[A-Za-z0-9]$");
+        Pattern p = Pattern.compile("^(?=.*[0-9]+.*)(?=.*[a-z]+.*)(?=.*[A-Z]+.*)(?=.*[!-/:-@]+.*)[!-/:-@0-9a-zA-Z]{4,}$");
         String pwd="";
         char[] password = new char[txtPword.getPassword().length];
                 password = txtPword.getPassword();
@@ -257,18 +286,7 @@ public class AdminCreateScreen extends javax.swing.JPanel {
         txtUser.setText("");
         txtPword.setText("");
         txtRePword.setText("");
-    }
-    
-    private void checkFoButtonVisibility(){
-        if(!txtUser.getText().isEmpty() && !txtPword.getText().isEmpty() && !txtRePword.getText().isEmpty()){
-            btnCreate.setEnabled(true);
-        }
-        else {
-             btnCreate.setEnabled(false);
-        }
-            
-    }
-    
+    } 
      private void initialize(){
         checkFoButtonVisibility();
     }
@@ -279,12 +297,84 @@ public class AdminCreateScreen extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
 
-        CardLayout layout = (CardLayout)panelRight.getLayout();
         panelRight.remove(this);
+        CardLayout layout = (CardLayout)panelRight.getLayout();
         layout.previous(panelRight);
+        
+       Component[] components = panelRight.getComponents();
+       for(Component c: components){
+           if(c instanceof AdminMainScreen){
+               AdminMainScreen manageMainPanel = (AdminMainScreen)c;
+               manageMainPanel.populate();
+           }
+       }
     }//GEN-LAST:event_btnBackActionPerformed
 
-    
+    private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
+        // TODO add your handling code here:
+        checkFoButtonVisibility();
+    }//GEN-LAST:event_txtUserKeyTyped
+
+    private void txtPwordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPwordKeyTyped
+        // TODO add your handling code here:
+        checkFoButtonVisibility();
+    }//GEN-LAST:event_txtPwordKeyTyped
+
+    private void txtRePwordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRePwordKeyTyped
+        /*// TODO add your handling code here:
+        checkFoButtonVisibility();
+        String check = ""+evt.getKeyChar();
+        String compare = txtRePword.getText();
+        if(!check.isEmpty()){
+            compare+=check;
+        }
+        if(txtPword.getText().equals(compare)){
+            txtRePword.setBackground(Color.white);
+            btnCreate.setEnabled(true);
+        }
+        else{
+            txtRePword.setBackground(Color.red);
+            btnCreate.setEnabled(false);
+        }*/
+    }//GEN-LAST:event_txtRePwordKeyTyped
+
+    private void txtRePwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRePwordKeyPressed
+        // TODO add your handling code here:
+        //System.out.println("key pressed");
+
+    }//GEN-LAST:event_txtRePwordKeyPressed
+
+    private void txtRePwordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRePwordKeyReleased
+        // TODO add your handling code here:
+        checkFoButtonVisibility();
+        String check = ""+evt.getKeyChar();
+        System.out.println("key pressed "+check);
+        
+        String compare = txtRePword.getText();
+        System.out.println("key compare "+compare);
+        if(!check.isEmpty()){
+            //compare+=check;
+        }
+        System.out.println("key compare c"+compare);
+        if(txtPword.getText().equals(compare)){
+            txtRePword.setBackground(Color.white);
+            btnCreate.setEnabled(true);
+        }
+        else{
+            txtRePword.setBackground(Color.red);
+            btnCreate.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtRePwordKeyReleased
+
+    private void checkFoButtonVisibility(){
+        if(!txtUser.getText().isEmpty() && !txtPword.getText().isEmpty() && !txtRePword.getText().isEmpty()){
+            btnCreate.setEnabled(true);
+        }
+        else {
+             btnCreate.setEnabled(false);
+        }
+            
+    }   
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;

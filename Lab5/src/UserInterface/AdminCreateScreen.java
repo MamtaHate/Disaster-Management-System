@@ -228,7 +228,8 @@ public class AdminCreateScreen extends javax.swing.JPanel {
     
      
     private boolean passwordPatternCorrect(){
-        Pattern p = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[$+_])(?=\\S+$).*[A-Za-z0-9]$");
+        //Pattern p = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[$+_])(?=\\S+$).*[A-Za-z0-9]$");
+        Pattern p = Pattern.compile("^(?=.*[0-9]+.*)(?=.*[a-z]+.*)(?=.*[A-Z]+.*)(?=.*[!-/:-@]+.*)[!-/:-@0-9a-zA-Z]{4,}$");
         Matcher m = p.matcher(txtPword.getText());
            
         return m.matches();
@@ -247,8 +248,7 @@ public class AdminCreateScreen extends javax.swing.JPanel {
         txtUser.setText("");
         txtPword.setText("");
         txtRePword.setText("");
-    }
-     
+    } 
      private void initialize(){
         checkFoButtonVisibility();
     }

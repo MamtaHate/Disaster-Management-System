@@ -74,4 +74,36 @@ public class AnalysisHelper {
         }
 
     }
+    
+        /* 5) Top 5 inactive users based on comments. */
+    public void top5InactiveUsersBasedOnComments() {
+
+        for (User user : userList.values()) {
+            usersCommentCount.put(user.getId(), user.getComments().size());
+        }
+
+        Set<Entry<Integer, Integer>> entries = usersCommentCount.entrySet();
+        List<Entry<Integer, Integer>> listOfEntries = new ArrayList<Entry<Integer, Integer>>(entries);
+
+        Collections.sort(listOfEntries, new Comparator<Entry<Integer, Integer>>() {
+
+            @Override
+            public int compare(Entry<Integer, Integer> t, Entry<Integer, Integer> t1) {
+                return t.getValue() - t1.getValue();
+
+            }
+        });
+
+        System.out.println("5) Top 5 inactive users based on Comments: ");
+        System.out.println("Data Set: " +usersCommentCount);
+        int i = 0;
+        for (Entry<Integer, Integer> mapping : listOfEntries) {
+            if (i == 5) {
+                break;
+            }
+            System.out.println("{User id:" + mapping.getKey() + ", No. of Comments " + mapping.getValue() + "}");
+            i++;
+        }
+
+    }
 }

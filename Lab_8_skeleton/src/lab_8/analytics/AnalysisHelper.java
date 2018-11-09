@@ -75,7 +75,33 @@ public class AnalysisHelper {
 
     }
     
-        /* 5) Top 5 inactive users based on comments. */
+    /* 3) Post with most comments. */
+    public void postWithMostComments() {
+
+        int maxComments = 0;
+        int maxId = 0;
+
+        List<Comment> commentList;
+        for (Post post : postsList.values()) {
+            commentList = post.getComments();
+            if (commentList.size() >= maxComments) {
+                maxComments = commentList.size();
+                maxId = post.getPostId();
+                postCommentCount.put(maxId, maxComments);
+            }
+        }
+        System.out.println("3) Posts with most number of comments: ");
+        if (postCommentCount.size() > 0) {
+            for (int postId : postCommentCount.keySet()) {
+                if (maxComments == postCommentCount.get(postId)) {
+                    System.out.println("Post{" + "id = " + postsList.get(postId).getPostId() + ", userId = " + postsList.get(postId).getUserId() + ", no. of comments = " + postCommentCount.get(postId) + "}");
+                }
+
+            }
+        }
+    }
+    
+    /* 5) Top 5 inactive users based on comments. */
     public void top5InactiveUsersBasedOnComments() {
 
         for (User user : userList.values()) {

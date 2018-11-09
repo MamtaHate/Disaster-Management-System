@@ -75,6 +75,27 @@ public class AnalysisHelper {
 
     }
     
+    /*1) Find Average number of likes per comment. */
+    public void averageNumberOfLikesPerComment() {
+        int commentsCount = 0;
+        int totalLikes = 0;
+        double averageLikesPerComment = 0;
+        
+        System.out.println("1) Find Average number of likes per comment. ");
+        
+        for (User user : userList.values()) {
+            totalLikes = 0;
+            commentsCount = user.getComments().size();
+            for (Comment comment : user.getComments()) {
+                totalLikes += comment.getLikes();
+            }
+            averageLikesPerComment = (double) totalLikes / commentsCount;
+            System.out.println("User Id: " + user.getId() + ", Total Comments: " + commentsCount + ", Total Likes: " + totalLikes + ", Average Likes Per Comment " + averageLikesPerComment);
+        }
+
+    }
+
+    
     /* 3) Post with most comments. */
     public void postWithMostComments() {
 

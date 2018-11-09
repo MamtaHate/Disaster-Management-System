@@ -18,8 +18,9 @@ public class Admin extends User {
     public SupplierDirectory suppDir;
     public CustomerDirectory custDir;
     
+    //char[] password = "".toCharArray();
     public Admin() {
-        super("", "", "Admin");
+        super("","", "Admin");
         suppDir = new SupplierDirectory();
         custDir = new CustomerDirectory();
     }

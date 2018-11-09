@@ -95,6 +95,30 @@ public class AnalysisHelper {
 
     }
 
+     /*2) Post with most liked comments.*/
+    public void postWithMostLikedComments() {
+        int likes;
+        for (Post post : postsList.values()) {
+            likes = 0;
+            for (Comment comment : post.getComments()) {
+                likes += comment.getLikes();
+            }
+            postLikesCount.put(post.getPostId(), likes);
+        }
+
+        int maxLikes = 0;
+        int maxId = 0;
+        for (int id : postLikesCount.keySet()) {
+            if (postLikesCount.get(id) > maxLikes) {
+                maxLikes = postLikesCount.get(id);
+                maxId = id;
+            }
+        }
+
+        System.out.println("2) Post with most likes: ");
+        System.out.println("Post{" + "id = " + postsList.get(maxId).getPostId() + ", userId = " + postsList.get(maxId).getUserId() + ", no. of likes = " + postLikesCount.get(maxId) + "}");
+    }
+
     
     /* 3) Post with most comments. */
     public void postWithMostComments() {

@@ -88,6 +88,9 @@ public class Lab_8 {
     private void runAnalysis() {
         helper.userWithMostLikes();
         helper.getFiveMostLikedComment();
+        helper.top5InactiveUsersBasedOnComments();
+        helper.top5ActiveInactiveUsersOverall(true);
+        helper.top5ActiveInactiveUsersOverall(false);
     }
 
 }

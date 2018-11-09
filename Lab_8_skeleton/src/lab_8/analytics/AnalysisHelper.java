@@ -106,4 +106,65 @@ public class AnalysisHelper {
         }
 
     }
+    
+     /*
+     6) Top 5 inactive users overall (comments, posts)
+     7) Top 5 proactive users overall (comments, posts)
+     */
+    public void top5ActiveInactiveUsersOverall(Boolean isInActive) {
+        Map<Integer, Integer> userActivityCount = new HashMap<Integer, Integer>();
+
+        int commentsCount = 0;
+        int postsCount = 0;
+        int total = 0;
+
+        for (User user : userList.values()) {
+            commentsCount = user.getComments().size();
+            postsCount = 0;
+            for (Post post : postsList.values()) {
+                if (post.getUserId() == user.getId()) {
+                    postsCount++;
+                }
+            }
+            total = commentsCount + postsCount;
+            userActivityCount.put(user.getId(), total);
+        }
+
+        Set<Entry<Integer, Integer>> entries = userActivityCount.entrySet();
+        List<Entry<Integer, Integer>> listOfEntries = new ArrayList<Entry<Integer, Integer>>(entries);
+
+        if (isInActive) {
+            Collections.sort(listOfEntries, new Comparator<Entry<Integer, Integer>>() {
+
+                @Override
+                public int compare(Entry<Integer, Integer> t, Entry<Integer, Integer> t1) {
+                    return t.getValue() - t1.getValue();
+
+                }
+            });
+            System.out.println("6) Top 5 inactive users based on Comments and Posts: ");
+        } else {
+            Collections.sort(listOfEntries, new Comparator<Entry<Integer, Integer>>() {
+
+                @Override
+                public int compare(Entry<Integer, Integer> t, Entry<Integer, Integer> t1) {
+                    return t1.getValue() - t.getValue();
+
+                }
+            });
+             System.out.println("7) Top 5 active users based on Comments and Posts: ");
+        }
+
+      
+        System.out.println("Data Set: " + userActivityCount);
+        int i = 0;
+        for (Entry<Integer, Integer> mapping : listOfEntries) {
+            if (i == 5) {
+                break;
+            }
+            System.out.println("{User id:" + mapping.getKey() + ", No. of Comments and Posts: " + mapping.getValue() + "}");
+            i++;
+        }
+
+    }
 }

@@ -94,6 +94,18 @@ public class AnalysisHelper {
         }
 
     }
+    
+    // 1. Find Average number of likes per comment.
+    public void avgLikesPerComment(){
+        Map<Integer,Comment> comments = DataStore.getInstance().getComments();
+        List<Comment> commentList = new ArrayList<>(comments.values());
+        int avgLikes = 0;
+        for(int i=0;i<commentList.size();i++){
+            avgLikes += commentList.get(i).getLikes();
+        }
+        avgLikes = avgLikes / commentList.size();
+        System.out.println("Average likes for per comment second understanding : "+avgLikes);
+    }
 
      /*2) Post with most liked comments.*/
     public void postWithMostLikedComments() {

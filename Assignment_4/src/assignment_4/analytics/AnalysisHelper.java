@@ -15,6 +15,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -29,6 +30,46 @@ public class AnalysisHelper {
     Map<Integer, Customer> customers = DataStore.getDataStore().getCustomers();
     Map<Integer, Integer> salesPersonPopularity = new HashMap<Integer, Integer>();
     Map<Integer, SalesPerson> salesPersons = DataStore.getDataStore().getSalesPersons();
+
+    /*1) Our top 3 most popular product sorted from high to low.*/
+    public void top3MostPopularProduct() {
+
+        int totalRevenuePerProduct = 0;
+
+        for (Product product : products.values()) {
+            totalRevenuePerProduct = 0;
+            for (Order order : orders.values()) {
+                if (product.getProductId() == order.getItem().getProductId()) {
+                    totalRevenuePerProduct += (order.getItem().getSalesPrice() - product.getFloorPrice()) * order.getItem().getQuantity();
+                }
+            }
+            productPopularity.put(product.getProductId(), totalRevenuePerProduct);
+        }
+
+        Set<Map.Entry<Integer, Integer>> entries = productPopularity.entrySet();
+        List<Map.Entry<Integer, Integer>> listOfEntries = new ArrayList<Map.Entry<Integer, Integer>>(entries);
+
+        Collections.sort(listOfEntries, new Comparator<Map.Entry<Integer, Integer>>() {
+
+            @Override
+            public int compare(Map.Entry<Integer, Integer> t, Map.Entry<Integer, Integer> t1) {
+                return t1.getValue() - t.getValue();
+
+            }
+        });
+        System.out.println("--------------------------------------------------------------------------------");
+        System.out.println("1) Top 3 most popular product sorted from high to low ");
+        System.out.println("--------------------------------------------------------------------------------");
+        //System.out.println("Data Set: " + productPopularity);
+        int i = 0;
+        for (Map.Entry<Integer, Integer> mapping : listOfEntries) {
+            if (i == 3) {
+                break;
+            }
+            System.out.println("Product Id " + mapping.getKey() + " generated revenue $" + mapping.getValue());
+            i++;
+        }
+    }
 
     /*3) Our top 3 best sales people*/
     public void top3BestSalesPeople() {

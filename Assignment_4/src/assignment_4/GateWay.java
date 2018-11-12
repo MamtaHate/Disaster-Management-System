@@ -47,7 +47,7 @@ public class GateWay {
 
         String[] orderRow;
         while ((orderRow = orderReader.getNextRow()) != null) {
-
+            generateOrders(orderRow);
         }
 
         runAnalysis();
@@ -62,7 +62,44 @@ public class GateWay {
         DataStore.getInstance().getProducts().put(productId, product);
     }
 
+    private void generateOrders(String row[]){
+        int orderId = Integer.parseInt(row[0]);
+        int itemId = Integer.parseInt(row[1]);
+        int productId = Integer.parseInt(row[2]);
+        int qty = Integer.parseInt(row[3]);
+        int salesId = Integer.parseInt(row[4]);
+        int customerId = Integer.parseInt(row[5]);
+        int salesPrice = Integer.parseInt(row[6]);   
+                       
+        Item item = new Item(itemId, productId, salesPrice, qty); 
+        DataStore.getInstance().getItems().put(itemId, item);
+        
+        Order order = new Order(orderId, salesId, customerId, item);
+        DataStore.getInstance().getOrders().put(orderId, order);
+        
+        Map<Integer, Customer> customerList = DataStore.getDataStore().getCustomers();
+        if(customerList.containsKey(customerId)){
+            customerList.get(customerId).getOrders().add(order);
+        }
+        else {
+             Customer customer = new Customer(customerId);
+             customerList.put(customerId, customer);
+             customerList.get(customerId).getOrders().add(order);          
+        }
+        
+        Map<Integer, SalesPerson> salesPersonList = DataStore.getDataStore().getSalesPersons();
+        if(salesPersonList.containsKey(salesId)){
+            salesPersonList.get(salesId).getOrders().add(order);
+        }
+        else
+        {
+            SalesPerson salesPerson = new SalesPerson(salesId);
+            salesPersonList.put(salesId, salesPerson);
+            salesPersonList.get(salesId).getOrders().add(order);
+        }
+    }
+    
     private void runAnalysis() {
-
+       helper.top3BestSalesPeople();
     }
 }

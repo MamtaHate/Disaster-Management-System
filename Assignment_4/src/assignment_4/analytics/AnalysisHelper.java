@@ -71,6 +71,43 @@ public class AnalysisHelper {
         }
     }
 
+    /*2) Our 3 best customers  */
+    public void top3BestCustomers() {
+
+        int totalRevenue = 0;
+        for (Customer customer : customers.values()) {
+            totalRevenue = 0;
+            for (Order order : customer.getOrders()) {
+                totalRevenue += (order.getItem().getSalesPrice() - products.get(order.getItem().getProductId()).getFloorPrice()) * order.getItem().getQuantity();
+            }
+            customerOrderRevenue.put(customer.getCustomerId(), totalRevenue);
+        }
+
+        List<Map.Entry<Integer, Integer>> listOfEntries = new ArrayList<Map.Entry<Integer, Integer>>(customerOrderRevenue.entrySet());
+
+        Collections.sort(listOfEntries, new Comparator<Map.Entry<Integer, Integer>>() {
+
+            @Override
+            public int compare(Map.Entry<Integer, Integer> t, Map.Entry<Integer, Integer> t1) {
+                return t1.getValue() - t.getValue();
+
+            }
+        });
+
+        System.out.println("--------------------------------------------------------------------------------");
+        System.out.println("2) Top 3 most popular customers ");
+        System.out.println("--------------------------------------------------------------------------------");
+        //System.out.println("Data Set: " + customerOrderRevenue);
+        int i = 0;
+        for (Map.Entry<Integer, Integer> mapping : listOfEntries) {
+            if (i == 3) {
+                break;
+            }
+            System.out.println("Customer Id " + mapping.getKey() + " spent $" + mapping.getValue());
+            i++;
+        }
+    }
+
     /*3) Our top 3 best sales people*/
     public void top3BestSalesPeople() {
 

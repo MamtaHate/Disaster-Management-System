@@ -20,6 +20,7 @@ import java.util.Map;
  * @author harshalneelkamal
  */
 public class GateWay {
+
     DataGenerator generator;
     DataReader orderReader;
     DataReader productReader;
@@ -28,7 +29,7 @@ public class GateWay {
     public GateWay() throws IOException {
         generator = DataGenerator.getInstance();
         productReader = new DataReader(generator.getProductCataloguePath());
-        orderReader = new DataReader(generator.getOrderFilePath());     
+        orderReader = new DataReader(generator.getOrderFilePath());
         helper = new AnalysisHelper();
     }
 
@@ -39,25 +40,29 @@ public class GateWay {
 
     private void readData() throws IOException {
 
-         
         String[] prodRow;
         while ((prodRow = productReader.getNextRow()) != null) {
+            generateProducts(prodRow);
+        }
+
+        String[] orderRow;
+        while ((orderRow = orderReader.getNextRow()) != null) {
 
         }
-              
-        String[] orderRow;      
-        while ((orderRow = orderReader.getNextRow()) != null) {
-        
-        }  
-        
+
         runAnalysis();
     }
-    
-    private void generateProducts(String[] row){
 
+    private void generateProducts(String[] row) {
+        int productId = Integer.parseInt(row[0]);
+        int minPrice = Integer.parseInt(row[1]);
+        int maxPrice = Integer.parseInt(row[2]);
+        int targetPrice = Integer.parseInt(row[3]);
+        Product product = new Product(productId, minPrice, maxPrice, targetPrice);
+        DataStore.getInstance().getProducts().put(productId, product);
     }
-    
+
     private void runAnalysis() {
-        
+
     }
 }

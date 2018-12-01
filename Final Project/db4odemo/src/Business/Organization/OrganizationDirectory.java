@@ -38,6 +38,14 @@ public class OrganizationDirectory {
               organization = new DisasterVictimOrganization();
               organizationList.add(organization);
         }
+        else if (type.getValue().equals(OrganizationType.Housing.getValue())){
+            organization = new HousingOrganization();
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(OrganizationType.FoodClothing.getValue())){
+            organization = new FoodClothingOrganization();
+            organizationList.add(organization);
+        }
         
         return organization;
     }

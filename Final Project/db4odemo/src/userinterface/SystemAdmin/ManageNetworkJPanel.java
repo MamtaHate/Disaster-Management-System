@@ -97,6 +97,11 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 246, 613, 141));
 
         btnDelete.setText("DELETE NETWORK");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
         add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(617, 415, 171, 42));
 
         jButton1.setText("<<BACK");
@@ -127,6 +132,10 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
      public boolean validateStrings(String name){
         if(name.equals("")){

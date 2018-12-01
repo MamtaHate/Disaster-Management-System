@@ -8,6 +8,7 @@ package userinterface.DisasterVictimRegistry;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.DisasterVictimOrganization;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -23,11 +24,13 @@ public class DisasterVictimWorkAreaJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private DisasterVictimOrganization organization;
     private EcoSystem system;
-    public DisasterVictimWorkAreaJPanel(JPanel userProcessContainer, DisasterVictimOrganization organization,EcoSystem system) {
+    private UserAccount account;
+    public DisasterVictimWorkAreaJPanel(JPanel userProcessContainer, DisasterVictimOrganization organization,EcoSystem system, UserAccount account) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.organization = organization;
         this.system = system;
+        this.account = account;
     }
 
     /**
@@ -91,7 +94,7 @@ public class DisasterVictimWorkAreaJPanel extends javax.swing.JPanel {
 
     private void requestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestBtnActionPerformed
         // TODO add your handling code here:
-        RequestVictimJPanel requestVictimJPanel = new RequestVictimJPanel(userProcessContainer, organization,system);
+        RequestVictimWorkAreaJPanel requestVictimJPanel = new RequestVictimWorkAreaJPanel(userProcessContainer,system,account);
         userProcessContainer.add("requestVictimJPanel", requestVictimJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

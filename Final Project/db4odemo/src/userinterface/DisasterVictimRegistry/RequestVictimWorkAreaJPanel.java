@@ -6,14 +6,14 @@
 package userinterface.DisasterVictimRegistry;
 
 import Business.EcoSystem;
-import Business.Enterprise.Enterprise;
-import Business.Enterprise.ShelterEnterprise;
-import Business.Network.Network;
 import Business.Organization.DisasterVictimOrganization;
 import Business.Organization.HousingOrganization;
-import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.HousingWorkRequest;
+import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -27,14 +27,37 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     DisasterVictimOrganization disasterVictimOrganization;
     EcoSystem system;
-    public RequestVictimWorkAreaJPanel(JPanel userProcessContainer, DisasterVictimOrganization disasterVictimOrganization,EcoSystem system) {
+    private UserAccount account;
+
+    public RequestVictimWorkAreaJPanel(JPanel userProcessContainer, EcoSystem system, UserAccount account) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.disasterVictimOrganization = disasterVictimOrganization;
         this.system = system;
+        this.account = account;
+        populateRequestTable();
     }
 
-    
+    public void populateRequestTable() {
+        DefaultTableModel model = (DefaultTableModel) workQueueTbl.getModel();
+
+        model.setRowCount(0);
+        for (WorkRequest request : account.getWorkQueue().getWorkRequestList()) {
+            if (request instanceof HousingWorkRequest) {
+                Object[] row = new Object[model.getColumnCount()];
+                row[0] = account;
+                row[1] = request.getReceiver();
+                row[2] = request;
+                row[3] = request.getStatus();
+                String result = ((HousingWorkRequest) request).getResult();
+                row[4] = result == null ? "Waiting" : result;
+
+                model.addRow(row);
+            }
+
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,11 +68,11 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        workQueueTbl = new javax.swing.JTable();
         requestBtn = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        workQueueTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null}
             },
@@ -57,7 +80,7 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
                 "Sender", "Receiver", "Message", "Result", "Status"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(workQueueTbl);
 
         requestBtn.setText("Request");
         requestBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -121,7 +144,7 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
 //            }
 //            
 //        }
-        RequestVictimJPanel requestVictimJPanel = new RequestVictimJPanel(userProcessContainer, system);
+        RequestVictimJPanel requestVictimJPanel = new RequestVictimJPanel(userProcessContainer, system, account);
         userProcessContainer.add("requestVictimJPanel", requestVictimJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -131,7 +154,7 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton requestBtn;
+    private javax.swing.JTable workQueueTbl;
     // End of variables declaration//GEN-END:variables
 }

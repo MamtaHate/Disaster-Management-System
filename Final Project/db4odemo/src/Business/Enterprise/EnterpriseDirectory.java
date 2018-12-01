@@ -28,11 +28,10 @@ public class EnterpriseDirectory {
         this.enterpriseList = enterpriseList;
     }
     
-    
-    public Enterprise createAndAddEnterprise(String name, Enterprise.EnterpriseType type) {
+    public Enterprise createAndAddEnterprise(String name, String networkName, Enterprise.EnterpriseType type) {
         Enterprise enterprise = null;
         if(type == Enterprise.EnterpriseType.ReliefOrganization){
-            enterprise = new ReliefOrganizationEnterprise(name);
+            enterprise = new ReliefOrganizationEnterprise(name, networkName);
         }
         else if(type == Enterprise.EnterpriseType.Hospital) {
             enterprise = new HospitalEnterprise(name);

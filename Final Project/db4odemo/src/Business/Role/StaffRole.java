@@ -8,8 +8,10 @@ package Business.Role;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
+import Business.Organization.StaffOrganization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
+import userinterface.StaffRole.StaffWorkAreaPanel;
 
 /**
  *
@@ -19,8 +21,7 @@ public class StaffRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new StaffWorkAreaPanel(userProcessContainer, account, (StaffOrganization) organization, enterprise, business);
     }
-   
     
 }

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class AlertsEnterprise extends Enterprise {
     
      public AlertsEnterprise(String name) {
-        super(name, Enterprise.EnterpriseType.Alerts);
+        super(name, Enterprise.EnterpriseType.Alerts, "");
     }
     
     @Override

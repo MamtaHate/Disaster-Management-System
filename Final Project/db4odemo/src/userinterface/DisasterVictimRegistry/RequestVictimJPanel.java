@@ -6,7 +6,16 @@
 package userinterface.DisasterVictimRegistry;
 
 import Business.EcoSystem;
-import Business.Organization.DisasterVictimOrganization;
+import Business.Enterprise.Enterprise;
+import Business.Enterprise.ShelterEnterprise;
+import Business.Network.Network;
+import Business.Organization.HousingOrganization;
+import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.HousingWorkRequest;
+import Business.WorkQueue.WorkQueue;
+import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JPanel;
 
 /**
@@ -20,12 +29,20 @@ public class RequestVictimJPanel extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     private EcoSystem system;
-    public RequestVictimJPanel(JPanel userProcessContainer,EcoSystem system) {
+    private UserAccount account;
+    public RequestVictimJPanel(JPanel userProcessContainer,EcoSystem system, UserAccount account) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
+        this.account = account;
+        populateVictimCombo();
     }
 
+      public void populateVictimCombo() {
+        orgCombo.removeAllItems();
+        orgCombo.addItem("Shelter");
+        orgCombo.addItem("Food and Clothing");
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,19 +53,29 @@ public class RequestVictimJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
-        jTextField1 = new javax.swing.JTextField();
+        orgCombo = new javax.swing.JComboBox();
+        requiredTxt = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         backBtn = new javax.swing.JButton();
         sendBtn = new javax.swing.JButton();
 
         jLabel1.setText("Accommodation required for:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        orgCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        orgCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orgComboActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Request from organization:");
 
         backBtn.setText("Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
 
         sendBtn.setText("Send");
         sendBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -75,8 +102,8 @@ public class RequestVictimJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sendBtn)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField1)
-                        .addComponent(jComboBox1, 0, 130, Short.MAX_VALUE)))
+                        .addComponent(requiredTxt)
+                        .addComponent(orgCombo, 0, 130, Short.MAX_VALUE)))
                 .addGap(147, 147, 147))
         );
         layout.setVerticalGroup(
@@ -85,10 +112,10 @@ public class RequestVictimJPanel extends javax.swing.JPanel {
                 .addGap(85, 85, 85)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(requiredTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(orgCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(90, 90, 90)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -100,15 +127,69 @@ public class RequestVictimJPanel extends javax.swing.JPanel {
 
     private void sendBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendBtnActionPerformed
         // TODO add your handling code here:
+        
+        int message = Integer.parseInt(requiredTxt.getText());
+       
+        HousingWorkRequest hwq= new HousingWorkRequest();
+     //   WorkQueue wq = new WorkQueue();
+
+        hwq.setShelter(message);
+        hwq.setSender(account);
+        hwq.setStatus("Sent");
+        
+        account.getWorkQueue().getWorkRequestList().add(hwq);
+        
+//        Organization org = null;
+//              
+//            for (Network network : system.getNetworkList()){
+//            for(Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()){
+//                if(enterprise instanceof ShelterEnterprise){
+//                    for(Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()){
+//                        if(organization instanceof HousingOrganization){
+//                            if(orgCombo.getSelectedItem().equals("Shelter")){
+//                                //wq.getWorkRequestList().add(hwq);
+//                                account.getWorkQueue().getWorkRequestList().add(hwq);
+//                                System.out.println("saved req");
+//                            }
+//                            
+//                        }
+//                    }                
+//            }
+//            }
+//            
+//        }
+//            if (org!=null){
+//                
+//            }
     }//GEN-LAST:event_sendBtnActionPerformed
+
+    private void orgComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orgComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_orgComboActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        
+        Component[] components = userProcessContainer.getComponents();
+        for(Component component: components) {
+            if(component instanceof  RequestVictimWorkAreaJPanel) {
+                RequestVictimWorkAreaJPanel rjPanel = (RequestVictimWorkAreaJPanel) component;
+                rjPanel.populateRequestTable();
+            }
+        }
+        
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JComboBox orgCombo;
+    private javax.swing.JTextField requiredTxt;
     private javax.swing.JButton sendBtn;
     // End of variables declaration//GEN-END:variables
 }

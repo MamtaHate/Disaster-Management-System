@@ -23,6 +23,7 @@ public abstract class Organization {
     private UserAccountDirectory userAccountDirectory;
     private int organizationID;
     private static int counter;
+    private String networkName;
 
     public enum OrganizationType {
         Staff("Staff Organization"), 
@@ -33,6 +34,7 @@ public abstract class Organization {
         Vehicle("Vehicle Organization"),
         FoodClothing("Food and Clothing Organization"),
         Housing("Housing Organization");
+
 
         private String value;
 

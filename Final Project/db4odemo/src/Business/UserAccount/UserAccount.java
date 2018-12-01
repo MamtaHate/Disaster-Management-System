@@ -19,6 +19,7 @@ public class UserAccount {
     private Employee employee;
     private Role role;
     private WorkQueue workQueue;
+    private String networkName;
 
     public UserAccount() {
         workQueue = new WorkQueue();
@@ -60,7 +61,13 @@ public class UserAccount {
         return workQueue;
     }
 
-    
+    public String getNetworkName() {
+        return networkName;
+    }
+
+    public void setNetworkName(String networkName) {
+        this.networkName = networkName;
+    }
     
     @Override
     public String toString() {

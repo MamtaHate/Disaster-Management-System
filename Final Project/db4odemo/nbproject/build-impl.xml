@@ -46,13 +46,8 @@ is divided into following sections:
         <property file="${user.properties.file}"/>
         <!-- The two properties below are usually overridden -->
         <!-- by the active platform. Just a fallback. -->
-<<<<<<< HEAD
-        <property name="default.javac.source" value="1.4"/>
-        <property name="default.javac.target" value="1.4"/>
-=======
         <property name="default.javac.source" value="1.6"/>
         <property name="default.javac.target" value="1.6"/>
->>>>>>> ec9081e5620408b0410d4ba79f05f8966ccaef05
     </target>
     <target depends="-pre-init,-init-private,-init-user" name="-init-project">
         <property file="nbproject/configs/${config}.properties"/>
@@ -81,11 +76,7 @@ is divided into following sections:
             <and>
                 <isset property="javac.profile"/>
                 <length length="0" string="${javac.profile}" when="greater"/>
-<<<<<<< HEAD
-                <matches pattern="1\.[89](\..*)?" string="${javac.source}"/>
-=======
                 <matches pattern="((1\.[89])|9)(\..*)?" string="${javac.source}"/>
->>>>>>> ec9081e5620408b0410d4ba79f05f8966ccaef05
             </and>
         </condition>
         <condition property="do.archive">
@@ -165,10 +156,7 @@ is divided into following sections:
         <property name="application.args" value=""/>
         <property name="source.encoding" value="${file.encoding}"/>
         <property name="runtime.encoding" value="${source.encoding}"/>
-<<<<<<< HEAD
-=======
         <property name="manifest.encoding" value="${source.encoding}"/>
->>>>>>> ec9081e5620408b0410d4ba79f05f8966ccaef05
         <condition property="javadoc.encoding.used" value="${javadoc.encoding}">
             <and>
                 <isset property="javadoc.encoding"/>
@@ -204,16 +192,12 @@ is divided into following sections:
                 </not>
             </and>
         </condition>
-<<<<<<< HEAD
-        <property name="javac.fork" value="${jdkBug6558476}"/>
-=======
         <condition else="false" property="javac.fork">
             <or>
                 <istrue value="${jdkBug6558476}"/>
                 <istrue value="${javac.external.vm}"/>
             </or>
         </condition>
->>>>>>> ec9081e5620408b0410d4ba79f05f8966ccaef05
         <property name="jar.index" value="false"/>
         <property name="jar.index.metainf" value="${jar.index}"/>
         <property name="copylibs.rebase" value="true"/>
@@ -239,10 +223,7 @@ is divided into following sections:
         <condition else="" property="testng.debug.mode" value="-mixed">
             <istrue value="${junit+testng.available}"/>
         </condition>
-<<<<<<< HEAD
-=======
         <property name="java.failonerror" value="true"/>
->>>>>>> ec9081e5620408b0410d4ba79f05f8966ccaef05
     </target>
     <target name="-post-init">
         <!-- Empty placeholder for easier customization. -->

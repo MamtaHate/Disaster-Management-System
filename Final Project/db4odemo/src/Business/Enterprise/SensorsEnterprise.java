@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class SensorsEnterprise extends Enterprise {
     
     public SensorsEnterprise(String name) {
-        super(name, Enterprise.EnterpriseType.Sensors);
+        super(name, Enterprise.EnterpriseType.Sensors, "");
     }
     
     @Override

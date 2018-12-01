@@ -19,17 +19,20 @@ import javax.swing.JPanel;
  */
 public class ReliefOrgAdminWorkAreaJPanel extends javax.swing.JPanel {
 
-    JPanel userProcessContainer;
-    Enterprise enterprise;
-    
+    private JPanel userProcessContainer;
+    private Enterprise enterprise;
+    private UserAccount account;
+    private EcoSystem system;
     /**
      * Creates new form ReliefOrgAdminWorkAreaJPanel
      */
-    public ReliefOrgAdminWorkAreaJPanel(JPanel userProcessContainer, Enterprise enterprise) {
+    public ReliefOrgAdminWorkAreaJPanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount account, EcoSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
         valueLabel.setText(enterprise.getName());
+        this.account = account;
+        this.system = system;
     }
 
     /**
@@ -117,7 +120,7 @@ public class ReliefOrgAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void viewIncidentJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewIncidentJButtonActionPerformed
         // TODO add your handling code here:
-        ViewIncidentsJPanel viewIncidentJPanel = new ViewIncidentsJPanel(userProcessContainer, enterprise);
+        ViewIncidentsJPanel viewIncidentJPanel = new ViewIncidentsJPanel(userProcessContainer, enterprise, account, system);
         userProcessContainer.add("viewIncidentJPanel", viewIncidentJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

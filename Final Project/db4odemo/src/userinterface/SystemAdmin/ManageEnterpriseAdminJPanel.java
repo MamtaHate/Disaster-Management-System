@@ -187,13 +187,13 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.ReliefOrganization) {
                 account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new ReliefOrgAdminRole(), networkName);
             } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Hospital) {
-               // account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new HospitalAdminRole());
+                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new HospitalAdminRole(), networkName);
             } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Shelter) {
-              //  account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new ShelterAdminRole());
+                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new ShelterAdminRole(), networkName);
             } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Sensors) {
-              //  account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new SensorsAdminRole());
+                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new SensorsAdminRole(), networkName);
             } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Alerts) {
-             //   account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new AlertsAdminRole());
+                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new AlertsAdminRole(), networkName);
             }
             
             populateTable();

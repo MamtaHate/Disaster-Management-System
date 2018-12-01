@@ -46,35 +46,36 @@ public class ShelterAdminWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
+        viewRequestsButton = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        manageUserJButton.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        manageUserJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         manageUserJButton.setText("MANAGE USER");
         manageUserJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageUserJButtonActionPerformed(evt);
             }
         });
-        add(manageUserJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 250, 60));
+        add(manageUserJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 360, 60));
 
-        manageOrganizationJButton.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        manageOrganizationJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         manageOrganizationJButton.setText("MANAGE ORGANIZATION");
         manageOrganizationJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageOrganizationJButtonActionPerformed(evt);
             }
         });
-        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 250, 60));
+        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 360, 60));
 
-        manageEmployeeJButton.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        manageEmployeeJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         manageEmployeeJButton.setText("MANAGE EMPLOYEE");
         manageEmployeeJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageEmployeeJButtonActionPerformed(evt);
             }
         });
-        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 250, 60));
+        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 360, 60));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("WELCOME TO SHELTER ADMIN WORK AREA");
@@ -87,6 +88,15 @@ public class ShelterAdminWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         valueLabel.setText("<value>");
         add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 210, 40));
+
+        viewRequestsButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        viewRequestsButton.setText("MANAGE REQUESTS");
+        viewRequestsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewRequestsButtonActionPerformed(evt);
+            }
+        });
+        add(viewRequestsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 490, 370, 60));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
@@ -110,6 +120,14 @@ public class ShelterAdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_manageUserJButtonActionPerformed
 
+    private void viewRequestsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewRequestsButtonActionPerformed
+        // TODO add your handling code here:
+        ManageRequestsJPanel manageRequestPanel = new ManageRequestsJPanel(userProcessContainer, enterprise);
+        userProcessContainer.add("manageRequestPanel", manageRequestPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_viewRequestsButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -118,5 +136,6 @@ public class ShelterAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton manageOrganizationJButton;
     private javax.swing.JButton manageUserJButton;
     private javax.swing.JLabel valueLabel;
+    private javax.swing.JButton viewRequestsButton;
     // End of variables declaration//GEN-END:variables
 }

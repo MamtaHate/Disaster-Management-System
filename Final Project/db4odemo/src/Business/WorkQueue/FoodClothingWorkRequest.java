@@ -9,16 +9,7 @@ package Business.WorkQueue;
  *
  * @author Sweta Chowdhury
  */
-public class HousingWorkRequest extends WorkRequest {
-    private String noOfPeople;
-
-    public String getNoOfPeople() {
-        return noOfPeople;
-    }
-
-    public void setNoOfPeople(String noOfPeople) {
-        this.noOfPeople = noOfPeople;
-    }
+public class FoodClothingWorkRequest extends WorkRequest {
     
     
     

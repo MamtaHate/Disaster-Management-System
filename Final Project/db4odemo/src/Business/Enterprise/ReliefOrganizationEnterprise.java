@@ -17,9 +17,7 @@ public class ReliefOrganizationEnterprise extends Enterprise {
     public ReliefOrganizationEnterprise(String name, String networkName) {
         super(name, EnterpriseType.ReliefOrganization, networkName);
     }
-    
-    
-    
+
     @Override
     public ArrayList<Role> getSupportedRole() {
         return null;

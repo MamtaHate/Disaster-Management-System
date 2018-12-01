@@ -68,7 +68,6 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                 Object[] row = new Object[model.getColumnCount()];
                 row[0] = user;
                 row[1] = user.getRole();
-
                 model.addRow(row);
             }
         }

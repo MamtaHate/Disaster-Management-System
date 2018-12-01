@@ -33,8 +33,6 @@ public class Network {
         return enterpriseDirectory;
     }
     
-
-    
     @Override
     public String toString(){
         return networkName;

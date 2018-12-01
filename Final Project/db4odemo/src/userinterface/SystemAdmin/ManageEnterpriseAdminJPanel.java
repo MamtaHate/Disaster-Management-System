@@ -175,7 +175,6 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         Enterprise enterprise = (Enterprise) enterpriseJComboBox.getSelectedItem();
         String networkName = enterprise.getNetworkName();
         String username = usernameJTextField.getText();
-        
         boolean isValiduser = validateStrings(username);
         String password = String.valueOf(passwordJPasswordField.getPassword());
         boolean isValidpwd = validatePwd(password);

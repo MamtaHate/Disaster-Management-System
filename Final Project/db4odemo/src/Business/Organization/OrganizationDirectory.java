@@ -31,7 +31,22 @@ public class OrganizationDirectory {
               organizationList.add(organization);
         }
         else if (type.getValue().equals(OrganizationType.Volunteer.getValue())){
+//            organization = new LabOrganization();
+//            organizationList.add(organization);
         }
+        else  if (type.getValue().equals(OrganizationType.DisasterVictimRegistry.getValue())){
+              organization = new DisasterVictimOrganization();
+              organizationList.add(organization);
+        }
+        else if (type.getValue().equals(OrganizationType.Housing.getValue())){
+            organization = new HousingOrganization();
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(OrganizationType.FoodClothing.getValue())){
+            organization = new FoodClothingOrganization();
+            organizationList.add(organization);
+        }
+        
         return organization;
     }
     

@@ -64,7 +64,6 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         for (Enterprise.EnterpriseType type : Enterprise.EnterpriseType.values()) {
             enterpriseTypeJComboBox.addItem(type);
         }
-
     }
 
     /**
@@ -178,7 +177,6 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
 
                 }
             }
-
             JOptionPane.showMessageDialog(null, "You have successfully deleted the account");
             populateTable();
         }
@@ -187,19 +185,15 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
         Network network = (Network) networkJComboBox.getSelectedItem();
         Enterprise.EnterpriseType type = (Enterprise.EnterpriseType) enterpriseTypeJComboBox.getSelectedItem();
-
         if (network == null || type == null) {
             JOptionPane.showMessageDialog(null, "Invalid Input!");
             return;
         }
-
         String name = nameJTextField.getText();
         String networkName = networkJComboBox.getSelectedItem().toString();
         boolean isValid = validateStrings(name);
         if (isValid) {
-
             Enterprise enterprise = network.getEnterpriseDirectory().createAndAddEnterprise(name, networkName, type);
-
             populateTable();
         }
     }//GEN-LAST:event_submitJButtonActionPerformed

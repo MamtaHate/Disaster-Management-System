@@ -73,13 +73,13 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
         postalCodeTextField = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         eventNameJTextField = new javax.swing.JTextField();
-        dateOfOccurrenceJXDatePicker = new org.jdesktop.swingx.JXDatePicker();
         incidentJComboBox = new javax.swing.JComboBox();
         eventTypeJComboBox = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         commentsJTextArea = new javax.swing.JTextArea();
         saveButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
+        dateOfOccurrenceJXDatePicker = new org.jdesktop.swingx.JXDatePicker();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -146,7 +146,6 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
         jLabel8.setText("Comments: (if any)");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 600, 180, 40));
         add(eventNameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 210, 40));
-        add(dateOfOccurrenceJXDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 210, 40));
 
         incidentJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(incidentJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, 210, 40));
@@ -187,6 +186,7 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
             }
         });
         add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 880, 168, 52));
+        add(dateOfOccurrenceJXDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 210, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed

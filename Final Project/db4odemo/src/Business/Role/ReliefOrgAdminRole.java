@@ -20,7 +20,6 @@ public class ReliefOrgAdminRole extends Role {
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem system) {
         return new ReliefOrgAdminWorkAreaJPanel(userProcessContainer, enterprise);
-        
     }
         
     @Override

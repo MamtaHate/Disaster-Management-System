@@ -25,14 +25,16 @@ public abstract class Organization {
     private static int counter;
     private String networkName;
 
-
     public enum OrganizationType {
         Staff("Staff Organization"), 
         Volunteer("Volunteer Organization"),
         Warehouse("Warehouse Organization"),
         ShelterHome("ShelterHome Organization"),
         DisasterVictimRegistry("DisasterVictimRegistry Organization"),
-        Vehicle("Vehicle Organization");
+        Vehicle("Vehicle Organization"),
+        FoodClothing("Food and Clothing Organization"),
+        Housing("Housing Organization");
+
 
         private String value;
 

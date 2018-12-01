@@ -24,6 +24,7 @@ public abstract class Role {
         AlertsAdminRole("AlertsAdminRole"),
         SensorsAdminRole("SensorsAdminRole"),
         ShelterAdminRole("ShelterAdminRole"),
+        DisasterVictimRegistryRole("DisasterVictimRegistryRole"),
         StaffRole("StaffRole"),
         VolunteerRole("VolunteerRole");
         

@@ -68,9 +68,6 @@ public class UserAccount {
     public void setNetworkName(String networkName) {
         this.networkName = networkName;
     }
-
-    
-    
     
     @Override
     public String toString() {

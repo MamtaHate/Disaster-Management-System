@@ -14,7 +14,6 @@ import java.util.ArrayList;
  * @author Sweta Chowdhury
  */
 public class StaffOrganization extends Organization {
-   
     public StaffOrganization() {
         super(OrganizationType.Staff.getValue());
     }

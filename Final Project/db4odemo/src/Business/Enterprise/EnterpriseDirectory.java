@@ -28,7 +28,6 @@ public class EnterpriseDirectory {
         this.enterpriseList = enterpriseList;
     }
     
-    
     public Enterprise createAndAddEnterprise(String name, String networkName, Enterprise.EnterpriseType type) {
         Enterprise enterprise = null;
         if(type == Enterprise.EnterpriseType.ReliefOrganization){

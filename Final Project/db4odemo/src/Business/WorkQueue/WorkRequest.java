@@ -19,9 +19,20 @@ public abstract class WorkRequest {
     private String status;
     private Date requestDate;
     private Date resolveDate;
+    private String message;
 
     private Incident incident;
 
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+      
+    
     public Incident getIncident() {
         return incident;
     }

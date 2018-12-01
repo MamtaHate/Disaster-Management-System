@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class ShelterEnterprise extends Enterprise {
     
      public ShelterEnterprise(String name) {
-        super(name, Enterprise.EnterpriseType.Shelter);
+        super(name, Enterprise.EnterpriseType.Shelter, "");
     }
     
     @Override

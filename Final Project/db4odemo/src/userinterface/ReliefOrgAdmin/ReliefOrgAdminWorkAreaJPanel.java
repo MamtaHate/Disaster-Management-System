@@ -7,6 +7,7 @@ package userinterface.ReliefOrgAdmin;
 
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
+import Business.Incident.Incident;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -18,17 +19,20 @@ import javax.swing.JPanel;
  */
 public class ReliefOrgAdminWorkAreaJPanel extends javax.swing.JPanel {
 
-    JPanel userProcessContainer;
-    Enterprise enterprise;
-    
+    private JPanel userProcessContainer;
+    private Enterprise enterprise;
+    private UserAccount account;
+    private EcoSystem system;
     /**
      * Creates new form ReliefOrgAdminWorkAreaJPanel
      */
-    public ReliefOrgAdminWorkAreaJPanel(JPanel userProcessContainer, Enterprise enterprise) {
+    public ReliefOrgAdminWorkAreaJPanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount account, EcoSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
         valueLabel.setText(enterprise.getName());
+        this.account = account;
+        this.system = system;
     }
 
     /**
@@ -46,36 +50,32 @@ public class ReliefOrgAdminWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
-
+        viewIncidentJButton = new javax.swing.JButton();
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        manageUserJButton.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        manageUserJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         manageUserJButton.setText("MANAGE USER");
         manageUserJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageUserJButtonActionPerformed(evt);
             }
         });
-        add(manageUserJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 250, 60));
-
-        manageOrganizationJButton.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        add(manageUserJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 320, 60));
+        manageOrganizationJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         manageOrganizationJButton.setText("MANAGE ORGANIZATION");
         manageOrganizationJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageOrganizationJButtonActionPerformed(evt);
             }
         });
-        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 250, 60));
-
-        manageEmployeeJButton.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 320, 60));
+        manageEmployeeJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         manageEmployeeJButton.setText("MANAGE EMPLOYEE");
         manageEmployeeJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageEmployeeJButtonActionPerformed(evt);
             }
         });
-        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 250, 60));
-
+        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 320, 60));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("WELCOME TO RELIEF ORGANIZATION ADMIN WORK AREA");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, 41));
@@ -87,6 +87,14 @@ public class ReliefOrgAdminWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         valueLabel.setText("<value>");
         add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 210, 40));
+        viewIncidentJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        viewIncidentJButton.setText("VIEW INCIDENTS REPORTED");
+        viewIncidentJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewIncidentJButtonActionPerformed(evt);
+            }
+        });
+        add(viewIncidentJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 490, 320, 60));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
@@ -110,6 +118,13 @@ public class ReliefOrgAdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_manageUserJButtonActionPerformed
 
+    private void viewIncidentJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewIncidentJButtonActionPerformed
+        // TODO add your handling code here:
+        ViewIncidentsJPanel viewIncidentJPanel = new ViewIncidentsJPanel(userProcessContainer, enterprise, account, system);
+        userProcessContainer.add("viewIncidentJPanel", viewIncidentJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_viewIncidentJButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -118,5 +133,6 @@ public class ReliefOrgAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton manageOrganizationJButton;
     private javax.swing.JButton manageUserJButton;
     private javax.swing.JLabel valueLabel;
+    private javax.swing.JButton viewIncidentJButton;
     // End of variables declaration//GEN-END:variables
 }

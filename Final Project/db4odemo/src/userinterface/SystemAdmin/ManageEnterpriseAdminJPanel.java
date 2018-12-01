@@ -173,7 +173,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
         Enterprise enterprise = (Enterprise) enterpriseJComboBox.getSelectedItem();
-
+        String networkName = enterprise.getNetworkName();
         String username = usernameJTextField.getText();
         boolean isValiduser = validateStrings(username);
         String password = String.valueOf(passwordJPasswordField.getPassword());
@@ -185,15 +185,15 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             // if (EcoSystem.checkIfUsernameIsUnique(username)) {
             UserAccount account = null;
             if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.ReliefOrganization) {
-                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new ReliefOrgAdminRole());
+                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new ReliefOrgAdminRole(), networkName);
             } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Hospital) {
-                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new HospitalAdminRole());
+                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new HospitalAdminRole(), networkName);
             } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Shelter) {
-                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new ShelterAdminRole());
+                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new ShelterAdminRole(), networkName);
             } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Sensors) {
-                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new SensorsAdminRole());
+                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new SensorsAdminRole(), networkName);
             } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Alerts) {
-                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new AlertsAdminRole());
+                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new AlertsAdminRole(), networkName);
             }
             
             populateTable();

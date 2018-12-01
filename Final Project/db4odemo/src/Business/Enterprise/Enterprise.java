@@ -5,6 +5,7 @@
  */
 package Business.Enterprise;
 
+import Business.Incident.IncidentDirectory;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 
@@ -13,14 +14,17 @@ import Business.Organization.OrganizationDirectory;
  * @author Sweta Chowdhury
  */
 public abstract class Enterprise extends Organization {
-
+    private String networkName;
     private EnterpriseType enterpriseType;
     private OrganizationDirectory organizationDirectory;
+    private IncidentDirectory incidentDirectory;
 
-    public Enterprise(String name, EnterpriseType enterpriseType) {
+    public Enterprise(String name, EnterpriseType enterpriseType, String networkName) {
         super(name);
         this.enterpriseType = enterpriseType;
         organizationDirectory = new OrganizationDirectory();
+        incidentDirectory = new IncidentDirectory();
+        this.networkName = networkName;
     }
 
     public enum EnterpriseType {
@@ -47,12 +51,20 @@ public abstract class Enterprise extends Organization {
 
     }
     
+    public String getNetworkName() {
+        return networkName;
+    }
+    
     public EnterpriseType getEnterpriseType() {
         return enterpriseType;
     }
     
     public OrganizationDirectory getOrganizationDirectory() {
         return organizationDirectory;
+    }
+    
+      public IncidentDirectory getIncidentDirectory() {
+        return incidentDirectory;
     }
 
 }

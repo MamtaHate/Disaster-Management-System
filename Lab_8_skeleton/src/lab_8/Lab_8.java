@@ -91,8 +91,12 @@ public class Lab_8 {
         helper.averageNumberOfLikesPerComment();
         helper.avgLikesPerComment();
         helper.postWithMostLikedComments();
+<<<<<<< HEAD
+        helper.postWithMostComments(); 
+=======
         helper.postWithMostComments();
         helper.top5InactiveUsersBasedOnPost();
+>>>>>>> a768f191e26cd1c542c68806887f3d23eb777830
         helper.top5InactiveUsersBasedOnComments();
         helper.top5ActiveInactiveUsersOverall(true);
         helper.top5ActiveInactiveUsersOverall(false);

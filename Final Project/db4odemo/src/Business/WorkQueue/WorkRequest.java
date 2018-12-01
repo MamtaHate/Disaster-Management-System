@@ -5,6 +5,7 @@
  */
 package Business.WorkQueue;
 
+import Business.Incident.Incident;
 import Business.UserAccount.UserAccount;
 import java.util.Date;
 
@@ -19,68 +20,14 @@ public abstract class WorkRequest {
     private Date requestDate;
     private Date resolveDate;
 
-    private String message;
-    private String complaintMessage;
-    private String freeMed;
-    private int quantity;
-    private String appointmentDate;
-    private String comments;
+    private Incident incident;
 
-    public String getMessage() {
-        return message;
+    public Incident getIncident() {
+        return incident;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getFreeMed() {
-        return freeMed;
-    }
-
-    public void setFreeMed(String freeMed) {
-        this.freeMed = freeMed;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getAppointmentDate() {
-        return appointmentDate;
-    }
-
-    public void setAppointmentDate(String appointmentDate) {
-        this.appointmentDate = appointmentDate;
-    }
-
-    public String getComments() {
-        return comments;
-    }
-
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
-    private Date date = new Date();
-
-    public String getComplaintMessage() {
-        return complaintMessage;
-    }
-
-    public void setComplaintMessage(String complaintMessage) {
-        this.complaintMessage = complaintMessage;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
+    public void setIncident(Incident incident) {
+        this.incident = incident;
     }
 
     public WorkRequest() {

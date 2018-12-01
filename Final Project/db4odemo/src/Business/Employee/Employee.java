@@ -5,6 +5,8 @@
  */
 package Business.Employee;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Sweta Chowdhury
@@ -12,10 +14,15 @@ package Business.Employee;
 public class Employee {
     
     private String name;
+    private String phoneNumber;
+    private String address;
+    private String gender;
+    private ArrayList<String> skillSet;
     private int id;
     private static int count = 1;
 
     public Employee() {
+        skillSet = new ArrayList<String>();
         id = count;
         count++;
     }
@@ -32,6 +39,39 @@ public class Employee {
     public String getName() {
         return name;
     }
+    
+      public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public ArrayList<String> getSkillSet() {
+        return skillSet;
+    }
+
+    public void setSkillSet(ArrayList<String> skillSet) {
+        this.skillSet = skillSet;
+    }
+    
 
     @Override
     public String toString() {

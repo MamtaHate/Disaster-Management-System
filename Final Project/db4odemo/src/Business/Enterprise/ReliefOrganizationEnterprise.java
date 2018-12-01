@@ -14,10 +14,10 @@ import java.util.ArrayList;
  */
 public class ReliefOrganizationEnterprise extends Enterprise {
      
-    public ReliefOrganizationEnterprise(String name) {
-        super(name, EnterpriseType.ReliefOrganization);
+    public ReliefOrganizationEnterprise(String name, String networkName) {
+        super(name, EnterpriseType.ReliefOrganization, networkName);
     }
-    
+
     @Override
     public ArrayList<Role> getSupportedRole() {
         return null;

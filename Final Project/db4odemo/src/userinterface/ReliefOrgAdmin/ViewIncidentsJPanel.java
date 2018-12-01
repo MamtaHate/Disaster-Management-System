@@ -5,6 +5,7 @@
  */
 package userinterface.ReliefOrgAdmin;
 
+import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Incident.Incident;
 import Business.Organization.Organization;
@@ -21,13 +22,17 @@ import javax.swing.table.DefaultTableModel;
 public class ViewIncidentsJPanel extends javax.swing.JPanel {
     private JPanel container;
     private Enterprise enterprise;
+    private UserAccount account;
+    private EcoSystem system;
     /**
      * Creates new form ViewIncidentsJPanel
      */
-    public ViewIncidentsJPanel(JPanel container, Enterprise enterprise) {
+    public ViewIncidentsJPanel(JPanel container, Enterprise enterprise, UserAccount account, EcoSystem system) {
         initComponents();
         this.enterprise = enterprise;
         this.container = container;
+        this.account = account;
+        this.system = system;
         populateTable();
     }
     
@@ -112,7 +117,7 @@ public class ViewIncidentsJPanel extends javax.swing.JPanel {
     private void requestResourcesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestResourcesButtonActionPerformed
         // TODO add your handling code here:
         if (incidentsJTable.getSelectedRow() >= 0) {
-            ManageRequests manageRequests = new ManageRequests(container, (Incident)incidentsJTable.getValueAt(incidentsJTable.getSelectedRow(),0));
+            ManageRequests manageRequests = new ManageRequests(container, (Incident)incidentsJTable.getValueAt(incidentsJTable.getSelectedRow(),0), account, enterprise, system);
             CardLayout layout = (CardLayout) container.getLayout();
             container.add("ManageRequests",manageRequests);
             layout.next(container);

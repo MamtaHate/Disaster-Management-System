@@ -5,8 +5,16 @@
  */
 package userinterface.ReliefOrgAdmin;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Enterprise.ShelterEnterprise;
 import Business.Incident.Incident;
+import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.FoodClothingWorkRequest;
+import Business.WorkQueue.HousingWorkRequest;
+import Business.WorkQueue.WorkRequest;
 import javax.swing.JPanel;
 
 /**
@@ -18,14 +26,25 @@ public class ManageRequests extends javax.swing.JPanel {
     /**
      * Creates new form ManageRequests
      */
-    JPanel container;
-    Incident incident;
-
-    public ManageRequests(JPanel container, Incident incident) {
+    private JPanel container;
+    private Incident incident;
+    private UserAccount account;
+    private Enterprise enterprise;
+    private EcoSystem system;
+    
+    public ManageRequests(JPanel container, Incident incident, UserAccount account, Enterprise enterprise, EcoSystem system) {
         initComponents();
         this.container = container;
         this.incident = incident;
-        panelRaiseRequest.setVisible(false);
+        this.account = account;
+        this.enterprise = enterprise;
+        this.system = system;
+        populateComboBox();
+    }
+    
+    public void populateComboBox(){
+        comboRequestType.addItem(Organization.OrganizationType.Housing);
+        comboRequestType.addItem(Organization.OrganizationType.FoodClothing);
     }
 
     /**
@@ -64,19 +83,12 @@ public class ManageRequests extends javax.swing.JPanel {
                 "Message", "Reciever", "Status"
             }
         ));
-        jTblRequests.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTblRequestsMouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(jTblRequests);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 620, 200));
 
         panelRaiseRequest.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "RAISE A NEW REQUEST", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
         panelRaiseRequest.setEnabled(false);
-
-        comboRequestType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btnRaiseRequest.setText("MAKE REQUEST");
         btnRaiseRequest.addActionListener(new java.awt.event.ActionListener() {
@@ -128,19 +140,30 @@ public class ManageRequests extends javax.swing.JPanel {
         add(panelRaiseRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 430, 240));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTblRequestsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTblRequestsMouseClicked
-        // TODO add your handling code here:
-        int selectedRow = jTblRequests.getSelectedRow();
-        if (selectedRow >= 0) {
-            panelRaiseRequest.setVisible(true);
-        } else {
-            panelRaiseRequest.setVisible(false);
-        }
-    }//GEN-LAST:event_jTblRequestsMouseClicked
-
     private void btnRaiseRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaiseRequestActionPerformed
         // TODO add your handling code here:
-//      if(comboRequestType.getSelectedItem().equals(Organization.OrganizationType.))
+        WorkRequest workRequest;
+        if(comboRequestType.getSelectedItem().equals(Organization.OrganizationType.Housing)) {
+            workRequest = new HousingWorkRequest();
+            ((HousingWorkRequest)workRequest).setNoOfPeople(noOfPeopleTextField.getText());
+        }else{
+            workRequest = new FoodClothingWorkRequest();
+             //((FoodClothingWorkRequest)workRequest).setNoOfPeople(noOfPeopleTextField.getText());
+        }
+        workRequest.setIncident(incident);
+        workRequest.setSender(account);
+        account.getWorkQueue().getWorkRequestList().add(workRequest);
+         
+         for(Network network : system.getNetworkList()){
+             if(network.getNetworkName().equals(enterprise.getNetworkName())){
+                 for(Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()){
+                     if(e instanceof ShelterEnterprise){
+                         e.getWorkQueue().getWorkRequestList().add(workRequest);
+//                         System.out.print((e.getName()));
+                     }
+                 }
+             }
+         }
     }//GEN-LAST:event_btnRaiseRequestActionPerformed
 
 

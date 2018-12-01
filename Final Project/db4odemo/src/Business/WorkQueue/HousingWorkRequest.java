@@ -12,7 +12,15 @@ package Business.WorkQueue;
 public class HousingWorkRequest extends WorkRequest {
     private int shelter;
     private String result;
-    
+    private String noOfPeople;
+
+    public String getNoOfPeople() {
+        return noOfPeople;
+    }
+
+    public void setNoOfPeople(String noOfPeople) {
+        this.noOfPeople = noOfPeople;
+    }    
 
     public String getResult() {
         return result;

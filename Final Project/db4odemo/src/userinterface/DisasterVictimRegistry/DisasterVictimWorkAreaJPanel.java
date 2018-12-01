@@ -91,7 +91,7 @@ public class DisasterVictimWorkAreaJPanel extends javax.swing.JPanel {
 
     private void requestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestBtnActionPerformed
         // TODO add your handling code here:
-        RequestVictimJPanel requestVictimJPanel = new RequestVictimJPanel(userProcessContainer, organization,system);
+        RequestVictimWorkAreaJPanel requestVictimJPanel = new RequestVictimWorkAreaJPanel(userProcessContainer, organization,system);
         userProcessContainer.add("requestVictimJPanel", requestVictimJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

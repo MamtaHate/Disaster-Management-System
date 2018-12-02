@@ -174,7 +174,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 540, 190, 60));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 540, 190, 40));
         add(passwordJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 340, 210, 40));
     }// </editor-fold>//GEN-END:initComponents
 

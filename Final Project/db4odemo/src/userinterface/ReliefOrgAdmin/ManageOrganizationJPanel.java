@@ -39,7 +39,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         organizationJComboBox.removeAllItems();
         
         for(OrganizationType type: Organization.OrganizationType.values()){
-            if(type.getValue().equals((OrganizationType.Volunteer.getValue())) || type.getValue().equals(OrganizationType.DisasterVictimRegistry.getValue()) || type.getValue().equals(OrganizationType.Staff.getValue()) ||  type.getValue().equals(OrganizationType.Warehouse.getValue())){
+            if(type.getValue().equals(OrganizationType.StaffAndVolunteer.getValue()) || type.getValue().equals(OrganizationType.DisasterVictimRegistry.getValue()) ||   type.getValue().equals(OrganizationType.Warehouse.getValue())){
                 organizationJComboBox.addItem(type);
             }
         }

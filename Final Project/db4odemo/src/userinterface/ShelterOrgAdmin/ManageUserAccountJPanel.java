@@ -198,7 +198,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
             Organization organization = (Organization) organizationJComboBox.getSelectedItem();
             Employee employee = (Employee) employeeJComboBox.getSelectedItem();
             Role role = (Role) roleJComboBox.getSelectedItem();
-            organization.getUserAccountDirectory().createUserAccount(username, password, employee, role,enterprise.getNetworkName());
+            organization.getUserAccountDirectory().createUserAccount(username, password, employee, role,enterprise.getNetworkName(), null);
             populateJTable();
         }
 

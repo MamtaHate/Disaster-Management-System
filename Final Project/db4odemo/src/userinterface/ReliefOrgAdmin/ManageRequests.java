@@ -62,6 +62,14 @@ public class ManageRequests extends javax.swing.JPanel {
             row[2] = req.getStatus();
             model.addRow(row);
         }
+        
+         for(WorkRequest req: enterprise.getWorkQueue().getWorkRequestList()) {
+            Object[] row = new Object[model.getColumnCount()];
+            row[0] = req.getMessage();
+            row[1] = req.getReceiver();
+            row[2] = req.getStatus();
+            model.addRow(row);
+        }
     }
     
     /**
@@ -94,10 +102,7 @@ public class ManageRequests extends javax.swing.JPanel {
 
         jTblRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Message", "Reciever", "Status"

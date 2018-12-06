@@ -79,7 +79,7 @@ public class ShelterAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("WELCOME TO SHELTER ADMIN WORK AREA");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, 41));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, 41));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("ENTERPRISE:");

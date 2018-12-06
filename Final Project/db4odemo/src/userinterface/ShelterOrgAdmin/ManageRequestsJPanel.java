@@ -72,10 +72,7 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
 
         shelterTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Incident ", "Sender", "Receiver", "Status", "Requested For", "Need?"

@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.StaffRole;
+package userinterface.Incident;
 
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Incident.Incident;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -131,6 +132,7 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD:Final Project/db4odemo/src/userinterface/StaffRole/IncidentReportingJPanel.java
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -138,6 +140,11 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cityJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(25, 25, 25)
+=======
+                    .addComponent(jLabel6)
+                    .addComponent(cityJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+>>>>>>> 4367cea56cab2a9130ac8779470740635926d383:Final Project/db4odemo/src/userinterface/Incident/IncidentReportingJPanel.java
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(postalCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -182,7 +189,11 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
                 saveButtonActionPerformed(evt);
             }
         });
+<<<<<<< HEAD:Final Project/db4odemo/src/userinterface/StaffRole/IncidentReportingJPanel.java
         add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 530, 190, 40));
+=======
+        add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 530, 190, 50));
+>>>>>>> 4367cea56cab2a9130ac8779470740635926d383:Final Project/db4odemo/src/userinterface/Incident/IncidentReportingJPanel.java
 
         backButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         backButton.setText("<<BACK");
@@ -192,13 +203,28 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
             }
         });
         add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 140, 40));
+<<<<<<< HEAD:Final Project/db4odemo/src/userinterface/StaffRole/IncidentReportingJPanel.java
         add(dateOfOccurrenceJXDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 210, -1));
+=======
+        add(dateOfOccurrenceJXDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, 210, -1));
+>>>>>>> 4367cea56cab2a9130ac8779470740635926d383:Final Project/db4odemo/src/userinterface/Incident/IncidentReportingJPanel.java
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
+        
+        Component[] components = userProcessContainer.getComponents();
+        
+        for(Component c: components) {
+            if(c instanceof ManageIncidentsJPanel) {
+                ManageIncidentsJPanel incidentJPanel = (ManageIncidentsJPanel) c;
+                incidentJPanel.populateTable();
+            }
+        }
+        
+        
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed

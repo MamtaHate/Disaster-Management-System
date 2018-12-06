@@ -39,7 +39,7 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
         for (WorkRequest req : enterprise.getWorkQueue().getWorkRequestList()) {
             Object[] row = new Object[model.getColumnCount()];
             row[0] = req.getIncident();
-            row[1] = req;
+            row[1] = req.getSender().toString();
             row[2] = req.getReceiver();
             row[3] = req.getStatus();
             row[4] = (req instanceof HousingWorkRequest) ? "Housing" : "Food and Clothing";

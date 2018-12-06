@@ -85,23 +85,23 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("REPORT AN EVENT");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 240, 41));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 240, 41));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("Name:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 130, 50));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 130, 40));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setText("Event Type:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 130, 50));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 130, 30));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel4.setText("Incident Type:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 150, 40));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 150, 40));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel5.setText("Date of Occurrence:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 160, 50));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 160, 40));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Location"));
 
@@ -120,7 +120,7 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cityJTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(postalCodeTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -130,25 +130,31 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cityJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cityJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(postalCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(49, Short.MAX_VALUE))
+                    .addComponent(jLabel7)
+                    .addComponent(postalCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(71, 71, 71))
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 440, 190));
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cityJTextField, postalCodeTextField});
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 440, 120));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel8.setText("Comments: (if any)");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 600, 180, 40));
-        add(eventNameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 210, 40));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, 180, 40));
+        add(eventNameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 210, 30));
 
         incidentJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(incidentJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, 210, 40));
+        add(incidentJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 210, 30));
 
         eventTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         eventTypeJComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -161,13 +167,13 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
                 eventTypeJComboBoxPropertyChange(evt);
             }
         });
-        add(eventTypeJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 210, 40));
+        add(eventTypeJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, 210, 30));
 
         commentsJTextArea.setColumns(20);
         commentsJTextArea.setRows(5);
         jScrollPane1.setViewportView(commentsJTextArea);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 600, 240, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 410, 240, -1));
 
         saveButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         saveButton.setText("SAVE");
@@ -176,7 +182,7 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
                 saveButtonActionPerformed(evt);
             }
         });
-        add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 750, 230, 60));
+        add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 530, 190, 40));
 
         backButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         backButton.setText("<<BACK");
@@ -185,8 +191,8 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 880, 168, 52));
-        add(dateOfOccurrenceJXDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 210, -1));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 140, 40));
+        add(dateOfOccurrenceJXDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 210, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed

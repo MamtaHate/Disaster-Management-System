@@ -12,6 +12,7 @@ import Business.Housing.Housing.statusType;
 import Business.Organization.HousingOrganization;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -218,6 +219,12 @@ public class ManageShelterJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backJButtonActionPerformed
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
+//housing.se
+        if (shelterName.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Some fields are blank.Please enter values");
+            return;
+        } 
+        else {
         Housing housing = this.organization.getHousingDirectory().createAndAddHousing();
 
         housing.setHouseName(shelterName.getText());
@@ -227,6 +234,18 @@ public class ManageShelterJPanel extends javax.swing.JPanel {
         housing.setHouseAddress(addressJComboBox.getSelectedItem().toString());
         housing.setHouseCapacity(shelterCapacity.getText());
         housing.setHouseStatus(shelterStatusJComboBox.getSelectedItem().toString());
+
+            JOptionPane.showMessageDialog(null, "Shelter added successfully", "Warning", JOptionPane.INFORMATION_MESSAGE);
+            shelterName.setText(null);
+            shelterTypeJComboBox.setSelectedItem(null);
+            shelterPhone.setText(null);
+            shelterEmail.setText(null);
+            addressJComboBox.setSelectedItem(null);
+            shelterCapacity.setText(null);
+            shelterContactPerson.setText(null);
+            shelterStatusJComboBox.setSelectedItem(null);
+        }
+        //txtAirlinerName.setText("");
         
         /*OrganizationType type = (OrganizationType) shelterStatusJComboBox.getSelectedItem();
         directory.createOrganization(type);

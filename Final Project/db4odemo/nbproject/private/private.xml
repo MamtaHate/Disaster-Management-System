@@ -2,6 +2,24 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/G:/college-stuff/aed/workspace/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/WorkQueue/WorkQueue.java</file>
+            <file>file:/G:/college-stuff/aed/workspace/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/WorkQueue/WorkRequest.java</file>
+            <file>file:/G:/college-stuff/aed/workspace/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/Role/ReliefOrgAdminRole.java</file>
+            <file>file:/G:/college-stuff/aed/workspace/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/Network/Network.java</file>
+            <file>file:/G:/college-stuff/aed/workspace/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/UserAccount/UserAccount.java</file>
+            <file>file:/G:/college-stuff/aed/workspace/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/ReliefOrgAdmin/ManageRequests.java</file>
+            <file>file:/G:/college-stuff/aed/workspace/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/WorkQueue/FoodClothingWorkRequest.java</file>
+            <file>file:/G:/college-stuff/aed/workspace/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/ReliefOrgAdmin/ManageUserAccountJPanel.java</file>
+            <file>file:/G:/college-stuff/aed/workspace/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/StaffRole/AddEditInformationJPanel.java</file>
+            <file>file:/G:/college-stuff/aed/workspace/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/EcoSystem.java</file>
+            <file>file:/G:/college-stuff/aed/workspace/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/ReliefOrgAdmin/ReliefOrgAdminWorkAreaJPanel.java</file>
+            <file>file:/G:/college-stuff/aed/workspace/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/ShelterOrgAdmin/ManageRequestsJPanel.java</file>
+            <file>file:/G:/college-stuff/aed/workspace/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/WorkQueue/HousingWorkRequest.java</file>
+            <file>file:/G:/college-stuff/aed/workspace/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/HousingAdmin/AllocateShelterJPanel.java</file>
+            <file>file:/G:/college-stuff/aed/workspace/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/WorkQueue/DisasterRegistryWorkRequest.java</file>
+            <file>file:/G:/college-stuff/aed/workspace/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/StaffRole/IncidentReportingJPanel.java</file>
+            <file>file:/G:/college-stuff/aed/workspace/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/ShelterOrgAdmin/ManageOrganizationJPanel.java</file>
+        </group>
     </open-files>
 </project-private>

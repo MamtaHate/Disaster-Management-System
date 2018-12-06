@@ -26,14 +26,14 @@ public class OrganizationDirectory {
 
     public Organization createOrganization(OrganizationType type) {
         Organization organization = null;
-        if (type.getValue().equals(OrganizationType.Staff.getValue())){
+        if (type.getValue().equals(OrganizationType.StaffAndVolunteer.getValue())){
               organization = new StaffOrganization();
               organizationList.add(organization);
         }
-        else if (type.getValue().equals(OrganizationType.Volunteer.getValue())){
-//            organization = new LabOrganization();
-//            organizationList.add(organization);
-        }
+//        else if (type.getValue().equals(OrganizationType.Volunteer.getValue())){
+////            organization = new LabOrganization();
+////            organizationList.add(organization);
+//        }
         else  if (type.getValue().equals(OrganizationType.DisasterVictimRegistry.getValue())){
               organization = new DisasterVictimOrganization();
               organizationList.add(organization);

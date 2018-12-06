@@ -9,6 +9,7 @@ import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.Role.Role;
+import Business.Role.StaffAndVolunteerAdminRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.util.regex.Matcher;
@@ -54,7 +55,9 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
     public void populateRoleBox(Organization organization) {
         roleJComboBox.removeAllItems();
         for (Role role : organization.getSupportedRole()) {
-            roleJComboBox.addItem(role);
+            if (role instanceof StaffAndVolunteerAdminRole) {
+                roleJComboBox.addItem(role);
+            }       
         }
     }
 
@@ -174,7 +177,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 540, 190, 60));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 540, 190, 40));
         add(passwordJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 340, 210, 40));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -197,7 +200,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
             Organization organization = (Organization) organizationJComboBox.getSelectedItem();
             Employee employee = (Employee) employeeJComboBox.getSelectedItem();
             Role role = (Role) roleJComboBox.getSelectedItem();
-            organization.getUserAccountDirectory().createUserAccount(username, password, employee, role, enterprise.getNetworkName());
+            organization.getUserAccountDirectory().createUserAccount(username, password, employee, role, enterprise.getNetworkName(), null);
             populateJTable();
         }
 

@@ -26,8 +26,8 @@ public abstract class Organization {
     private String networkName;
 
     public enum OrganizationType {
-        Staff("Staff Organization"), 
-        Volunteer("Volunteer Organization"),
+        StaffAndVolunteer("Staff and Volunteer Organization"), 
+        //Volunteer("Volunteer Organization"),
         Warehouse("Warehouse Organization"),
         ShelterHome("ShelterHome Organization"),
         DisasterVictimRegistry("DisasterVictimRegistry Organization"),

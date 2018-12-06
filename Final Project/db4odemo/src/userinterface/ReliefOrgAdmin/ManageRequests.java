@@ -15,6 +15,7 @@ import Business.UserAccount.UserAccount;
 import Business.WorkQueue.FoodClothingWorkRequest;
 import Business.WorkQueue.HousingWorkRequest;
 import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -61,6 +62,14 @@ public class ManageRequests extends javax.swing.JPanel {
             row[2] = req.getStatus();
             model.addRow(row);
         }
+        
+         for(WorkRequest req: enterprise.getWorkQueue().getWorkRequestList()) {
+            Object[] row = new Object[model.getColumnCount()];
+            row[0] = req.getMessage();
+            row[1] = req.getReceiver();
+            row[2] = req.getStatus();
+            model.addRow(row);
+        }
     }
     
     /**
@@ -83,6 +92,7 @@ public class ManageRequests extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         commentsJTextField = new javax.swing.JTextField();
+        backButton = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -92,10 +102,7 @@ public class ManageRequests extends javax.swing.JPanel {
 
         jTblRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Message", "Reciever", "Status"
@@ -139,9 +146,9 @@ public class ManageRequests extends javax.swing.JPanel {
                             .addComponent(comboRequestType, 0, 190, Short.MAX_VALUE)
                             .addComponent(commentsJTextField)))
                     .addGroup(panelRaiseRequestLayout.createSequentialGroup()
-                        .addGap(102, 102, 102)
+                        .addGap(103, 103, 103)
                         .addComponent(btnRaiseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(226, 226, 226))
+                .addGap(116, 116, 116))
         );
         panelRaiseRequestLayout.setVerticalGroup(
             panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,35 +161,41 @@ public class ManageRequests extends javax.swing.JPanel {
                 .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(noOfPeopleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
                 .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(commentsJTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE))
-                .addGap(49, 49, 49)
+                .addGap(18, 18, 18)
                 .addComponent(btnRaiseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(47, 47, 47))
         );
 
-        add(panelRaiseRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, 580, 320));
+        add(panelRaiseRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, 580, 290));
+
+        backButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        backButton.setText("<<BACK");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 660, 190, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRaiseRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaiseRequestActionPerformed
         // TODO add your handling code here:
-        WorkRequest workRequest;
+       // WorkRequest workRequest;
+      // HousingWorkRequest wr;
         if(comboRequestType.getSelectedItem().equals(Organization.OrganizationType.Housing)) {
-            workRequest = new HousingWorkRequest();
-            ((HousingWorkRequest)workRequest).setNoOfPeople(noOfPeopleTextField.getText());
-        }else{
-            workRequest = new FoodClothingWorkRequest();
-             //((FoodClothingWorkRequest)workRequest).setNoOfPeople(noOfPeopleTextField.getText());
-        }
-        workRequest.setIncident(incident);
-        workRequest.setSender(account);
-        workRequest.setStatus("Pending");
-        workRequest.setMessage(commentsJTextField.getText());
-        account.getWorkQueue().getWorkRequestList().add(workRequest);
-         
-         for(Network network : system.getNetworkList()){
+            HousingWorkRequest workRequest = new HousingWorkRequest();
+            workRequest.setNoOfPeople(noOfPeopleTextField.getText());
+            workRequest.setIncident(incident);
+            workRequest.setSender(account);
+            workRequest.setStatus("Pending");
+            workRequest.setMessage(commentsJTextField.getText());
+            account.getWorkQueue().getWorkRequestList().add(workRequest);
+            
+            for(Network network : system.getNetworkList()){
              if(network.getNetworkName().equals(enterprise.getNetworkName())){
                  for(Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()){
                      if(e instanceof ShelterEnterprise){
@@ -192,12 +205,31 @@ public class ManageRequests extends javax.swing.JPanel {
                  }
              }
          }
+            
+            
+            
+            
+            //((HousingWorkRequest)workRequest).setNoOfPeople(noOfPeopleTextField.getText());
+        }else{
+           // workRequest = new FoodClothingWorkRequest();
+             //((FoodClothingWorkRequest)workRequest).setNoOfPeople(noOfPeopleTextField.getText());
+        }
+        
+         
+
          JOptionPane.showMessageDialog(this, "Request created successfully");
          populateJTable();
     }//GEN-LAST:event_btnRaiseRequestActionPerformed
 
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        container.remove(this);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.previous(container);
+    }//GEN-LAST:event_backButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
     private javax.swing.JButton btnRaiseRequest;
     private javax.swing.JComboBox comboRequestType;
     private javax.swing.JTextField commentsJTextField;

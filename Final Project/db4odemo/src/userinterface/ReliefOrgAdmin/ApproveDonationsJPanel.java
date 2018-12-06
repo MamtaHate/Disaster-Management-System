@@ -5,19 +5,55 @@
  */
 package userinterface.ReliefOrgAdmin;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Incident.Incident;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.DonationWorkRequest;
+import Business.WorkQueue.WorkRequest;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Sweta Chowdhury
  */
 public class ApproveDonationsJPanel extends javax.swing.JPanel {
-
+    private JPanel container;
+    private Enterprise enterprise;
+    private UserAccount account;
+    private EcoSystem system;
     /**
      * Creates new form ApproveDonationsJPanel
      */
-    public ApproveDonationsJPanel() {
+    public ApproveDonationsJPanel(JPanel container, Enterprise enterprise, UserAccount account, EcoSystem system) {
         initComponents();
+        this.enterprise = enterprise;
+        this.container = container;
+        this.account = account;
+        this.system = system;
+        populateTable();
     }
 
+    
+    public void populateTable() {
+        
+        DefaultTableModel model = (DefaultTableModel) donationRequests.getModel();
+        model.setRowCount(0);
+
+        for(WorkRequest request : enterprise.getWorkQueue().getWorkRequestList()) {
+            Object[] row = new Object[model.getColumnCount()];
+                row[0] = request;
+                row[1] = ((DonationWorkRequest) request).getDonationType();
+                row[2] = request.getSender();
+                row[3] = request.getReceiver();
+                row[4] = request.getResolveDate();
+                model.addRow(row);
+        }
+      
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,7 +65,7 @@ public class ApproveDonationsJPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        donationRequests = new javax.swing.JTable();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -37,7 +73,7 @@ public class ApproveDonationsJPanel extends javax.swing.JPanel {
         jLabel1.setText("APPROVE DONATIONS");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 280, 41));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        donationRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -48,15 +84,15 @@ public class ApproveDonationsJPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(donationRequests);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 130, 660, 140));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable donationRequests;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

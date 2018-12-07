@@ -22,7 +22,7 @@ import javax.mail.internet.MimeMessage;
 public class SendMailUsingAuthentication {
     public static final String SMTP_HOST_NAME = "smtp.gmail.com";
     public static final String SMTP_AUTH_USER = "mamtahate@gmail.com";
-    public static final String SMTP_AUTH_PWD= "Scarecrow@36";
+    public static final String SMTP_AUTH_PWD= "";
     public static void postMail( String recipients[ ],  String message ,String subject, String from) throws MessagingException
     {boolean debug = false;
     Properties props = new Properties();

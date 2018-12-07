@@ -52,4 +52,3 @@ public class SendMailUsingAuthentication {
          Transport.send(msg);
             }
 }
-    

@@ -7,6 +7,7 @@ package Business.WorkQueue;
 
 import java.util.ArrayList;
 //import sun.security.acl.WorldGroupImpl;
+import sun.security.acl.WorldGroupImpl;
 
 /**
  *
@@ -44,9 +45,6 @@ public class ReliefOrganizationWorkRequest extends WorkRequest {
     public void setEmailList(ArrayList<String> emailList) {
         this.emailList = emailList;
     }
-    
-    
-    
     
      @Override
     public String toString() {

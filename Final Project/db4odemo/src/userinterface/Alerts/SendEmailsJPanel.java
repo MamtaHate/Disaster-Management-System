@@ -7,7 +7,7 @@ package userinterface.Alerts;
 
 import Business.Email.SendMailUsingAuthentication;
 import Business.UserAccount.UserAccount;
-//import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
+import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
 import java.awt.CardLayout;
 import java.util.logging.Level;
 import java.util.logging.Logger;

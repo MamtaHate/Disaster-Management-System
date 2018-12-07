@@ -221,6 +221,8 @@ public class ManageRequests extends javax.swing.JPanel {
 
     private void btnRaiseRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaiseRequestActionPerformed
         // TODO add your handling code here:
+        // WorkRequest workRequest;
+        // HousingWorkRequest wr;
         if (comboRequestType.getSelectedItem().equals(Organization.OrganizationType.Housing)) {
             HousingWorkRequest workRequest = new HousingWorkRequest();
             workRequest.setNoOfPeople(noOfPeopleTextField.getText());

@@ -10,7 +10,6 @@ import Business.Enterprise.Enterprise;
 import Business.Enterprise.ReliefOrganizationEnterprise;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.ReliefOrganizationWorkRequest;
-//import Business.WorkQueue.ReliefOrganizationWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -26,8 +25,7 @@ public class AlertRequestsJPanel extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     private Enterprise enterprise;
-
-    public AlertRequestsJPanel(JPanel userProcessContainer, Enterprise enterprise) {
+    public AlertRequestsJPanel(JPanel userProcessContainer,Enterprise enterprise) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
@@ -120,7 +118,6 @@ public class AlertRequestsJPanel extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

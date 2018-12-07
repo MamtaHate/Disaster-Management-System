@@ -33,7 +33,7 @@ public class FindMissingPersonJPanel extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = userAccount;
-        this.enterprise = enterprise;  
+        this.enterprise = enterprise;
     }
 
     /**

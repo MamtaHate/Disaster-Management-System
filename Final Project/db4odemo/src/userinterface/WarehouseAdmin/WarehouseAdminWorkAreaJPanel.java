@@ -21,14 +21,16 @@ public class WarehouseAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     JPanel userProcessContainer;
     Enterprise enterprise;
+    UserAccount account;
     
     /**
      * Creates new form ReliefOrgAdminWorkAreaJPanel
      */
-    public WarehouseAdminWorkAreaJPanel(JPanel userProcessContainer, Enterprise enterprise) {
+    public WarehouseAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Enterprise enterprise) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
+        this.account = account;
     }
 
     /**
@@ -41,9 +43,8 @@ public class WarehouseAdminWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         manageOrganizationJButton = new javax.swing.JButton();
-        manageEmployeeJButton = new javax.swing.JButton();
+        manageRequestsJButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        viewRequestsButton = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -54,29 +55,20 @@ public class WarehouseAdminWorkAreaJPanel extends javax.swing.JPanel {
                 manageOrganizationJButtonActionPerformed(evt);
             }
         });
-        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 360, 60));
+        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, 360, 60));
 
-        manageEmployeeJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        manageEmployeeJButton.setText("MANAGE REQUEST");
-        manageEmployeeJButton.addActionListener(new java.awt.event.ActionListener() {
+        manageRequestsJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        manageRequestsJButton.setText("MANAGE REQUEST");
+        manageRequestsJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                manageEmployeeJButtonActionPerformed(evt);
+                manageRequestsJButtonActionPerformed(evt);
             }
         });
-        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 360, 60));
+        add(manageRequestsJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, 360, 60));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("WELCOME TO WAREHOUSE ADMIN WORK AREA");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, 41));
-
-        viewRequestsButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        viewRequestsButton.setText("MANAGE SHIPMENT");
-        viewRequestsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewRequestsButtonActionPerformed(evt);
-            }
-        });
-        add(viewRequestsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 400, 370, 60));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
@@ -86,26 +78,17 @@ public class WarehouseAdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_manageOrganizationJButtonActionPerformed
 
-    private void manageEmployeeJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeJButtonActionPerformed
-        CreateUpdateItemsJPanel manageEmpJPanel = new CreateUpdateItemsJPanel(userProcessContainer, enterprise.getOrganizationDirectory());
-        userProcessContainer.add("manageEmpJPanel", manageEmpJPanel);
+    private void manageRequestsJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageRequestsJButtonActionPerformed
+        ManageRequestsJPanel manageRequestsJPanel = new ManageRequestsJPanel(userProcessContainer, enterprise, account);
+        userProcessContainer.add("manageRequestsJPanel", manageRequestsJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_manageEmployeeJButtonActionPerformed
-
-    private void viewRequestsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewRequestsButtonActionPerformed
-        // TODO add your handling code here:
-        ManageRequestsJPanel manageRequestPanel = new ManageRequestsJPanel(userProcessContainer, enterprise);
-        userProcessContainer.add("manageRequestPanel", manageRequestPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-    }//GEN-LAST:event_viewRequestsButtonActionPerformed
+    }//GEN-LAST:event_manageRequestsJButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton manageEmployeeJButton;
     private javax.swing.JButton manageOrganizationJButton;
-    private javax.swing.JButton viewRequestsButton;
+    private javax.swing.JButton manageRequestsJButton;
     // End of variables declaration//GEN-END:variables
 }

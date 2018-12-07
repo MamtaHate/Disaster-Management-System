@@ -7,8 +7,16 @@ package userinterface.WarehouseAdmin;
 
 import userinterface.ShelterOrgAdmin.*;
 import Business.Enterprise.Enterprise;
+import Business.Items.Item;
+import Business.Organization.Organization;
+import Business.Organization.WarehouseOrganization;
+import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HousingWorkRequest;
+import Business.WorkQueue.WarehouseRequest;
 import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
+import java.awt.Component;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -21,32 +29,42 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private Enterprise enterprise;
+    private WarehouseOrganization org;
+    private UserAccount account;
 
     /**
      * Creates new form ManageRequestsJPanel
      */
-    public ManageRequestsJPanel(JPanel userProcessContainer, Enterprise enterprise) {
+    public ManageRequestsJPanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount account) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
+        this.account = account;
+        
         populateJTable();
     }
 
     public void populateJTable() {
 
-        DefaultTableModel model = (DefaultTableModel) shelterTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) requestsJTable.getModel();
         model.setRowCount(0);
 
-        for (WorkRequest req : enterprise.getWorkQueue().getWorkRequestList()) {
-            Object[] row = new Object[model.getColumnCount()];
-            row[0] = req.getIncident();
-            row[1] = req.getSender().toString();
-            row[2] = req.getReceiver();
-            row[3] = req.getStatus();
-            row[4] = (req instanceof HousingWorkRequest) ? "Housing" : "Food and Clothing";
-            row[5] = (req instanceof HousingWorkRequest) ? ((HousingWorkRequest) req).getNoOfPeople() : 0;
+        for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            if (org instanceof WarehouseOrganization) {
+                this.org = (WarehouseOrganization) org;
+                for (WorkRequest req : org.getWorkQueue().getWorkRequestList()) {
+                    Object[] row = new Object[model.getColumnCount()];
+                    row[0] = req;
+                    row[1] = ((WarehouseRequest) req).getQty();
+                    row[2] = req.getReceiver();
+                    row[3] = req.getSender();
+                    row[4] = req.getRequestDate();
+                    row[5] = req.getStatus();
+                    row[6] = req.getResolveDate();
+                    model.addRow(row);
+                }
 
-            model.addRow(row);
+            }      
         }
 
     }
@@ -60,89 +78,113 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        shelterTable = new javax.swing.JTable();
-        assignButton = new javax.swing.JButton();
+        requestsJTable = new javax.swing.JTable();
+        checkAvailButton = new javax.swing.JButton();
+        approveButton = new javax.swing.JButton();
+        backJButton = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel1.setText("MANAGE REQUESTS FOR WAREHOUSE ADMIN");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 550, 41));
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel3.setText("MANAGE REQUESTS FOR WAREHOUSE ADMIN");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, -1, 41));
 
-        shelterTable.setModel(new javax.swing.table.DefaultTableModel(
+        requestsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Incident ", "Sender", "Receiver", "Status", "Requested For", "Need?"
+                "Item Type", "Quantity", "Receiver", "Sender", "Request Date", "Status", "Approved Date"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
+        ));
+        jScrollPane1.setViewportView(requestsJTable);
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        shelterTable.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                shelterTablePropertyChange(evt);
-            }
-        });
-        jScrollPane1.setViewportView(shelterTable);
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 840, 170));
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 690, 110));
-
-        assignButton.setText("Assign");
-        assignButton.addActionListener(new java.awt.event.ActionListener() {
+        checkAvailButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        checkAvailButton.setText("Check Availability");
+        checkAvailButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                assignButtonActionPerformed(evt);
+                checkAvailButtonActionPerformed(evt);
             }
         });
-        add(assignButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 310, 170, 50));
+        add(checkAvailButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 350, 210, 40));
+
+        approveButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        approveButton.setText("Approve Request");
+        approveButton.setEnabled(false);
+        approveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                approveButtonActionPerformed(evt);
+            }
+        });
+        add(approveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 410, 210, 40));
+
+        backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        backJButton.setText("<<BACK");
+        backJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backJButtonActionPerformed(evt);
+            }
+        });
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 520, 170, 50));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void shelterTablePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_shelterTablePropertyChange
-        // TODO add your handling code here:
+    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
 
-
-    }//GEN-LAST:event_shelterTablePropertyChange
-
-    private void assignButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignButtonActionPerformed
-        // TODO add your handling code here:
-        /*Network network = (Network) networkJComboBox.getSelectedItem();
-        Enterprise.EnterpriseType type = (Enterprise.EnterpriseType) enterpriseTypeJComboBox.getSelectedItem();
-        if (network == null || type == null) {
-            JOptionPane.showMessageDialog(null, "Invalid Input!");
-            return;
+        Component[] components = userProcessContainer.getComponents();
+        for (Component component : components) {
+            if (component instanceof ManageItemsJPanel) {
+                ManageItemsJPanel items = (ManageItemsJPanel) component;
+                items.populateTable();
+            }
         }
-        String name = nameJTextField.getText();
-        String networkName = networkJComboBox.getSelectedItem().toString();
-        boolean isValid = validateStrings(name);
-        if (isValid) {
-            Enterprise enterprise = network.getEnterpriseDirectory().createAndAddEnterprise(name, networkName, type);
-            populateTable();
-        }*/
-        
-        if (shelterTable.getSelectedRow() < 0) {
-            JOptionPane.showMessageDialog(this, "Please select a request");
-        } else {
-           // WorkRequest wReq = (WorkRequest) shelterTable.getSelectedRow();
-            //assignButton.setText("Assign to " + shelterTable.getValueAt(shelterTable.getSelectedRow(), 4) + " Organization");
-        }
-        if(shelterTable.getValueAt(shelterTable.getSelectedRow(), 4) ==  "Housing"){
+    }//GEN-LAST:event_backJButtonActionPerformed
+
+    private void checkAvailButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAvailButtonActionPerformed
+        // TODO add your handling code here:
+       if (requestsJTable.getSelectedRow() >= 0) {
+            String itemCategory = (String) requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 0);
+            for(Item i : org.getItemCatalog().getItemList()) {
+                if (i.getCategory().equals(itemCategory)) {
+                    if (i.getQty() >= (Integer)requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 0)) {
+                        approveButton.setEnabled(true);
+                    }
+                }
+            }
             
         }
-    }//GEN-LAST:event_assignButtonActionPerformed
+        else {
+            JOptionPane.showMessageDialog(this, "Please select an item");        
+        }
+    }//GEN-LAST:event_checkAvailButtonActionPerformed
+
+    private void approveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approveButtonActionPerformed
+        // TODO add your handling code here:
+        if (requestsJTable.getSelectedRow() >= 0) {
+            WorkRequest req = (WarehouseRequest) requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 0);
+            req.setReceiver(account);
+            req.setStatus("Approved");
+            req.setResolveDate(new Date());
+            
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "Please select an item");        
+        }
+    }//GEN-LAST:event_approveButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton assignButton;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton approveButton;
+    private javax.swing.JButton backJButton;
+    private javax.swing.JButton checkAvailButton;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable shelterTable;
+    private javax.swing.JTable requestsJTable;
     // End of variables declaration//GEN-END:variables
 }

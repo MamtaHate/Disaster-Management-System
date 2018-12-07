@@ -11,6 +11,7 @@ import Business.Organization.Organization.OrganizationType;
 import Business.Organization.OrganizationDirectory;
 import Business.Organization.WarehouseOrganization;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -32,10 +33,6 @@ public class ManageItemsJPanel extends javax.swing.JPanel {
         this.directory = directory;
 
         populateTable();
-        populateCombo();
-    }
-
-    public void populateCombo() {
     }
 
     public void populateTable() {
@@ -50,6 +47,7 @@ public class ManageItemsJPanel extends javax.swing.JPanel {
                     row[1] = item.getName();
                     row[2] = item.getUnitOfMeasure();
                     row[3] = item.getIsKit();
+                    row[4] = item.getQty();
                     model.addRow(row);
                 }
             }
@@ -74,7 +72,7 @@ public class ManageItemsJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         organizationJTable1 = new javax.swing.JTable();
-        addJButton1 = new javax.swing.JButton();
+        viewJButton = new javax.swing.JButton();
         backJButton1 = new javax.swing.JButton();
         addJButton = new javax.swing.JButton();
 
@@ -85,7 +83,7 @@ public class ManageItemsJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "Item Type", "Quantity"
+                "Item Type", "Name", "Unit of measure", "is Kit?", "Quantity"
             }
         ));
 
@@ -134,14 +132,14 @@ public class ManageItemsJPanel extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 710, 160));
 
-        addJButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        addJButton1.setText("VIEW ITEM");
-        addJButton1.addActionListener(new java.awt.event.ActionListener() {
+        viewJButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        viewJButton.setText("VIEW ITEM");
+        viewJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addJButton1ActionPerformed(evt);
+                viewJButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(addJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 390, 170, 50));
+        jPanel1.add(viewJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 390, 170, 50));
 
         backJButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         backJButton1.setText("<<BACK");
@@ -180,9 +178,18 @@ public class ManageItemsJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJButtonActionPerformed
 
-    private void addJButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButton1ActionPerformed
+    private void viewJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewJButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_addJButton1ActionPerformed
+        if (itemsJTable.getSelectedRow() >= 0) {
+            UpdateItemJPanel updateJPanel = new UpdateItemJPanel(userProcessContainer, (Item) itemsJTable.getValueAt(itemsJTable.getSelectedRow(), 0));
+            userProcessContainer.add("updateJPanel", updateJPanel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "Please select an item");
+        }
+    }//GEN-LAST:event_viewJButtonActionPerformed
 
     private void backJButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButton1ActionPerformed
         // TODO add your handling code here:
@@ -191,7 +198,6 @@ public class ManageItemsJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addJButton;
-    private javax.swing.JButton addJButton1;
     private javax.swing.JButton backJButton;
     private javax.swing.JButton backJButton1;
     private javax.swing.JTable itemsJTable;
@@ -200,6 +206,7 @@ public class ManageItemsJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable organizationJTable1;
+    private javax.swing.JButton viewJButton;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

@@ -16,6 +16,7 @@ public class Item {
     private String valuePerUnit;
     private Boolean isKit;
     private String comments;
+    private Integer qty;
     
     public enum ItemType {
         
@@ -88,6 +89,14 @@ public class Item {
 
     public void setComments(String comments) {
         this.comments = comments;
+    }
+
+    public Integer getQty() {
+        return qty;
+    }
+
+    public void setQty(Integer qty) {
+        this.qty = qty;
     }
     
     @Override

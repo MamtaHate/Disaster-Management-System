@@ -27,7 +27,6 @@ public abstract class Organization {
 
     public enum OrganizationType {
         StaffAndVolunteer("Staff and Volunteer Organization"), 
-        //Volunteer("Volunteer Organization"),
         Warehouse("Warehouse Organization"),
         ShelterHome("ShelterHome Organization"),
         DisasterVictimRegistry("DisasterVictimRegistry Organization"),

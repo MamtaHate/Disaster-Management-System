@@ -80,6 +80,7 @@ public class AllocateShelterJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         addJButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
+        shelterNamesJComboBox = new javax.swing.JComboBox<String>();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         housingJTable = new javax.swing.JTable();

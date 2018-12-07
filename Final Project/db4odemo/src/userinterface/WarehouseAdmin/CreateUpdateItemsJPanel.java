@@ -12,6 +12,8 @@ import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Organization.WarehouseOrganization;
 import java.awt.CardLayout;
+import java.awt.Component;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -24,11 +26,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CreateUpdateItemsJPanel extends javax.swing.JPanel {
 
-       
     private JPanel userProcessContainer;
     private OrganizationDirectory directory;
     private WarehouseOrganization organization;
-    
+
     /**
      * Creates new form ManageEmployeeJPanel
      */
@@ -36,14 +37,15 @@ public class CreateUpdateItemsJPanel extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.directory = directory;
-                for (Organization organization : directory.getOrganizationList()) {
+        for (Organization organization : directory.getOrganizationList()) {
             if (organization instanceof WarehouseOrganization) {
                 this.organization = (WarehouseOrganization) organization;
             }
         }
-        
+        populateComboBox();
+
     }
-    
+
     public void populateComboBox() {
         itemCategory.addItem(Item.ItemType.Batteries);
         itemCategory.addItem(Item.ItemType.FireExtinguisher);
@@ -56,12 +58,6 @@ public class CreateUpdateItemsJPanel extends javax.swing.JPanel {
         itemCategory.addItem(Item.ItemType.TrashBag);
         itemCategory.addItem(Item.ItemType.Water);
     }
-      
-   
-    
-    
-
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -86,7 +82,8 @@ public class CreateUpdateItemsJPanel extends javax.swing.JPanel {
         commentsTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         chkKit = new javax.swing.JCheckBox();
-
+        jLabel4 = new javax.swing.JLabel();
+        qtyText = new javax.swing.JTextField();
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -125,7 +122,7 @@ public class CreateUpdateItemsJPanel extends javax.swing.JPanel {
                 saveButtonActionPerformed(evt);
             }
         });
-        add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 490, 180, 60));
+        add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 540, 180, 60));
 
         jLabel1.setText("Comments:");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 420, 140, 30));
@@ -134,12 +131,23 @@ public class CreateUpdateItemsJPanel extends javax.swing.JPanel {
         jLabel2.setText("Kit?:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, 130, 30));
         add(chkKit, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, -1, -1));
+
+        jLabel4.setText("Quantity:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 480, 140, 30));
+        add(qtyText, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 470, 170, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
+        Component[] components = userProcessContainer.getComponents();
+        for (Component component : components) {
+            if (component instanceof ManageItemsJPanel) {
+                ManageItemsJPanel items = (ManageItemsJPanel) component;
+                items.populateTable();
+            }
+        }
     }//GEN-LAST:event_backJButtonActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
@@ -151,6 +159,7 @@ public class CreateUpdateItemsJPanel extends javax.swing.JPanel {
         item.setValuePerUnit(valuePU.getText());
         item.setIsKit(chkKit.isSelected());
         item.setComments(commentsTextField.getText());
+        item.setQty(Integer.parseInt(qtyText.getText()));
         
         JOptionPane.showMessageDialog(this, "Item added successfully");
     }//GEN-LAST:event_saveButtonActionPerformed
@@ -165,10 +174,12 @@ public class CreateUpdateItemsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JTextField qtyText;
     private javax.swing.JButton saveButton;
     private javax.swing.JTextField unitOfMeasure;
     private javax.swing.JTextField valuePU;

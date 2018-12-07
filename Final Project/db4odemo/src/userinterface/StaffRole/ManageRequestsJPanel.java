@@ -57,6 +57,24 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
         
                
     }
+    
+    public void populateMissingRequests() {
+        
+        DefaultTableModel model = (DefaultTableModel) jMissingRequests.getModel();
+        model.setRowCount(0);
+
+        for(WorkRequest request: userAccount.getWorkQueue().getWorkRequestList()) {
+             Object[] row = new Object[model.getColumnCount()];
+                row[0] = request;
+                row[1] = ((MissingPersonRequest) request).getGender();
+                row[2] = ((MissingPersonRequest) request).getAddress();
+                row[3] = ((MissingPersonRequest) request).getStatus();
+                model.addRow(row);
+        }
+        
+               
+    }
+    
 
     public void populateMissingRequests() {
         
@@ -186,7 +204,6 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
         
     }//GEN-LAST:event_jButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

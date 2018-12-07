@@ -31,7 +31,6 @@ public class WarehouseOrganization extends Organization {
     public void setItemCatalog(ItemCatalog itemCatalog) {
         this.itemCatalog = itemCatalog;
     }
-
        
     @Override
     public ArrayList<Role> getSupportedRole() {

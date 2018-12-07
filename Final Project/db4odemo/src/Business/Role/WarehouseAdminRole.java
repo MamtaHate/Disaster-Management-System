@@ -20,7 +20,7 @@ public class WarehouseAdminRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new WarehouseAdminWorkAreaJPanel(userProcessContainer,enterprise);
+        return new WarehouseAdminWorkAreaJPanel(userProcessContainer, account ,enterprise);
         
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

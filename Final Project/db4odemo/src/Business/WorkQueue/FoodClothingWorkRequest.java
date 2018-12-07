@@ -11,6 +11,6 @@ package Business.WorkQueue;
  */
 public class FoodClothingWorkRequest extends WorkRequest {
     
-    
+     
     
 }

@@ -21,7 +21,7 @@ public class HousingAdminRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new HousingAdminWorkAreaJPanel(userProcessContainer,business, (HousingOrganization) organization);
+        return new HousingAdminWorkAreaJPanel(userProcessContainer,account,business, (HousingOrganization) organization);
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
    

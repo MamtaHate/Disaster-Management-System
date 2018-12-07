@@ -12,6 +12,7 @@ import Business.UserAccount.UserAccount;
 import Business.WorkQueue.DonationWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -21,10 +22,12 @@ import javax.swing.table.DefaultTableModel;
  * @author Sweta Chowdhury
  */
 public class ApproveDonationsJPanel extends javax.swing.JPanel {
+
     private JPanel userProcessContainer;
     private Enterprise enterprise;
     private UserAccount account;
     private EcoSystem system;
+
     /**
      * Creates new form ApproveDonationsJPanel
      */
@@ -39,26 +42,24 @@ public class ApproveDonationsJPanel extends javax.swing.JPanel {
         donationRequests.getColumnModel().getColumn(0).setMaxWidth(0);
     }
 
-    
     public void populateTable() {
-        
+
         DefaultTableModel model = (DefaultTableModel) donationRequests.getModel();
         model.setRowCount(0);
 
-        for(WorkRequest request : enterprise.getWorkQueue().getWorkRequestList()) {
+        for (WorkRequest request : enterprise.getWorkQueue().getWorkRequestList()) {
             Object[] row = new Object[model.getColumnCount()];
-                row[0] = request;
-                row[1] = ((DonationWorkRequest) request).getDonationType();
-                row[2] = request.getSender();
-                row[3] = request.getReceiver();
-                row[4] = request.getResolveDate();
-                row[5] = request.getStatus();
-                model.addRow(row);
+            row[0] = request;
+            row[1] = ((DonationWorkRequest) request).getDonationType();
+            row[2] = request.getSender();
+            row[3] = request.getReceiver();
+            row[4] = request.getResolveDate();
+            row[5] = request.getStatus();
+            model.addRow(row);
         }
-      
+
     }
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -120,15 +121,21 @@ public class ApproveDonationsJPanel extends javax.swing.JPanel {
     private void approveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approveButtonActionPerformed
         // TODO add your handling code here:
         if (donationRequests.getSelectedRow() >= 0) {
-           WorkRequest request = (DonationWorkRequest)donationRequests.getValueAt(donationRequests.getSelectedRow() , 0);
-           request.setReceiver(account);
-           request.setStatus("Approved");
-           populateTable();
+
+            if (donationRequests.getValueAt(donationRequests.getSelectedRow(), 5).toString().equals("Approved")) {
+                 JOptionPane.showMessageDialog(this, "This donation is already approved");
+            } else {
+                WorkRequest request = (DonationWorkRequest) donationRequests.getValueAt(donationRequests.getSelectedRow(), 0);
+                request.setReceiver(account);
+                request.setResolveDate(new Date());
+                request.setStatus("Approved");
+                populateTable();
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a request");
         }
-        else {
-            JOptionPane.showMessageDialog(this, "Please select an incident");
-        }
-        
+
     }//GEN-LAST:event_approveButtonActionPerformed
 
 

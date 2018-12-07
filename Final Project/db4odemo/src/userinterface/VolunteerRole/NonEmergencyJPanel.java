@@ -21,6 +21,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.mail.Message;
 import javax.swing.DefaultComboBoxModel;
@@ -33,6 +34,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import userinterface.MainJFrame;
 
 /**
  *
@@ -52,14 +54,14 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
     /**
      * Creates new form NonEmergencyJPanel
      */
-    public NonEmergencyJPanel(JPanel userProcessContainer, StaffOrganization organization, UserAccount account, Enterprise enterprise,  EcoSystem business) {
+    public NonEmergencyJPanel(JPanel userProcessContainer, StaffOrganization organization, UserAccount account, Enterprise enterprise, EcoSystem business) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.organization = organization;
         this.account = account;
         this.enterprise = enterprise;
         this.business = business;
-        
+
         nameTextField.setEnabled(false);
         cardNumberTextField.setEnabled(false);
         amountTextField.setEnabled(false);
@@ -105,6 +107,10 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         foodWeightTextField = new javax.swing.JTextField();
         donateButton = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        OtpTextField = new javax.swing.JTextField();
+        confirmButton = new javax.swing.JButton();
+        backJButton = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -182,6 +188,28 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
             }
         });
         add(donateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 790, 210, 50));
+
+        jLabel12.setText("OTP:");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, -1, -1));
+        add(OtpTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 490, 190, 40));
+
+        confirmButton.setText("Confirm");
+        confirmButton.setEnabled(false);
+        confirmButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmButtonActionPerformed(evt);
+            }
+        });
+        add(confirmButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 480, 180, 50));
+
+        backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        backJButton.setText("<<BACK");
+        backJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backJButtonActionPerformed(evt);
+            }
+        });
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 840, 160, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void donateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donateButtonActionPerformed
@@ -226,10 +254,9 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
         request.setSender(account);
         request.setStatus("Donated");
 
-       
-        for (Network network: business.getNetworkList()) {
-            if(network.getNetworkName().equals(enterprise.getNetworkName())) {
-                for(Enterprise enterprise: network.getEnterpriseDirectory().getEnterpriseList()) {
+        for (Network network : business.getNetworkList()) {
+            if (network.getNetworkName().equals(enterprise.getNetworkName())) {
+                for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
                     if (enterprise instanceof ReliefOrganizationEnterprise) {
                         enterprise.getWorkQueue().getWorkRequestList().add(request);
                         account.getWorkQueue().getWorkRequestList().add(request);
@@ -239,71 +266,52 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
         }
 
         JOptionPane.showMessageDialog(null, "Thank you for your donation");
- //******************************************************************************
+        //******************************************************************************
 
-        final String from = "aedprojectmail@gmail.com";
-        final String pass = "securepayment";
-        String add = emailTextField.getText();
-        String[] to = {add};
-        String host = "smtp.gmail.com";
+        final String username = "username@gmail.com";
+        final String password = "password";
 
-        Properties prop = System.getProperties();
-        prop.put("mail.smtp.starttls.enable", "true");
-        prop.put("mail.smtp.host", host);
-        prop.put("mail.smtp.user", from);
-        prop.put("mail.smtp.password", pass);
-        prop.put("mail.smtp.port", "587");
-        prop.put("mail.smtp.auth", "true");
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
 
-        
-        Session session = Session.getInstance(prop, new javax.mail.Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(from, pass);
-            }
-        });
-        MimeMessage msg = new MimeMessage(session);
+        Session session = Session.getInstance(props,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(username, password);
+                    }
+                });
+
         try {
-            msg.setFrom(new InternetAddress(from));
-            InternetAddress[] toAddress = new InternetAddress[to.length];
-            for (int i = 0; i < to.length; i++) {
-                toAddress[i] = new InternetAddress(to[i]);
-            }
-            for (int i = 0; i < toAddress.length; i++) {
-                msg.setRecipient(Message.RecipientType.TO, toAddress[i]);
-            }
 
-            msg.setSubject("test");
-            double k1 = Math.random() * 100000;//Integer.toString(k)
-            k = (int) k1;
-            //System.out.println(k);
-            msg.setContent(Integer.toString(k), "text/html;charset=\"ISO-8859-1\"");
-            Transport transport = session.getTransport("smtp");
-            transport.connect(host, from, pass);
-            transport.sendMessage(msg, msg.getAllRecipients());
-            transport.close();
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress("from-email@gmail.com"));
+            message.setRecipients(Message.RecipientType.TO,
+                    InternetAddress.parse("to-email@gmail.com"));
+            message.setSubject("Testing Subject");
+            message.setText("Dear Mail Crawler,"
+                    + "\n\n No spam to my email, please!");
 
-        } catch (MessagingException ex) {
-            //Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Transport.send(message);
+
+            System.out.println("Done");
+
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
         }
-
-//        ConfirmDonationJPanel nonMonetoryDonationJPanel = new ConfirmDonationJPanel(userProcessContainer, organizationDirectory, account, enterprise, k);
-//        userProcessContainer.add("confirmDonationJPanel", nonMonetoryDonationJPanel);
-//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-//        layout.next(userProcessContainer);
-
+        confirmButton.setEnabled(true);
     }//GEN-LAST:event_donateButtonActionPerformed
 
     private void fundCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fundCheckActionPerformed
         // TODO add your handling code here:
-        if(fundCheck.isSelected()== true)
-        {
+        if (fundCheck.isSelected() == true) {
             nameTextField.setEnabled(true);
             cardNumberTextField.setEnabled(true);
             amountTextField.setEnabled(true);
             donorNameTextField.setEnabled(true);
-        }
-        else if(fundCheck.isSelected()== false)
-        {
+        } else if (fundCheck.isSelected() == false) {
             nameTextField.setEnabled(false);
             cardNumberTextField.setEnabled(false);
             amountTextField.setEnabled(false);
@@ -313,27 +321,92 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
 
     private void foodCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foodCheckActionPerformed
         // TODO add your handling code here:
-        if(foodCheck.isSelected()==true)
-        {
+        if (foodCheck.isSelected() == true) {
             foodWeightTextField.setEnabled(true);
-        }
-        else if(foodCheck.isSelected()==false)
-        {
-           foodWeightTextField.setEnabled(false); 
+        } else if (foodCheck.isSelected() == false) {
+            foodWeightTextField.setEnabled(false);
         }
     }//GEN-LAST:event_foodCheckActionPerformed
 
     private void clothesCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clothesCheckActionPerformed
         // TODO add your handling code here:
-        if(clothesCheck.isSelected()==true)
-        {
+        if (clothesCheck.isSelected() == true) {
             clothesWeightTextField.setEnabled(true);
-        }
-        else if(clothesCheck.isSelected()==false)
-        {
-           clothesWeightTextField.setEnabled(false); 
+        } else if (clothesCheck.isSelected() == false) {
+            clothesWeightTextField.setEnabled(false);
         }
     }//GEN-LAST:event_clothesCheckActionPerformed
+
+    private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
+        // TODO add your handling code here:
+        if (Integer.parseInt(OtpTextField.getText()) == k) {
+            final String from = "aedprojectmail@gmail.com";
+            final String pass = "securepayment";
+            String add = emailTextField.getText();
+
+            if (!(isValidEmail(add))) {
+                JOptionPane.showMessageDialog(null, "ENter a valid email");
+                return;
+            }
+
+            String[] to = {add};
+            String host = "smtp.gmail.com";
+
+            Properties prop = System.getProperties();
+            prop.put("mail.smtp.starttls.enable", "true");
+            prop.put("mail.smtp.host", host);
+            prop.put("mail.smtp.user", from);
+            prop.put("mail.smtp.password", pass);
+            prop.put("mail.smtp.port", "587");
+            prop.put("mail.smtp.auth", "true");
+
+            //Session session = Session.getDefaultInstance(prop);
+            Session session = Session.getInstance(prop, new javax.mail.Authenticator() {
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(from, pass);
+                }
+            });
+            MimeMessage msg = new MimeMessage(session);
+            try {
+                msg.setFrom(new InternetAddress(from));
+                InternetAddress[] toAddress = new InternetAddress[to.length];
+                for (int i = 0; i < to.length; i++) {
+                    toAddress[i] = new InternetAddress(to[i]);
+                }
+                for (int i = 0; i < toAddress.length; i++) {
+                    msg.setRecipient(Message.RecipientType.TO, toAddress[i]);
+                }
+
+                msg.setSubject("test");
+                //double k1 = Math.random()*100000;//Integer.toString(k)
+                //k = (int) k1;
+                //System.out.println(k);
+                msg.setContent("Thank you for your donation", "text/html;charset=\"ISO-8859-1\"");
+                Transport transport = session.getTransport("smtp");
+                transport.connect(host, from, pass);
+                transport.sendMessage(msg, msg.getAllRecipients());
+                transport.close();
+
+            } catch (MessagingException ex) {
+                Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(null, "Thank you for the confirmation");
+        } else {
+            JOptionPane.showMessageDialog(null, "Sorry invalid code");
+            return;
+        }
+    }//GEN-LAST:event_confirmButtonActionPerformed
+
+    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backJButtonActionPerformed
+
+    public static boolean isValidEmail(String emailStr) {
+        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
+        return matcher.find();
+    }
 
     private boolean nullCheck(JTextField toCheck) {
         if (!(toCheck.getText().equals(""))) {
@@ -419,7 +492,7 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
         dcbm.addElement(row12);
 
     }
-    
+
     private void populateMap(String key, Object value, Map<String, Object> mapref) {
 
         if (!(value.equals(""))) {
@@ -440,10 +513,13 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField OtpTextField;
     private javax.swing.JTextField amountTextField;
+    private javax.swing.JButton backJButton;
     private javax.swing.JTextField cardNumberTextField;
     private javax.swing.JCheckBox clothesCheck;
     private javax.swing.JTextField clothesWeightTextField;
+    private javax.swing.JButton confirmButton;
     private javax.swing.JButton donateButton;
     private javax.swing.JTextField donorNameTextField;
     private javax.swing.JTextField emailTextField;
@@ -453,6 +529,7 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -50,7 +50,6 @@ public class VolunteerWorkAreaPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         donationButton = new javax.swing.JButton();
         reportIncidentButton = new javax.swing.JButton();
 
@@ -59,10 +58,6 @@ public class VolunteerWorkAreaPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("WELCOME TO VOLUNTEER WORK AREA");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, 41));
-
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton1.setText("VIEW TRAININGS");
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, 310, 60));
 
         donationButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         donationButton.setText("MAKE DONATION");
@@ -94,7 +89,12 @@ public class VolunteerWorkAreaPanel extends javax.swing.JPanel {
 
     private void donationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donationButtonActionPerformed
         // TODO add your handling code here:
-        MakeADonationJPanel donationJPanel = new MakeADonationJPanel(userProcessContainer, userAccount, organization, enterprise, business);
+//        MakeADonationJPanel donationJPanel = new MakeADonationJPanel(userProcessContainer, userAccount, organization, enterprise, business);
+//        userProcessContainer.add("donationJPanel", donationJPanel);
+//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+//        layout.next(userProcessContainer);
+        
+        NonEmergencyJPanel donationJPanel = new NonEmergencyJPanel(userProcessContainer, organization, userAccount, enterprise, business);
         userProcessContainer.add("donationJPanel", donationJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -103,7 +103,6 @@ public class VolunteerWorkAreaPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton donationButton;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton reportIncidentButton;
     // End of variables declaration//GEN-END:variables

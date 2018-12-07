@@ -38,16 +38,16 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
     }
 
     public void populateComboBox() {
-        reqTypejCombo.addItem(Item.ItemType.Batteries.getValue());
-        reqTypejCombo.addItem(Item.ItemType.FireExtinguisher.getValue());
-        reqTypejCombo.addItem(Item.ItemType.FirstAid.getValue());
-        reqTypejCombo.addItem(Item.ItemType.FlashLight.getValue());
-        reqTypejCombo.addItem(Item.ItemType.Food.getValue());
-        reqTypejCombo.addItem(Item.ItemType.Medicines.getValue());
-        reqTypejCombo.addItem(Item.ItemType.Radio.getValue());
-        reqTypejCombo.addItem(Item.ItemType.Rope.getValue());
-        reqTypejCombo.addItem(Item.ItemType.TrashBag.getValue());
-        reqTypejCombo.addItem(Item.ItemType.Water.getValue());
+        itemCategory.addItem(Item.ItemType.Batteries);
+        itemCategory.addItem(Item.ItemType.FireExtinguisher);
+        itemCategory.addItem(Item.ItemType.FirstAid);
+        itemCategory.addItem(Item.ItemType.FlashLight);
+        itemCategory.addItem(Item.ItemType.Food);
+        itemCategory.addItem(Item.ItemType.Medicines);
+        itemCategory.addItem(Item.ItemType.Radio);
+        itemCategory.addItem(Item.ItemType.Rope);
+        itemCategory.addItem(Item.ItemType.TrashBag);
+        itemCategory.addItem(Item.ItemType.Water);
     }
 
     
@@ -64,9 +64,9 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         qty = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        reqTypejCombo = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        itemCategory = new javax.swing.JComboBox();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -82,7 +82,6 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setText("QUANTITY");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 140, 40));
-        add(reqTypejCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, 230, 40));
 
         jButton1.setText("< Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -99,6 +98,7 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
             }
         });
         add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 130, 40));
+        add(itemCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, 230, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -119,7 +119,7 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         WarehouseRequest request = new WarehouseRequest();
-        request.setItemType(reqTypejCombo.getSelectedItem().toString());
+        request.setItemType(itemCategory.getSelectedItem().toString());
         request.setQty(Integer.parseInt(qty.getText()));
         request.setRequestDate(new Date());
         request.setSender(account);
@@ -138,12 +138,12 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox itemCategory;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField qty;
-    private javax.swing.JComboBox<String> reqTypejCombo;
     // End of variables declaration//GEN-END:variables
 }

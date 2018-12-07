@@ -26,7 +26,7 @@ public class Item {
         FirstAid("FirstAid"),
         Batteries("Batteries"),
         Medicines("Medicines"),
-        FireExtinguisher("Fire extinguisher"),
+        FireExtinguisher("FireExtinguisher"),
         Rope("Rope"),
         TrashBag("Trash Bags"),
         Radio("Radio");

@@ -64,38 +64,20 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
 
         for(WorkRequest request: userAccount.getWorkQueue().getWorkRequestList()) {
-             Object[] row = new Object[model.getColumnCount()];
-                row[0] = request;
-                row[1] = ((MissingPersonRequest) request).getGender();
-                row[2] = ((MissingPersonRequest) request).getAddress();
-                row[3] = ((MissingPersonRequest) request).getStatus();
-                model.addRow(row);
-        }
-        
-               
-    }
-    
-
-    public void populateMissingRequests() {
-        
-        DefaultTableModel model = (DefaultTableModel) jMissingRequests.getModel();
-        model.setRowCount(0);
-
-        for(WorkRequest request: userAccount.getWorkQueue().getWorkRequestList()) {
             if(request instanceof MissingPersonRequest){
-             Object[] row = new Object[model.getColumnCount()];
+                Object[] row = new Object[model.getColumnCount()];
                 row[0] = request;
                 row[1] = ((MissingPersonRequest) request).getGender();
                 row[2] = ((MissingPersonRequest) request).getAddress();
                 row[3] = ((MissingPersonRequest) request).getStatus();
                 model.addRow(row);
             }
-        }
+        } 
+            
         
                
     }
     
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

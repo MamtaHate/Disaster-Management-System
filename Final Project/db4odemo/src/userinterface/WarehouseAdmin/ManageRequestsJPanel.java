@@ -149,11 +149,14 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
     private void checkAvailButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAvailButtonActionPerformed
         // TODO add your handling code here:
        if (requestsJTable.getSelectedRow() >= 0) {
-            String itemCategory = (String) requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 0);
+            WarehouseRequest req = (WarehouseRequest) requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 0);
             for(Item i : org.getItemCatalog().getItemList()) {
-                if (i.getCategory().equals(itemCategory)) {
-                    if (i.getQty() >= (Integer)requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 0)) {
+                if (i.getCategory().equals(req.getItemType())) {
+                    if (i.getQty() >= (Integer)requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 1)) {
                         approveButton.setEnabled(true);
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(this, "Not enough available");         
                     }
                 }
             }
@@ -171,7 +174,7 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
             req.setReceiver(account);
             req.setStatus("Approved");
             req.setResolveDate(new Date());
-            
+            populateJTable();
         }
         else {
             JOptionPane.showMessageDialog(this, "Please select an item");        

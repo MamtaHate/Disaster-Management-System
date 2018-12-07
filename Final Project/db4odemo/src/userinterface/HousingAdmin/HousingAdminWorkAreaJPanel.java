@@ -19,7 +19,7 @@ import javax.swing.JPanel;
  * @author Sweta Chowdhury
  */
 public class HousingAdminWorkAreaJPanel extends javax.swing.JPanel {
-
+    private UserAccount userAccount;
     JPanel userProcessContainer;
     EcoSystem business;
     HousingOrganization organization;
@@ -27,10 +27,11 @@ public class HousingAdminWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ReliefOrgAdminWorkAreaJPanel
      */
-    public HousingAdminWorkAreaJPanel(JPanel userProcessContainer, EcoSystem business, HousingOrganization organization) {
+    public HousingAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount userAccount, EcoSystem business, HousingOrganization organization) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.business = this.business;
+        this.userAccount = userAccount;
         this.organization = organization;
         //System.out.println(this.organization);
         valueLabel.setText(this.organization.getName());
@@ -85,14 +86,14 @@ public class HousingAdminWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
-        ManageOrganizationJPanel manageOrgJPanel = new ManageOrganizationJPanel(userProcessContainer,organization);
+        ManageOrganizationJPanel manageOrgJPanel = new ManageOrganizationJPanel(userProcessContainer,userAccount,organization);
         userProcessContainer.add("manageOrgJPanel", manageOrgJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_manageOrganizationJButtonActionPerformed
 
     private void manageEmployeeJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeJButtonActionPerformed
-        AllocateShelterJPanel allocateShelterJPanel = new AllocateShelterJPanel(userProcessContainer,organization);
+        AllocateShelterJPanel allocateShelterJPanel = new AllocateShelterJPanel(userProcessContainer,userAccount,organization);
         userProcessContainer.add("allocateShelterJPanel", allocateShelterJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

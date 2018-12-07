@@ -5,6 +5,7 @@
  */
 package Business.Organization;
 import Business.Organization.Organization.OrganizationType;
+import Business.Warehouse.Warehouse;
 
 import java.util.ArrayList;
 
@@ -26,14 +27,14 @@ public class OrganizationDirectory {
 
     public Organization createOrganization(OrganizationType type) {
         Organization organization = null;
-        if (type.getValue().equals(OrganizationType.Staff.getValue())){
+        if (type.getValue().equals(OrganizationType.StaffAndVolunteer.getValue())){
               organization = new StaffOrganization();
               organizationList.add(organization);
         }
-        else if (type.getValue().equals(OrganizationType.Volunteer.getValue())){
-//            organization = new LabOrganization();
-//            organizationList.add(organization);
-        }
+//        else if (type.getValue().equals(OrganizationType.Volunteer.getValue())){
+////            organization = new LabOrganization();
+////            organizationList.add(organization);
+//        }
         else  if (type.getValue().equals(OrganizationType.DisasterVictimRegistry.getValue())){
               organization = new DisasterVictimOrganization();
               organizationList.add(organization);
@@ -44,6 +45,10 @@ public class OrganizationDirectory {
         }
         else if (type.getValue().equals(OrganizationType.FoodClothing.getValue())){
             organization = new FoodClothingOrganization();
+            organizationList.add(organization);
+        }
+        else if (type.getValue().equals(OrganizationType.Warehouse.getValue())){
+            organization = new WarehouseOrganization();
             organizationList.add(organization);
         }
         

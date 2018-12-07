@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.StaffRole;
+package userinterface.Incident;
 
-import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Incident.Incident;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -199,6 +199,17 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
+        
+        Component[] components = userProcessContainer.getComponents();
+        
+        for(Component c: components) {
+            if(c instanceof ManageIncidentsJPanel) {
+                ManageIncidentsJPanel incidentJPanel = (ManageIncidentsJPanel) c;
+                incidentJPanel.populateTable();
+            }
+        }
+        
+        
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed

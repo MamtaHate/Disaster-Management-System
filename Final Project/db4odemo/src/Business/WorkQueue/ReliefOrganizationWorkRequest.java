@@ -5,6 +5,8 @@
  */
 package Business.WorkQueue;
 
+import java.util.ArrayList;
+//import sun.security.acl.WorldGroupImpl;
 import sun.security.acl.WorldGroupImpl;
 
 /**
@@ -14,6 +16,11 @@ import sun.security.acl.WorldGroupImpl;
 public class ReliefOrganizationWorkRequest extends WorkRequest {
     private String event;
     private String loc;
+    private ArrayList<String> emailList;
+    
+    public ReliefOrganizationWorkRequest() {
+        emailList = new ArrayList<String>();
+    }
 
     public String getEvent() {
         return event;
@@ -29,6 +36,14 @@ public class ReliefOrganizationWorkRequest extends WorkRequest {
 
     public void setLoc(String loc) {
         this.loc = loc;
+    }
+
+    public ArrayList<String> getEmailList() {
+        return emailList;
+    }
+
+    public void setEmailList(ArrayList<String> emailList) {
+        this.emailList = emailList;
     }
     
      @Override

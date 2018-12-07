@@ -122,7 +122,7 @@ public class SendEmailsJPanel extends javax.swing.JPanel {
             SendMailUsingAuthentication.postMail(patientRelative, message,subject, sender);
                     } 
         catch (javax.mail.MessagingException ex) {
-                      //  Logger.getLogger(SendEmailsJPanel.class.getName()).log(Level.SEVERE, null, ex);
+                       Logger.getLogger(SendEmailsJPanel.class.getName()).log(Level.SEVERE, null, ex);
                     }
     }//GEN-LAST:event_sendBtnActionPerformed
 

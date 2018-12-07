@@ -7,6 +7,7 @@ package userinterface.HousingAdmin;
 
 import Business.Housing.Housing;
 import Business.Organization.HousingOrganization;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -17,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ManageOrganizationJPanel extends javax.swing.JPanel {
 
-    
+    private UserAccount userAccount;    
     private JPanel userProcessContainer;
 //    private Organization organization;
     private HousingOrganization organization;
@@ -25,8 +26,9 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageOrganizationJPanel
      */
-    public ManageOrganizationJPanel(JPanel userProcessContainer, HousingOrganization organization) {
+    public ManageOrganizationJPanel(JPanel userProcessContainer,UserAccount userAccount, HousingOrganization organization) {
         initComponents();
+        this.userAccount = userAccount;
         this.userProcessContainer = userProcessContainer;
         this.organization = organization;
         
@@ -57,25 +59,16 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         organizationJTable = new javax.swing.JTable();
         addJButton1 = new javax.swing.JButton();
         backJButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel1.setText("MANAGE ORGANIZATION WORKAREA");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, -1, 41));
-
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel3.setText("MANAGE ORGANIZATION WORKAREA");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, -1, 41));
 
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -97,17 +90,20 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane2.setViewportView(organizationJTable);
+        if (organizationJTable.getColumnModel().getColumnCount() > 0) {
+            organizationJTable.getColumnModel().getColumn(1).setHeaderValue("Comments");
+        }
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 710, 160));
 
         addJButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        addJButton1.setText("ADD ORGANIZATION");
+        addJButton1.setText("ADD HOUSING");
         addJButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(addJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, 250, 40));
+        jPanel1.add(addJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, 250, 40));
 
         backJButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         backJButton1.setText("<<BACK");
@@ -117,6 +113,10 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
             }
         });
         jPanel1.add(backJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 170, 40));
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel1.setText("MANAGE HOUSING WORKAREA");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, -1, 41));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
@@ -140,7 +140,6 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
     private javax.swing.JButton addJButton1;
     private javax.swing.JButton backJButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable organizationJTable;

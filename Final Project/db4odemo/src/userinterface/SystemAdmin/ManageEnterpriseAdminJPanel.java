@@ -154,6 +154,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         enterpriseJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(enterpriseJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 160, 210, 40));
 
+        submitJButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         submitJButton.setText("SUBMIT");
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,6 +163,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         });
         add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 390, 200, 50));
 
+        backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         backJButton.setText("<<BACK");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,15 +187,15 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             // if (EcoSystem.checkIfUsernameIsUnique(username)) {
             UserAccount account = null;
             if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.ReliefOrganization) {
-                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new ReliefOrgAdminRole(), networkName);
+                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new ReliefOrgAdminRole(), networkName, null);
             } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Hospital) {
-                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new HospitalAdminRole(), networkName);
+                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new HospitalAdminRole(), networkName, null);
             } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Shelter) {
-                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new ShelterAdminRole(), networkName);
+                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new ShelterAdminRole(), networkName, null);
             } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Sensors) {
-                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new SensorsAdminRole(), networkName);
+                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new SensorsAdminRole(), networkName, null);
             } else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Alerts) {
-                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new AlertsAdminRole(), networkName);
+                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new AlertsAdminRole(), networkName, null);
             }
             
             populateTable();

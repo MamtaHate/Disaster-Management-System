@@ -8,7 +8,9 @@ package userinterface.ReliefOrgAdmin;
 import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
+import Business.Organization.StaffOrganization;
 import Business.Role.Role;
+import Business.Role.StaffAndVolunteerAdminRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.util.regex.Matcher;
@@ -53,8 +55,17 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
 
     public void populateRoleBox(Organization organization) {
         roleJComboBox.removeAllItems();
+
         for (Role role : organization.getSupportedRole()) {
-            roleJComboBox.addItem(role);
+
+            if (organization instanceof StaffOrganization) {
+                if (role instanceof StaffAndVolunteerAdminRole) {
+                    roleJComboBox.addItem(role);
+                }
+            } else {
+                roleJComboBox.addItem(role);
+            }
+
         }
     }
 
@@ -180,7 +191,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
 
     private void organizationJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationJComboBoxActionPerformed
         Organization selectedOrganization = (Organization) organizationJComboBox.getSelectedItem();
-        if(selectedOrganization!=null) {
+        if (selectedOrganization != null) {
             populateEmployeeBox(selectedOrganization);
             populateRoleBox(selectedOrganization);
         }
@@ -189,24 +200,24 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         String username = usernameJTextField.getText();
         String password = passwordJTextField.getText();
-        
+
         boolean isValidUser = validateStrings(username);
         boolean isValidPass = validatePwd(password);
-        
-        if(isValidUser && isValidPass) {
+
+        if (isValidUser && isValidPass) {
             Organization organization = (Organization) organizationJComboBox.getSelectedItem();
             Employee employee = (Employee) employeeJComboBox.getSelectedItem();
             Role role = (Role) roleJComboBox.getSelectedItem();
-            organization.getUserAccountDirectory().createUserAccount(username, password, employee, role, enterprise.getNetworkName());
+            organization.getUserAccountDirectory().createUserAccount(username, password, employee, role, enterprise.getNetworkName(), null);
             populateJTable();
         }
 
     }//GEN-LAST:event_createButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-           container.remove(this);
-           CardLayout layout = (CardLayout) container.getLayout();
-           layout.previous(container);
+        container.remove(this);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.previous(container);
     }//GEN-LAST:event_backButtonActionPerformed
 
     public boolean validateStrings(String name) {

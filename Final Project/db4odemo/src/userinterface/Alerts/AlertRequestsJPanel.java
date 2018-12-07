@@ -32,28 +32,27 @@ public class AlertRequestsJPanel extends javax.swing.JPanel {
         populateJTable();
     }
 
-     public void populateJTable() {
-              
+    public void populateJTable() {
+
         DefaultTableModel model = (DefaultTableModel) alertTbl.getModel();
         model.setRowCount(0);
-        
-        for(WorkRequest req: enterprise.getWorkQueue().getWorkRequestList()) {
-            Object[] row = new Object[model.getColumnCount()];
-            if(req instanceof ReliefOrganizationWorkRequest){
-               row[0] = req.getSender();
-            row[1] = req.getReceiver();
-            row[2] = req;
-            row[3] = req.getStatus();
-            row[4] = req.getMessage();
 
-            model.addRow(row);
+        for (WorkRequest req : enterprise.getWorkQueue().getWorkRequestList()) {
+            Object[] row = new Object[model.getColumnCount()];
+            if (req instanceof ReliefOrganizationWorkRequest) {
+                row[0] = req.getSender();
+                row[1] = req.getReceiver();
+                row[2] = req;
+                row[3] = req.getStatus();
+                row[4] = req.getMessage();
+
+                model.addRow(row);
             }
-            
+
         }
-        
-        
+
     }
-     
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -107,8 +106,9 @@ public class AlertRequestsJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(44, 44, 44)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(104, 104, 104)
+                .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -118,7 +118,6 @@ public class AlertRequestsJPanel extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

@@ -9,8 +9,12 @@ import Business.Housing.HousingDirectory;
 import Business.Organization.HousingOrganization;
 import Business.Organization.Organization;
 import Business.Organization.HousingOrganization;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.HousingWorkRequest;
+import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,29 +22,50 @@ import javax.swing.JPanel;
  */
 public class AllocateShelterJPanel extends javax.swing.JPanel {
 
-    
+    private UserAccount userAccount;
     private JPanel userProcessContainer;
     private HousingOrganization housingOrganization;
     
     /**
      * Creates new form ManageOrganizationJPanel
      */
-    public AllocateShelterJPanel(JPanel userProcessContainer, HousingOrganization organization) {
+    public AllocateShelterJPanel(JPanel userProcessContainer,UserAccount userAccount, HousingOrganization organization) {
         initComponents();
+        this.userAccount = userAccount;
         this.userProcessContainer = userProcessContainer;
         this.housingOrganization = organization;
         
         populateCombo();
     }
 
+    public void populateTable(){
+        DefaultTableModel model = (DefaultTableModel) housingJTable.getModel();
+        model.setRowCount(0);
+
+        for(WorkRequest request: userAccount.getWorkQueue().getWorkRequestList()) {
+            if(request instanceof HousingWorkRequest){
+                Object[] row = new Object[model.getColumnCount()];
+                row[0] = ((HousingWorkRequest) request).getNoOfPeople();
+                row[1] = request.getMessage();
+                row[2] =  request.getSender();
+                row[3] =  request.getReceiver();
+                row[4] = request.getStatus();
+                row[5] = request.getRequestDate();
+                model.addRow(row);
+            }
+        }
+    }
     
     public void populateCombo() {
         shelterNamesJComboBox.removeAllItems();
-        
+        int i = 0;
         for(Housing housing : housingOrganization.getHousingDirectory().getHousingList()) {
-            shelterNamesJComboBox.addItem(housing.getHouseName());
-        }
-        
+            shelterNamesJComboBox.addItem(housing);
+            if(i == 0){
+                availableHouses.setText("Available Houses "+housing.getHouseCapacity());
+                i++;
+            }
+        }        
     }    
 
     /**
@@ -55,8 +80,12 @@ public class AllocateShelterJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         addJButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
-        shelterNamesJComboBox = new javax.swing.JComboBox<>();
+        shelterNamesJComboBox = new javax.swing.JComboBox<String>();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        housingJTable = new javax.swing.JTable();
+        availableHouses = new javax.swing.JLabel();
+        shelterNamesJComboBox = new javax.swing.JComboBox();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -71,7 +100,7 @@ public class AllocateShelterJPanel extends javax.swing.JPanel {
                 addJButtonActionPerformed(evt);
             }
         });
-        add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 440, 250, 40));
+        add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 250, 40));
 
         backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         backJButton.setText("<<BACK");
@@ -82,11 +111,41 @@ public class AllocateShelterJPanel extends javax.swing.JPanel {
         });
         add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 170, 40));
 
-        shelterNamesJComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(shelterNamesJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 310, 160, -1));
-
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Housing Organization : ");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 150, 20));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 200, 40));
+
+        housingJTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Number of people", "Message", "Sender", "Receiver", "Status", "Requested Date"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(housingJTable);
+
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 710, 160));
+        add(availableHouses, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 310, 130, 30));
+
+        shelterNamesJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        shelterNamesJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shelterNamesJComboBoxActionPerformed(evt);
+            }
+        });
+        add(shelterNamesJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 310, 210, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -102,12 +161,23 @@ public class AllocateShelterJPanel extends javax.swing.JPanel {
         populateTable();*/
     }//GEN-LAST:event_addJButtonActionPerformed
 
+    private void shelterNamesJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shelterNamesJComboBoxActionPerformed
+        Housing house = (Housing) shelterNamesJComboBox.getSelectedItem();
+        
+        if (house!=null) {
+            availableHouses.setText("Available Houses "+house.getHouseCapacity());
+        }
+    }//GEN-LAST:event_shelterNamesJComboBoxActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addJButton;
+    private javax.swing.JLabel availableHouses;
     private javax.swing.JButton backJButton;
+    private javax.swing.JTable housingJTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JComboBox<String> shelterNamesJComboBox;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JComboBox shelterNamesJComboBox;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,7 @@
  */
 package userinterface.StaffRole;
 
+import userinterface.Incident.IncidentReportingJPanel;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
@@ -12,6 +13,7 @@ import Business.Organization.StaffOrganization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import userinterface.Incident.ManageIncidentsJPanel;
 
 
 /**
@@ -48,43 +50,23 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        addEditStaffSkills = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        donateJButton2 = new javax.swing.JButton();
-        donateJButton3 = new javax.swing.JButton();
+        requestButton = new javax.swing.JButton();
         reportIncident = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("WELCOME TO STAFF WORK AREA");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, 41));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, -1, 41));
 
-        addEditStaffSkills.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        addEditStaffSkills.setText("ADD/EDIT INFORMATION");
-        addEditStaffSkills.addActionListener(new java.awt.event.ActionListener() {
+        requestButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        requestButton.setText(" REQUEST MANAGEMENT");
+        requestButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addEditStaffSkillsActionPerformed(evt);
+                requestButtonActionPerformed(evt);
             }
         });
-        add(addEditStaffSkills, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 120, 300, 60));
-
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton2.setText("CREATE TRAINING CATALOG");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 300, 50));
-
-        donateJButton2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        donateJButton2.setText("MAKE A DONATION");
-        add(donateJButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 490, 300, 53));
-
-        donateJButton3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        donateJButton3.setText(" REQUEST MANAGEMENT");
-        add(donateJButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 400, 300, 53));
+        add(requestButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, 330, 70));
 
         reportIncident.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         reportIncident.setText("REPORT INCIDENT");
@@ -93,36 +75,34 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
                 reportIncidentActionPerformed(evt);
             }
         });
-        add(reportIncident, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, 300, 60));
+        add(reportIncident, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 330, 70));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void addEditStaffSkillsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEditStaffSkillsActionPerformed
-        AddEditInformationJPanel addEditStaffInfoJPanel = new AddEditInformationJPanel(userProcessContainer, userAccount);
-        userProcessContainer.add("addEditStaffInfoJPanel", addEditStaffInfoJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-        
-    }//GEN-LAST:event_addEditStaffSkillsActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void reportIncidentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportIncidentActionPerformed
         // TODO add your handling code here:
-        IncidentReportingJPanel reportIncidentJPanel = new IncidentReportingJPanel(userProcessContainer, userAccount, enterprise);
-        userProcessContainer.add("reportIncidentJPanel", reportIncidentJPanel);
+//        IncidentReportingJPanel reportIncidentJPanel = new IncidentReportingJPanel(userProcessContainer, userAccount, enterprise);
+//        userProcessContainer.add("reportIncidentJPanel", reportIncidentJPanel);
+//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+//        layout.next(userProcessContainer);
+        
+        ManageIncidentsJPanel manageIncidentJPanel = new ManageIncidentsJPanel(userProcessContainer, enterprise, userAccount, business);
+        userProcessContainer.add("manageIncidentJPanel", manageIncidentJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_reportIncidentActionPerformed
 
+    private void requestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestButtonActionPerformed
+        // TODO add your handling code here:
+        ManageRequestsJPanel manageRequestsJPanel = new ManageRequestsJPanel(userProcessContainer, userAccount, enterprise);
+        userProcessContainer.add("manageRequestsJPanel", manageRequestsJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_requestButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addEditStaffSkills;
-    private javax.swing.JButton donateJButton2;
-    private javax.swing.JButton donateJButton3;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton reportIncident;
+    private javax.swing.JButton requestButton;
     // End of variables declaration//GEN-END:variables
 }

@@ -27,7 +27,8 @@ public abstract class Role {
         DisasterVictimRegistryRole("DisasterVictimRegistryRole"),
         StaffRole("StaffRole"),
         StaffAndVolunteerAdminRole("StaffAndVolunteerAdminRole"),
-        VolunteerRole("VolunteerRole");
+        VolunteerRole("VolunteerRole"),
+        WarehouseAdminRole("WarehouseAdminRole");
         
         
         private String value;

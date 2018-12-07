@@ -52,7 +52,6 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         requestButton = new javax.swing.JButton();
         reportIncident = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -77,10 +76,6 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
             }
         });
         add(reportIncident, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 330, 70));
-
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton1.setText("VIEW MANDATORY TRAINIGNS");
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 400, 330, 70));
     }// </editor-fold>//GEN-END:initComponents
 
     private void reportIncidentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportIncidentActionPerformed
@@ -106,7 +101,6 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton reportIncident;
     private javax.swing.JButton requestButton;

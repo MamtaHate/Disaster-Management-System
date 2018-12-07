@@ -55,7 +55,7 @@ public class AllocateShelterJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         addJButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
-        shelterNamesJComboBox = new javax.swing.JComboBox<>();
+        shelterNamesJComboBox = new javax.swing.JComboBox<String>();
         jLabel2 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -82,11 +82,11 @@ public class AllocateShelterJPanel extends javax.swing.JPanel {
         });
         add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 170, 40));
 
-        shelterNamesJComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        shelterNamesJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(shelterNamesJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 310, 160, -1));
 
         jLabel2.setText("Housing Organization : ");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 150, 20));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 200, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed

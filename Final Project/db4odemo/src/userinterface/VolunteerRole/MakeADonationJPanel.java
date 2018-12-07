@@ -35,6 +35,11 @@ public class MakeADonationJPanel extends javax.swing.JPanel {
         this.business = business;
     }
 
+    
+    public void populateIncidents() {
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,7 +53,6 @@ public class MakeADonationJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         nonEmergencyButton = new javax.swing.JButton();
-        emergencyButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -70,17 +74,13 @@ public class MakeADonationJPanel extends javax.swing.JPanel {
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 680, 150));
 
         nonEmergencyButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        nonEmergencyButton.setText("Non-Emergency");
+        nonEmergencyButton.setText("Donate");
         nonEmergencyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nonEmergencyButtonActionPerformed(evt);
             }
         });
-        add(nonEmergencyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, 270, 60));
-
-        emergencyButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        emergencyButton.setText("Emergency");
-        add(emergencyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 270, 60));
+        add(nonEmergencyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 270, 60));
 
         backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         backJButton.setText("<<BACK");
@@ -110,7 +110,6 @@ public class MakeADonationJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
-    private javax.swing.JButton emergencyButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

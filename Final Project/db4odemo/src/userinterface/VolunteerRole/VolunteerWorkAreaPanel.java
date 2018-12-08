@@ -52,6 +52,7 @@ public class VolunteerWorkAreaPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         donationButton = new javax.swing.JButton();
         reportIncidentButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -66,7 +67,7 @@ public class VolunteerWorkAreaPanel extends javax.swing.JPanel {
                 donationButtonActionPerformed(evt);
             }
         });
-        add(donationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, 310, 60));
+        add(donationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, 310, 60));
 
         reportIncidentButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         reportIncidentButton.setText("REPORT INCIDENT");
@@ -75,7 +76,10 @@ public class VolunteerWorkAreaPanel extends javax.swing.JPanel {
                 reportIncidentButtonActionPerformed(evt);
             }
         });
-        add(reportIncidentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 310, 60));
+        add(reportIncidentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 380, 310, 60));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sweta Chowdhury\\Desktop\\download.png")); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 220, 230));
     }// </editor-fold>//GEN-END:initComponents
 
     private void reportIncidentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportIncidentButtonActionPerformed
@@ -98,6 +102,7 @@ public class VolunteerWorkAreaPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton donationButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton reportIncidentButton;
     // End of variables declaration//GEN-END:variables
 }

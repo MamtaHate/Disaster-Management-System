@@ -23,9 +23,11 @@ import javax.swing.JPanel;
  * @author prath
  */
 public class ReqInventoryJPanel extends javax.swing.JPanel {
+
     private JPanel userProcessContainer;
     private UserAccount account;
     private Enterprise enterprise;
+
     /**
      * Creates new form reqInventoryJPanel
      */
@@ -50,7 +52,6 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
         itemCategory.addItem(Item.ItemType.Water);
     }
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -97,7 +98,7 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 130, 40));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 190, 40));
         add(itemCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, 230, 40));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -106,33 +107,44 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
-        
+
         Component[] components = userProcessContainer.getComponents();
-        for(Component c: components) {
-            if( c instanceof ManageRequestsJPanel) {
-                ManageRequestsJPanel m = (ManageRequestsJPanel)c;
+        for (Component c : components) {
+            if (c instanceof ManageRequestsJPanel) {
+                ManageRequestsJPanel m = (ManageRequestsJPanel) c;
                 m.populateInventoryRequests();
             }
-        }        
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        int remaining = 0;
+        
         WarehouseRequest request = new WarehouseRequest();
         request.setItemType(itemCategory.getSelectedItem().toString());
         request.setQty(Integer.parseInt(qty.getText()));
+
+        for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            if (org instanceof WarehouseOrganization) {
+                for (Item i : ((WarehouseOrganization) org).getItemCatalog().getItemList()) {
+                    remaining = i.getQty();
+                }
+            }
+        }
+        request.setRemaining(remaining);
         request.setRequestDate(new Date());
         request.setSender(account);
         request.setStatus("Pending");
-        
+
         account.getWorkQueue().getWorkRequestList().add(request);
-        
-        for(Organization organization: enterprise.getOrganizationDirectory().getOrganizationList()) {
-            if( organization instanceof WarehouseOrganization) {
+
+        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            if (organization instanceof WarehouseOrganization) {
                 organization.getWorkQueue().getWorkRequestList().add(request);
             }
         }
-        
+
         JOptionPane.showMessageDialog(this, "Request submitted");
     }//GEN-LAST:event_jButton2ActionPerformed
 

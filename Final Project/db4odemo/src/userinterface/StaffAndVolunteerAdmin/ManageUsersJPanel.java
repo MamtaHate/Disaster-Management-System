@@ -78,16 +78,25 @@ public class ManageUsersJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) userJTable.getModel();
         model.setRowCount(0);
 
-        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
-            for (UserAccount user : organization.getUserAccountDirectory().getUserAccountList()) {
-                Object[] row = new Object[model.getColumnCount()];
-                row[0] = user;
-                row[1] = user.getRole();
+//        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+//            for (UserAccount user : organization.getUserAccountDirectory().getUserAccountList()) {
+//                Object[] row = new Object[model.getColumnCount()];
+//                row[0] = user;
+//                row[1] = user.getRole();
+//
+//                model.addRow(row);
+//            }
+//        }
 
-                model.addRow(row);
-            }
+        for (UserAccount user: organization.getUserAccountDirectory().getUserAccountList()) {
+            Object[] row = new Object[model.getColumnCount()];
+            row[0] = user;
+            row[1] = user.getRole();
+            
+             model.addRow(row);
         }
-
+        
+        
     }
 
     /**
@@ -123,10 +132,7 @@ public class ManageUsersJPanel extends javax.swing.JPanel {
 
         userJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Username", "Role"

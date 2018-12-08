@@ -54,12 +54,14 @@ public class ManageRequests extends javax.swing.JPanel {
         jLabel5.setVisible(false);
         jLabel6.setVisible(false);
         type.setVisible(false);
+        type.addItem("Food");
+        type.addItem("Clothing");
         jQtyTextField.setVisible(false);
     }
 
     public void populateComboBox() {
         comboRequestType.addItem(Organization.OrganizationType.Housing);
-        comboRequestType.addItem(Organization.OrganizationType.FoodClothing);
+        //comboRequestType.addItem(Organization.OrganizationType.FoodClothing);
         comboRequestType.addItem(Enterprise.EnterpriseType.Alerts);
     }
 
@@ -194,10 +196,10 @@ public class ManageRequests extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jQtyTextField)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(noOfPeopleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -322,8 +324,6 @@ public class ManageRequests extends javax.swing.JPanel {
                 jLabel5.setVisible(true);
                 jLabel6.setVisible(true);
                 type.setVisible(true);
-                type.addItem("Food");
-                type.addItem("Clothing");
                 jQtyTextField.setVisible(true);
             }
 

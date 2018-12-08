@@ -25,5 +25,9 @@ public class HousingAdminRole extends Role{
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
    
+    @Override
+    public String toString() {
+        return RoleType.HousingAdminRole.getValue();
+    }
     
 }

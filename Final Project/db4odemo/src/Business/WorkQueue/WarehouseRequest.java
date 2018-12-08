@@ -12,6 +12,7 @@ package Business.WorkQueue;
 public class WarehouseRequest extends WorkRequest{
     private String itemType;
     private Integer qty;
+    private Integer remaining;
 
     public String getItemType() {
         return itemType;
@@ -28,6 +29,16 @@ public class WarehouseRequest extends WorkRequest{
     public void setQty(Integer qty) {
         this.qty = qty;
     }
+
+    public Integer getRemaining() {
+        return remaining;
+    }
+
+    public void setRemaining(Integer remaining) {
+        this.remaining = remaining;
+    }
+    
+       
     
     @Override
     public String toString() {

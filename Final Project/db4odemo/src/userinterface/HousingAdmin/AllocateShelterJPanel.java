@@ -103,6 +103,7 @@ public class AllocateShelterJPanel extends javax.swing.JPanel {
         availableHouses = new javax.swing.JLabel();
         shelterNamesJComboBox = new javax.swing.JComboBox();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -118,7 +119,7 @@ public class AllocateShelterJPanel extends javax.swing.JPanel {
         });
         add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 250, 40));
 
-        backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        backJButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         backJButton.setText("<<BACK");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,6 +132,8 @@ public class AllocateShelterJPanel extends javax.swing.JPanel {
         jLabel2.setText("Housing Organization : ");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 170, 40));
 
+        housingJTable.setBackground(new java.awt.Color(214, 217, 224));
+        housingJTable.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         housingJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -150,6 +153,8 @@ public class AllocateShelterJPanel extends javax.swing.JPanel {
         jScrollPane3.setViewportView(housingJTable);
 
         add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 980, 160));
+
+        availableHouses.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         add(availableHouses, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 310, 270, 40));
 
         shelterNamesJComboBox.addActionListener(new java.awt.event.ActionListener() {

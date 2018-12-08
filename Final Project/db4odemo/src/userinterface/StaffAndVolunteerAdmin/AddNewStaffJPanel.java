@@ -88,6 +88,7 @@ public class AddNewStaffJPanel extends javax.swing.JPanel {
         txtOtherSkills = new javax.swing.JTextField();
         chkNone = new javax.swing.JCheckBox();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -174,16 +175,16 @@ public class AddNewStaffJPanel extends javax.swing.JPanel {
                 saveButtonActionPerformed(evt);
             }
         });
-        add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 810, 160, 50));
+        add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 810, 160, 50));
 
-        backButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        backButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         backButton.setText("<<BACK");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 860, 130, 40));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 870, 130, 40));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel7.setText("Type:");

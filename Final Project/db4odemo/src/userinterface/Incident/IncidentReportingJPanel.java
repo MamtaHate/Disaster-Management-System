@@ -83,34 +83,36 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
         backButton = new javax.swing.JButton();
         dateOfOccurrenceJXDatePicker = new org.jdesktop.swingx.JXDatePicker();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("REPORT AN EVENT");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 240, 41));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setText("Incident Name:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 130, 40));
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setText("Event Type:");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 130, 30));
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setText("Incident Type:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 150, 40));
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setText("Date of Occurrence:");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 160, 40));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Location"));
+        jPanel1.setBackground(new java.awt.Color(214, 217, 224));
+        jPanel1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setText("City:");
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel7.setText("Postal Code:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -122,22 +124,20 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cityJTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(postalCodeTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cityJTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                    .addComponent(postalCodeTextField))
+                .addGap(22, 22, 22))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel6)
                     .addComponent(cityJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(postalCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -148,14 +148,18 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 440, 140));
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setText("Comments: (if any)");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 430, 180, 40));
+
+        eventNameJTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         add(eventNameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 210, 30));
 
+        incidentJComboBox.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         incidentJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(incidentJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 210, 30));
 
+        eventTypeJComboBox.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         eventTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         eventTypeJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,7 +177,7 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
         commentsJTextArea.setRows(5);
         jScrollPane1.setViewportView(commentsJTextArea);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 430, 240, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 430, 200, -1));
 
         saveButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         saveButton.setText("SAVE");
@@ -182,7 +186,7 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
                 saveButtonActionPerformed(evt);
             }
         });
-        add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 550, 190, 40));
+        add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 550, 190, 40));
 
         backButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         backButton.setText("<<BACK");
@@ -191,8 +195,8 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 580, 140, 40));
-        add(dateOfOccurrenceJXDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 210, -1));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, 140, 40));
+        add(dateOfOccurrenceJXDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, 210, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed

@@ -69,36 +69,43 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
         btnSubmit = new javax.swing.JButton();
         itemCategory = new javax.swing.JComboBox();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("REQUEST INVENTORY");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, 41));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setText("REQUEST TYPE");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 140, 40));
+
+        qty.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         add(qty, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 230, 40));
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setText("QUANTITY");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 140, 40));
 
+        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jButton1.setText("< Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 110, 40));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 110, 40));
 
+        btnSubmit.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnSubmit.setText("Submit Request");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmitActionPerformed(evt);
             }
         });
-        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 190, 40));
+        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 190, 40));
+
+        itemCategory.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         add(itemCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, 230, 40));
     }// </editor-fold>//GEN-END:initComponents
 

@@ -124,6 +124,7 @@ public class ManageUsersJPanel extends javax.swing.JPanel {
         organizationJCombo = new javax.swing.JComboBox();
         backButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -150,18 +151,23 @@ public class ManageUsersJPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 500, 240));
 
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setText("ORGANIZATION:");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 140, 170, 40));
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setText("EMPLOYEE:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 190, 170, 40));
 
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel7.setText("ROLE:");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 240, 170, 40));
 
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setText("USER NAME:");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 290, 170, 40));
 
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setText("PASSWORD:");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 340, 130, 40));
 
@@ -172,11 +178,13 @@ public class ManageUsersJPanel extends javax.swing.JPanel {
                 createButtonActionPerformed(evt);
             }
         });
-        add(createButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 440, 210, 60));
+        add(createButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 440, 210, 50));
 
+        rolesJCombo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         rolesJCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(rolesJCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 240, 250, 40));
 
+        membersJCombo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         membersJCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         membersJCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,13 +192,18 @@ public class ManageUsersJPanel extends javax.swing.JPanel {
             }
         });
         add(membersJCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 190, 250, 40));
+
+        passwordField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 340, 250, 40));
+
+        usernameField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 290, 250, 40));
 
+        organizationJCombo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         organizationJCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(organizationJCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 140, 250, 40));
 
-        backButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        backButton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         backButton.setText("<<BACK");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -72,6 +72,7 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
         assignButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -103,6 +104,7 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 690, 110));
 
+        assignButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         assignButton.setText("Assign");
         assignButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,7 +120,7 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 170, 50));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 170, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void shelterTablePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_shelterTablePropertyChange

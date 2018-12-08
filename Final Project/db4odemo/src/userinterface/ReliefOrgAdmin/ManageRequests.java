@@ -104,12 +104,14 @@ public class ManageRequests extends javax.swing.JPanel {
         jQtyTextField = new javax.swing.JTextField();
         backButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("MANAGE REQUESTS FOR RELIEF ORGANIZATION ADMIN");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 780, 41));
 
+        jTblRequests.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jTblRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -120,17 +122,19 @@ public class ManageRequests extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTblRequests);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 620, 200));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 620, 160));
 
         panelRaiseRequest.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "RAISE A NEW REQUEST", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
         panelRaiseRequest.setEnabled(false);
 
+        comboRequestType.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         comboRequestType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboRequestTypeActionPerformed(evt);
             }
         });
 
+        btnRaiseRequest.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnRaiseRequest.setText("MAKE REQUEST");
         btnRaiseRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,15 +142,28 @@ public class ManageRequests extends javax.swing.JPanel {
             }
         });
 
+        noOfPeopleTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setText("Request Type:");
 
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setText("Number of People:");
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setText("Message:");
 
+        commentsJTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setText("Request for?");
 
+        type.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setText("Quantity:");
+
+        jQtyTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout panelRaiseRequestLayout = new javax.swing.GroupLayout(panelRaiseRequest);
         panelRaiseRequest.setLayout(panelRaiseRequestLayout);
@@ -207,7 +224,7 @@ public class ManageRequests extends javax.swing.JPanel {
                 .addGap(75, 75, 75))
         );
 
-        add(panelRaiseRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, 680, 330));
+        add(panelRaiseRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, 680, 330));
 
         backButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         backButton.setText("<<BACK");

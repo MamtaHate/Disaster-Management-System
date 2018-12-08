@@ -54,6 +54,7 @@ public class VolunteerWorkAreaPanel extends javax.swing.JPanel {
         reportIncidentButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -67,7 +68,7 @@ public class VolunteerWorkAreaPanel extends javax.swing.JPanel {
                 donationButtonActionPerformed(evt);
             }
         });
-        add(donationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, 310, 60));
+        add(donationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 310, 60));
 
         reportIncidentButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         reportIncidentButton.setText("REPORT INCIDENT");
@@ -76,9 +77,7 @@ public class VolunteerWorkAreaPanel extends javax.swing.JPanel {
                 reportIncidentButtonActionPerformed(evt);
             }
         });
-        add(reportIncidentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 380, 310, 60));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sweta Chowdhury\\Desktop\\download.png")); // NOI18N
+        add(reportIncidentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 310, 60));
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 220, 230));
     }// </editor-fold>//GEN-END:initComponents
 

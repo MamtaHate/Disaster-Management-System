@@ -73,6 +73,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        organizationJTable.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -102,7 +103,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         });
         jPanel1.add(addJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, 250, 40));
 
-        backJButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        backJButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         backJButton1.setText("<<BACK");
         backJButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

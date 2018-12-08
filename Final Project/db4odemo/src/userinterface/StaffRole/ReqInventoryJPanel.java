@@ -66,7 +66,7 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
         qty = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnSubmit = new javax.swing.JButton();
         itemCategory = new javax.swing.JComboBox();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -90,15 +90,15 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 110, 40));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 110, 40));
 
-        jButton2.setText("Submit Request");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnSubmit.setText("Submit Request");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnSubmitActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 190, 40));
+        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 190, 40));
         add(itemCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, 230, 40));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -117,9 +117,14 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
         int remaining = 0;
+        
+        boolean allowSave = true;
+        
+        
+        
         
         WarehouseRequest request = new WarehouseRequest();
         request.setItemType(itemCategory.getSelectedItem().toString());
@@ -146,13 +151,27 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
         }
 
         JOptionPane.showMessageDialog(this, "Request submitted");
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnSubmitActionPerformed
 
+    
+    
+    public boolean validateInput () {
+        if(qty.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Quantity is required");
+            return false;
+        }
+        else if (qty.getText().matches("[0-9]+") == false) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid quantity.");
+            return false;
+        }
+        
+        return true;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSubmit;
     private javax.swing.JComboBox itemCategory;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -110,10 +110,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
 
         empJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "ID", "Name"

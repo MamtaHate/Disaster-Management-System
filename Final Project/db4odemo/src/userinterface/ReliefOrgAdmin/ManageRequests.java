@@ -142,7 +142,7 @@ public class ManageRequests extends javax.swing.JPanel {
 
         jLabel3.setText("Number of People:");
 
-        jLabel4.setText("Comments:");
+        jLabel4.setText("Message:");
 
         jLabel5.setText("Request for?");
 
@@ -153,31 +153,29 @@ public class ManageRequests extends javax.swing.JPanel {
         panelRaiseRequestLayout.setHorizontalGroup(
             panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRaiseRequestLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(noOfPeopleTextField)
+                    .addComponent(comboRequestType, 0, 190, Short.MAX_VALUE)
+                    .addComponent(commentsJTextField))
+                .addGap(52, 52, 52)
                 .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelRaiseRequestLayout.createSequentialGroup()
-                        .addGap(161, 161, 161)
-                        .addComponent(btnRaiseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(panelRaiseRequestLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(noOfPeopleTextField)
-                            .addComponent(comboRequestType, 0, 190, Short.MAX_VALUE)
-                            .addComponent(commentsJTextField))
-                        .addGap(52, 52, 52)
-                        .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(type, 0, 127, Short.MAX_VALUE)
-                            .addComponent(jQtyTextField))))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(type, 0, 107, Short.MAX_VALUE)
+                    .addComponent(jQtyTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))
                 .addGap(15, 15, 15))
+            .addGroup(panelRaiseRequestLayout.createSequentialGroup()
+                .addGap(158, 158, 158)
+                .addComponent(btnRaiseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelRaiseRequestLayout.setVerticalGroup(
             panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,12 +202,12 @@ public class ManageRequests extends javax.swing.JPanel {
                 .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(commentsJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(93, 93, 93)
+                .addGap(44, 44, 44)
                 .addComponent(btnRaiseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addGap(75, 75, 75))
         );
 
-        add(panelRaiseRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, 700, 360));
+        add(panelRaiseRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, 680, 330));
 
         backButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         backButton.setText("<<BACK");
@@ -218,32 +216,53 @@ public class ManageRequests extends javax.swing.JPanel {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 670, 190, 40));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 660, 190, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRaiseRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaiseRequestActionPerformed
         // TODO add your handling code here:
+        // WorkRequest workRequest;
+        // HousingWorkRequest wr;
+        boolean allowSave = true;
         if (comboRequestType.getSelectedItem().equals(Organization.OrganizationType.Housing)) {
-            HousingWorkRequest workRequest = new HousingWorkRequest();
-            workRequest.setNoOfPeople(noOfPeopleTextField.getText());
-            workRequest.setIncident(incident);
-            workRequest.setSender(account);
-            workRequest.setStatus("Pending");
-            workRequest.setMessage(commentsJTextField.getText());
-            account.getWorkQueue().getWorkRequestList().add(workRequest);
 
-            for (Network network : system.getNetworkList()) {
-                if (network.getNetworkName().equals(enterprise.getNetworkName())) {
-                    for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
-                        if (e instanceof ShelterEnterprise) {
-                            e.getWorkQueue().getWorkRequestList().add(workRequest);
+            if (noOfPeopleTextField.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No of people is required");
+                allowSave = false;
+            }
+            else if(noOfPeopleTextField.getText().matches("[0-9]+") == false){
+                JOptionPane.showMessageDialog(null, "No of people must be a valid number");
+                allowSave = false;
+            }
+                  
+            if (commentsJTextField.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Message is required");
+                allowSave = false;
+            }
+
+            if (allowSave) {
+                HousingWorkRequest workRequest = new HousingWorkRequest();
+                workRequest.setNoOfPeople(noOfPeopleTextField.getText());
+                workRequest.setIncident(incident);
+                workRequest.setSender(account);
+                workRequest.setStatus("Pending");
+                workRequest.setMessage(commentsJTextField.getText());
+                account.getWorkQueue().getWorkRequestList().add(workRequest);
+
+                for (Network network : system.getNetworkList()) {
+                    if (network.getNetworkName().equals(enterprise.getNetworkName())) {
+                        for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
+                            if (e instanceof ShelterEnterprise) {
+                                e.getWorkQueue().getWorkRequestList().add(workRequest);
+                            }
                         }
                     }
                 }
             }
+
             //((HousingWorkRequest)workRequest).setNoOfPeople(noOfPeopleTextField.getText());
         } else if (comboRequestType.getSelectedItem().equals(Organization.OrganizationType.FoodClothing)) {
-           // workRequest = new FoodClothingWorkRequest();
+            // workRequest = new FoodClothingWorkRequest();
             //((FoodClothingWorkRequest)workRequest).setNoOfPeople(noOfPeopleTextField.getText());
 
             FoodClothingWorkRequest workRequest = new FoodClothingWorkRequest();
@@ -265,36 +284,50 @@ public class ManageRequests extends javax.swing.JPanel {
             }
 
         } else if (comboRequestType.getSelectedItem().equals(Enterprise.EnterpriseType.Alerts)) {
-            ReliefOrganizationWorkRequest roWR = new ReliefOrganizationWorkRequest();
-            roWR.setEvent(noOfPeopleTextField.getText());
-            roWR.setLoc(commentsJTextField.getText());
-            roWR.setSender(account);
-            roWR.setStatus("Pending");
-            roWR.setMessage("Send alerts about incident " + incident.getIncidentType());
 
-            for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
-                if (org instanceof StaffOrganization) {
-                    for (Member member : ((StaffOrganization) org).getMemberDirectory().getMemberList()) {
-                        emailList.add(member.getEmail());
+            if (noOfPeopleTextField.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Incident is required");
+                allowSave = false;
+            } else if (commentsJTextField.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Location is required");
+                allowSave = false;
+            }
+
+            if (allowSave) {
+                ReliefOrganizationWorkRequest roWR = new ReliefOrganizationWorkRequest();
+                roWR.setEvent(noOfPeopleTextField.getText());
+                roWR.setLoc(commentsJTextField.getText());
+                roWR.setSender(account);
+                roWR.setStatus("Pending");
+                roWR.setMessage("Send alerts about incident " + incident.getIncidentType());
+
+                for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
+                    if (org instanceof StaffOrganization) {
+                        for (Member member : ((StaffOrganization) org).getMemberDirectory().getMemberList()) {
+                            emailList.add(member.getEmail());
+                        }
                     }
                 }
-            }
-            roWR.setEmailList(emailList);
+                roWR.setEmailList(emailList);
 
-            account.getWorkQueue().getWorkRequestList().add(roWR);
-            for (Network network : system.getNetworkList()) {
-                if (network.getNetworkName().equals(enterprise.getNetworkName())) {
-                    for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
-                        if (e instanceof AlertsEnterprise) {
-                            e.getWorkQueue().getWorkRequestList().add(roWR);
+                account.getWorkQueue().getWorkRequestList().add(roWR);
+                for (Network network : system.getNetworkList()) {
+                    if (network.getNetworkName().equals(enterprise.getNetworkName())) {
+                        for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
+                            if (e instanceof AlertsEnterprise) {
+                                e.getWorkQueue().getWorkRequestList().add(roWR);
+                            }
                         }
                     }
                 }
             }
 
         }
-        JOptionPane.showMessageDialog(this, "Request created successfully");
-        populateJTable();
+        if(allowSave) {
+            JOptionPane.showMessageDialog(this, "Request created successfully");
+            populateJTable();
+        }
+        
     }//GEN-LAST:event_btnRaiseRequestActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed

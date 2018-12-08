@@ -16,6 +16,7 @@ import Business.WorkQueue.HousingWorkRequest;
 import Business.WorkQueue.WorkQueue;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -30,7 +31,8 @@ public class RequestVictimJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private EcoSystem system;
     private UserAccount account;
-    public RequestVictimJPanel(JPanel userProcessContainer,EcoSystem system, UserAccount account) {
+
+    public RequestVictimJPanel(JPanel userProcessContainer, EcoSystem system, UserAccount account) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
@@ -38,11 +40,12 @@ public class RequestVictimJPanel extends javax.swing.JPanel {
         populateVictimCombo();
     }
 
-      public void populateVictimCombo() {
+    public void populateVictimCombo() {
         orgCombo.removeAllItems();
         orgCombo.addItem("Shelter");
         orgCombo.addItem("Food and Clothing");
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -104,7 +107,7 @@ public class RequestVictimJPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2)
-                            .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(orgCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -137,18 +140,29 @@ public class RequestVictimJPanel extends javax.swing.JPanel {
 
     private void sendBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendBtnActionPerformed
         // TODO add your handling code here:
-        
-        int message = Integer.parseInt(requiredTxt.getText());
-       
-        HousingWorkRequest hwq= new HousingWorkRequest();
-     //   WorkQueue wq = new WorkQueue();
+        Boolean allowSave = true;
 
-        hwq.setShelter(message);
-        hwq.setSender(account);
-        hwq.setStatus("Sent");
-        
-        account.getWorkQueue().getWorkRequestList().add(hwq);
-        
+        if (requiredTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter accomadation required for");
+            allowSave = false;
+        } else if (requiredTxt.getText().matches("[0-9]+") == false) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid input in number format only.");
+            allowSave = false;
+        }
+
+        if (allowSave) {
+            int message = Integer.parseInt(requiredTxt.getText());
+
+            HousingWorkRequest hwq = new HousingWorkRequest();
+            //   WorkQueue wq = new WorkQueue();
+
+            hwq.setShelter(message);
+            hwq.setSender(account);
+            hwq.setStatus("Sent");
+
+            account.getWorkQueue().getWorkRequestList().add(hwq);
+        }
+
 //        Organization org = null;
 //              
 //            for (Network network : system.getNetworkList()){
@@ -180,15 +194,15 @@ public class RequestVictimJPanel extends javax.swing.JPanel {
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
-        
+
         Component[] components = userProcessContainer.getComponents();
-        for(Component component: components) {
-            if(component instanceof  RequestVictimWorkAreaJPanel) {
+        for (Component component : components) {
+            if (component instanceof RequestVictimWorkAreaJPanel) {
                 RequestVictimWorkAreaJPanel rjPanel = (RequestVictimWorkAreaJPanel) component;
                 rjPanel.populateRequestTable();
             }
         }
-        
+
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backBtnActionPerformed

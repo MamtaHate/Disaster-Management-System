@@ -16,8 +16,10 @@ import javax.swing.JPanel;
  * @author Sweta Chowdhury
  */
 public class UpdateItemJPanel extends javax.swing.JPanel {
+
     JPanel userProcessContainer;
     Item item;
+
     /**
      * Creates new form UpdateItemJPanel
      */
@@ -28,7 +30,6 @@ public class UpdateItemJPanel extends javax.swing.JPanel {
         populateItems();
     }
 
-    
     public void populateItems() {
         itemNameTextField.setText(item.getName());
         itemCategory.setText(item.getCategory());
@@ -36,12 +37,12 @@ public class UpdateItemJPanel extends javax.swing.JPanel {
         valuePU.setText(item.getValuePerUnit());
         chkKit.setSelected(item.getIsKit());
         commentsTextField.setText(item.getComments());
-        if(item.getQty() != null) {
-             qtyText.setText(Integer.toString(item.getQty()));
+        if (item.getQty() != null) {
+            qtyText.setText(Integer.toString(item.getQty()));
         }
-       
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -126,14 +127,44 @@ public class UpdateItemJPanel extends javax.swing.JPanel {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // TODO add your handling code here:
-        item.setUnitOfMeasure(unitOfMeasure.getText());
-        item.setValuePerUnit(valuePU.getText());
-        item.setIsKit(chkKit.isSelected());
-        item.setComments(commentsTextField.getText());
-        item.setQty(Integer.parseInt(qtyText.getText()));
 
-        JOptionPane.showMessageDialog(this, "Item updated successfully");
+        boolean allowUpdate = true;
+
+        allowUpdate = validateInput();
+
+        if (allowUpdate) {
+            item.setUnitOfMeasure(unitOfMeasure.getText());
+            item.setValuePerUnit(valuePU.getText());
+            item.setIsKit(chkKit.isSelected());
+            item.setComments(commentsTextField.getText());
+            item.setQty(Integer.parseInt(qtyText.getText()));
+
+            JOptionPane.showMessageDialog(this, "Item updated successfully");
+        }
+
+
     }//GEN-LAST:event_saveButtonActionPerformed
+
+    public boolean validateInput() {
+        if (unitOfMeasure.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Unit of measure is required");
+            return false;
+        } else if (unitOfMeasure.getText().matches("[0-9]+") == true) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid unit of measure.");
+            return false;
+        }
+
+        if (qtyText.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Quantity is required");
+            return false;
+        } else if (unitOfMeasure.getText().matches("[0-9]+") == false) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid input for quantity.");
+            return false;
+        }
+
+        return true;
+    }
+
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
         userProcessContainer.remove(this);

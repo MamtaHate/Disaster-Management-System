@@ -77,10 +77,7 @@ public class ManageIncidentsJPanel extends javax.swing.JPanel {
 
         incidentsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Incident Name", "Event Type", "Incident Type", "Date of Occurrence", "Location"

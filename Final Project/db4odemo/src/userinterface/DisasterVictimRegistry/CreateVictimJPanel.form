@@ -29,36 +29,30 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="gender" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="gender" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="nationalityTxt" max="32767" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Component id="genderBtn" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                          <Component id="genderBtn1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="nameTxt" pref="175" max="32767" attributes="0"/>
-                                      <Component id="ageTxt" pref="175" max="32767" attributes="0"/>
-                                      <Component id="imgBtn" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="imgTxt" alignment="0" pref="175" max="32767" attributes="0"/>
-                                      <Component id="contactTxt" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="addressTxt" alignment="0" pref="175" max="32767" attributes="0"/>
-                                      <Component id="victimCombo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="rdbMale" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                              <Component id="rdbFemale" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="nameTxt" max="32767" attributes="0"/>
+                          <Component id="ageTxt" max="32767" attributes="0"/>
+                          <Component id="imgBtn" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="imgTxt" alignment="0" max="32767" attributes="0"/>
+                          <Component id="contactTxt" alignment="0" max="32767" attributes="0"/>
+                          <Component id="addressTxt" alignment="0" max="32767" attributes="0"/>
+                          <Component id="victimCombo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="nationalityCombo" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="534" max="32767" attributes="0"/>
                   </Group>
@@ -72,7 +66,7 @@
                               <Component id="saveBtn" min="-2" pref="67" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="9" max="32767" attributes="0"/>
                       <Component id="lbl" min="-2" pref="177" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -99,8 +93,8 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="gender" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="genderBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="genderBtn1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rdbMale" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rdbFemale" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -115,7 +109,7 @@
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="nationalityTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="nationalityCombo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -229,11 +223,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contactTxtActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="nationalityTxt">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nationalityTxtActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JTextField" name="addressTxt">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addressTxtActionPerformed"/>
@@ -254,7 +243,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="victimComboActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="genderBtn">
+    <Component class="javax.swing.JRadioButton" name="rdbMale">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="genderGroup"/>
@@ -262,7 +251,7 @@
         <Property name="text" type="java.lang.String" value="Male"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="genderBtn1">
+    <Component class="javax.swing.JRadioButton" name="rdbFemale">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="genderGroup"/>
@@ -283,6 +272,18 @@
           <Font name="Times New Roman" size="24" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="CREATE VICTIM REGISTRY"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="nationalityCombo">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+            <StringItem index="2" value="Item 3"/>
+            <StringItem index="3" value="Item 4"/>
+          </StringArray>
+        </Property>
       </Properties>
     </Component>
   </SubComponents>

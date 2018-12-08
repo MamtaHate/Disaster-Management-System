@@ -10,6 +10,8 @@ import Business.Incident.Incident;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -22,6 +24,7 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
     private UserAccount userAccount;
     private JPanel userProcessContainer;
     private Enterprise enterprise;
+
     /**
      * Creates new form IncidentReportingJPanel
      */
@@ -34,11 +37,10 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
         populateEventTypes();
         incidentJComboBox.removeAllItems();
     }
-    
-    
+
     public void populateEventTypes() {
         eventTypeJComboBox.removeAllItems();
-        
+
         eventTypeJComboBox.addItem("Avalanche");
         eventTypeJComboBox.addItem("Explosion");
         eventTypeJComboBox.addItem("Earthquake");
@@ -49,7 +51,7 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
         eventTypeJComboBox.addItem("Heatwave");
         eventTypeJComboBox.addItem("Tsunami");
         eventTypeJComboBox.addItem("Tropical Cyclone");
-        eventTypeJComboBox.addItem("Volcano");            
+        eventTypeJComboBox.addItem("Volcano");
     }
 
     /**
@@ -88,7 +90,7 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 240, 41));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel2.setText("Name:");
+        jLabel2.setText("Incident Name:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 130, 40));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -131,9 +133,11 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(cityJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(postalCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -142,11 +146,11 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cityJTextField, postalCodeTextField});
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 440, 120));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 440, 140));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel8.setText("Comments: (if any)");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, 180, 40));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 430, 180, 40));
         add(eventNameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 210, 30));
 
         incidentJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -169,7 +173,7 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
         commentsJTextArea.setRows(5);
         jScrollPane1.setViewportView(commentsJTextArea);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 410, 240, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 430, 240, -1));
 
         saveButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         saveButton.setText("SAVE");
@@ -178,7 +182,7 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
                 saveButtonActionPerformed(evt);
             }
         });
-        add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 530, 190, 50));
+        add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 550, 190, 40));
 
         backButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         backButton.setText("<<BACK");
@@ -187,71 +191,110 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 540, 140, 40));
-        add(dateOfOccurrenceJXDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, 210, -1));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 580, 140, 40));
+        add(dateOfOccurrenceJXDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 210, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
-        
+
         Component[] components = userProcessContainer.getComponents();
-        
-        for(Component c: components) {
-            if(c instanceof ManageIncidentsJPanel) {
+
+        for (Component c : components) {
+            if (c instanceof ManageIncidentsJPanel) {
                 ManageIncidentsJPanel incidentJPanel = (ManageIncidentsJPanel) c;
                 incidentJPanel.populateTable();
             }
         }
-        
-        
+
+
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // TODO add your handling code here:
+        Boolean allowSave = true;
+
         Incident incident = enterprise.getIncidentDirectory().addIncident();
         incident.setIncidentName(eventNameJTextField.getText());
         incident.setEventType(eventTypeJComboBox.getSelectedItem().toString());
-        incident.setIncidentType(eventTypeJComboBox.getSelectedItem().toString()); 
+        incident.setIncidentType(eventTypeJComboBox.getSelectedItem().toString());
         incident.setDateOccured(dateOfOccurrenceJXDatePicker.getDate());
         incident.setCity(cityJTextField.getText());
         incident.setPostCode(postalCodeTextField.getText());
         incident.setComments(commentsJTextArea.getText());
-        
+
         JOptionPane.showMessageDialog(this, "Reported Successfully");
+
+        //send alerts???
+
     }//GEN-LAST:event_saveButtonActionPerformed
+
+    public boolean validateInputs() {
+        if (eventNameJTextField.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Incident name is required");
+            return false;
+        }
+
+        if (dateOfOccurrenceJXDatePicker.equals("")) {
+            JOptionPane.showMessageDialog(this, "Date of Occurrence is required");
+            return false;
+        }
+
+        if (cityJTextField.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "City is required");
+            return false;
+        } else if (cityJTextField.getText().matches("[0-9]+") == true) {
+            JOptionPane.showMessageDialog(this, "Please enter a city.");
+            return false;
+        }
+
+        if (postalCodeTextField.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Postal Code is required");
+            return false;
+        } else if (!isValidZip(postalCodeTextField.getText())) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid zip code.");
+            return false;
+        }
+
+        return true;
+    }
+
+    public boolean isValidZip(String zipCode) {
+        String regex = "^[0-9]{5}(?:-[0-9]{4})?$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(zipCode);
+        return matcher.matches();
+    }
+
 
     private void eventTypeJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eventTypeJComboBoxActionPerformed
         // TODO add your handling code here:
         incidentJComboBox.removeAllItems();
-        if(eventTypeJComboBox.getItemCount() > 0) {
+        if (eventTypeJComboBox.getItemCount() > 0) {
             if (eventTypeJComboBox.getSelectedItem().toString().equals("Fire")) {
-             incidentJComboBox.addItem("Fire");
-             incidentJComboBox.addItem("Forest Fire");
-            }
-            else if (eventTypeJComboBox.getSelectedItem().toString().equals("Volacano")) {
+                incidentJComboBox.addItem("Fire");
+                incidentJComboBox.addItem("Forest Fire");
+            } else if (eventTypeJComboBox.getSelectedItem().toString().equals("Volacano")) {
                 incidentJComboBox.addItem("Volcanic Ash Cloud");
                 incidentJComboBox.addItem("Volcanic Event");
-            }
-            else if (eventTypeJComboBox.getSelectedItem().toString().equals("Earthquake")) {
+            } else if (eventTypeJComboBox.getSelectedItem().toString().equals("Earthquake")) {
                 incidentJComboBox.addItem("Earthquake");
-            }
-            else if (eventTypeJComboBox.getSelectedItem().toString().equals("Avalanche")) {
+            } else if (eventTypeJComboBox.getSelectedItem().toString().equals("Avalanche")) {
                 incidentJComboBox.addItem("Avalanche");
-            }
-            else if (eventTypeJComboBox.getSelectedItem().toString().equals("Explosion")) {
+            } else if (eventTypeJComboBox.getSelectedItem().toString().equals("Explosion")) {
                 incidentJComboBox.addItem("Bomb Explosion");
                 incidentJComboBox.addItem("Chemical Hazzard");
                 incidentJComboBox.addItem("Bomb Threat");
             }
-        }       
+        }
     }//GEN-LAST:event_eventTypeJComboBoxActionPerformed
 
     private void eventTypeJComboBoxPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_eventTypeJComboBoxPropertyChange
         // TODO add your handling code here:
-        
-       
+
+
     }//GEN-LAST:event_eventTypeJComboBoxPropertyChange
 
 

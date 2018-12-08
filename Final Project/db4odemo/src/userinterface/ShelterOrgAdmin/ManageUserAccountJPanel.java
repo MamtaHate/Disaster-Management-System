@@ -108,10 +108,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
 
         userJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Username", "Role"
@@ -212,14 +209,14 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
 
     public boolean validateStrings(String name) {
         if (name.equals("")) {
-            JOptionPane.showMessageDialog(null, "Please Enter mandatory value", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please enter username", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         Pattern pattern = Pattern.compile("[a-zA-Z ]*");
         Matcher matcher = pattern.matcher(name);
         if (!matcher.matches()) {
 
-            JOptionPane.showMessageDialog(null, "Please Enter valid string value", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please enter valid string value", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         return true;
@@ -227,7 +224,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
 
     public boolean validatePwd(String name) {
         if (name.equals("")) {
-            JOptionPane.showMessageDialog(null, "Please Enter Password", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please enter Password", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         return true;

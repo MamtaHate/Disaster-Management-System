@@ -178,6 +178,11 @@ public class ManageUsersJPanel extends javax.swing.JPanel {
         add(rolesJCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 240, 250, 40));
 
         membersJCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        membersJCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                membersJComboActionPerformed(evt);
+            }
+        });
         add(membersJCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 190, 250, 40));
         add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 340, 250, 40));
         add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 290, 250, 40));
@@ -218,16 +223,21 @@ public class ManageUsersJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backButtonActionPerformed
 
+    private void membersJComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_membersJComboActionPerformed
+        // TODO add your handling code here:
+      
+    }//GEN-LAST:event_membersJComboActionPerformed
+
     public boolean validateStrings(String name) {
         if (name.equals("")) {
-            JOptionPane.showMessageDialog(null, "Please Enter mandatory value", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please enter username", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         Pattern pattern = Pattern.compile("[a-zA-Z ]*");
         Matcher matcher = pattern.matcher(name);
         if (!matcher.matches()) {
 
-            JOptionPane.showMessageDialog(null, "Please Enter valid string value", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please enter valid string value", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         return true;
@@ -235,7 +245,7 @@ public class ManageUsersJPanel extends javax.swing.JPanel {
 
     public boolean validatePwd(String name) {
         if (name.equals("")) {
-            JOptionPane.showMessageDialog(null, "Please Enter Password", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please enter Password", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         return true;

@@ -26,6 +26,7 @@ public class FindMissingPersonJPanel extends javax.swing.JPanel {
     private StaffOrganization organization;
     private UserAccount account;
     private Enterprise enterprise;
+
     /**
      * Creates new form FindMissingPersonJPanel
      */
@@ -106,44 +107,65 @@ public class FindMissingPersonJPanel extends javax.swing.JPanel {
 
     private void submitRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitRequestActionPerformed
         // TODO add your handling code here:
-        MissingPersonRequest request = new MissingPersonRequest();
-        request.setPersonName(personNameTextField.getText());
-        if (genderGroup.isSelected(rdbMale.getModel())) {
-            request.setGender("Male");
-        }
-        else {
-            request.setGender("Female");
-        }
-        request.setAddress(addressTextField.getText());
-        request.setSender(account);
-        request.setStatus("Missing");
-        
-        account.getWorkQueue().getWorkRequestList().add(request);
-        
-        for(Organization organization: enterprise.getOrganizationDirectory().getOrganizationList()) {
-            if( organization instanceof DisasterVictimOrganization) {
-                organization.getWorkQueue().getWorkRequestList().add(request);
+
+        boolean allowSubmit = true;
+
+        allowSubmit = validateInput();
+
+        if (allowSubmit) {
+            MissingPersonRequest request = new MissingPersonRequest();
+            request.setPersonName(personNameTextField.getText());
+            if (genderGroup.isSelected(rdbMale.getModel())) {
+                request.setGender("Male");
+            } else {
+                request.setGender("Female");
             }
+            request.setAddress(addressTextField.getText());
+            request.setSender(account);
+            request.setStatus("Missing");
+
+            account.getWorkQueue().getWorkRequestList().add(request);
+
+            for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+                if (organization instanceof DisasterVictimOrganization) {
+                    organization.getWorkQueue().getWorkRequestList().add(request);
+                }
+            }
+
+            JOptionPane.showMessageDialog(this, "Request submitted");
         }
-        
-        JOptionPane.showMessageDialog(this, "Request submitted");
-        
+
+
     }//GEN-LAST:event_submitRequestActionPerformed
+
+    public boolean validateInput() {
+        if (personNameTextField.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Person name is required");
+            return false;
+        }
+
+        if (genderGroup.getSelection() == null) {
+            JOptionPane.showMessageDialog(this, "Gender is required");
+            return false;
+        }
+
+        return true;
+    }
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
-        
+
         Component[] components = userProcessContainer.getComponents();
-        for(Component c: components) {
-            if( c instanceof ManageRequestsJPanel) {
-                ManageRequestsJPanel m = (ManageRequestsJPanel)c;
+        for (Component c : components) {
+            if (c instanceof ManageRequestsJPanel) {
+                ManageRequestsJPanel m = (ManageRequestsJPanel) c;
                 m.populateMissingRequests();
             }
         }
-        
-        
+
+
     }//GEN-LAST:event_backButtonActionPerformed
 
 

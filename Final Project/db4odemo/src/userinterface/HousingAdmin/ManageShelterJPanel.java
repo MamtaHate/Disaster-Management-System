@@ -12,6 +12,7 @@ import Business.Housing.Housing.statusType;
 import Business.Organization.HousingOrganization;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -21,10 +22,9 @@ import javax.swing.JPanel;
  */
 public class ManageShelterJPanel extends javax.swing.JPanel {
 
-    
     private JPanel userProcessContainer;
     private HousingOrganization organization;
-    
+
     /**
      * Creates new form ManageOrganizationJPanel
      */
@@ -32,32 +32,31 @@ public class ManageShelterJPanel extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.organization = organization;
-        
+
         populateCombo();
     }
 
-    
     public void populateCombo() {
         shelterTypeJComboBox.removeAllItems();
-        
-        for(shelterType type: Housing.shelterType.values()){
+
+        for (shelterType type : Housing.shelterType.values()) {
             shelterTypeJComboBox.addItem(type);
         }
 
         addressJComboBox.removeAllItems();
-        
+
 //        for(Network network: this.business.getNetworkList()){
-            //network.
-            addressJComboBox.addItem("Boston");
+        //network.
+        addressJComboBox.addItem("Boston");
 //        }
-        
+
         shelterStatusJComboBox.removeAllItems();
-        
-        for(statusType type: Housing.statusType.values()){
+
+        for (statusType type : Housing.statusType.values()) {
             shelterStatusJComboBox.addItem(type);
         }
-        
-    }    
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -107,7 +106,7 @@ public class ManageShelterJPanel extends javax.swing.JPanel {
         add(shelterStatusJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, 190, 30));
 
         addJButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        addJButton.setText("ADD HOUSING");
+        addJButton.setText("SAVE");
         addJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addJButtonActionPerformed(evt);
@@ -210,47 +209,118 @@ public class ManageShelterJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
 
         Component[] components = userProcessContainer.getComponents();
-        for(Component c: components){
-           if(c instanceof ManageOrganizationJPanel){
-               ManageOrganizationJPanel manageOrganizationJPanel = (ManageOrganizationJPanel)c;
-               manageOrganizationJPanel.populateTable();
-           }
-        }        
+        for (Component c : components) {
+            if (c instanceof ManageOrganizationJPanel) {
+                ManageOrganizationJPanel manageOrganizationJPanel = (ManageOrganizationJPanel) c;
+                manageOrganizationJPanel.populateTable();
+            }
+        }
     }//GEN-LAST:event_backJButtonActionPerformed
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
 //housing.se
-        if (shelterName.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Some fields are blank.Please enter values");
-            return;
-        } 
-        else {
-        Housing housing = this.organization.getHousingDirectory().createAndAddHousing();
 
-        housing.setHouseName(shelterName.getText());
-        housing.setHouseType(shelterTypeJComboBox.getSelectedItem().toString());
-        housing.setHousePhone(shelterPhone.getText());
-        housing.setHouseEmail(shelterEmail.getText());
-        housing.setHouseAddress(addressJComboBox.getSelectedItem().toString());
-        housing.setHouseCapacity(shelterCapacity.getText());
-        housing.setHouseStatus(shelterStatusJComboBox.getSelectedItem().toString());
+        Boolean allowSave = true;
 
-            JOptionPane.showMessageDialog(null, "Shelter added successfully", "Warning", JOptionPane.INFORMATION_MESSAGE);
-            shelterName.setText(null);
-            shelterTypeJComboBox.setSelectedItem(null);
-            shelterPhone.setText(null);
-            shelterEmail.setText(null);
-            addressJComboBox.setSelectedItem(null);
-            shelterCapacity.setText(null);
-            shelterContactPerson.setText(null);
-            shelterStatusJComboBox.setSelectedItem(null);
+        allowSave = validateInput();
+
+        if (allowSave) {
+            if (shelterName.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Some fields are blank.Please enter values");
+                return;
+            } else {
+                Housing housing = this.organization.getHousingDirectory().createAndAddHousing();
+
+                housing.setHouseName(shelterName.getText());
+                housing.setHouseType(shelterTypeJComboBox.getSelectedItem().toString());
+                housing.setHousePhone(shelterPhone.getText());
+                housing.setHouseEmail(shelterEmail.getText());
+                housing.setHouseAddress(addressJComboBox.getSelectedItem().toString());
+                housing.setHouseCapacity(shelterCapacity.getText());
+                housing.setHouseStatus(shelterStatusJComboBox.getSelectedItem().toString());
+                housing.setContactPerson(shelterContactPerson.getText());
+
+                JOptionPane.showMessageDialog(null, "Shelter added successfully", "Warning", JOptionPane.INFORMATION_MESSAGE);
+                shelterName.setText(null);
+                shelterTypeJComboBox.setSelectedItem(null);
+                shelterPhone.setText(null);
+                shelterEmail.setText(null);
+                addressJComboBox.setSelectedItem(null);
+                shelterCapacity.setText(null);
+                shelterContactPerson.setText(null);
+                shelterStatusJComboBox.setSelectedItem(null);
+            }
         }
-        //txtAirlinerName.setText("");
-        
-        /*OrganizationType type = (OrganizationType) shelterStatusJComboBox.getSelectedItem();
-        directory.createOrganization(type);
-        populateTable();*/
+
+
     }//GEN-LAST:event_addJButtonActionPerformed
+
+    public boolean validateInput() {
+
+        if (shelterName.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Shelter Name is required");
+            return false;
+        }
+
+        if (shelterTypeJComboBox.getSelectedItem().equals("")) {
+            JOptionPane.showMessageDialog(null, "Shelter Type is required");
+            return false;
+        }
+
+        if (shelterPhone.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Phone Number is required.");
+            return false;
+        } else if (shelterPhone.getText().matches("[0-9]+") == false) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid phone number.");
+            return false;
+        } else if (shelterPhone.getText().length() < 10) {
+            JOptionPane.showMessageDialog(this, "Phone Number should be atleast 10 digits.");
+            return false;
+        }
+
+
+
+        if (shelterEmail.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Email ID is required.");
+            return false;
+        } else if (!isValidEmail(shelterEmail.getText())) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid email ID");
+            return false;
+        }
+
+        if (shelterContactPerson.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Contact Person is required.");
+            return false;
+        }
+
+        if (shelterCapacity.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Capacity is required.");
+            return false;
+        } else if (shelterCapacity.getText().matches("[0-9]+") == false) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid capacity in number format");
+            return false;
+        }
+        
+        if(shelterStatusJComboBox.getSelectedItem().equals("")) {
+            JOptionPane.showMessageDialog(this, "Status is required.");
+            return false;
+        }
+
+        return true;
+    }
+
+    public static boolean isValidEmail(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."
+                + "[a-zA-Z0-9_+&*-]+)*@"
+                + "(?:[a-zA-Z0-9-]+\\.)+[a-z"
+                + "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null) {
+            return false;
+        }
+        return pat.matcher(email).matches();
+    }
 
     private void shelterStatusJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shelterStatusJComboBoxActionPerformed
         // TODO add your handling code here:

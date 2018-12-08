@@ -7,13 +7,15 @@ package userinterface.Alerts;
 
 import Business.Email.SendMailUsingAuthentication;
 import Business.UserAccount.UserAccount;
-//import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
+import com.sun.org.apache.bcel.internal.generic.InstructionConstants;
+import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
 import java.awt.CardLayout;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 //import javax.mail.MessagingException;
 import javax.swing.JPanel;
 import javax.mail.Message;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,12 +26,11 @@ public class SendEmailsJPanel extends javax.swing.JPanel {
     /**
      * Creates new form SendEmailsJPnael
      */
-    
-   
     private JPanel userProcessContainer;
     private UserAccount account;
+
     public SendEmailsJPanel(JPanel userProcessContainer, UserAccount account) {
-        
+
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
@@ -113,17 +114,31 @@ public class SendEmailsJPanel extends javax.swing.JPanel {
 
     private void sendBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendBtnActionPerformed
         // TODO add your handling code here: 
-       try {
-            //String []patientRelative =new String[2];
-            String message= messageTxt.getText();
-            String sender="mamtahate@gmail.com";
-            String subject = subjectTxt.getText();
-            String []patientRelative = {"hate.m@husky.neu.edu"};
-            SendMailUsingAuthentication.postMail(patientRelative, message,subject, sender);
-                    } 
-        catch (javax.mail.MessagingException ex) {
-                       Logger.getLogger(SendEmailsJPanel.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+        Boolean allowSend = true;
+
+        if (subjectTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Subject is required");
+            allowSend = false;
+        } else if (messageTxt.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Message body is required");
+            allowSend = false;
+        }
+
+        if (allowSend) {
+            try {
+                //String []patientRelative =new String[2];
+                String message = messageTxt.getText();
+                String sender = "mamtahate@gmail.com";
+                String subject = subjectTxt.getText();
+                String[] patientRelative = {"chowdhury.sw@husky.neu.edu"};
+                SendMailUsingAuthentication.postMail(patientRelative, message, subject, sender);
+                JOptionPane.showMessageDialog(this, "Email Sent");
+            } catch (javax.mail.MessagingException ex) {
+                Logger.getLogger(SendEmailsJPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+
     }//GEN-LAST:event_sendBtnActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed

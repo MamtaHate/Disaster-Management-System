@@ -84,6 +84,7 @@ public class CreateUpdateItemsJPanel extends javax.swing.JPanel {
         chkKit = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
         qtyText = new javax.swing.JTextField();
+
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -102,7 +103,7 @@ public class CreateUpdateItemsJPanel extends javax.swing.JPanel {
         jLabel5.setText("Item Category: *");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 130, 30));
 
-        jLabel6.setText("Name: *");
+        jLabel6.setText("Description: *");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 110, 30));
 
         jLabel7.setText("Unit of Measure: *");
@@ -152,18 +153,63 @@ public class CreateUpdateItemsJPanel extends javax.swing.JPanel {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // TODO add your handling code here:
-        Item item = organization.getItemCatalog().addItem();
-        item.setName(itemNameTextField.getText());
-        item.setCategory(itemCategory.getSelectedItem().toString());
-        item.setUnitOfMeasure(unitOfMeasure.getText());
-        item.setValuePerUnit(valuePU.getText());
-        item.setIsKit(chkKit.isSelected());
-        item.setComments(commentsTextField.getText());
-        item.setQty(Integer.parseInt(qtyText.getText()));
         
-        JOptionPane.showMessageDialog(this, "Item added successfully");
+        boolean allowSave = true;
+        
+        allowSave = validateInput();
+        
+        if (allowSave) {
+            Item item = organization.getItemCatalog().addItem();
+            item.setName(itemNameTextField.getText());
+            item.setCategory(itemCategory.getSelectedItem().toString());
+            item.setUnitOfMeasure(unitOfMeasure.getText());
+            item.setValuePerUnit(valuePU.getText());
+            item.setIsKit(chkKit.isSelected());
+            item.setComments(commentsTextField.getText());
+            item.setQty(Integer.parseInt(qtyText.getText()));
+
+            JOptionPane.showMessageDialog(this, "Item added successfully");
+            clear();
+        }
+        
     }//GEN-LAST:event_saveButtonActionPerformed
 
+    public void clear() {
+        itemCategory.setSelectedItem("");
+        itemNameTextField.setText("");
+        unitOfMeasure.setText("");
+        valuePU.setText("");
+        chkKit.setSelected(false);
+        commentsTextField.setText("");
+        qtyText.setText("");   
+    }
+    
+    public boolean validateInput() {
+        if (itemNameTextField.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Description is required");
+            return false;
+        }
+        
+        if(unitOfMeasure.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Unit of measure is required");
+            return false;
+        }
+        else if(unitOfMeasure.getText().matches("[0-9]+") == true) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid unit of measure.");
+            return false;
+        }
+        
+        if(qtyText.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Quantity is required");
+            return false;
+        }
+        else if(unitOfMeasure.getText().matches("[0-9]+") == false) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid input for quantity.");
+            return false;
+        }
+        
+        return true;   
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;

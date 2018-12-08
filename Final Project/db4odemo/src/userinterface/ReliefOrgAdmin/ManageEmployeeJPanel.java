@@ -110,10 +110,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
 
         empJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "ID", "Name"
@@ -188,7 +185,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
 
     public boolean validateStrings(String name) {
         if (name.equals("")) {
-            JOptionPane.showMessageDialog(null, "Please enter mandatory value", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please enter employee name", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         Pattern pattern = Pattern.compile("[a-zA-Z ]*");

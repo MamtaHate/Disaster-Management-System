@@ -230,14 +230,14 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
     public boolean validateStrings(String name) {
         if (name.equals("")) {
-            JOptionPane.showMessageDialog(null, "Please Enter mandatory value", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please enter mandatory value", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         Pattern pattern = Pattern.compile("[a-zA-Z ]*");
         Matcher matcher = pattern.matcher(name);
         if (!matcher.matches()) {
 
-            JOptionPane.showMessageDialog(null, "Please Enter valid string value", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please enter valid string value", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         return true;
@@ -245,7 +245,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
     public boolean validatePwd(String name) {
         if (name.equals("")) {
-            JOptionPane.showMessageDialog(null, "Please Enter Password", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please enter Password", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         return true;

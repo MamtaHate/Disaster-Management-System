@@ -15,6 +15,9 @@ import java.util.ArrayList;
 public class PatientDirectory {
     private ArrayList<Patient> patientList;
 
+    public PatientDirectory(){
+        patientList = new ArrayList<Patient>(); 
+    }
     public ArrayList<Patient> getPatientList() {
         return patientList;
     }

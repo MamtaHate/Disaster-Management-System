@@ -36,6 +36,7 @@ public class PatientListJPanel extends javax.swing.JPanel {
 
         DefaultTableModel model = (DefaultTableModel) reqTbl.getModel();
         model.setRowCount(0);
+         System.out.println(organization.getPatientDirectory().getPatientList().size());
             for (Patient patient : organization.getPatientDirectory().getPatientList() ) {
                 Object[] row = new Object[model.getColumnCount()];
                 row[0] = patient;

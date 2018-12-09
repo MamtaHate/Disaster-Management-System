@@ -35,9 +35,11 @@ public class ProcessMissingPersonJPanel extends javax.swing.JPanel {
     public void populateTable() {
         DefaultTableModel model = (DefaultTableModel) victimTbl.getModel();
         model.setRowCount(0);
-    
+        System.out.println("outside");
         for(DisasterVictim dv: organization.getDisasterVictimDirectory().getVictimList()){
-            if(dv.getType().equals(request)){
+            System.out.println("in");
+            //if(dv.getType().equals(request)){
+                System.out.println("inside");
                 Object[] row = new Object[model.getColumnCount()];
                     row[0] = dv;
                     row[1] = dv.getAge();
@@ -47,7 +49,7 @@ public class ProcessMissingPersonJPanel extends javax.swing.JPanel {
                     row[5] = dv.getNationality();
                     row[6] = dv.getType();
                     model.addRow(row);
-            }
+            //}
             
         }
         //if(victimCombo.getSelectedItem().equals("Missing Person")){
@@ -78,6 +80,8 @@ public class ProcessMissingPersonJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         victimTbl = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        searchTxt = new javax.swing.JTextField();
 
         victimTbl.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         victimTbl.setModel(new javax.swing.table.DefaultTableModel(
@@ -100,6 +104,14 @@ public class ProcessMissingPersonJPanel extends javax.swing.JPanel {
             }
         });
 
+        jButton2.setText("Search");
+
+        searchTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchTxtActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -110,11 +122,21 @@ public class ProcessMissingPersonJPanel extends javax.swing.JPanel {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(188, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(137, 137, 137))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(85, Short.MAX_VALUE)
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -129,10 +151,16 @@ public class ProcessMissingPersonJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void searchTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchTxtActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField searchTxt;
     private javax.swing.JTable victimTbl;
     // End of variables declaration//GEN-END:variables
 }

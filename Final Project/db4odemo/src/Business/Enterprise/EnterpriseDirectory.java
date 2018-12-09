@@ -34,7 +34,7 @@ public class EnterpriseDirectory {
             enterprise = new ReliefOrganizationEnterprise(name, networkName);
         }
         else if(type == Enterprise.EnterpriseType.Hospital) {
-            enterprise = new HospitalEnterprise(name);
+            enterprise = new HospitalEnterprise(name,networkName);
         }
         else if(type == Enterprise.EnterpriseType.Shelter) {
             enterprise = new ShelterEnterprise(name);

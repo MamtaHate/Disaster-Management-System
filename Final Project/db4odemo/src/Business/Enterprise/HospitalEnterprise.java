@@ -14,8 +14,8 @@ import java.util.ArrayList;
  */
 public class HospitalEnterprise extends Enterprise {
     
-    public HospitalEnterprise(String name) {
-        super(name, Enterprise.EnterpriseType.Hospital, "");
+    public HospitalEnterprise(String name, String networkName) {
+        super(name, Enterprise.EnterpriseType.Hospital, networkName);
     }
     
     @Override

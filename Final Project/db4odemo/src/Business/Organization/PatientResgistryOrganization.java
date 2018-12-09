@@ -19,7 +19,7 @@ public class PatientResgistryOrganization extends Organization {
     private PatientDirectory patientDirectory;
     
         public PatientResgistryOrganization() {
-        super(OrganizationType.DisasterVictimRegistry.getValue());
+        super(OrganizationType.PatientRegistry.getValue());
         patientDirectory = new PatientDirectory();
     }
 

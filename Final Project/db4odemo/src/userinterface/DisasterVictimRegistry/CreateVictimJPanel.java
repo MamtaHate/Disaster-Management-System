@@ -261,7 +261,14 @@ public class CreateVictimJPanel extends javax.swing.JPanel {
             String type = victimCombo.getSelectedItem().toString();
 
             //System.out.println(gender);
-            organization.getDisasterVictimDirectory().createVictimRegistry(nameTxt.getText(), Integer.parseInt(ageTxt.getText()), gender, contact, address, nationality, file, type);
+         //if(victimCombo.getSelectedItem().toString().equals("Victim")){
+             organization.getDisasterVictimDirectory().createVictimRegistry(nameTxt.getText(), Integer.parseInt(ageTxt.getText()), gender, contact, address, nationality, file, type);
+            
+         //}
+         //else{
+           //  organization.getMissingPersonDiretory().createMissingRegistry(nameTxt.getText(), Integer.parseInt(ageTxt.getText()), gender, contact, address, nationality, file, type);
+           //JOptionPane.showMessageDialog(null, "Details saved successfully");
+         //}
             JOptionPane.showMessageDialog(null, "Details saved successfully");
             // wq.getWorkRequestList().add(disasterVictim);
         }

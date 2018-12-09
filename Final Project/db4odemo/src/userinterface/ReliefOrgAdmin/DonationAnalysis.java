@@ -80,8 +80,11 @@ public class DonationAnalysis extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(255, 253, 208));
 
         jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\prath\\Documents\\icons\\arrow-back-icon_1_40x40.png")); // NOI18N
-        jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setFocusPainted(false);
+        jButton2.setIconTextGap(0);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -125,20 +128,17 @@ public class DonationAnalysis extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCharts1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jCharts1, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(emrgnonemrgBtn1)
-                                .addGap(18, 18, 18)
-                                .addComponent(foodareaBtn1)
-                                .addGap(18, 18, 18)
-                                .addComponent(fundsareaBtn2)
-                                .addGap(18, 18, 18)
-                                .addComponent(fundsareaBtn3))
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 82, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(emrgnonemrgBtn1)
+                        .addGap(18, 18, 18)
+                        .addComponent(foodareaBtn1)
+                        .addGap(18, 18, 18)
+                        .addComponent(fundsareaBtn2)
+                        .addGap(18, 18, 18)
+                        .addComponent(fundsareaBtn3))
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,7 +190,8 @@ public class DonationAnalysis extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("< Back");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -204,20 +205,17 @@ public class DonationAnalysis extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCharts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jCharts, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(emrgnonemrgBtn)
-                                .addGap(18, 18, 18)
-                                .addComponent(foodareaBtn)
-                                .addGap(18, 18, 18)
-                                .addComponent(fundsareaBtn)
-                                .addGap(18, 18, 18)
-                                .addComponent(fundsareaBtn1)))
-                        .addGap(0, 48, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(emrgnonemrgBtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(foodareaBtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(fundsareaBtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(fundsareaBtn1))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,7 +230,7 @@ public class DonationAnalysis extends javax.swing.JPanel {
                     .addComponent(fundsareaBtn1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jCharts, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(253, Short.MAX_VALUE))
+                .addContainerGap(227, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Donation", jPanel1);

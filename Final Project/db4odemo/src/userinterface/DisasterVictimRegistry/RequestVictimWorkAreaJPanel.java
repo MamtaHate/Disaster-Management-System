@@ -6,12 +6,20 @@
 package userinterface.DisasterVictimRegistry;
 
 import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Enterprise.HospitalEnterprise;
+import Business.Enterprise.ShelterEnterprise;
+import Business.Network.Network;
 import Business.Organization.DisasterVictimOrganization;
 import Business.Organization.HousingOrganization;
+import Business.Organization.Organization;
+import Business.Organization.PatientResgistryOrganization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HousingWorkRequest;
+import Business.WorkQueue.PatientRegistry;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,37 +32,41 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form RequestVictimWorkAreaJPanel
      */
-    JPanel userProcessContainer;
-    DisasterVictimOrganization disasterVictimOrganization;
-    EcoSystem system;
+    private JPanel userProcessContainer;
+    private DisasterVictimOrganization disasterVictimOrganization;
+    private EcoSystem system;
     private UserAccount account;
+    private Enterprise enterprise;
 
-    public RequestVictimWorkAreaJPanel(JPanel userProcessContainer, EcoSystem system, UserAccount account) {
+    public RequestVictimWorkAreaJPanel(JPanel userProcessContainer, EcoSystem system, UserAccount account,Enterprise enterprise) {
+        
         initComponents();
+        
         this.userProcessContainer = userProcessContainer;
         this.disasterVictimOrganization = disasterVictimOrganization;
         this.system = system;
         this.account = account;
+        this.enterprise = enterprise;
+        populateComboBox();
         populateRequestTable();
     }
+    public void populateComboBox() {
+        //selectCombo.removeAllItems();
+        selectCombo.addItem(Organization.OrganizationType.Housing);
+        selectCombo.addItem(Organization.OrganizationType.PatientRegistry);
+        //selectCombo.addItem(Enterprise.EnterpriseType.Alerts);
+    }
 
-    public void populateRequestTable() {
-        DefaultTableModel model = (DefaultTableModel) workQueueTbl.getModel();
+   public void populateRequestTable() {
 
+        DefaultTableModel model = (DefaultTableModel)workQueueTbl.getModel();
         model.setRowCount(0);
-        for (WorkRequest request : account.getWorkQueue().getWorkRequestList()) {
-            if (request instanceof HousingWorkRequest) {
-                Object[] row = new Object[model.getColumnCount()];
-                row[0] = account;
-                row[1] = request.getReceiver();
-                row[2] = request;
-                row[3] = request.getStatus();
-                String result = ((HousingWorkRequest) request).getResult();
-                row[4] = result == null ? "Waiting" : result;
-
-                model.addRow(row);
-            }
-
+        for (WorkRequest req : account.getWorkQueue().getWorkRequestList()) {
+            Object[] row = new Object[model.getColumnCount()];
+            row[0] = req.getMessage();
+            row[1] = req.getReceiver();
+            row[2] = req.getStatus();
+            model.addRow(row);
         }
     }
 
@@ -69,26 +81,27 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         workQueueTbl = new javax.swing.JTable();
-        requestBtn = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
+        selectCombo = new javax.swing.JComboBox();
+        panelRaiseRequest = new javax.swing.JPanel();
+        btnRaiseRequest = new javax.swing.JButton();
+        typeTxt = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        commentsTxt = new javax.swing.JTextField();
+        patientNameTxt = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
 
         workQueueTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null}
+                {null, null, null}
             },
             new String [] {
-                "Sender", "Receiver", "Message", "Result", "Status"
+                "Message", "Receiver", "Status"
             }
         ));
         jScrollPane1.setViewportView(workQueueTbl);
-
-        requestBtn.setText("Request");
-        requestBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                requestBtnActionPerformed(evt);
-            }
-        });
 
         jButton1.setText("< Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -100,6 +113,69 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel9.setText("MANAGE REQUESTS");
 
+        selectCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectComboActionPerformed(evt);
+            }
+        });
+
+        panelRaiseRequest.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "RAISE A NEW REQUEST", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
+        panelRaiseRequest.setEnabled(false);
+
+        btnRaiseRequest.setText("MAKE REQUEST");
+        btnRaiseRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRaiseRequestActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Type of emergency:");
+
+        jLabel4.setText("Identification mark:");
+
+        jLabel7.setText("Name of Patient:");
+
+        javax.swing.GroupLayout panelRaiseRequestLayout = new javax.swing.GroupLayout(panelRaiseRequest);
+        panelRaiseRequest.setLayout(panelRaiseRequestLayout);
+        panelRaiseRequestLayout.setHorizontalGroup(
+            panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRaiseRequestLayout.createSequentialGroup()
+                .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRaiseRequestLayout.createSequentialGroup()
+                        .addGap(161, 161, 161)
+                        .addComponent(btnRaiseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelRaiseRequestLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(typeTxt)
+                            .addComponent(commentsTxt)
+                            .addComponent(patientNameTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))))
+                .addContainerGap(237, Short.MAX_VALUE))
+        );
+        panelRaiseRequestLayout.setVerticalGroup(
+            panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRaiseRequestLayout.createSequentialGroup()
+                .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(patientNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(typeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(commentsTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(97, 97, 97)
+                .addComponent(btnRaiseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -107,17 +183,20 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(requestBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(196, 196, 196)
-                        .addComponent(jLabel9)))
-                .addContainerGap(122, Short.MAX_VALUE))
+                        .addComponent(jLabel9))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(310, 310, 310)
+                        .addComponent(selectCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(panelRaiseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,11 +205,12 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(requestBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(selectCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelRaiseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -141,32 +221,116 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void requestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestBtnActionPerformed
+    private void selectComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectComboActionPerformed
         // TODO add your handling code here:
-//        for (Network network : system.getNetworkList()){
-//            for(Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()){
-//                if(enterprise instanceof ShelterEnterprise){
-//                    for(Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()){
-//                        if(organization instanceof HousingOrganization){
-//                            organization.getWorkQueue().getWorkRequestList().add(null);
+        patientNameTxt.setText("");
+        commentsTxt.setText("");
+        typeTxt.setText("");
+        
+        if (selectCombo.getSelectedItem().toString().equals(Organization.OrganizationType.Housing)) {
+            jLabel7.setText("Accommodation required for:");
+            //jLabel4.setText("Location:");
+            jLabel3.setVisible(false);
+            jLabel4.setVisible(false);
+           typeTxt.setVisible(false);
+           commentsTxt.setVisible(false);
+        } else {
+            jLabel7.setText("Name of Patient:");
+            jLabel3.setText("Type of emergency:");
+            jLabel4.setText("Identification mark:");
+
+            if (selectCombo.getSelectedItem().equals(Organization.OrganizationType.PatientRegistry)) {
+                jLabel7.setVisible(true);
+                jLabel3.setVisible(true);
+                jLabel4.setVisible(true);
+                typeTxt.setVisible(true);
+           commentsTxt.setVisible(true);
+              // type.setVisible(true);
+               // type.addItem("Food");
+                //type.addItem("Clothing");
+                //jQtyTextField.setVisible(true);
+            }
+
+        }
+    }//GEN-LAST:event_selectComboActionPerformed
+
+    private void btnRaiseRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaiseRequestActionPerformed
+        // TODO add your handling code here:
+        
+//        String name = patientNameTxt.getText();
+//        String type= typeTxt.getText();
+//        String comment = commentsTxt.getText();
+
+//        if (selectCombo.getSelectedItem().equals(Organization.OrganizationType.Housing)) {
+//            HousingWorkRequest workRequest = new HousingWorkRequest();
+//            workRequest.setShelter(patientNameTxt.getText());
+//            workRequest.setSender(account);
+//            workRequest.setStatus("Pending");
+//            workRequest.setMessage(commentsTxt.getText());
+//            account.getWorkQueue().getWorkRequestList().add(workRequest);
+//
+//            for (Network network : system.getNetworkList()) {
+//                if (network.getNetworkName().equals(enterprise.getNetworkName())) {
+//                    for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
+//                        if (e instanceof ShelterEnterprise) {
+//                            for(Organization organization : e.getOrganizationDirectory().getOrganizationList()){
+//                                if(organization instanceof HousingOrganization){
+//                                    organization.getWorkQueue().getWorkRequestList().add(workRequest);
+//                                }
+//                            }
 //                        }
-//                    }                
+//                    }
+//                }
 //            }
-//            }
-//            
-//        }
-        RequestSelectionJPanel requestSelectionJPanel = new RequestSelectionJPanel(userProcessContainer, system, account);
-        userProcessContainer.add("requestSelectionJPanel", requestSelectionJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-    }//GEN-LAST:event_requestBtnActionPerformed
+//        } else 
+        System.out.println("ent name"+enterprise.getNetworkName());
+        if (selectCombo.getSelectedItem().equals(Organization.OrganizationType.PatientRegistry)) {
+            // workRequest = new FoodClothingWorkRequest();
+            //((FoodClothingWorkRequest)workRequest).setNoOfPeople(noOfPeopleTextField.getText());
+
+            PatientRegistry workRequest = new PatientRegistry();
+            // workRequest.setNoOfPeople(noOfPeopleTextField.getText());
+            workRequest.setName(patientNameTxt.getText());
+            workRequest.setSynopsis(typeTxt.getText());
+            workRequest.setIdentification(commentsTxt.getText());
+            workRequest.setStatus("Pending");
+            workRequest.setSender(account);
+            workRequest.setMessage(commentsTxt.getText());
+            account.getWorkQueue().getWorkRequestList().add(workRequest);
+
+            for (Network network : system.getNetworkList()) {
+                if (network.getNetworkName().equals(enterprise.getNetworkName())) {
+                    for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
+                        if (e instanceof HospitalEnterprise) {
+                            for(Organization organization : e.getOrganizationDirectory().getOrganizationList()){
+                                if(organization instanceof PatientResgistryOrganization){
+                                    organization.getWorkQueue().getWorkRequestList().add(workRequest);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        } 
+        JOptionPane.showMessageDialog(this, "Request created successfully");
+        populateRequestTable();
+    }//GEN-LAST:event_btnRaiseRequestActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRaiseRequest;
+    private javax.swing.JTextField commentsTxt;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton requestBtn;
+    private javax.swing.JPanel panelRaiseRequest;
+    private javax.swing.JTextField patientNameTxt;
+    private javax.swing.JComboBox selectCombo;
+    private javax.swing.JTextField typeTxt;
     private javax.swing.JTable workQueueTbl;
     // End of variables declaration//GEN-END:variables
 }

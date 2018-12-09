@@ -138,16 +138,16 @@ public class RequestVictimJPanel extends javax.swing.JPanel {
     private void sendBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendBtnActionPerformed
         // TODO add your handling code here:
         
-        int message = Integer.parseInt(requiredTxt.getText());
-       
-        HousingWorkRequest hwq= new HousingWorkRequest();
-     //   WorkQueue wq = new WorkQueue();
-
-        hwq.setShelter(message);
-        hwq.setSender(account);
-        hwq.setStatus("Sent");
-        
-        account.getWorkQueue().getWorkRequestList().add(hwq);
+//        int message = Integer.parseInt(requiredTxt.getText());
+//       
+//        HousingWorkRequest hwq= new HousingWorkRequest();
+//     //   WorkQueue wq = new WorkQueue();
+//
+//        hwq.setShelter(message);
+//        hwq.setSender(account);
+//        hwq.setStatus("Sent");
+//        
+//        account.getWorkQueue().getWorkRequestList().add(hwq);
         
 //        Organization org = null;
 //              

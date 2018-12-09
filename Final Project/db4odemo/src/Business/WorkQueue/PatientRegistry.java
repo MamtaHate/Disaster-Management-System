@@ -14,6 +14,15 @@ public class PatientRegistry extends WorkRequest{
     private String identification;
     private String height;
     private String synopsis;
+    private String testResult;
+
+    public String getTestResult() {
+        return testResult;
+    }
+
+    public void setTestResult(String testResult) {
+        this.testResult = testResult;
+    }
 
     public String getName() {
         return name;
@@ -45,6 +54,11 @@ public class PatientRegistry extends WorkRequest{
 
     public void setSynopsis(String synopsis) {
         this.synopsis = synopsis;
+    }
+    
+    @Override
+    public String toString(){
+        return this.name;
     }
     
 }

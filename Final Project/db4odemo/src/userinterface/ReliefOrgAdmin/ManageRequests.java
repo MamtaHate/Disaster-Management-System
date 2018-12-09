@@ -194,10 +194,10 @@ public class ManageRequests extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jQtyTextField)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(noOfPeopleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -207,7 +207,7 @@ public class ManageRequests extends javax.swing.JPanel {
                 .addGap(26, 26, 26))
         );
 
-        add(panelRaiseRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, 700, 360));
+        add(panelRaiseRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, 580, 330));
 
         backButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         backButton.setText("<<BACK");
@@ -216,7 +216,7 @@ public class ManageRequests extends javax.swing.JPanel {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 670, 190, 40));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 660, 190, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRaiseRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaiseRequestActionPerformed

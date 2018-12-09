@@ -159,8 +159,8 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
 //            }
 //            
 //        }
-        RequestVictimJPanel requestVictimJPanel = new RequestVictimJPanel(userProcessContainer, system, account);
-        userProcessContainer.add("requestVictimJPanel", requestVictimJPanel);
+        RequestSelectionJPanel requestSelectionJPanel = new RequestSelectionJPanel(userProcessContainer, system, account);
+        userProcessContainer.add("requestSelectionJPanel", requestSelectionJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_requestBtnActionPerformed

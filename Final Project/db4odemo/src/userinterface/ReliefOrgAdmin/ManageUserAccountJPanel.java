@@ -110,18 +110,17 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         backButton = new javax.swing.JButton();
         passwordJTextField = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("MANAGE EMPLOYEE USERACCOUNTS");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 470, 41));
 
+        userJTable.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         userJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Username", "Role"
@@ -176,9 +175,9 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                 createButtonActionPerformed(evt);
             }
         });
-        add(createButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 440, 210, 60));
+        add(createButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 440, 210, 40));
 
-        backButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        backButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         backButton.setText("<<BACK");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,14 +221,14 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
 
     public boolean validateStrings(String name) {
         if (name.equals("")) {
-            JOptionPane.showMessageDialog(null, "Please Enter mandatory value", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please enter username", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         Pattern pattern = Pattern.compile("[a-zA-Z ]*");
         Matcher matcher = pattern.matcher(name);
         if (!matcher.matches()) {
 
-            JOptionPane.showMessageDialog(null, "Please Enter valid string value", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please enter valid string value", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         return true;
@@ -237,7 +236,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
 
     public boolean validatePwd(String name) {
         if (name.equals("")) {
-            JOptionPane.showMessageDialog(null, "Please Enter Password", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please enter Password", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         return true;

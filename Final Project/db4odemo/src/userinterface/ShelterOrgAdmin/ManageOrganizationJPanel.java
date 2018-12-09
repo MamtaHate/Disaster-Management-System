@@ -96,10 +96,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
 
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "ID", "Name"
@@ -125,6 +122,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         jLabel2.setText("ORGANIZATION TYPE:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, 210, 40));
 
+        organizationJComboBox.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         organizationJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         organizationJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,6 +149,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         });
         add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 170, 50));
 
+        jPanel1.setBackground(new java.awt.Color(214, 217, 224));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N

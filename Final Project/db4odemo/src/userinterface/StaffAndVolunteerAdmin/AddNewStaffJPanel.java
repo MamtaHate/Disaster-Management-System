@@ -13,8 +13,11 @@ import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import static userinterface.HousingAdmin.ManageShelterJPanel.isValidEmail;
 
 /**
  *
@@ -81,11 +84,15 @@ public class AddNewStaffJPanel extends javax.swing.JPanel {
         memberTypeJComboBox = new javax.swing.JComboBox();
         jLabel8 = new javax.swing.JLabel();
         emailTextField = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtOtherSkills = new javax.swing.JTextField();
+        chkNone = new javax.swing.JCheckBox();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel2.setText(" STAFF INFORMATION SECTION");
+        jLabel2.setText("MEMBER INFORMATION SECTION");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 500, 41));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -168,16 +175,16 @@ public class AddNewStaffJPanel extends javax.swing.JPanel {
                 saveButtonActionPerformed(evt);
             }
         });
-        add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 730, 160, 50));
+        add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 810, 160, 50));
 
-        backButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        backButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         backButton.setText("<<BACK");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 810, 130, 40));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 870, 130, 40));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel7.setText("Type:");
@@ -190,6 +197,26 @@ public class AddNewStaffJPanel extends javax.swing.JPanel {
         jLabel8.setText("Email ID:");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 140, 40));
         add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 280, 230, 40));
+
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel9.setText("Other Skills (if any):");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 760, 170, -1));
+
+        txtOtherSkills.setEditable(false);
+        txtOtherSkills.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtOtherSkillsActionPerformed(evt);
+            }
+        });
+        add(txtOtherSkills, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 750, 240, 40));
+
+        chkNone.setText("None of the above");
+        chkNone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkNoneActionPerformed(evt);
+            }
+        });
+        add(chkNone, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 710, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void nameJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameJTextFieldActionPerformed
@@ -201,103 +228,185 @@ public class AddNewStaffJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_chkCPRActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        Member member = organization.getMemberDirectory().addMember();
-        member.setName(nameJTextField.getText());
-        member.setType(memberTypeJComboBox.getSelectedItem().toString());
-        if (genderGroup.getSelection().equals(rdbMale.getModel())) {
-            member.setGender("Male");
-        } else if (genderGroup.getSelection().equals(rdbFemale.getModel())) {
-            member.setGender("Female");
-        }
-        member.setPhoneNumber(phoneNumberJTextField.getText());
-        member.setEmail(emailTextField.getText());
-        member.setAddress(addressJTextField.getText());
-        if (chkAED.isSelected()) {
-            if (skillSet != null) {
-                if (!skillSet.contains("AED")) {
+
+        boolean allowSave = true;
+
+        allowSave = validateInputs();
+
+        if (allowSave) {
+            Member member = organization.getMemberDirectory().addMember();
+            member.setName(nameJTextField.getText());
+            member.setType(memberTypeJComboBox.getSelectedItem().toString());
+            if (genderGroup.getSelection().equals(rdbMale.getModel())) {
+                member.setGender("Male");
+            } else if (genderGroup.getSelection().equals(rdbFemale.getModel())) {
+                member.setGender("Female");
+            }
+            member.setPhoneNumber(phoneNumberJTextField.getText());
+            member.setEmail(emailTextField.getText());
+            member.setAddress(addressJTextField.getText());
+            if (chkAED.isSelected()) {
+                if (skillSet != null) {
+                    if (!skillSet.contains("AED")) {
+                        skillSet.add("AED");
+                    }
+                } else {
                     skillSet.add("AED");
                 }
-            } else {
-                skillSet.add("AED");
+
             }
 
-        }
-
-        if (chkCNA.isSelected()) {
-            if (skillSet != null) {
-                skillSet.add("CNA");
-            } else {
-                if (!skillSet.contains("CNAr")) {
+            if (chkCNA.isSelected()) {
+                if (skillSet != null) {
                     skillSet.add("CNA");
+                } else {
+                    if (!skillSet.contains("CNAr")) {
+                        skillSet.add("CNA");
+                    }
                 }
+
             }
 
-        }
-
-        if (chkCPR.isSelected()) {
-            if (skillSet != null) {
-                skillSet.add("CPR");
-            } else {
-                if (!skillSet.contains("CPR")) {
+            if (chkCPR.isSelected()) {
+                if (skillSet != null) {
                     skillSet.add("CPR");
+                } else {
+                    if (!skillSet.contains("CPR")) {
+                        skillSet.add("CPR");
+                    }
                 }
             }
-        }
 
-        if (chkLGT.isSelected()) {
-            if (skillSet != null) {
-                skillSet.add("LGT");
-            } else {
-                if (!skillSet.contains("LGT")) {
+            if (chkLGT.isSelected()) {
+                if (skillSet != null) {
                     skillSet.add("LGT");
+                } else {
+                    if (!skillSet.contains("LGT")) {
+                        skillSet.add("LGT");
+                    }
                 }
+
             }
 
-        }
-
-        if (chkFST.isSelected()) {
-            if (skillSet != null) {
-                skillSet.add("FST");
-            } else {
-                if (!skillSet.contains("FST")) {
+            if (chkFST.isSelected()) {
+                if (skillSet != null) {
                     skillSet.add("FST");
+                } else {
+                    if (!skillSet.contains("FST")) {
+                        skillSet.add("FST");
+                    }
                 }
             }
-        }
 
-        if (chkFST.isSelected()) {
-            if (skillSet != null) {
-                skillSet.add("FST");
-            } else {
-                if (!skillSet.contains("FST")) {
+            if (chkFST.isSelected()) {
+                if (skillSet != null) {
                     skillSet.add("FST");
+                } else {
+                    if (!skillSet.contains("FST")) {
+                        skillSet.add("FST");
+                    }
                 }
             }
-        }
 
-        if (chkBLS.isSelected()) {
-            if (skillSet != null) {
-                skillSet.add("BLS");
-            } else {
-                if (!skillSet.contains("BLS")) {
+            if (chkBLS.isSelected()) {
+                if (skillSet != null) {
                     skillSet.add("BLS");
+                } else {
+                    if (!skillSet.contains("BLS")) {
+                        skillSet.add("BLS");
+                    }
                 }
             }
+
+            if (chkNone.isSelected()) {
+                if (skillSet != null) {
+                    if (!skillSet.contains(txtOtherSkills.getText())) {
+                        skillSet.add(txtOtherSkills.getText());
+                    }
+                } else {
+                    skillSet.add(txtOtherSkills.getText());
+                }
+
+            }
+
+            member.setSkillSet(skillSet);
+
+            JOptionPane.showMessageDialog(this, "Details added successfully");
         }
-        
-        member.setSkillSet(skillSet);
-        
-        JOptionPane.showMessageDialog(this, "Details added successfully");
 
 
     }//GEN-LAST:event_saveButtonActionPerformed
 
+    public boolean validateInputs() {
+        if (nameJTextField.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Name is required");
+            return false;
+        } else {
+            if (!validateStrings(nameJTextField.getText())) {
+                return false;
+            }
+        }
+
+        if (genderGroup.getSelection() == null) {
+            JOptionPane.showMessageDialog(this, "Gender is required");
+            return false;
+        }
+
+        if (emailTextField.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Email ID is required.");
+            return false;
+        } else if (!isValidEmail(emailTextField.getText())) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid email ID");
+            return false;
+        }
+
+        if (phoneNumberJTextField.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Contact Number is required.");
+            return false;
+        } else if (phoneNumberJTextField.getText().matches("[0-9]+") == false) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid contact number.");
+            return false;
+        } else if (phoneNumberJTextField.getText().length() < 10) {
+            JOptionPane.showMessageDialog(this, "Contact Number should be atleast 10 digits.");
+            return false;
+        }
+
+        if (addressJTextField.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Address is required.");
+            return false;
+        }
+
+        if (chkNone.isSelected()) {
+            if (txtOtherSkills.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Other Skills is required.");
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public boolean validateStrings(String name) {
+        if (name.equals("")) {
+            JOptionPane.showMessageDialog(null, "Please enter mandatory value", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        Pattern pattern = Pattern.compile("[a-zA-Z ]*");
+        Matcher matcher = pattern.matcher(name);
+        if (!matcher.matches()) {
+
+            JOptionPane.showMessageDialog(null, "Please enter valid string value", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         userProcessContainer.remove(this);
-        
+
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
-        
+
         Component components[] = userProcessContainer.getComponents();
         for (Component component : components) {
             if (component instanceof ManageStaffJPanel) {
@@ -306,6 +415,20 @@ public class AddNewStaffJPanel extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void txtOtherSkillsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOtherSkillsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtOtherSkillsActionPerformed
+
+    private void chkNoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkNoneActionPerformed
+        // TODO add your handling code here:
+        if (chkNone.isSelected()) {
+            txtOtherSkills.setEnabled(true);
+        } else {
+            txtOtherSkills.setEnabled(false);
+            txtOtherSkills.setText("");
+        }
+    }//GEN-LAST:event_chkNoneActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -317,6 +440,7 @@ public class AddNewStaffJPanel extends javax.swing.JPanel {
     private javax.swing.JCheckBox chkCPR;
     private javax.swing.JCheckBox chkFST;
     private javax.swing.JCheckBox chkLGT;
+    private javax.swing.JCheckBox chkNone;
     private javax.swing.JTextField emailTextField;
     private javax.swing.ButtonGroup genderGroup;
     private javax.swing.JLabel jLabel1;
@@ -327,11 +451,13 @@ public class AddNewStaffJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JComboBox memberTypeJComboBox;
     private javax.swing.JTextField nameJTextField;
     private javax.swing.JTextField phoneNumberJTextField;
     private javax.swing.JRadioButton rdbFemale;
     private javax.swing.JRadioButton rdbMale;
     private javax.swing.JButton saveButton;
+    private javax.swing.JTextField txtOtherSkills;
     // End of variables declaration//GEN-END:variables
 }

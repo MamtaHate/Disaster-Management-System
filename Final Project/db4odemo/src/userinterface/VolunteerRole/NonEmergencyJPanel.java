@@ -112,108 +112,146 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
         confirmButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("MONETARY HELP");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, 370, 50));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 370, 50));
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setText("Donation Type:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 140, 30));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 140, 30));
 
+        fundCheck.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         fundCheck.setText("Funds");
         fundCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fundCheckActionPerformed(evt);
             }
         });
-        add(fundCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, -1, -1));
+        add(fundCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, -1, -1));
 
+        foodCheck.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         foodCheck.setText("Food");
         foodCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 foodCheckActionPerformed(evt);
             }
         });
-        add(foodCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, -1, -1));
+        add(foodCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, -1, -1));
 
+        clothesCheck.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         clothesCheck.setText("Clothing");
         clothesCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clothesCheckActionPerformed(evt);
             }
         });
-        add(clothesCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 160, -1, -1));
+        add(clothesCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 90, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setText("Name (as on card): ");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 150, 40));
-        add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 310, 40));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 150, 40));
 
+        nameTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 310, 40));
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setText("Email:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 230, 170, 30));
-        add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 260, 260, 40));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, 170, 30));
 
+        emailTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 180, 260, 40));
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setText("Card Number:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 170, 30));
-        add(cardNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 310, 40));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 170, 30));
 
+        cardNumberTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        add(cardNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 310, 40));
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setText("Enter amount to donate:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 330, 260, 40));
-        add(amountTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 370, 260, 40));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 240, 260, 40));
 
+        amountTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        add(amountTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 280, 260, 40));
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel7.setText("$");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, 10, 40));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 280, 10, 40));
 
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setText("Expiration Date:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, 260, 40));
-        add(monthComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 500, 80, -1));
-        add(yearComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 500, 80, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 260, 40));
 
+        monthComboBox.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        add(monthComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 80, -1));
+
+        yearComboBox.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        add(yearComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, 80, -1));
+
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel9.setText("Approx clothes weight (pounds):");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 630, 240, 40));
-        add(clothesWeightTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 630, 280, 40));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, 240, 40));
 
+        clothesWeightTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        add(clothesWeightTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 490, 280, 40));
+
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel10.setText("Donation in the name of:");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 680, 220, 40));
-        add(donorNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 680, 280, 40));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 540, 220, 40));
 
+        donorNameTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        add(donorNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 540, 280, 40));
+
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel11.setText("Approx food weight (pounds):");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 580, 240, 40));
-        add(foodWeightTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 580, 280, 40));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 440, 240, 40));
 
+        foodWeightTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        add(foodWeightTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 440, 280, 40));
+
+        donateButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         donateButton.setText("Donate Now");
         donateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 donateButtonActionPerformed(evt);
             }
         });
-        add(donateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 790, 210, 50));
+        add(donateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 620, 210, 50));
 
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel12.setText("OTP:");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, -1, -1));
-        add(OtpTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 490, 190, 40));
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, -1, -1));
 
+        OtpTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        add(OtpTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 380, 190, 40));
+
+        confirmButton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         confirmButton.setText("Confirm");
-        confirmButton.setEnabled(false);
         confirmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmButtonActionPerformed(evt);
             }
         });
-        add(confirmButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 480, 180, 50));
+        add(confirmButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 370, 180, 50));
 
-        backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        backJButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         backJButton.setText("<<BACK");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 840, 160, 50));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 620, 160, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void donateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donateButtonActionPerformed
-        DonationWorkRequest request = new DonationWorkRequest();
+
+       
+        
         Map<String, Object> validateMap = new HashMap<>();
 
         if (nullCheck(amountTextField)) {
@@ -228,13 +266,25 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
             float clothesWeightAmount = validateInputFloat(clothesWeightTextField);
         }
 
-        populateMap("nameTextField", nameTextField.getText(), validateMap);
+        if (!cardNumberTextField.getText().matches("^[0-9]{16}") && fundCheck.isSelected() == true) {
+            JOptionPane.showMessageDialog(null, "wrong card number");
+            return;
+        }
 
+        populateMap("nameTextField", nameTextField.getText(), validateMap);
+        populateMap("emailTextField", emailTextField.getText(), validateMap);
         populateMap("cardNumberTextField", cardNumberTextField.getText(), validateMap);
 
         populateMap("amountTextField", amountTextField.getText(), validateMap);
         populateMap("foodWeightTextField", foodWeightTextField.getText(), validateMap);
         populateMap("clothesWeightTextField", clothesWeightTextField.getText(), validateMap);
+
+        if (validateMap.size() == 0) {
+            JOptionPane.showMessageDialog(null, "Sorry we cannot accept your donation");
+            return;
+        }
+
+       DonationWorkRequest request = new DonationWorkRequest();
 
         for (Map.Entry<String, Object> entry : validateMap.entrySet()) {
             if (entry.getKey().equals("amountTextField")) {
@@ -268,40 +318,56 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, "Thank you for your donation");
         //******************************************************************************
 
-        final String username = "username@gmail.com";
-        final String password = "password";
+         final String from = "csweta27@gmail.com";
+        final String pass = "Media0cean";
+        String add = emailTextField.getText();
+        String[] to = {add};
+        String host = "smtp.gmail.com";
 
-        Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
+        Properties prop = System.getProperties();
+        prop.put("mail.smtp.starttls.enable","true");
+        prop.put("mail.smtp.host",host);
+        prop.put("mail.smtp.user",from);
+        prop.put("mail.smtp.password",pass);
+        prop.put("mail.smtp.port","587");
+        prop.put("mail.smtp.auth","true");
 
-        Session session = Session.getInstance(props,
-                new javax.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(username, password);
-                    }
-                });
-
+        //Session session = Session.getDefaultInstance(prop);
+        Session session = Session.getInstance(prop, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(from, pass);
+            }
+        });
+        MimeMessage msg = new MimeMessage(session);
         try {
+            msg.setFrom(new InternetAddress(from));
+            InternetAddress[] toAddress = new InternetAddress[to.length];
+            for (int i = 0; i < to.length; i++) {
+                toAddress[i] = new InternetAddress(to[i]);
+            }
+            for (int i = 0; i < toAddress.length; i++) {
+                msg.setRecipient(Message.RecipientType.TO, toAddress[i]);
+            }
 
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("from-email@gmail.com"));
-            message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse("to-email@gmail.com"));
-            message.setSubject("Testing Subject");
-            message.setText("Dear Mail Crawler,"
-                    + "\n\n No spam to my email, please!");
+            msg.setSubject("test");
+            double k1 = Math.random()*100000;//Integer.toString(k)
+            k = (int) k1;
+            //System.out.println(k);
+            msg.setContent(Integer.toString(k),"text/html;charset=\"ISO-8859-1\"");
+            Transport transport = session.getTransport("smtp");
+            transport.connect(host,from,pass);
+            transport.sendMessage(msg, msg.getAllRecipients());
+            transport.close();
 
-            Transport.send(message);
-
-            System.out.println("Done");
-
-        } catch (MessagingException e) {
-            throw new RuntimeException(e);
+        } catch (MessagingException ex) {
+            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        confirmButton.setEnabled(true);
+        
+        ConfirmDonationJPanel nonMonetoryDonationJPanel = new ConfirmDonationJPanel(userProcessContainer, enterprise.getOrganizationDirectory(), account, enterprise,k);
+        userProcessContainer.add("confirmDonationJPanel", nonMonetoryDonationJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+            
     }//GEN-LAST:event_donateButtonActionPerformed
 
     private void fundCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fundCheckActionPerformed

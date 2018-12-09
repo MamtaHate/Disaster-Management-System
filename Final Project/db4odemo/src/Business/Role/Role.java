@@ -29,6 +29,7 @@ public abstract class Role {
         StaffAndVolunteerAdminRole("StaffAndVolunteerAdminRole"),
         VolunteerRole("VolunteerRole"),
         WarehouseAdminRole("WarehouseAdminRole"),
+        HousingAdminRole("HousingAdminRole"),
         PatientRegistryAdminRole("PatientRegistryAdminRole");
         
         

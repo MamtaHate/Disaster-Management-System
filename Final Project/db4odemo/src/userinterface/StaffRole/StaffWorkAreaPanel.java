@@ -53,6 +53,7 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
         requestButton = new javax.swing.JButton();
         reportIncident = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -66,7 +67,7 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
                 requestButtonActionPerformed(evt);
             }
         });
-        add(requestButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, 330, 70));
+        add(requestButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 330, 70));
 
         reportIncident.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         reportIncident.setText("REPORT INCIDENT");
@@ -75,7 +76,7 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
                 reportIncidentActionPerformed(evt);
             }
         });
-        add(reportIncident, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 330, 70));
+        add(reportIncident, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 330, 70));
     }// </editor-fold>//GEN-END:initComponents
 
     private void reportIncidentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportIncidentActionPerformed

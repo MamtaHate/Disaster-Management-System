@@ -49,8 +49,10 @@ public class DisasterVictimWorkAreaJPanel extends javax.swing.JPanel {
         requestBtn = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(214, 217, 224));
+
         createBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        createBtn.setText("Create");
+        createBtn.setText("CREATE VICTIM RECORDS");
         createBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createBtnActionPerformed(evt);
@@ -58,7 +60,7 @@ public class DisasterVictimWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         viewBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        viewBtn.setText("View");
+        viewBtn.setText("VIEW VICTIM RECORDS");
         viewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewBtnActionPerformed(evt);
@@ -66,7 +68,7 @@ public class DisasterVictimWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         requestBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        requestBtn.setText("Request");
+        requestBtn.setText("MANAGE REQUESTS");
         requestBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 requestBtnActionPerformed(evt);
@@ -81,22 +83,21 @@ public class DisasterVictimWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(192, 192, 192)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(212, 212, 212)
+                        .addGap(81, 81, 81)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(createBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(viewBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(requestBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(jLabel9)))
-                .addContainerGap(173, Short.MAX_VALUE))
+                            .addComponent(requestBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel9))
+                .addContainerGap(203, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(45, 45, 45)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65)
                 .addComponent(createBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -104,7 +105,7 @@ public class DisasterVictimWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(viewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(requestBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

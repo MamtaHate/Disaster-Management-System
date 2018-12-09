@@ -16,8 +16,10 @@ import javax.swing.JPanel;
  * @author Sweta Chowdhury
  */
 public class UpdateItemJPanel extends javax.swing.JPanel {
+
     JPanel userProcessContainer;
     Item item;
+
     /**
      * Creates new form UpdateItemJPanel
      */
@@ -28,7 +30,6 @@ public class UpdateItemJPanel extends javax.swing.JPanel {
         populateItems();
     }
 
-    
     public void populateItems() {
         itemNameTextField.setText(item.getName());
         itemCategory.setText(item.getCategory());
@@ -36,12 +37,12 @@ public class UpdateItemJPanel extends javax.swing.JPanel {
         valuePU.setText(item.getValuePerUnit());
         chkKit.setSelected(item.getIsKit());
         commentsTextField.setText(item.getComments());
-        if(item.getQty() != null) {
-             qtyText.setText(Integer.toString(item.getQty()));
+        if (item.getQty() != null) {
+            qtyText.setText(Integer.toString(item.getQty()));
         }
-       
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -69,27 +70,37 @@ public class UpdateItemJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         qtyText = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel3.setText("UPDATE ITEM");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, 230, 41));
 
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setText("Item Category: *");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 130, 30));
 
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setText("Name: *");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 110, 30));
 
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel7.setText("Unit of Measure: *");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 140, 40));
 
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setText("Value per unit:");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 120, 30));
 
         itemNameTextField.setEditable(false);
+        itemNameTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         add(itemNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 170, 40));
+
+        unitOfMeasure.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         add(unitOfMeasure, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 240, 170, 40));
+
+        valuePU.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         add(valuePU, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, 170, 40));
 
         saveButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -99,41 +110,82 @@ public class UpdateItemJPanel extends javax.swing.JPanel {
                 saveButtonActionPerformed(evt);
             }
         });
-        add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 540, 180, 60));
+        add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 540, 180, 50));
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setText("Comments:");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, 140, 30));
+
+        commentsTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         add(commentsTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 400, 170, 40));
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setText("Kit?:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 130, 30));
+
+        chkKit.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         add(chkKit, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, -1, -1));
 
-        backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        backJButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         backJButton.setText("<<BACK");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, 170, 50));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 540, 170, 50));
+
+        itemCategory.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         add(itemCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, 170, 40));
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setText("Quantity:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 470, 140, 30));
+
+        qtyText.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         add(qtyText, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 460, 170, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // TODO add your handling code here:
-        item.setUnitOfMeasure(unitOfMeasure.getText());
-        item.setValuePerUnit(valuePU.getText());
-        item.setIsKit(chkKit.isSelected());
-        item.setComments(commentsTextField.getText());
-        item.setQty(Integer.parseInt(qtyText.getText()));
 
-        JOptionPane.showMessageDialog(this, "Item updated successfully");
+        boolean allowUpdate = true;
+
+        allowUpdate = validateInput();
+
+        if (allowUpdate) {
+            item.setUnitOfMeasure(unitOfMeasure.getText());
+            item.setValuePerUnit(valuePU.getText());
+            item.setIsKit(chkKit.isSelected());
+            item.setComments(commentsTextField.getText());
+            item.setQty(Integer.parseInt(qtyText.getText()));
+
+            JOptionPane.showMessageDialog(this, "Item updated successfully");
+        }
+
+
     }//GEN-LAST:event_saveButtonActionPerformed
+
+    public boolean validateInput() {
+        if (unitOfMeasure.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Unit of measure is required");
+            return false;
+        } else if (unitOfMeasure.getText().matches("[0-9]+") == true) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid unit of measure.");
+            return false;
+        }
+
+        if (qtyText.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Quantity is required");
+            return false;
+        } else if (unitOfMeasure.getText().matches("[0-9]+") == false) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid input for quantity.");
+            return false;
+        }
+
+        return true;
+    }
+
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
         userProcessContainer.remove(this);

@@ -52,6 +52,7 @@ public class StaffAndVolunteerAdminWorkAreaJPanel extends javax.swing.JPanel {
         requestsButton = new javax.swing.JButton();
         userAccountsButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N

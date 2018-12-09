@@ -61,6 +61,7 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
                     row[4] = req.getRequestDate();
                     row[5] = req.getStatus();
                     row[6] = req.getResolveDate();
+                    row[7] = ((WarehouseRequest) req).getRemaining();
                     model.addRow(row);
                 }
 
@@ -81,10 +82,10 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         requestsJTable = new javax.swing.JTable();
-        checkAvailButton = new javax.swing.JButton();
         approveButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -96,31 +97,21 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Item Type", "Quantity", "Receiver", "Sender", "Request Date", "Status", "Approved Date"
+                "Item Type", "Quantity", "Receiver", "Sender", "Request Date", "Status", "Approved Date", "Remaining"
             }
         ));
         jScrollPane1.setViewportView(requestsJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 840, 170));
-
-        checkAvailButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        checkAvailButton.setText("Check Availability");
-        checkAvailButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkAvailButtonActionPerformed(evt);
-            }
-        });
-        add(checkAvailButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 350, 210, 40));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 930, 170));
 
         approveButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         approveButton.setText("Approve Request");
-        approveButton.setEnabled(false);
         approveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 approveButtonActionPerformed(evt);
             }
         });
-        add(approveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 410, 210, 40));
+        add(approveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 360, 210, 40));
 
         backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         backJButton.setText("<<BACK");
@@ -146,46 +137,33 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_backJButtonActionPerformed
 
-    private void checkAvailButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAvailButtonActionPerformed
-        // TODO add your handling code here:
-       if (requestsJTable.getSelectedRow() >= 0) {
-            WarehouseRequest req = (WarehouseRequest) requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 0);
-            for(Item i : org.getItemCatalog().getItemList()) {
-                if (i.getCategory().equals(req.getItemType())) {
-                    if (i.getQty() >= (Integer)requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 1)) {
-                        approveButton.setEnabled(true);
-                    }
-                    else {
-                        JOptionPane.showMessageDialog(this, "Not enough available");         
-                    }
-                }
-            }
-            
-        }
-        else {
-            JOptionPane.showMessageDialog(this, "Please select an item");        
-        }
-    }//GEN-LAST:event_checkAvailButtonActionPerformed
-
     private void approveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approveButtonActionPerformed
         // TODO add your handling code here:
-        if (requestsJTable.getSelectedRow() >= 0) {
+        
+        if(!requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 5).toString().equals("Approved")) {
+             if (requestsJTable.getSelectedRow() >= 0) {
             WorkRequest req = (WarehouseRequest) requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 0);
             req.setReceiver(account);
             req.setStatus("Approved");
             req.setResolveDate(new Date());
+            ((WarehouseRequest)req).setRemaining(((WarehouseRequest)req).getRemaining() - (Integer)requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 1));
             populateJTable();
         }
         else {
             JOptionPane.showMessageDialog(this, "Please select an item");        
         }
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "Request already approved");
+        }
+        
+       
     }//GEN-LAST:event_approveButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton approveButton;
     private javax.swing.JButton backJButton;
-    private javax.swing.JButton checkAvailButton;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable requestsJTable;

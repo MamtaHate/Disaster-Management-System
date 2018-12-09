@@ -48,6 +48,7 @@ public class ShelterAdminWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel = new javax.swing.JLabel();
         viewRequestsButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         manageUserJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N

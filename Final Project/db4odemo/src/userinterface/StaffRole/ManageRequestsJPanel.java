@@ -96,12 +96,14 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
         requestPersonDetails = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("MANAGE STAFF REQUESTS");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, -1, 41));
 
+        reqInventoryjTable.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         reqInventoryjTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -120,7 +122,7 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(reqInventoryjTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, 130));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 530, 130));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jButton1.setText("Request Inventory");
@@ -131,6 +133,7 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
         });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, 180, 50));
 
+        jMissingRequests.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jMissingRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -141,7 +144,7 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(jMissingRequests);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 150, -1, 130));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 150, 550, 130));
 
         requestPersonDetails.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         requestPersonDetails.setText("Request person details");
@@ -150,16 +153,16 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
                 requestPersonDetailsActionPerformed(evt);
             }
         });
-        add(requestPersonDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 290, 260, 50));
+        add(requestPersonDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 300, 260, 50));
 
-        jButton4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jButton4.setText("<<BACK");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 570, 168, 52));
+        add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 168, 52));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

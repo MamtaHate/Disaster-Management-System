@@ -104,8 +104,10 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         submitJButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        enterpriseJTable.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         enterpriseJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -125,24 +127,36 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         jLabel1.setText("MANAGE EMPLOYEE USERACCOUNTS");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 540, 40));
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setText("NAME:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 310, 150, 40));
 
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setText("NETWORK:");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, 150, 40));
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setText("ENTERPRISE:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 160, 150, 40));
 
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setText("USER NAME:");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 210, 150, 40));
 
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setText("PASSWORD:");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 260, 150, 40));
+
+        usernameJTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         add(usernameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 210, 210, 40));
+
+        nameJTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 310, 210, 40));
+
+        passwordJPasswordField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         add(passwordJPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 260, 210, 40));
 
+        networkJComboBox.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         networkJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         networkJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,7 +165,13 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         });
         add(networkJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 110, 210, 40));
 
+        enterpriseJComboBox.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         enterpriseJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        enterpriseJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterpriseJComboBoxActionPerformed(evt);
+            }
+        });
         add(enterpriseJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 160, 210, 40));
 
         submitJButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -163,14 +183,14 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         });
         add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 390, 200, 50));
 
-        backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        backJButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         backJButton.setText("<<BACK");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 160, 50));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 160, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
@@ -219,16 +239,20 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJButtonActionPerformed
 
+    private void enterpriseJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseJComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enterpriseJComboBoxActionPerformed
+
     public boolean validateStrings(String name) {
         if (name.equals("")) {
-            JOptionPane.showMessageDialog(null, "Please Enter mandatory value", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please enter mandatory value", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         Pattern pattern = Pattern.compile("[a-zA-Z ]*");
         Matcher matcher = pattern.matcher(name);
         if (!matcher.matches()) {
 
-            JOptionPane.showMessageDialog(null, "Please Enter valid string value", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please enter valid string value", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         return true;
@@ -236,7 +260,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
     public boolean validatePwd(String name) {
         if (name.equals("")) {
-            JOptionPane.showMessageDialog(null, "Please Enter Password", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please enter Password", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         return true;

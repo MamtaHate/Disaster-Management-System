@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package userinterface.HousingAdmin;
+
 import Business.Housing.Housing;
 import Business.Housing.HousingDirectory;
 import Business.Organization.HousingOrganization;
@@ -13,6 +14,8 @@ import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HousingWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -25,48 +28,62 @@ public class AllocateShelterJPanel extends javax.swing.JPanel {
     private UserAccount userAccount;
     private JPanel userProcessContainer;
     private HousingOrganization housingOrganization;
-    
+
     /**
      * Creates new form ManageOrganizationJPanel
      */
-    public AllocateShelterJPanel(JPanel userProcessContainer,UserAccount userAccount, HousingOrganization organization) {
+    public AllocateShelterJPanel(JPanel userProcessContainer, UserAccount userAccount, HousingOrganization organization) {
         initComponents();
         this.userAccount = userAccount;
         this.userProcessContainer = userProcessContainer;
         this.housingOrganization = organization;
-        
+        populateTable();
         populateCombo();
     }
 
-    public void populateTable(){
+    public void populateTable() {
         DefaultTableModel model = (DefaultTableModel) housingJTable.getModel();
         model.setRowCount(0);
 
-        for(WorkRequest request: userAccount.getWorkQueue().getWorkRequestList()) {
-            if(request instanceof HousingWorkRequest){
+//        for(WorkRequest request: userAccount.getWorkQueue().getWorkRequestList()) {
+//            if(request instanceof HousingWorkRequest){
+//                Object[] row = new Object[model.getColumnCount()];
+//                row[0] = ((HousingWorkRequest) request).getNoOfPeople();
+//                row[1] = request.getMessage();
+//                row[2] =  request.getSender();
+//                row[3] =  request.getReceiver();
+//                row[4] = request.getStatus();
+//                row[5] = request.getRequestDate();
+//                model.addRow(row);
+//            }
+//        }
+        for (WorkRequest request : housingOrganization.getWorkQueue().getWorkRequestList()) {
+            if (request instanceof HousingWorkRequest) {
                 Object[] row = new Object[model.getColumnCount()];
                 row[0] = ((HousingWorkRequest) request).getNoOfPeople();
                 row[1] = request.getMessage();
-                row[2] =  request.getSender();
-                row[3] =  request.getReceiver();
+                row[2] = request.getSender();
+                row[3] = request.getReceiver();
                 row[4] = request.getStatus();
                 row[5] = request.getRequestDate();
+                row[6] = request;
                 model.addRow(row);
             }
         }
+
     }
-    
+
     public void populateCombo() {
         shelterNamesJComboBox.removeAllItems();
         int i = 0;
-        for(Housing housing : housingOrganization.getHousingDirectory().getHousingList()) {
+        for (Housing housing : housingOrganization.getHousingDirectory().getHousingList()) {
             shelterNamesJComboBox.addItem(housing);
-            if(i == 0){
-                availableHouses.setText("Available Houses "+housing.getHouseCapacity());
+            if (i == 0) {
+                availableHouses.setText("Available Occupancy for " + (Integer.parseInt(housing.getHouseCapacity()) < 0 ? "0" : housing.getHouseCapacity()));
                 i++;
             }
-        }        
-    }    
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -80,13 +97,13 @@ public class AllocateShelterJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         addJButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
-        shelterNamesJComboBox = new javax.swing.JComboBox<String>();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         housingJTable = new javax.swing.JTable();
         availableHouses = new javax.swing.JLabel();
         shelterNamesJComboBox = new javax.swing.JComboBox();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -102,7 +119,7 @@ public class AllocateShelterJPanel extends javax.swing.JPanel {
         });
         add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 250, 40));
 
-        backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        backJButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         backJButton.setText("<<BACK");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,23 +128,22 @@ public class AllocateShelterJPanel extends javax.swing.JPanel {
         });
         add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 170, 40));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("Housing Organization : ");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 200, 40));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 170, 40));
 
+        housingJTable.setBackground(new java.awt.Color(214, 217, 224));
+        housingJTable.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         housingJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "Number of people", "Message", "Sender", "Receiver", "Status", "Requested Date"
+                "Number of people", "Message", "Sender", "Receiver", "Status", "Requested Date", "Request Type"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -136,16 +152,17 @@ public class AllocateShelterJPanel extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(housingJTable);
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 710, 160));
-        add(availableHouses, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 310, 130, 30));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 980, 160));
 
-        shelterNamesJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        availableHouses.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        add(availableHouses, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 310, 270, 40));
+
         shelterNamesJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 shelterNamesJComboBoxActionPerformed(evt);
             }
         });
-        add(shelterNamesJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 310, 210, 40));
+        add(shelterNamesJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 310, 210, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -155,17 +172,33 @@ public class AllocateShelterJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backJButtonActionPerformed
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
+        Housing house = (Housing) shelterNamesJComboBox.getSelectedItem();
+        int occupancy = (Integer.parseInt(house.getHouseCapacity()));
+        int required;
+        if (housingJTable.getSelectedRow() >= 0) {
+            if (!housingJTable.getValueAt(housingJTable.getSelectedRow(), 4).toString().equals("Approved")) {
+                WorkRequest req = (HousingWorkRequest) housingJTable.getValueAt(housingJTable.getSelectedRow(), 6);
+                required = Integer.parseInt((String) housingJTable.getValueAt(housingJTable.getSelectedRow(), 0));
+                house.setHouseCapacity(Integer.toString(occupancy - required));
+                req.setStatus("Approved");
+                req.setResolveDate(new Date());
+                populateTable();
+                availableHouses.setText("Available Occupancy for " + (Integer.parseInt(house.getHouseCapacity()) < 0 ? "0" : house.getHouseCapacity()));
+            }
+            else {
+               JOptionPane.showMessageDialog(this, "Allocation has been approved"); 
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a request");
+        }
 
-        /*OrganizationType type = (OrganizationType) shelterStatusJComboBox.getSelectedItem();
-        directory.createOrganization(type);
-        populateTable();*/
     }//GEN-LAST:event_addJButtonActionPerformed
 
     private void shelterNamesJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shelterNamesJComboBoxActionPerformed
         Housing house = (Housing) shelterNamesJComboBox.getSelectedItem();
-        
-        if (house!=null) {
-            availableHouses.setText("Available Houses "+house.getHouseCapacity());
+
+        if (house != null) {
+            availableHouses.setText("Available Occupancy for " + (Integer.parseInt(house.getHouseCapacity()) < 0 ? "0" : house.getHouseCapacity()));
         }
     }//GEN-LAST:event_shelterNamesJComboBoxActionPerformed
 

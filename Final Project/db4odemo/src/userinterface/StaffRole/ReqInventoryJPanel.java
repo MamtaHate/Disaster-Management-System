@@ -23,9 +23,11 @@ import javax.swing.JPanel;
  * @author prath
  */
 public class ReqInventoryJPanel extends javax.swing.JPanel {
+
     private JPanel userProcessContainer;
     private UserAccount account;
     private Enterprise enterprise;
+
     /**
      * Creates new form reqInventoryJPanel
      */
@@ -50,7 +52,6 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
         itemCategory.addItem(Item.ItemType.Water);
     }
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -65,39 +66,46 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
         qty = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnSubmit = new javax.swing.JButton();
         itemCategory = new javax.swing.JComboBox();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("REQUEST INVENTORY");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, 41));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setText("REQUEST TYPE");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 140, 40));
+
+        qty.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         add(qty, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 230, 40));
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setText("QUANTITY");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 140, 40));
 
+        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jButton1.setText("< Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 110, 40));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 110, 40));
 
-        jButton2.setText("Submit Request");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnSubmit.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        btnSubmit.setText("Submit Request");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnSubmitActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 130, 40));
+        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 190, 40));
+
+        itemCategory.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         add(itemCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, 230, 40));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -106,41 +114,71 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
-        
+
         Component[] components = userProcessContainer.getComponents();
-        for(Component c: components) {
-            if( c instanceof ManageRequestsJPanel) {
-                ManageRequestsJPanel m = (ManageRequestsJPanel)c;
+        for (Component c : components) {
+            if (c instanceof ManageRequestsJPanel) {
+                ManageRequestsJPanel m = (ManageRequestsJPanel) c;
                 m.populateInventoryRequests();
             }
-        }        
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
+        int remaining = 0;
+        
+        boolean allowSave = true;
+        
+        
+        
+        
         WarehouseRequest request = new WarehouseRequest();
         request.setItemType(itemCategory.getSelectedItem().toString());
         request.setQty(Integer.parseInt(qty.getText()));
+
+        for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            if (org instanceof WarehouseOrganization) {
+                for (Item i : ((WarehouseOrganization) org).getItemCatalog().getItemList()) {
+                    remaining = i.getQty();
+                }
+            }
+        }
+        request.setRemaining(remaining);
         request.setRequestDate(new Date());
         request.setSender(account);
         request.setStatus("Pending");
-        
+
         account.getWorkQueue().getWorkRequestList().add(request);
-        
-        for(Organization organization: enterprise.getOrganizationDirectory().getOrganizationList()) {
-            if( organization instanceof WarehouseOrganization) {
+
+        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            if (organization instanceof WarehouseOrganization) {
                 organization.getWorkQueue().getWorkRequestList().add(request);
             }
         }
-        
-        JOptionPane.showMessageDialog(this, "Request submitted");
-    }//GEN-LAST:event_jButton2ActionPerformed
 
+        JOptionPane.showMessageDialog(this, "Request submitted");
+    }//GEN-LAST:event_btnSubmitActionPerformed
+
+    
+    
+    public boolean validateInput () {
+        if(qty.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Quantity is required");
+            return false;
+        }
+        else if (qty.getText().matches("[0-9]+") == false) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid quantity.");
+            return false;
+        }
+        
+        return true;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSubmit;
     private javax.swing.JComboBox itemCategory;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

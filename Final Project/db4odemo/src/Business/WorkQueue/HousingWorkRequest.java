@@ -39,7 +39,7 @@ public class HousingWorkRequest extends WorkRequest {
     }  
      @Override
     public String toString() {
-        return result;
+        return "Housing";
     }
     
 }

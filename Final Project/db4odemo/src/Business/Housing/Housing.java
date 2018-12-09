@@ -19,6 +19,7 @@ public class Housing {
     private String houseType;
     private String houseAddress;
     private String houseStatus;
+    private String contactPerson;
 
     public Housing() {
         
@@ -113,6 +114,17 @@ public class Housing {
     public void setHouseCapacity(String houseCapacity) {
         this.houseCapacity = houseCapacity;
     }
+
+    public String getContactPerson() {
+        return contactPerson;
+    }
+
+    public void setContactPerson(String contactPerson) {
+        this.contactPerson = contactPerson;
+    }
+    
+    
+    
     
     @Override
     public String toString() {

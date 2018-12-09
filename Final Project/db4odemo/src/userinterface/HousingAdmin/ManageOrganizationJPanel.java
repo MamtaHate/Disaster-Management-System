@@ -42,7 +42,10 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         for(Housing house : organization.getHousingDirectory().getHousingList()) {
             Object[] row = new Object[model.getColumnCount()];
             row[0] = house;
-            row[1] = house.getHouseCapacity();
+            row[1] = house.getHouseType();
+            row[2] = house.getHouseCapacity();
+            row[3] = house.getContactPerson();
+            row[4] = house.getHouseAddress();
             
             model.addRow(row);
         }
@@ -70,19 +73,17 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        organizationJTable.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
-                "Name", "Capacity"
+                "Shelter Name", "Shelter Type", "Occupancy For?", "Contact Person", "Location"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -90,9 +91,6 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane2.setViewportView(organizationJTable);
-        if (organizationJTable.getColumnModel().getColumnCount() > 0) {
-            organizationJTable.getColumnModel().getColumn(1).setHeaderValue("Comments");
-        }
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 710, 160));
 
@@ -105,7 +103,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         });
         jPanel1.add(addJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, 250, 40));
 
-        backJButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        backJButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         backJButton1.setText("<<BACK");
         backJButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

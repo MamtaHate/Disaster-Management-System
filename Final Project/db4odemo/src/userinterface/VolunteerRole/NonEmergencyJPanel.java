@@ -231,7 +231,6 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
 
         confirmButton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         confirmButton.setText("Confirm");
-        confirmButton.setEnabled(false);
         confirmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmButtonActionPerformed(evt);
@@ -250,7 +249,9 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void donateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donateButtonActionPerformed
-        DonationWorkRequest request = new DonationWorkRequest();
+
+       
+        
         Map<String, Object> validateMap = new HashMap<>();
 
         if (nullCheck(amountTextField)) {
@@ -265,13 +266,25 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
             float clothesWeightAmount = validateInputFloat(clothesWeightTextField);
         }
 
-        populateMap("nameTextField", nameTextField.getText(), validateMap);
+        if (!cardNumberTextField.getText().matches("^[0-9]{16}") && fundCheck.isSelected() == true) {
+            JOptionPane.showMessageDialog(null, "wrong card number");
+            return;
+        }
 
+        populateMap("nameTextField", nameTextField.getText(), validateMap);
+        populateMap("emailTextField", emailTextField.getText(), validateMap);
         populateMap("cardNumberTextField", cardNumberTextField.getText(), validateMap);
 
         populateMap("amountTextField", amountTextField.getText(), validateMap);
         populateMap("foodWeightTextField", foodWeightTextField.getText(), validateMap);
         populateMap("clothesWeightTextField", clothesWeightTextField.getText(), validateMap);
+
+        if (validateMap.size() == 0) {
+            JOptionPane.showMessageDialog(null, "Sorry we cannot accept your donation");
+            return;
+        }
+
+       DonationWorkRequest request = new DonationWorkRequest();
 
         for (Map.Entry<String, Object> entry : validateMap.entrySet()) {
             if (entry.getKey().equals("amountTextField")) {
@@ -305,40 +318,56 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, "Thank you for your donation");
         //******************************************************************************
 
-        final String username = "username@gmail.com";
-        final String password = "password";
+         final String from = "csweta27@gmail.com";
+        final String pass = "Media0cean";
+        String add = emailTextField.getText();
+        String[] to = {add};
+        String host = "smtp.gmail.com";
 
-        Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
+        Properties prop = System.getProperties();
+        prop.put("mail.smtp.starttls.enable","true");
+        prop.put("mail.smtp.host",host);
+        prop.put("mail.smtp.user",from);
+        prop.put("mail.smtp.password",pass);
+        prop.put("mail.smtp.port","587");
+        prop.put("mail.smtp.auth","true");
 
-        Session session = Session.getInstance(props,
-                new javax.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(username, password);
-                    }
-                });
-
+        //Session session = Session.getDefaultInstance(prop);
+        Session session = Session.getInstance(prop, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(from, pass);
+            }
+        });
+        MimeMessage msg = new MimeMessage(session);
         try {
+            msg.setFrom(new InternetAddress(from));
+            InternetAddress[] toAddress = new InternetAddress[to.length];
+            for (int i = 0; i < to.length; i++) {
+                toAddress[i] = new InternetAddress(to[i]);
+            }
+            for (int i = 0; i < toAddress.length; i++) {
+                msg.setRecipient(Message.RecipientType.TO, toAddress[i]);
+            }
 
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("from-email@gmail.com"));
-            message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse("to-email@gmail.com"));
-            message.setSubject("Testing Subject");
-            message.setText("Dear Mail Crawler,"
-                    + "\n\n No spam to my email, please!");
+            msg.setSubject("test");
+            double k1 = Math.random()*100000;//Integer.toString(k)
+            k = (int) k1;
+            //System.out.println(k);
+            msg.setContent(Integer.toString(k),"text/html;charset=\"ISO-8859-1\"");
+            Transport transport = session.getTransport("smtp");
+            transport.connect(host,from,pass);
+            transport.sendMessage(msg, msg.getAllRecipients());
+            transport.close();
 
-            Transport.send(message);
-
-            System.out.println("Done");
-
-        } catch (MessagingException e) {
-            throw new RuntimeException(e);
+        } catch (MessagingException ex) {
+            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        confirmButton.setEnabled(true);
+        
+        ConfirmDonationJPanel nonMonetoryDonationJPanel = new ConfirmDonationJPanel(userProcessContainer, enterprise.getOrganizationDirectory(), account, enterprise,k);
+        userProcessContainer.add("confirmDonationJPanel", nonMonetoryDonationJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+            
     }//GEN-LAST:event_donateButtonActionPerformed
 
     private void fundCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fundCheckActionPerformed

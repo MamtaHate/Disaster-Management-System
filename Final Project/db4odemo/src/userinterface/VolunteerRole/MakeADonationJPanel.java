@@ -82,7 +82,9 @@ public class MakeADonationJPanel extends javax.swing.JPanel {
                 nonEmergencyButtonActionPerformed(evt);
             }
         });
+
         add(nonEmergencyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 240, 50));
+
 
         backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         backJButton.setText("<<BACK");

@@ -15,6 +15,7 @@
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/WorkQueue/PatientRegistry.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/Organization/Organization.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/Organization/PatientResgistryOrganization.java</file>
+            <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/PatientAdmin/ManagePatientJPanel.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/Alerts/SendEmailsJPanel.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/Role/HospitalAdminRole.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/Organization/OrganizationDirectory.java</file>
@@ -24,6 +25,7 @@
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/StaffAndVolunteerAdmin/StaffAndVolunteerAdminWorkAreaJPanel.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/WorkQueue/DisasterRegistryWorkRequest.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/WarehouseAdmin/ManageItemsJPanel.java</file>
+            <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/UserAccount/UserAccount.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/Organization/StaffOrganization.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/PatientAdmin/ProcessWorkRequestJPanel.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/Hospital/ManageOrganization.java</file>
@@ -32,11 +34,13 @@
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/ReliefOrgAdmin/ManageOrganizationJPanel.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/Incident/IncidentReportingJPanel.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/ReliefOrgAdmin/ManageEmployeeJPanel.java</file>
+            <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/StaffRole/AddEditInformationJPanel.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/DisasterVictimRegistry/DisasterVictimWorkAreaJPanel.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/ShelterOrgAdmin/ShelterAdminWorkAreaJPanel.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/StaffAndVolunteerAdmin/ManageUsersJPanel.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/Role/HousingAdminRole.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/Role/DisasterVictimRegistryRole.java</file>
+            <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/PatientAdmin/PatientListJPanel.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/Patient/PatientDirectory.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/StaffAndVolunteerAdmin/AddNewStaffJPanel.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/Email/SMTPAuthenticator.java</file>
@@ -44,6 +48,7 @@
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/WorkQueue/ReliefOrganizationWorkRequest.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/ReliefOrgAdmin/ManageUserAccountJPanel.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/DisasterRegistry/DisasterVictim.java</file>
+            <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/PatientAdmin/ManageRequestJPanel.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/Enterprise/Enterprise.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/Hospital/ManageUserAccountJPanel.java</file>
             <file>file:/D:/fall18/aedAssignment/AssignmentNumber1/hate_mamta_001448197/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/DisasterVictimRegistry/CreateVictimJPanel.java</file>

@@ -96,8 +96,8 @@ public class ConfirmDonationJPanel extends javax.swing.JPanel {
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
         if (Integer.parseInt(txtOtp.getText()) == k) {
-        final String from = "csweta27@gmail.com";
-        final String pass = "Media0cean";
+        final String from = "abc@gmail.com";
+        final String pass = "xyz";
         String add = "chowdhury.sw@husky.neu.edu";
         String[] to = {add};
         String host = "smtp.gmail.com"; 

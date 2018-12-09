@@ -196,6 +196,12 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
             }
         });
         add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, 140, 40));
+
+        dateOfOccurrenceJXDatePicker.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateOfOccurrenceJXDatePickerActionPerformed(evt);
+            }
+        });
         add(dateOfOccurrenceJXDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, 210, -1));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -300,6 +306,11 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
 
 
     }//GEN-LAST:event_eventTypeJComboBoxPropertyChange
+
+    private void dateOfOccurrenceJXDatePickerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateOfOccurrenceJXDatePickerActionPerformed
+        // TODO add your handling code here:
+        //dateOfOccurrenceJXDatePicker.getMonthView().setUpperBound(new Date().getTime())
+    }//GEN-LAST:event_dateOfOccurrenceJXDatePickerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

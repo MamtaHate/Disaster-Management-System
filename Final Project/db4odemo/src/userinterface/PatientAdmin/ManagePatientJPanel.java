@@ -31,16 +31,18 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.account=account;
-        this.organization=organization;
+        this.organization=organization; 
         populate();
     }
     
     public void populate() {
             for (WorkRequest req : organization.getWorkQueue().getWorkRequestList() ) {
-                patientNameTxt.setText(((PatientRegistry)req).toString());
+                if(req.getStatus().equals("Assigned")){
+                    patientNameTxt.setText(((PatientRegistry)req).toString());
                 identificationTxt.setText(((PatientRegistry)req).getIdentification().toString());
                 synopsisTxt.setText(((PatientRegistry)req).getSynopsis().toString());
                 gender.setText(((PatientRegistry)req).getGender());
+                }
                 }
 
     }

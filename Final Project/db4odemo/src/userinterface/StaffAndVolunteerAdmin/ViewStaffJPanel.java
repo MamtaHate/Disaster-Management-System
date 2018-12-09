@@ -126,15 +126,16 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
         txtOtherSkills = new javax.swing.JTextField();
         chkNone = new javax.swing.JCheckBox();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel2.setText(" STAFF INFORMATION SECTION");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 500, 41));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 500, 41));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setText("Staff Name:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 131, 43));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 131, 30));
 
         nameJTextField.setEditable(false);
         nameJTextField.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -143,70 +144,70 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
                 nameJTextFieldActionPerformed(evt);
             }
         });
-        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, 230, 40));
+        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 230, 30));
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setText("Gender:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 110, 40));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 110, 30));
 
         genderGroup.add(rdbMale);
         rdbMale.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         rdbMale.setText("Male");
         rdbMale.setEnabled(false);
-        add(rdbMale, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, 90, -1));
+        add(rdbMale, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, 90, -1));
 
         genderGroup.add(rdbFemale);
         rdbFemale.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         rdbFemale.setText("Female");
         rdbFemale.setEnabled(false);
-        add(rdbFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 230, 100, -1));
+        add(rdbFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 150, 100, -1));
 
         phoneNumberJTextField.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(phoneNumberJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, 230, 40));
+        add(phoneNumberJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 230, 30));
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setText("Phone Number:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, 131, 40));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 131, 30));
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setText("Address:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, 131, 40));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 131, 30));
 
         addressJTextField.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        add(addressJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 410, 230, 40));
+        add(addressJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, 230, 30));
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setText("Skills Available:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 480, 170, 40));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 170, 30));
 
-        chkCNA.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        chkCNA.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         chkCNA.setText("Certified Nursing Assistant (CNA)");
-        add(chkCNA, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 480, -1, -1));
+        add(chkCNA, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, -1, -1));
 
-        chkAED.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        chkAED.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         chkAED.setText("Automated External Defibrillator (AED)");
-        add(chkAED, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 520, -1, -1));
+        add(chkAED, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, -1, -1));
 
-        chkCPR.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        chkCPR.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         chkCPR.setText("Cardiopulmonary Resuscitation (CPR)");
         chkCPR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chkCPRActionPerformed(evt);
             }
         });
-        add(chkCPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 560, -1, -1));
+        add(chkCPR, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 390, -1, -1));
 
-        chkLGT.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        chkLGT.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         chkLGT.setText("Life Guard Trained");
-        add(chkLGT, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 600, -1, -1));
+        add(chkLGT, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 420, -1, -1));
 
-        chkFST.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        chkFST.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         chkFST.setText("Fire Service Trained");
-        add(chkFST, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 640, -1, -1));
+        add(chkFST, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 450, -1, -1));
 
-        chkBLS.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        chkBLS.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         chkBLS.setText("Basic Life Support (BLS) Trained");
-        add(chkBLS, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 680, -1, -1));
+        add(chkBLS, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 480, -1, -1));
 
         saveButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         saveButton.setText("SAVE");
@@ -216,20 +217,20 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
                 saveButtonActionPerformed(evt);
             }
         });
-        add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 830, 160, 50));
+        add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 600, 160, 40));
 
-        backButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        backButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         backButton.setText("<<BACK");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 840, 130, 40));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 600, 140, 40));
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel7.setText("Type:");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 130, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 130, -1));
 
         updateButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         updateButton.setText("UPDATE");
@@ -238,25 +239,26 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
                 updateButtonActionPerformed(evt);
             }
         });
-        add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 830, 150, 50));
-        add(memberType, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 230, 40));
+        add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 600, 150, 40));
+        add(memberType, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 230, 30));
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setText("Email ID:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 140, 40));
-        add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 280, 230, 40));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 140, 30));
+        add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 200, 230, 30));
 
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel9.setText("Other Skills (if any):");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 770, 170, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 560, 170, 20));
 
         txtOtherSkills.setEditable(false);
+        txtOtherSkills.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtOtherSkills.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtOtherSkillsActionPerformed(evt);
             }
         });
-        add(txtOtherSkills, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 760, 240, 40));
+        add(txtOtherSkills, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 550, 240, 30));
 
         chkNone.setText("None of the above");
         chkNone.addActionListener(new java.awt.event.ActionListener() {
@@ -264,7 +266,7 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
                 chkNoneActionPerformed(evt);
             }
         });
-        add(chkNone, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 720, -1, -1));
+        add(chkNone, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 510, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void nameJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameJTextFieldActionPerformed

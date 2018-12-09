@@ -66,16 +66,21 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("MANAGE NETWORK WORKAREA");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 47, 506, 41));
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setText("NAME:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 145, 100, 38));
+
+        nameJTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 145, 225, 38));
 
+        submitJButton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         submitJButton.setText("SUBMIT");
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,23 +99,25 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(networkJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 246, 613, 141));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 613, 141));
 
+        btnDelete.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnDelete.setText("DELETE NETWORK");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(617, 415, 171, 42));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(551, 380, 230, 42));
 
+        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jButton1.setText("<<BACK");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 572, 168, 52));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 168, 52));
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed

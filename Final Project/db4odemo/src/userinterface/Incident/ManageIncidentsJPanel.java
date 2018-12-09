@@ -69,12 +69,14 @@ public class ManageIncidentsJPanel extends javax.swing.JPanel {
         reportNewIncidentButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("VIEW REPORTED INCIDENTS");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, -1, 41));
 
+        incidentsJTable.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         incidentsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -96,14 +98,14 @@ public class ManageIncidentsJPanel extends javax.swing.JPanel {
         });
         add(reportNewIncidentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(753, 380, 250, 50));
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jButton1.setText("<<BACK");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 200, 60));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 200, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void reportNewIncidentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportNewIncidentButtonActionPerformed

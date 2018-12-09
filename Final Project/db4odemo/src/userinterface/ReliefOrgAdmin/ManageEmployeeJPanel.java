@@ -90,6 +90,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         createEmployeeButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -108,6 +109,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         });
         add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 190, 40));
 
+        empJTable.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         empJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -149,14 +151,14 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         });
         add(createEmployeeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 470, 280, 50));
 
-        backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        backJButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         backJButton.setText("<<BACK");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 620, 170, 50));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, 170, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed

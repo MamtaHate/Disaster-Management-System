@@ -70,6 +70,7 @@ public class ManageStaffJPanel extends javax.swing.JPanel {
         addStaffJButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -107,7 +108,7 @@ public class ManageStaffJPanel extends javax.swing.JPanel {
         });
         add(addStaffJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 440, 190, 40));
 
-        backButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        backButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         backButton.setText("<<BACK");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

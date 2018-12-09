@@ -55,12 +55,14 @@ public class MakeADonationJPanel extends javax.swing.JPanel {
         nonEmergencyButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("MAKE A DONATION!");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, -1, 41));
 
+        jTable1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -80,7 +82,9 @@ public class MakeADonationJPanel extends javax.swing.JPanel {
                 nonEmergencyButtonActionPerformed(evt);
             }
         });
-        add(nonEmergencyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 270, 60));
+
+        add(nonEmergencyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 240, 50));
+
 
         backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         backJButton.setText("<<BACK");
@@ -89,7 +93,7 @@ public class MakeADonationJPanel extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 160, 50));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 160, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed

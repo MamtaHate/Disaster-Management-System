@@ -75,12 +75,14 @@ public class ApproveDonationsJPanel extends javax.swing.JPanel {
         backJButton = new javax.swing.JButton();
         approveButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("APPROVE DONATIONS");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 280, 41));
 
+        donationRequests.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         donationRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -93,14 +95,14 @@ public class ApproveDonationsJPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 130, 780, 140));
 
-        backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        backJButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         backJButton.setText("<<BACK");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 170, 50));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 170, 40));
 
         approveButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         approveButton.setText("Approve");

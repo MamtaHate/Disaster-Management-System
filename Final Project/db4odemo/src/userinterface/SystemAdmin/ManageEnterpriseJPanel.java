@@ -88,12 +88,14 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         submitJButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("MANAGE ENTERPRISE WORKAREA");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, -1));
 
+        enterpriseJTable.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         enterpriseJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -109,9 +111,11 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 500, 210));
 
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setText("NETWORK:");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 150, 150, 40));
 
+        networkJComboBox.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         networkJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         networkJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,39 +124,47 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         });
         add(networkJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 150, 210, 40));
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setText("ENTERPRISE TYPE:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 200, 150, 40));
 
+        enterpriseTypeJComboBox.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         enterpriseTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(enterpriseTypeJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 200, 210, 40));
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setText("NAME:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 250, 150, 40));
+
+        nameJTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 250, 210, 40));
 
+        btnDelete.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnDelete.setText("DELETE ENTERPRISE");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 190, 40));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 220, 40));
 
+        submitJButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         submitJButton.setText("SUBMIT");
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitJButtonActionPerformed(evt);
             }
         });
-        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, 190, 50));
+        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, 220, 50));
 
+        backJButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         backJButton.setText("<<BACK");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 590, 160, 40));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 460, 160, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void networkJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkJComboBoxActionPerformed

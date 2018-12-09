@@ -13,14 +13,26 @@ import java.util.ArrayList;
  * @author mamta
  */
 public class PatientDirectory {
-    private ArrayList<DisasterVictim> patient;
+    private ArrayList<Patient> patientList;
 
-    public ArrayList<DisasterVictim> getPatient() {
-        return patient;
+    public ArrayList<Patient> getPatientList() {
+        return patientList;
     }
 
-    public void setPatient(ArrayList<DisasterVictim> patient) {
-        this.patient = patient;
+    public void setPatientList(ArrayList<Patient> patientList) {
+        this.patientList = patientList;
+    }
+
+   
+     public Patient createPatientRegistry(String name, String gender, String identification,String synopsis, int room ){
+        Patient patient = new Patient();
+        patient.setPatientName(name);
+        patient.setGender(gender);
+        patient.setIndentification(identification);
+        patient.setSynopsis(synopsis);
+        patient.setRoom(room);
+        patientList.add(patient);
+        return patient;
     }
     
 }

@@ -83,19 +83,18 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
         workQueueTbl = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        selectCombo = new javax.swing.JComboBox();
         panelRaiseRequest = new javax.swing.JPanel();
         btnRaiseRequest = new javax.swing.JButton();
         typeTxt = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        commentsTxt = new javax.swing.JTextField();
+        genderTxt = new javax.swing.JTextField();
         patientNameTxt = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        selectCombo = new javax.swing.JComboBox();
+        identificationTxt = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(214, 217, 224));
-
-        workQueueTbl.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         workQueueTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null}
@@ -106,15 +105,6 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(workQueueTbl);
 
-        requestBtn.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        requestBtn.setText("Request");
-        requestBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                requestBtnActionPerformed(evt);
-            }
-        });
-
-        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jButton1.setText("< Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,12 +114,6 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel9.setText("MANAGE REQUESTS");
-
-        selectCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectComboActionPerformed(evt);
-            }
-        });
 
         panelRaiseRequest.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "RAISE A NEW REQUEST", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
         panelRaiseRequest.setEnabled(false);
@@ -143,9 +127,17 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel3.setText("Type of emergency:");
 
-        jLabel4.setText("Identification mark:");
+        jLabel4.setText("Gender:");
 
         jLabel7.setText("Name of Patient:");
+
+        selectCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectComboActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Identification mark:");
 
         javax.swing.GroupLayout panelRaiseRequestLayout = new javax.swing.GroupLayout(panelRaiseRequest);
         panelRaiseRequest.setLayout(panelRaiseRequestLayout);
@@ -154,24 +146,30 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(panelRaiseRequestLayout.createSequentialGroup()
                 .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelRaiseRequestLayout.createSequentialGroup()
-                        .addGap(161, 161, 161)
-                        .addComponent(btnRaiseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelRaiseRequestLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
+                        .addGap(30, 30, 30)
                         .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(selectCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(typeTxt)
-                            .addComponent(commentsTxt)
-                            .addComponent(patientNameTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))))
-                .addContainerGap(237, Short.MAX_VALUE))
+                            .addComponent(genderTxt)
+                            .addComponent(patientNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(identificationTxt)))
+                    .addGroup(panelRaiseRequestLayout.createSequentialGroup()
+                        .addGap(183, 183, 183)
+                        .addComponent(btnRaiseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(215, Short.MAX_VALUE))
         );
         panelRaiseRequestLayout.setVerticalGroup(
             panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRaiseRequestLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(selectCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(patientNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -181,11 +179,18 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(commentsTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(97, 97, 97)
-                .addComponent(btnRaiseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addGroup(panelRaiseRequestLayout.createSequentialGroup()
+                        .addComponent(identificationTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(genderTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addComponent(btnRaiseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelRaiseRequestLayout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -193,31 +198,32 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(75, 75, 75)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(requestBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(jLabel9)))
-                .addContainerGap(86, Short.MAX_VALUE))
+                        .addGap(196, 196, 196)
+                        .addComponent(jLabel9))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(panelRaiseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(requestBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(panelRaiseRequest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -231,7 +237,7 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
     private void selectComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectComboActionPerformed
         // TODO add your handling code here:
         patientNameTxt.setText("");
-        commentsTxt.setText("");
+        genderTxt.setText("");
         typeTxt.setText("");
         
         if (selectCombo.getSelectedItem().toString().equals(Organization.OrganizationType.Housing)) {
@@ -240,7 +246,7 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
             jLabel3.setVisible(false);
             jLabel4.setVisible(false);
            typeTxt.setVisible(false);
-           commentsTxt.setVisible(false);
+           genderTxt.setVisible(false);
         } else {
             jLabel7.setText("Name of Patient:");
             jLabel3.setText("Type of emergency:");
@@ -251,11 +257,7 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
                 jLabel3.setVisible(true);
                 jLabel4.setVisible(true);
                 typeTxt.setVisible(true);
-           commentsTxt.setVisible(true);
-              // type.setVisible(true);
-               // type.addItem("Food");
-                //type.addItem("Clothing");
-                //jQtyTextField.setVisible(true);
+           genderTxt.setVisible(true);
             }
 
         }
@@ -299,10 +301,11 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
             // workRequest.setNoOfPeople(noOfPeopleTextField.getText());
             workRequest.setName(patientNameTxt.getText());
             workRequest.setSynopsis(typeTxt.getText());
-            workRequest.setIdentification(commentsTxt.getText());
+            workRequest.setIdentification(identificationTxt.getText());
             workRequest.setStatus("Pending");
+            workRequest.setGender(genderTxt.getText());
             workRequest.setSender(account);
-            workRequest.setMessage(commentsTxt.getText());
+            workRequest.setMessage(genderTxt.getText());
             account.getWorkQueue().getWorkRequestList().add(workRequest);
 
             for (Network network : system.getNetworkList()) {
@@ -327,10 +330,12 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRaiseRequest;
-    private javax.swing.JTextField commentsTxt;
+    private javax.swing.JTextField genderTxt;
+    private javax.swing.JTextField identificationTxt;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;

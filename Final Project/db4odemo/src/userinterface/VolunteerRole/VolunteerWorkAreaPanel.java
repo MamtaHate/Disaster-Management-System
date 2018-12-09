@@ -91,8 +91,8 @@ public class VolunteerWorkAreaPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_reportIncidentButtonActionPerformed
 
     private void donationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donationButtonActionPerformed
-        NonEmergencyJPanel donationJPanel = new NonEmergencyJPanel(userProcessContainer, organization, userAccount, enterprise, business);
-        userProcessContainer.add("donationJPanel", donationJPanel);
+        MakeADonationJPanel makeADonationJPanel = new MakeADonationJPanel(userProcessContainer, userAccount, organization, enterprise, business);
+        userProcessContainer.add("makeADonationJPanel", makeADonationJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_donationButtonActionPerformed

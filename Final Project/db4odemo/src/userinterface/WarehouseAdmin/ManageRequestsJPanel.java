@@ -5,9 +5,11 @@
  */
 package userinterface.WarehouseAdmin;
 
+import Business.EcoSystem;
 import userinterface.ShelterOrgAdmin.*;
 import Business.Enterprise.Enterprise;
 import Business.Items.Item;
+import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Organization.WarehouseOrganization;
 import Business.UserAccount.UserAccount;
@@ -31,17 +33,22 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
     private Enterprise enterprise;
     private WarehouseOrganization org;
     private UserAccount account;
+    private EcoSystem business;
 
     /**
      * Creates new form ManageRequestsJPanel
      */
-    public ManageRequestsJPanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount account) {
+    public ManageRequestsJPanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount account, EcoSystem business) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
         this.account = account;
-        
+        this.business = business;
+
         populateJTable();
+
+        requestsJTable.getColumnModel().getColumn(8).setMinWidth(0);
+        requestsJTable.getColumnModel().getColumn(8).setMaxWidth(0);
     }
 
     public void populateJTable() {
@@ -62,10 +69,25 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
                     row[5] = req.getStatus();
                     row[6] = req.getResolveDate();
                     row[7] = ((WarehouseRequest) req).getRemaining();
+                    row[8] = ((WarehouseRequest) req).getItem();
                     model.addRow(row);
                 }
 
-            }      
+            }
+        }
+        
+        for(WorkRequest req: account.getWorkQueue().getWorkRequestList()) {
+             Object[] row = new Object[model.getColumnCount()];
+                    row[0] = req;
+                    row[1] = ((WarehouseRequest) req).getQty();
+                    row[2] = req.getReceiver();
+                    row[3] = req.getSender();
+                    row[4] = req.getRequestDate();
+                    row[5] = req.getStatus();
+                    row[6] = req.getResolveDate();
+                    row[7] = ((WarehouseRequest) req).getRemaining();
+                    row[8] = ((WarehouseRequest) req).getItem();
+                    model.addRow(row);
         }
 
     }
@@ -84,6 +106,7 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
         requestsJTable = new javax.swing.JTable();
         approveButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
+        requestItems = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(214, 217, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -97,7 +120,7 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Item Type", "Quantity", "Receiver", "Sender", "Request Date", "Status", "Approved Date", "Remaining"
+                "Item Type", "Quantity", "Receiver", "Sender", "Request Date", "Status", "Approved Date", "Remaining", "Item"
             }
         ));
         jScrollPane1.setViewportView(requestsJTable);
@@ -121,6 +144,15 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
             }
         });
         add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 520, 170, 50));
+
+        requestItems.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        requestItems.setText("Request stock");
+        requestItems.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                requestItemsActionPerformed(evt);
+            }
+        });
+        add(requestItems, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 420, 210, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -139,26 +171,59 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
 
     private void approveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approveButtonActionPerformed
         // TODO add your handling code here:
-        
-        if(!requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 5).toString().equals("Approved")) {
-             if (requestsJTable.getSelectedRow() >= 0) {
-            WorkRequest req = (WarehouseRequest) requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 0);
-            req.setReceiver(account);
-            req.setStatus("Approved");
-            req.setResolveDate(new Date());
-            ((WarehouseRequest)req).setRemaining(((WarehouseRequest)req).getRemaining() - (Integer)requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 1));
-            populateJTable();
+        int remaining = 0;
+        if (requestsJTable.getSelectedRow() >= 0) {
+            if (!requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 5).toString().equals("Approved")) {
+                if (requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 5).toString().equals("Requested")) {
+                    JOptionPane.showMessageDialog(this, "You can approve your own request");
+                } else {
+                    if ((Integer) requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 7) > 0) {
+                        WorkRequest req = (WarehouseRequest) requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 0);
+                        req.setReceiver(account);
+                        req.setStatus("Approved");
+                        req.setResolveDate(new Date());
+                        if (((WarehouseRequest) req).getRemaining() - (Integer) requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 1) < 0) {
+                            remaining = 0;
+
+                        } else {
+                            remaining = ((WarehouseRequest) req).getRemaining() - (Integer) requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 1);
+                        }
+
+                        ((WarehouseRequest) req).setRemaining(remaining);
+
+                        if (requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 8) != null) {
+                            Item item = (Item) requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 8);
+                            if (item != null) {
+                                item.setQty(((WarehouseRequest) req).getRemaining());
+                            }
+                        }
+                        populateJTable();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Out of stock!");
+                    }
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Request already approved");
+
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select an item");
         }
-        else {
-            JOptionPane.showMessageDialog(this, "Please select an item");        
-        }
-        }
-        else {
-            JOptionPane.showMessageDialog(this, "Request already approved");
-        }
-        
-       
+
+
     }//GEN-LAST:event_approveButtonActionPerformed
+
+    private void requestItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestItemsActionPerformed
+        // TODO add your handling code here:
+        RequestStockJPanel requestStockItemsJPanel = new RequestStockJPanel(userProcessContainer, enterprise, account, business);
+        userProcessContainer.add("requestStockItemsJPanel", requestStockItemsJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+
+
+    }//GEN-LAST:event_requestItemsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -166,6 +231,7 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
     private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton requestItems;
     private javax.swing.JTable requestsJTable;
     // End of variables declaration//GEN-END:variables
 }

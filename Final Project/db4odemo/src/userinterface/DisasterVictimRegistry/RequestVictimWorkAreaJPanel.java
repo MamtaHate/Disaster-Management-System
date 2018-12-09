@@ -303,7 +303,7 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
             workRequest.setSynopsis(typeTxt.getText());
             workRequest.setIdentification(identificationTxt.getText());
             workRequest.setStatus("Pending");
-            //workRequest.setGender(genderTxt.getText());
+            workRequest.setGender(genderTxt.getText());
             workRequest.setSender(account);
             workRequest.setMessage(genderTxt.getText());
             account.getWorkQueue().getWorkRequestList().add(workRequest);

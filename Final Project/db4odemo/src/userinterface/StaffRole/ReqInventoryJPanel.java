@@ -140,7 +140,10 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
         for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
             if (org instanceof WarehouseOrganization) {
                 for (Item i : ((WarehouseOrganization) org).getItemCatalog().getItemList()) {
-                    remaining = i.getQty();
+                    if(i.getCategory().toString().equals(itemCategory.getSelectedItem().toString())) {
+                        remaining = i.getQty();
+                        request.setItem(i); 
+                    }             
                 }
             }
         }

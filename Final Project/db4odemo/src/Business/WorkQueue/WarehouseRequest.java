@@ -5,11 +5,14 @@
  */
 package Business.WorkQueue;
 
+import Business.Items.Item;
+
 /**
  *
  * @author prath
  */
 public class WarehouseRequest extends WorkRequest{
+    private Item item;
     private String itemType;
     private Integer qty;
     private Integer remaining;
@@ -37,8 +40,14 @@ public class WarehouseRequest extends WorkRequest{
     public void setRemaining(Integer remaining) {
         this.remaining = remaining;
     }
-    
-       
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
     
     @Override
     public String toString() {

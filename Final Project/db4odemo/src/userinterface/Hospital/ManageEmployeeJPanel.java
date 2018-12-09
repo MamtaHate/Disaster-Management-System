@@ -10,7 +10,6 @@ import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Organization.PatientResgistryOrganization;
-import static com.sun.org.apache.bcel.internal.Repository.instanceOf;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;

@@ -10,10 +10,14 @@ import Business.Incident.Incident;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import org.jdesktop.swingx.JXDatePicker;
+import org.jdesktop.swingx.calendar.CalendarUtils;
 
 /**
  *
@@ -52,6 +56,9 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
         eventTypeJComboBox.addItem("Tsunami");
         eventTypeJComboBox.addItem("Tropical Cyclone");
         eventTypeJComboBox.addItem("Volcano");
+        eventTypeJComboBox.addItem("Storm");
+
+        incidentJComboBox.addItem("Avalanche");
     }
 
     /**
@@ -196,6 +203,12 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
             }
         });
         add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, 140, 40));
+
+        dateOfOccurrenceJXDatePicker.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateOfOccurrenceJXDatePickerActionPerformed(evt);
+            }
+        });
         add(dateOfOccurrenceJXDatePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, 210, -1));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -220,18 +233,20 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         Boolean allowSave = true;
 
-        Incident incident = enterprise.getIncidentDirectory().addIncident();
-        incident.setIncidentName(eventNameJTextField.getText());
-        incident.setEventType(eventTypeJComboBox.getSelectedItem().toString());
-        incident.setIncidentType(eventTypeJComboBox.getSelectedItem().toString());
-        incident.setDateOccured(dateOfOccurrenceJXDatePicker.getDate());
-        incident.setCity(cityJTextField.getText());
-        incident.setPostCode(postalCodeTextField.getText());
-        incident.setComments(commentsJTextArea.getText());
+        allowSave = validateInputs();
 
-        JOptionPane.showMessageDialog(this, "Reported Successfully");
+        if (allowSave) {
+            Incident incident = enterprise.getIncidentDirectory().addIncident();
+            incident.setIncidentName(eventNameJTextField.getText());
+            incident.setEventType(eventTypeJComboBox.getSelectedItem().toString());
+            incident.setIncidentType(eventTypeJComboBox.getSelectedItem().toString());
+            incident.setDateOccured(dateOfOccurrenceJXDatePicker.getDate());
+            incident.setCity(cityJTextField.getText());
+            incident.setPostCode(postalCodeTextField.getText());
+            incident.setComments(commentsJTextArea.getText());
 
-        //send alerts???
+            JOptionPane.showMessageDialog(this, "Reported Successfully");
+        }
 
     }//GEN-LAST:event_saveButtonActionPerformed
 
@@ -259,6 +274,11 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
             return false;
         } else if (!isValidZip(postalCodeTextField.getText())) {
             JOptionPane.showMessageDialog(this, "Please enter a valid zip code.");
+            return false;
+        }
+
+        if (dateOfOccurrenceJXDatePicker.getDate().after(new Date())) {
+            JOptionPane.showMessageDialog(this, "Date of occurrence cannot be a future date");
             return false;
         }
 
@@ -291,7 +311,28 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
                 incidentJComboBox.addItem("Bomb Explosion");
                 incidentJComboBox.addItem("Chemical Hazzard");
                 incidentJComboBox.addItem("Bomb Threat");
+            } else if (eventTypeJComboBox.getSelectedItem().toString().equals("Drought")) {
+                incidentJComboBox.addItem("Drought");
+            } else if (eventTypeJComboBox.getSelectedItem().toString().equals("Flood")) {
+                incidentJComboBox.addItem("Flash Flood");
+                incidentJComboBox.addItem("Flood");
+            } else if (eventTypeJComboBox.getSelectedItem().toString().equals("Land Slide")) {
+                incidentJComboBox.addItem("Landslide");
+            } else if (eventTypeJComboBox.getSelectedItem().toString().equals("Heatwave")) {
+                incidentJComboBox.addItem("Heat Wave");
+                incidentJComboBox.addItem("Heat and Humidity");
+            } else if (eventTypeJComboBox.getSelectedItem().toString().equals("Tsunami")) {
+                incidentJComboBox.addItem("Tsunami");
+                incidentJComboBox.addItem("High Tidal Waves");
+            } else if (eventTypeJComboBox.getSelectedItem().toString().equals("Tropical Cyclone")) {
+                incidentJComboBox.addItem("Tropical Cyclone");
+            } else if (eventTypeJComboBox.getSelectedItem().toString().equals("Storm")) {
+                incidentJComboBox.addItem("Tropical Storm");
+                incidentJComboBox.addItem("Thunder Storm");
+                incidentJComboBox.addItem("Winter Storm");
+                incidentJComboBox.addItem("Storm Surge");
             }
+
         }
     }//GEN-LAST:event_eventTypeJComboBoxActionPerformed
 
@@ -300,6 +341,10 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
 
 
     }//GEN-LAST:event_eventTypeJComboBoxPropertyChange
+
+    private void dateOfOccurrenceJXDatePickerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateOfOccurrenceJXDatePickerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateOfOccurrenceJXDatePickerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

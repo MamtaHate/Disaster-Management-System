@@ -225,7 +225,7 @@ public class CreateUpdateItemsJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Quantity is required");
             return false;
         }
-        else if(unitOfMeasure.getText().matches("[0-9]+") == false) {
+        else if(qtyText.getText().matches("[0-9]+") == false) {
             JOptionPane.showMessageDialog(this, "Please enter a valid input for quantity.");
             return false;
         }

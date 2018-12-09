@@ -12,7 +12,7 @@ package Business.WorkQueue;
 public class PatientRegistry extends WorkRequest{
     private String name;
     private String identification;
-    private String height;
+    private String gender;
     private String synopsis;
     private String testResult;
 
@@ -40,12 +40,12 @@ public class PatientRegistry extends WorkRequest{
         this.identification = identification;
     }
 
-    public String getHeight() {
-        return height;
+    public String getGender() {
+        return gender;
     }
 
-    public void setHeight(String height) {
-        this.height = height;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getSynopsis() {

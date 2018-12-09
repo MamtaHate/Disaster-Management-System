@@ -164,7 +164,7 @@ public class RequestVictimJPanel extends javax.swing.JPanel {
             HousingWorkRequest hwq = new HousingWorkRequest();
             //   WorkQueue wq = new WorkQueue();
 
-            hwq.setShelter(message);
+            //hwq.setShelter(message);
             hwq.setSender(account);
             hwq.setStatus("Sent");
 

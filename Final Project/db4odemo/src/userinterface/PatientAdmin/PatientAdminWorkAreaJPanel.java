@@ -20,10 +20,10 @@ public class PatientAdminWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form PatientAdminWorkAreaJPAnel
      */
-    JPanel userProcessContainer; 
-            Organization organization; 
-            EcoSystem system; 
-            UserAccount account;
+    private JPanel userProcessContainer; 
+    private Organization organization; 
+    private EcoSystem system; 
+    private UserAccount account;
     public PatientAdminWorkAreaJPanel(JPanel userProcessContainer, Organization organization, EcoSystem system, UserAccount account) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
@@ -41,17 +41,18 @@ public class PatientAdminWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        manageOrganizationJButton = new javax.swing.JButton();
+        patientListBtn = new javax.swing.JButton();
         manageEmployeeJButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
+        managePatientBtn = new javax.swing.JButton();
 
-        manageOrganizationJButton.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        manageOrganizationJButton.setText("Manage Patients");
-        manageOrganizationJButton.addActionListener(new java.awt.event.ActionListener() {
+        patientListBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        patientListBtn.setText("Patient List");
+        patientListBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                manageOrganizationJButtonActionPerformed(evt);
+                patientListBtnActionPerformed(evt);
             }
         });
 
@@ -72,11 +73,22 @@ public class PatientAdminWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         valueLabel.setText("<value>");
 
+        managePatientBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        managePatientBtn.setText("Manage Patients");
+        managePatientBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                managePatientBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 692, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(303, Short.MAX_VALUE)
+                .addComponent(patientListBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(139, 139, 139))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 79, Short.MAX_VALUE)
@@ -89,15 +101,20 @@ public class PatientAdminWorkAreaJPanel extends javax.swing.JPanel {
                             .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(220, 220, 220)
-                            .addComponent(manageOrganizationJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(220, 220, 220)
                             .addComponent(manageEmployeeJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGap(0, 79, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(309, Short.MAX_VALUE)
+                    .addComponent(managePatientBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(133, 133, 133)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 504, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(431, Short.MAX_VALUE)
+                .addComponent(patientListBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 92, Short.MAX_VALUE)
@@ -106,20 +123,23 @@ public class PatientAdminWorkAreaJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(30, 30, 30)
-                    .addComponent(manageOrganizationJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(30, 30, 30)
+                    .addGap(120, 120, 120)
                     .addComponent(manageEmployeeJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 92, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(272, Short.MAX_VALUE)
+                    .addComponent(managePatientBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(172, 172, 172)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
-//        ManageOrganizationJPanel manageOrgJPanel = new ManageOrganizationJPanel(userProcessContainer,userAccount,organization);
-//        userProcessContainer.add("manageOrgJPanel", manageOrgJPanel);
-//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-//        layout.next(userProcessContainer);
-    }//GEN-LAST:event_manageOrganizationJButtonActionPerformed
+    private void patientListBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientListBtnActionPerformed
+        PatientListJPanel patientListJPanel = new PatientListJPanel(userProcessContainer,account,organization);
+        userProcessContainer.add("patientListJPanel", patientListJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_patientListBtnActionPerformed
 
     private void manageEmployeeJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeJButtonActionPerformed
         ManageRequestJPanel manageRequestJPanel = new ManageRequestJPanel(userProcessContainer,account,organization);
@@ -128,12 +148,21 @@ public class PatientAdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_manageEmployeeJButtonActionPerformed
 
+    private void managePatientBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managePatientBtnActionPerformed
+        // TODO add your handling code here:
+        ManagePatientJPanel managePatientJPanel = new ManagePatientJPanel(userProcessContainer,account,organization);
+        userProcessContainer.add("managePatientJPanel", managePatientJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_managePatientBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton manageEmployeeJButton;
-    private javax.swing.JButton manageOrganizationJButton;
+    private javax.swing.JButton managePatientBtn;
+    private javax.swing.JButton patientListBtn;
     private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables
 }

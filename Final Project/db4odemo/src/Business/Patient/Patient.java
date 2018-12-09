@@ -11,7 +11,7 @@ package Business.Patient;
  */
 public class Patient {
     private String patientName;
-    private String age;
+    private String gender;
     private String indentification;
     private String height;
     private String synopsis;
@@ -24,12 +24,12 @@ public class Patient {
         this.patientName = patientName;
     }
 
-    public String getAge() {
-        return age;
+    public String getGender() {
+        return gender;
     }
 
-    public void setAge(String age) {
-        this.age = age;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getIndentification() {

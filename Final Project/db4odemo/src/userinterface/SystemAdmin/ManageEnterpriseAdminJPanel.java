@@ -104,7 +104,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         submitJButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         enterpriseJTable.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N

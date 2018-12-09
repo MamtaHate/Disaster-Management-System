@@ -108,7 +108,7 @@ public class AddEditInformationJPanel extends javax.swing.JPanel {
         chkLGT = new javax.swing.JCheckBox();
         chkFST = new javax.swing.JCheckBox();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N

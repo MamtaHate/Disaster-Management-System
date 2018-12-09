@@ -95,7 +95,8 @@ public class CreateVictimJPanel extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         nationalityCombo = new javax.swing.JComboBox();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         nameTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         nameTxt.addActionListener(new java.awt.event.ActionListener() {
@@ -103,18 +104,23 @@ public class CreateVictimJPanel extends javax.swing.JPanel {
                 nameTxtActionPerformed(evt);
             }
         });
+        add(nameTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 85, 160, -1));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setText("Name:");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 88, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel2.setText("Age:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 122, -1, -1));
 
         gender.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         gender.setText("Gender:");
+        add(gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 164, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setText("Photo:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 371, -1, -1));
 
         ageTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         ageTxt.addActionListener(new java.awt.event.ActionListener() {
@@ -122,6 +128,7 @@ public class CreateVictimJPanel extends javax.swing.JPanel {
                 ageTxtActionPerformed(evt);
             }
         });
+        add(ageTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 119, 160, -1));
 
         imgTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         imgTxt.addActionListener(new java.awt.event.ActionListener() {
@@ -129,6 +136,7 @@ public class CreateVictimJPanel extends javax.swing.JPanel {
                 imgTxtActionPerformed(evt);
             }
         });
+        add(imgTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 368, 160, -1));
 
         saveBtn.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         saveBtn.setText("Save");
@@ -137,6 +145,7 @@ public class CreateVictimJPanel extends javax.swing.JPanel {
                 saveBtnActionPerformed(evt);
             }
         });
+        add(saveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 488, 87, 42));
 
         imgBtn.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         imgBtn.setText("Upload Image");
@@ -145,6 +154,8 @@ public class CreateVictimJPanel extends javax.swing.JPanel {
                 imgBtnActionPerformed(evt);
             }
         });
+        add(imgBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 409, -1, -1));
+        add(lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(528, 340, 177, 138));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jButton1.setText("< Back");
@@ -153,15 +164,19 @@ public class CreateVictimJPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 488, 87, 42));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setText("Nationality:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 291, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setText("Address:");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 247, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setText("Contact:");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 206, -1, -1));
 
         contactTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         contactTxt.addActionListener(new java.awt.event.ActionListener() {
@@ -169,6 +184,7 @@ public class CreateVictimJPanel extends javax.swing.JPanel {
                 contactTxtActionPerformed(evt);
             }
         });
+        add(contactTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 203, 160, -1));
 
         addressTxt.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         addressTxt.addActionListener(new java.awt.event.ActionListener() {
@@ -176,6 +192,7 @@ public class CreateVictimJPanel extends javax.swing.JPanel {
                 addressTxtActionPerformed(evt);
             }
         });
+        add(addressTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 244, 160, -1));
 
         victimCombo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         victimCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -184,125 +201,32 @@ public class CreateVictimJPanel extends javax.swing.JPanel {
                 victimComboActionPerformed(evt);
             }
         });
+        add(victimCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 322, -1, -1));
 
         rdbMale.setBackground(new java.awt.Color(214, 217, 224));
         genderGroup.add(rdbMale);
         rdbMale.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         rdbMale.setText("Male");
+        add(rdbMale, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 160, -1, -1));
 
         rdbFemale.setBackground(new java.awt.Color(214, 217, 224));
         genderGroup.add(rdbFemale);
         rdbFemale.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         rdbFemale.setText("Female");
+        add(rdbFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 160, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel7.setText("Victim Type:");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 325, -1, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 47, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel9.setText("CREATE VICTIM REGISTRY");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, 41));
 
         nationalityCombo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         nationalityCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(194, 194, 194)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel5)
-                                    .addComponent(gender)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel3))
-                                .addGap(38, 38, 38)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(rdbMale)
-                                        .addGap(42, 42, 42)
-                                        .addComponent(rdbFemale))
-                                    .addComponent(nameTxt)
-                                    .addComponent(ageTxt)
-                                    .addComponent(imgBtn)
-                                    .addComponent(imgTxt)
-                                    .addComponent(contactTxt)
-                                    .addComponent(addressTxt)
-                                    .addComponent(victimCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(nationalityCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel4)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(71, 71, 71)
-                                .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(51, 51, 51)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jLabel8))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(331, 331, 331)
-                        .addComponent(lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(ageTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(gender)
-                            .addComponent(rdbMale)
-                            .addComponent(rdbFemale))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(contactTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(addressTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(nationalityCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(victimCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(imgTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(imgBtn)
-                        .addGap(54, 54, 54)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(41, 41, 41))
-        );
+        add(nationalityCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 288, 160, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void nameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTxtActionPerformed

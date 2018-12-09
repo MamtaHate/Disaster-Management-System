@@ -99,6 +99,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         createEmployeeButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
 
+        jPanel1.setBackground(new java.awt.Color(255, 253, 208));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N

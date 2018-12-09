@@ -74,7 +74,7 @@ public class MakeADonationJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         incidentsJTable = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -108,6 +108,7 @@ public class MakeADonationJPanel extends javax.swing.JPanel {
         });
         add(emergencyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 250, 50));
 
+        incidentsJTable.setBackground(new java.awt.Color(255, 253, 208));
         incidentsJTable.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         incidentsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

@@ -69,7 +69,7 @@ public class SendRequestJPanel extends javax.swing.JPanel {
         sendBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
 
         enterpriseCombo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         enterpriseCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));

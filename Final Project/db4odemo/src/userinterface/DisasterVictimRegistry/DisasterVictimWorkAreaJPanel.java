@@ -47,7 +47,7 @@ public class DisasterVictimWorkAreaJPanel extends javax.swing.JPanel {
         requestBtn = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
 
         createBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         createBtn.setText("CREATE VICTIM RECORDS");

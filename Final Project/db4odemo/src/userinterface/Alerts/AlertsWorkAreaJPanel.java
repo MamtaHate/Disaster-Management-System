@@ -41,7 +41,7 @@ public class AlertsWorkAreaJPanel extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         sendNotification = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jButton1.setText("Requests");

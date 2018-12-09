@@ -46,7 +46,7 @@ public class WarehouseAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageRequestsJButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         manageOrganizationJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N

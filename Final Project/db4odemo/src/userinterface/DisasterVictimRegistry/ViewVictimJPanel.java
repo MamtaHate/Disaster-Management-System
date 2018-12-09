@@ -98,7 +98,8 @@ public class ViewVictimJPanel extends javax.swing.JPanel {
         victimCombo = new javax.swing.JComboBox();
         jLabel9 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         victimTbl.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         victimTbl.setModel(new javax.swing.table.DefaultTableModel(
@@ -114,6 +115,8 @@ public class ViewVictimJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(victimTbl);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 162, -1, 173));
+
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jButton1.setText("< Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -121,6 +124,7 @@ public class ViewVictimJPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 366, 100, 32));
 
         imgBtn.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         imgBtn.setText("View Image");
@@ -129,6 +133,8 @@ public class ViewVictimJPanel extends javax.swing.JPanel {
                 imgBtnActionPerformed(evt);
             }
         });
+        add(imgBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(464, 366, 137, 32));
+        add(imgLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(601, 280, 178, 127));
 
         victimCombo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         victimCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -142,53 +148,11 @@ public class ViewVictimJPanel extends javax.swing.JPanel {
                 victimComboActionPerformed(evt);
             }
         });
+        add(victimCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 121, 109, -1));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel9.setText("VICTIMS REGISTRY");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(149, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(victimCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(imgBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(imgLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(280, 280, 280)
-                        .addComponent(imgLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(victimCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(imgBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(75, Short.MAX_VALUE))
-        );
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 46, -1, 41));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

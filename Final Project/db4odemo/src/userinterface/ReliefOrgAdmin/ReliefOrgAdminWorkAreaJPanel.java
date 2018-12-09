@@ -54,7 +54,7 @@ public class ReliefOrgAdminWorkAreaJPanel extends javax.swing.JPanel {
         approveDonations = new javax.swing.JButton();
         approveDonations1 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         manageUserJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N

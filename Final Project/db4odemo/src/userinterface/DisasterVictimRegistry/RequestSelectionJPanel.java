@@ -60,6 +60,8 @@ public class RequestSelectionJPanel extends javax.swing.JPanel {
         selectCombo = new javax.swing.JComboBox();
         request = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 253, 208));
+
         selectCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         selectCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

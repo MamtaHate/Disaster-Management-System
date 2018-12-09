@@ -116,7 +116,7 @@ public class EmergencyJPanel extends javax.swing.JPanel {
         confirmButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -127,6 +127,7 @@ public class EmergencyJPanel extends javax.swing.JPanel {
         jLabel2.setText("Donation Type:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 140, 30));
 
+        fundCheck.setBackground(new java.awt.Color(255, 253, 208));
         fundCheck.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         fundCheck.setText("Funds");
         fundCheck.addActionListener(new java.awt.event.ActionListener() {
@@ -136,6 +137,7 @@ public class EmergencyJPanel extends javax.swing.JPanel {
         });
         add(fundCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, -1, -1));
 
+        foodCheck.setBackground(new java.awt.Color(255, 253, 208));
         foodCheck.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         foodCheck.setText("Food");
         foodCheck.addActionListener(new java.awt.event.ActionListener() {
@@ -145,6 +147,7 @@ public class EmergencyJPanel extends javax.swing.JPanel {
         });
         add(foodCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, -1, -1));
 
+        clothesCheck.setBackground(new java.awt.Color(255, 253, 208));
         clothesCheck.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         clothesCheck.setText("Clothing");
         clothesCheck.addActionListener(new java.awt.event.ActionListener() {

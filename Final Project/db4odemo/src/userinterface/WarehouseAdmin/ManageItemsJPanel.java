@@ -104,7 +104,7 @@ public class ManageItemsJPanel extends javax.swing.JPanel {
         });
         add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 170, 50));
 
-        jPanel1.setBackground(new java.awt.Color(214, 217, 224));
+        jPanel1.setBackground(new java.awt.Color(255, 253, 208));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N

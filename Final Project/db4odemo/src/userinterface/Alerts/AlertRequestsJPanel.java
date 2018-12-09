@@ -68,7 +68,7 @@ public class AlertRequestsJPanel extends javax.swing.JPanel {
         backButton = new javax.swing.JButton();
         requestButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
 
         alertTbl.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         alertTbl.setModel(new javax.swing.table.DefaultTableModel(

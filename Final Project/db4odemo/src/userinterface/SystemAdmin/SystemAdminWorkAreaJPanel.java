@@ -100,7 +100,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(214, 217, 224));
+        jPanel1.setBackground(new java.awt.Color(255, 253, 208));
 
         JTree.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         JTree.setForeground(new java.awt.Color(0, 102, 102));
@@ -118,7 +118,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane1.setLeftComponent(jPanel1);
 
-        jPanel2.setBackground(new java.awt.Color(214, 217, 224));
+        jPanel2.setBackground(new java.awt.Color(255, 253, 208));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N

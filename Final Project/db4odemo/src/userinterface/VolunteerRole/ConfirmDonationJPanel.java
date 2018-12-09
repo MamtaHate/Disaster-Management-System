@@ -59,7 +59,7 @@ public class ConfirmDonationJPanel extends javax.swing.JPanel {
         txtOtp = new javax.swing.JTextField();
         btnConfirm = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(255, 253, 208));
 
         btnConfirm.setText("Confirm");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {

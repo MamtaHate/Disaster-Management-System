@@ -69,7 +69,7 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
         btnSubmit = new javax.swing.JButton();
         itemCategory = new javax.swing.JComboBox();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N

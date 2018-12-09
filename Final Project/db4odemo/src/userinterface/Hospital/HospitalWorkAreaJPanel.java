@@ -51,6 +51,8 @@ public class HospitalWorkAreaJPanel extends javax.swing.JPanel {
         manageOrganizationJButton = new javax.swing.JButton();
         manageEmployeeJButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 253, 208));
+
         jButton1.setText("Service Requests");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

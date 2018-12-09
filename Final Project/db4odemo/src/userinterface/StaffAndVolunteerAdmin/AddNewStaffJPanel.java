@@ -88,7 +88,7 @@ public class AddNewStaffJPanel extends javax.swing.JPanel {
         txtOtherSkills = new javax.swing.JTextField();
         chkNone = new javax.swing.JCheckBox();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N

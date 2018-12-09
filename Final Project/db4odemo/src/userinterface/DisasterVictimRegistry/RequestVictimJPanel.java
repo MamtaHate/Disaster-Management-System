@@ -63,7 +63,7 @@ public class RequestVictimJPanel extends javax.swing.JPanel {
         sendBtn = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setText("Accommodation required for:");

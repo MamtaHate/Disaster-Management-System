@@ -87,6 +87,7 @@ public class ManageShelterJPanel extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         shelterContactPerson = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N

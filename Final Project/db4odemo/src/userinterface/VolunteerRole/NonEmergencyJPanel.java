@@ -318,7 +318,7 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, "Thank you for your donation");
         //******************************************************************************
 
-         final String from = "csweta27@gmail.com";
+        final String from = "csweta27@gmail.com";
         final String pass = "Media0cean";
         String add = emailTextField.getText();
         String[] to = {add};

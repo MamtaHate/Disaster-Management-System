@@ -32,7 +32,8 @@ public abstract class Organization {
         DisasterVictimRegistry("DisasterVictimRegistry Organization"),
         Vehicle("Vehicle Organization"),
         FoodClothing("Food and Clothing Organization"),
-        Housing("Housing Organization");
+        Housing("Housing Organization"),
+        PatientRegistry("Patient Organization");
 
 
         private String value;

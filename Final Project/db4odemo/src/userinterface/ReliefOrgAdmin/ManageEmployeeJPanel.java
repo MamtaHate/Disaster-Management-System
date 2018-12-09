@@ -135,6 +135,11 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, 80, 40));
 
         organizationEmpJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        organizationEmpJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                organizationEmpJComboBoxActionPerformed(evt);
+            }
+        });
         add(organizationEmpJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 190, 40));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -184,6 +189,10 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
             populateJTable(selectedEmpOrganization);
         }
     }//GEN-LAST:event_createEmployeeButtonActionPerformed
+
+    private void organizationEmpJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationEmpJComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_organizationEmpJComboBoxActionPerformed
 
     public boolean validateStrings(String name) {
         if (name.equals("")) {

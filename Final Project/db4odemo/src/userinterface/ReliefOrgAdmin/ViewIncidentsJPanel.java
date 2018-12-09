@@ -11,6 +11,7 @@ import Business.Incident.Incident;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -40,8 +41,11 @@ public class ViewIncidentsJPanel extends javax.swing.JPanel {
         
         DefaultTableModel model = (DefaultTableModel) incidentsJTable.getModel();
         model.setRowCount(0);
-
+        System.out.println("outside loop");
+        ArrayList<Incident> incidentList=enterprise.getIncidentDirectory().getIncidentList();
+        System.out.println("abc"+incidentList.size());
         for(Incident incident: enterprise.getIncidentDirectory().getIncidentList()) {
+            System.out.println("inside loop");
             Object[] row = new Object[model.getColumnCount()];
                 row[0] = incident;
                 row[1] = incident.getEventType();

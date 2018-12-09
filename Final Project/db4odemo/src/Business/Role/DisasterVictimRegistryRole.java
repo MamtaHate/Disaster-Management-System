@@ -20,7 +20,7 @@ import userinterface.DisasterVictimRegistry.DisasterVictimWorkAreaJPanel;
 public class DisasterVictimRegistryRole extends Role {
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem system) {
-        return new DisasterVictimWorkAreaJPanel(userProcessContainer,(DisasterVictimOrganization) organization,system, account);
+        return new DisasterVictimWorkAreaJPanel(userProcessContainer,(DisasterVictimOrganization) organization,system, account,enterprise);
         
     }
         

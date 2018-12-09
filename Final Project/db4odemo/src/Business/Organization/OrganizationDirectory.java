@@ -51,6 +51,11 @@ public class OrganizationDirectory {
             organization = new WarehouseOrganization();
             organizationList.add(organization);
         }
+        else if (type.getValue().equals(OrganizationType.PatientRegistry.getValue())){
+            organization = new PatientResgistryOrganization();
+            organization.setName("PatientResgistryOrganization");
+            organizationList.add(organization);
+        }
         
         return organization;
     }

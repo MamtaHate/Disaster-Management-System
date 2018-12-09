@@ -13,6 +13,15 @@ public class MissingPersonRequest extends WorkRequest {
      private String personName;
      private String gender;
      private String address;
+     private String messageTpe = "Missing";
+
+    public String getMessageTpe() {
+        return messageTpe;
+    }
+
+    public void setMessageTpe(String messageTpe) {
+        this.messageTpe = messageTpe;
+    }
 
     public String getPersonName() {
         return personName;

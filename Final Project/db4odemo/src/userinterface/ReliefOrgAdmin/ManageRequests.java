@@ -258,11 +258,13 @@ public class ManageRequests extends javax.swing.JPanel {
             }
 
             if (allowSave) {
+                System.out.println("=====Housing request===============");
                 HousingWorkRequest workRequest = new HousingWorkRequest();
                 workRequest.setNoOfPeople(noOfPeopleTextField.getText());
                 workRequest.setIncident(incident);
                 workRequest.setSender(account);
                 workRequest.setStatus("Pending");
+                System.out.println("Request status: "+ workRequest.getStatus());
                 workRequest.setMessage(commentsJTextField.getText());
                 account.getWorkQueue().getWorkRequestList().add(workRequest);
 
@@ -271,6 +273,7 @@ public class ManageRequests extends javax.swing.JPanel {
                         for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
                             if (e instanceof ShelterEnterprise) {
                                 e.getWorkQueue().getWorkRequestList().add(workRequest);
+                                System.out.println("Housing request sent to alerts enterprise");
                             }
                         }
                     }
@@ -301,7 +304,7 @@ public class ManageRequests extends javax.swing.JPanel {
             }
 
         } else if (comboRequestType.getSelectedItem().equals(Enterprise.EnterpriseType.Alerts)) {
-
+            System.out.println("=====Relief Organization request===============");
             if (noOfPeopleTextField.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Incident is required");
                 allowSave = false;
@@ -311,11 +314,14 @@ public class ManageRequests extends javax.swing.JPanel {
             }
 
             if (allowSave) {
+                
+                
                 ReliefOrganizationWorkRequest roWR = new ReliefOrganizationWorkRequest();
                 roWR.setEvent(noOfPeopleTextField.getText());
                 roWR.setLoc(commentsJTextField.getText());
                 roWR.setSender(account);
                 roWR.setStatus("Pending");
+                System.out.println("Request Status:" + roWR.getStatus());
                 roWR.setMessage("Send alerts about incident " + incident.getIncidentType());
 
                 for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
@@ -333,6 +339,7 @@ public class ManageRequests extends javax.swing.JPanel {
                         for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
                             if (e instanceof AlertsEnterprise) {
                                 e.getWorkQueue().getWorkRequestList().add(roWR);
+                                System.out.println("Request Sent to Alerts Organization");
                             }
                         }
                     }

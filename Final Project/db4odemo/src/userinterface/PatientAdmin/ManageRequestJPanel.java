@@ -167,11 +167,14 @@ public class ManageRequestJPanel extends javax.swing.JPanel {
         if (selectedRow < 0){
             return;
         }
+        
+        System.out.println("========Process Work Request==============");
 
         PatientRegistry request = (PatientRegistry)reqTbl.getValueAt(selectedRow, 0);
 
         request.setStatus("Processing");
-
+        System.out.println("Request status:" + request.getStatus());
+        request.setReceiver(account);
         ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, request);
         userProcessContainer.add("processWorkRequestJPanel", processWorkRequestJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();

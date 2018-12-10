@@ -239,6 +239,7 @@ public class ManageShelterJPanel extends javax.swing.JPanel {
                 housing.setHouseCapacity(shelterCapacity.getText());
                 housing.setHouseStatus(shelterStatusJComboBox.getSelectedItem().toString());
                 housing.setContactPerson(shelterContactPerson.getText());
+                System.out.println("=====Shelter Created=======");
 
                 JOptionPane.showMessageDialog(null, "Shelter added successfully", "Warning", JOptionPane.INFORMATION_MESSAGE);
                 shelterName.setText(null);

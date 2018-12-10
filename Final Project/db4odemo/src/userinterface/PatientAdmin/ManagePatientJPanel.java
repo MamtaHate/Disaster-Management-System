@@ -36,14 +36,19 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
     }
     
     public void populate() {
-            for (WorkRequest req : organization.getWorkQueue().getWorkRequestList() ) {
-                if(req.getStatus().equals("Assigned")){
-                    patientNameTxt.setText(((PatientRegistry)req).toString());
-                identificationTxt.setText(((PatientRegistry)req).getIdentification().toString());
-                synopsisTxt.setText(((PatientRegistry)req).getSynopsis().toString());
-                gender.setText(((PatientRegistry)req).getGender());
+            for (WorkRequest req : organization.getWorkQueue().getWorkRequestList()) {
+            if (req.getStatus().equals("Assigned")) {
+                patientNameTxt.setText(((PatientRegistry) req).toString());
+                identificationTxt.setText(((PatientRegistry) req).getIdentification().toString());
+                synopsisTxt.setText(((PatientRegistry) req).getSynopsis().toString());
+                //gender.setText(((PatientRegistry)req).getGender());
+                if (((PatientRegistry) req).getGender().equals("Male")) {
+                    rdbMale.setSelected(true);
+                } else {
+                    rdbFemale.setSelected(true);
                 }
-                }
+            }
+        }
 
     }
 

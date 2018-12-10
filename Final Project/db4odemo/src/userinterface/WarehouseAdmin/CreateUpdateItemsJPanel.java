@@ -42,6 +42,7 @@ public class CreateUpdateItemsJPanel extends javax.swing.JPanel {
                 this.organization = (WarehouseOrganization) organization;
             }
         }
+        System.out.println("==========Creating Item=============");
         populateComboBox();
 
     }
@@ -189,7 +190,7 @@ public class CreateUpdateItemsJPanel extends javax.swing.JPanel {
             item.setIsKit(chkKit.isSelected());
             item.setComments(commentsTextField.getText());
             item.setQty(Integer.parseInt(qtyText.getText()));
-
+            System.out.println("Item added");
             JOptionPane.showMessageDialog(this, "Item added successfully");
             clear();
         }

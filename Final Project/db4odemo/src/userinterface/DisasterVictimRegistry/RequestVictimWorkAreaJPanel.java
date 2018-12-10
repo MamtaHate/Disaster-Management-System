@@ -296,16 +296,19 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
         if (selectCombo.getSelectedItem().equals(Organization.OrganizationType.PatientRegistry)) {
             // workRequest = new FoodClothingWorkRequest();
             //((FoodClothingWorkRequest)workRequest).setNoOfPeople(noOfPeopleTextField.getText());
-
+            System.out.println("=========Patient Registry Request====================");
             PatientRegistry workRequest = new PatientRegistry();
             // workRequest.setNoOfPeople(noOfPeopleTextField.getText());
             workRequest.setName(patientNameTxt.getText());
             workRequest.setSynopsis(typeTxt.getText());
             workRequest.setIdentification(identificationTxt.getText());
             workRequest.setStatus("Pending");
+            System.out.println("Status:" +workRequest.getStatus());
             workRequest.setGender(genderTxt.getText());
             workRequest.setSender(account);
+            System.out.println("Sender:"+ account);
             workRequest.setMessage(genderTxt.getText());
+            System.out.println("Addeding request to senders work queue");
             account.getWorkQueue().getWorkRequestList().add(workRequest);
 
             for (Network network : system.getNetworkList()) {
@@ -314,6 +317,7 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
                         if (e instanceof HospitalEnterprise) {
                             for(Organization organization : e.getOrganizationDirectory().getOrganizationList()){
                                 if(organization instanceof PatientResgistryOrganization){
+                                    System.out.println("Addeding request to patient registry organizations work queue");
                                     organization.getWorkQueue().getWorkRequestList().add(workRequest);
                                 }
                             }
@@ -324,6 +328,7 @@ public class RequestVictimWorkAreaJPanel extends javax.swing.JPanel {
 
         } 
         JOptionPane.showMessageDialog(this, "Request created successfully");
+        System.out.println("=========Patient Registry Request created====================");
         populateRequestTable();
     }//GEN-LAST:event_btnRaiseRequestActionPerformed
 

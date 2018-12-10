@@ -114,6 +114,8 @@ public class FindMissingPersonJPanel extends javax.swing.JPanel {
         allowSubmit = validateInput();
 
         if (allowSubmit) {
+            
+            System.out.println("====Missing person request=============");
             MissingPersonRequest request = new MissingPersonRequest();
             request.setPersonName(personNameTextField.getText());
             if (genderGroup.isSelected(rdbMale.getModel())) {
@@ -124,12 +126,13 @@ public class FindMissingPersonJPanel extends javax.swing.JPanel {
             request.setAddress(addressTextField.getText());
             request.setSender(account);
             request.setStatus("Missing");
-
+            System.out.println("Request Status"+ request.getStatus());
             account.getWorkQueue().getWorkRequestList().add(request);
 
             for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
                 if (organization instanceof DisasterVictimOrganization) {
                     organization.getWorkQueue().getWorkRequestList().add(request);
+                     System.out.println("Request "+ request.getStatus());
                 }
             }
 

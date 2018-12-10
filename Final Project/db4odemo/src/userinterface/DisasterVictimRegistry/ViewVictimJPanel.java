@@ -209,6 +209,7 @@ public class ViewVictimJPanel extends javax.swing.JPanel {
             imgLbl.setIcon(img);
         
         try {
+             System.out.println("Retrieving Image");
              File file = dv.getFile();
              BufferedImage image = ImageIO.read(new File(file.getAbsolutePath()));
              ImageIcon image1=new ImageIcon(scaleImage(314, 288, image));//get the image from file chooser and scale it to match JLabel size

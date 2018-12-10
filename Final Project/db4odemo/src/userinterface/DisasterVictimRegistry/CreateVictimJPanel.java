@@ -339,6 +339,7 @@ public class CreateVictimJPanel extends javax.swing.JPanel {
             //System.out.println(gender);
             organization.getDisasterVictimDirectory().createVictimRegistry(nameTxt.getText(), Integer.parseInt(ageTxt.getText()), gender, contact, address, nationality, file, type);
             JOptionPane.showMessageDialog(null, "Details saved successfully");
+            System.out.println("Disaster victim details saved...");
             // wq.getWorkRequestList().add(disasterVictim);
         }
 

@@ -299,17 +299,18 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
                 request.getDonation().setCloth_quantity(Float.parseFloat(clothesWeightTextField.getText()));
             }
         }
-
+        System.out.println("======Non-Emergency Donation WorkRequest========");
         request.setDonationType(DonationWorkRequest.DonationType.NonEmergency);
         request.setSender(account);
         request.setStatus("Donated");
-
+        System.out.println("Request Status:"+  request.getStatus());
         for (Network network : business.getNetworkList()) {
             if (network.getNetworkName().equals(enterprise.getNetworkName())) {
                 for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
                     if (enterprise instanceof ReliefOrganizationEnterprise) {
                         enterprise.getWorkQueue().getWorkRequestList().add(request);
                         account.getWorkQueue().getWorkRequestList().add(request);
+                        System.out.println("Request added to Relief Organization");
                     }
                 }
             }

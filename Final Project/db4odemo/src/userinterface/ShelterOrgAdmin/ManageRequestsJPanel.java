@@ -137,6 +137,7 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
             // assignButton.setText("Assign to " + shelterTable.getValueAt(shelterTable.getSelectedRow(), 4) + " Organization");
             if (!shelterTable.getValueAt(shelterTable.getSelectedRow(), 3).toString().equals("In Progress")) {
                 if (shelterTable.getValueAt(shelterTable.getSelectedRow(), 4).toString() == "Housing") {
+                    System.out.println("======Housing request under Shelter Admin==========");
                     WorkRequest req = (HousingWorkRequest) shelterTable.getValueAt(shelterTable.getSelectedRow(), 4);
                     for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
                         if (org instanceof HousingOrganization) {
@@ -147,9 +148,11 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
                         this.org.getWorkQueue().getWorkRequestList().add(req);
                         for (UserAccount user : this.org.getUserAccountDirectory().getUserAccountList()) {
                             if (user.getRole().toString().equals(RoleType.HousingAdminRole.getValue())) {
+                                System.out.println("Request sent to Housing admin");
                                 req.setReceiver(user);
                                 req.setMessage(req.getMessage() + "Sent to Housing Admin");
                                 req.setStatus("In Progress");
+                                System.out.println("Request status" + req.getStatus());
                                 JOptionPane.showMessageDialog(this, "Request sent to housing facility");
                                 populateJTable();
                             }

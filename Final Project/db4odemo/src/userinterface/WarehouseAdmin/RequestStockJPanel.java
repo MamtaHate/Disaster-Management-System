@@ -124,6 +124,8 @@ public class RequestStockJPanel extends javax.swing.JPanel {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
+        
+        System.out.println("=====Inventory Request to Warehouse Organization===========");
         WarehouseRequest req = new WarehouseRequest();
         req.setRequestDate(new Date());
         req.setSender(account);
@@ -131,7 +133,7 @@ public class RequestStockJPanel extends javax.swing.JPanel {
         req.setQty(Integer.parseInt(qty.getText()));
         req.setMessage(message.getText());
         req.setStatus("Requested");
-
+        System.out.println("Request Status" + req.getStatus());
         account.getWorkQueue().getWorkRequestList().add(req);
 
         for (Network network : business.getNetworkList()) {

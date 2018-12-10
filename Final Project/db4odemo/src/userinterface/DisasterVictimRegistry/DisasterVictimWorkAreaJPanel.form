@@ -58,7 +58,7 @@
     <Component class="javax.swing.JButton" name="createBtn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="16" style="1"/>
+          <Font name="Times New Roman" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="CREATE VICTIM RECORDS"/>
       </Properties>
@@ -69,7 +69,7 @@
     <Component class="javax.swing.JButton" name="viewBtn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="16" style="1"/>
+          <Font name="Times New Roman" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="VIEW VICTIM RECORDS"/>
       </Properties>
@@ -80,7 +80,7 @@
     <Component class="javax.swing.JButton" name="requestBtn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="16" style="1"/>
+          <Font name="Times New Roman" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="MANAGE REQUESTS"/>
       </Properties>

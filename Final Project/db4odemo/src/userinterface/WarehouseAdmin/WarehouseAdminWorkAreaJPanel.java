@@ -19,18 +19,21 @@ import javax.swing.JPanel;
  */
 public class WarehouseAdminWorkAreaJPanel extends javax.swing.JPanel {
 
-    JPanel userProcessContainer;
-    Enterprise enterprise;
-    UserAccount account;
+   private JPanel userProcessContainer;
+   private Enterprise enterprise;
+   private UserAccount account;
+   private EcoSystem business;
+    
     
     /**
      * Creates new form ReliefOrgAdminWorkAreaJPanel
      */
-    public WarehouseAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Enterprise enterprise) {
+    public WarehouseAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Enterprise enterprise, EcoSystem business) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
         this.account = account;
+        this.business = business;
     }
 
     /**
@@ -80,7 +83,7 @@ public class WarehouseAdminWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_manageOrganizationJButtonActionPerformed
 
     private void manageRequestsJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageRequestsJButtonActionPerformed
-        ManageRequestsJPanel manageRequestsJPanel = new ManageRequestsJPanel(userProcessContainer, enterprise, account);
+        ManageRequestsJPanel manageRequestsJPanel = new ManageRequestsJPanel(userProcessContainer, enterprise, account, business);
         userProcessContainer.add("manageRequestsJPanel", manageRequestsJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

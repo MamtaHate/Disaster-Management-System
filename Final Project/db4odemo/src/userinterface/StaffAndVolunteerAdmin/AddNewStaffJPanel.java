@@ -178,13 +178,14 @@ public class AddNewStaffJPanel extends javax.swing.JPanel {
         add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 810, 160, 50));
 
         backButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        backButton.setText("<<BACK");
+        backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backButton.setContentAreaFilled(false);
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 870, 130, 40));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 50, 50));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel7.setText("Type:");

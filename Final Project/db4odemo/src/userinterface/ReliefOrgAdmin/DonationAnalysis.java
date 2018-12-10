@@ -75,6 +75,8 @@ public class DonationAnalysis extends javax.swing.JPanel {
         fundsareaBtn1 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 253, 208));
+
         jTabbedPane1.setBackground(new java.awt.Color(255, 253, 208));
 
         jPanel2.setBackground(new java.awt.Color(255, 253, 208));

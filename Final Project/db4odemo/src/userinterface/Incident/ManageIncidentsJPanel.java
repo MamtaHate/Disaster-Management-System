@@ -99,13 +99,14 @@ public class ManageIncidentsJPanel extends javax.swing.JPanel {
         add(reportNewIncidentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(753, 380, 250, 50));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jButton1.setText("<<BACK");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 200, 50));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 50, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void reportNewIncidentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportNewIncidentButtonActionPerformed

@@ -97,13 +97,14 @@ public class FindMissingPersonJPanel extends javax.swing.JPanel {
         add(submitRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, 220, 40));
 
         backButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        backButton.setText("<<BACK");
+        backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backButton.setContentAreaFilled(false);
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 168, 40));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 50, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitRequestActionPerformed

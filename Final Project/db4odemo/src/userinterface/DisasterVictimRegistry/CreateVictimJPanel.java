@@ -145,7 +145,7 @@ public class CreateVictimJPanel extends javax.swing.JPanel {
                 saveBtnActionPerformed(evt);
             }
         });
-        add(saveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 488, 87, 42));
+        add(saveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 460, 87, 30));
 
         imgBtn.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         imgBtn.setText("Upload Image");
@@ -158,13 +158,14 @@ public class CreateVictimJPanel extends javax.swing.JPanel {
         add(lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(528, 340, 177, 138));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jButton1.setText("< Back");
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\prath\\Documents\\icons\\arrow-back-icon_1_40x40.png")); // NOI18N
+        jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 488, 87, 42));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 50, 42));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel3.setText("Nationality:");

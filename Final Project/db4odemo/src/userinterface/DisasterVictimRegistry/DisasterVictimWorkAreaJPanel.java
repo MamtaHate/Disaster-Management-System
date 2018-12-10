@@ -51,7 +51,7 @@ public class DisasterVictimWorkAreaJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 253, 208));
 
-        createBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        createBtn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         createBtn.setText("CREATE VICTIM RECORDS");
         createBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,7 +59,7 @@ public class DisasterVictimWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        viewBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        viewBtn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         viewBtn.setText("VIEW VICTIM RECORDS");
         viewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,7 +67,7 @@ public class DisasterVictimWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        requestBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        requestBtn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         requestBtn.setText("MANAGE REQUESTS");
         requestBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

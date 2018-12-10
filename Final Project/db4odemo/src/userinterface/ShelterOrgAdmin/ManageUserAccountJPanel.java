@@ -176,13 +176,14 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         add(createButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 440, 210, 50));
 
         backButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        backButton.setText("<<BACK");
+        backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backButton.setContentAreaFilled(false);
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 540, 190, 60));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 50, 50));
 
         passwordJTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         add(passwordJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 340, 210, 40));

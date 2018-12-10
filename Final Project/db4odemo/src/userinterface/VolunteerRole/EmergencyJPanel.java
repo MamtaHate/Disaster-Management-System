@@ -246,13 +246,14 @@ public class EmergencyJPanel extends javax.swing.JPanel {
         add(confirmButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 370, 180, 50));
 
         backJButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        backJButton.setText("<<BACK");
+        backJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backJButton.setContentAreaFilled(false);
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 620, 160, 50));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 50, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void donateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donateButtonActionPerformed

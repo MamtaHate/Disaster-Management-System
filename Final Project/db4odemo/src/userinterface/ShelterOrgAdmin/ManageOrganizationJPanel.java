@@ -78,7 +78,6 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         organizationJComboBox = new javax.swing.JComboBox();
         addJButton = new javax.swing.JButton();
-        backJButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -86,7 +85,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         organizationJComboBox1 = new javax.swing.JComboBox();
         addJButton1 = new javax.swing.JButton();
-        backJButton1 = new javax.swing.JButton();
+        backJButton = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -140,15 +139,6 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         });
         add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(423, 390, 250, 50));
 
-        backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        backJButton.setText("<<BACK");
-        backJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButtonActionPerformed(evt);
-            }
-        });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 170, 50));
-
         jPanel1.setBackground(new java.awt.Color(255, 253, 208));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -200,14 +190,15 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         });
         jPanel1.add(addJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(423, 390, 250, 50));
 
-        backJButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        backJButton1.setText("<<BACK");
-        backJButton1.addActionListener(new java.awt.event.ActionListener() {
+        backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        backJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backJButton.setContentAreaFilled(false);
+        backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButton1ActionPerformed(evt);
+                backJButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(backJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 170, 50));
+        jPanel1.add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 50, 50));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -238,16 +229,11 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_addJButton1ActionPerformed
 
-    private void backJButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_backJButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addJButton;
     private javax.swing.JButton addJButton1;
     private javax.swing.JButton backJButton;
-    private javax.swing.JButton backJButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

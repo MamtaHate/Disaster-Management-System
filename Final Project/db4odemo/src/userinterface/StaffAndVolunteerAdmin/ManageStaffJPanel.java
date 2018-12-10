@@ -109,13 +109,14 @@ public class ManageStaffJPanel extends javax.swing.JPanel {
         add(addStaffJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 440, 190, 40));
 
         backButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        backButton.setText("<<BACK");
+        backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backButton.setContentAreaFilled(false);
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 490, 160, 40));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 60, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addStaffJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStaffJButtonActionPerformed

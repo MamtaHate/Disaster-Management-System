@@ -89,13 +89,14 @@ public class CreateUpdateItemsJPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backJButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        backJButton.setText("<<BACK");
+        backJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backJButton.setContentAreaFilled(false);
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 580, 170, 50));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 60, 50));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel3.setText("CREATE ITEM");
@@ -225,7 +226,7 @@ public class CreateUpdateItemsJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Quantity is required");
             return false;
         }
-        else if(unitOfMeasure.getText().matches("[0-9]+") == false) {
+        else if(qtyText.getText().matches("[0-9]+") == false) {
             JOptionPane.showMessageDialog(this, "Please enter a valid input for quantity.");
             return false;
         }

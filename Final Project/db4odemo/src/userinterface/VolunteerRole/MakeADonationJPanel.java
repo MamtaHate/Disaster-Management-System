@@ -88,16 +88,17 @@ public class MakeADonationJPanel extends javax.swing.JPanel {
                 nonEmergencyButtonActionPerformed(evt);
             }
         });
-        add(nonEmergencyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 350, 240, 50));
+        add(nonEmergencyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 370, 240, 50));
 
         backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        backJButton.setText("<<BACK");
+        backJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backJButton.setContentAreaFilled(false);
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 160, 50));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 50, 50));
 
         emergencyButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         emergencyButton.setText("Emergency");
@@ -106,7 +107,7 @@ public class MakeADonationJPanel extends javax.swing.JPanel {
                 emergencyButtonActionPerformed(evt);
             }
         });
-        add(emergencyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 250, 50));
+        add(emergencyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 250, 50));
 
         incidentsJTable.setBackground(new java.awt.Color(255, 253, 208));
         incidentsJTable.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N

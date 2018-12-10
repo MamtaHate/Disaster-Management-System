@@ -129,13 +129,14 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(423, 390, 250, 50));
 
         backJButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        backJButton.setText("<<BACK");
+        backJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backJButton.setContentAreaFilled(false);
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 170, 50));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 50, 50));
 
         bindingGroup.bind();
     }// </editor-fold>//GEN-END:initComponents

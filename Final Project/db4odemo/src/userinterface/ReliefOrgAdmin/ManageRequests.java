@@ -111,6 +111,7 @@ public class ManageRequests extends javax.swing.JPanel {
         jLabel1.setText("MANAGE REQUESTS FOR RELIEF ORGANIZATION ADMIN");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 780, 41));
 
+        jTblRequests.setBackground(new java.awt.Color(255, 253, 208));
         jTblRequests.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jTblRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -122,8 +123,9 @@ public class ManageRequests extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTblRequests);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 620, 160));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 680, 160));
 
+        panelRaiseRequest.setBackground(new java.awt.Color(255, 253, 208));
         panelRaiseRequest.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "RAISE A NEW REQUEST", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
         panelRaiseRequest.setEnabled(false);
 
@@ -176,23 +178,24 @@ public class ManageRequests extends javax.swing.JPanel {
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(noOfPeopleTextField)
-                    .addComponent(comboRequestType, 0, 190, Short.MAX_VALUE)
-                    .addComponent(commentsJTextField))
-                .addGap(52, 52, 52)
                 .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(type, 0, 107, Short.MAX_VALUE)
-                    .addComponent(jQtyTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))
-                .addGap(15, 15, 15))
-            .addGroup(panelRaiseRequestLayout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addComponent(btnRaiseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelRaiseRequestLayout.createSequentialGroup()
+                        .addComponent(btnRaiseRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelRaiseRequestLayout.createSequentialGroup()
+                        .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(noOfPeopleTextField)
+                            .addComponent(comboRequestType, 0, 190, Short.MAX_VALUE)
+                            .addComponent(commentsJTextField))
+                        .addGap(52, 52, 52)
+                        .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(type, 0, 109, Short.MAX_VALUE)
+                            .addComponent(jQtyTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))
+                        .addGap(15, 15, 15))))
         );
         panelRaiseRequestLayout.setVerticalGroup(
             panelRaiseRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,13 +230,14 @@ public class ManageRequests extends javax.swing.JPanel {
         add(panelRaiseRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, 680, 330));
 
         backButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        backButton.setText("<<BACK");
+        backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backButton.setContentAreaFilled(false);
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 660, 190, 40));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 50, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRaiseRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaiseRequestActionPerformed

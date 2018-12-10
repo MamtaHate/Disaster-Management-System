@@ -178,7 +178,7 @@ public class ManageUsersJPanel extends javax.swing.JPanel {
                 createButtonActionPerformed(evt);
             }
         });
-        add(createButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 440, 210, 50));
+        add(createButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 410, 250, 50));
 
         rolesJCombo.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         rolesJCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -204,13 +204,14 @@ public class ManageUsersJPanel extends javax.swing.JPanel {
         add(organizationJCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 140, 250, 40));
 
         backButton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        backButton.setText("<<BACK");
+        backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backButton.setContentAreaFilled(false);
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 490, 160, 40));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 50, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed

@@ -105,13 +105,14 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         jPanel1.add(addJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, 250, 40));
 
         backJButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        backJButton1.setText("<<BACK");
+        backJButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backJButton1.setContentAreaFilled(false);
         backJButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(backJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 170, 40));
+        jPanel1.add(backJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 50));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("MANAGE HOUSING WORKAREA");

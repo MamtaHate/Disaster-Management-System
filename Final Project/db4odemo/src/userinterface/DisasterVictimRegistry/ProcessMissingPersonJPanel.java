@@ -52,7 +52,6 @@ public class ProcessMissingPersonJPanel extends javax.swing.JPanel {
                 row[5] = dv.getNationality();
                 row[6] = dv.getType();
                 model.addRow(row);
-
             }
         }
     }

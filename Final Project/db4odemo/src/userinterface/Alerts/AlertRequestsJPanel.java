@@ -5,13 +5,11 @@
  */
 package userinterface.Alerts;
 
-import Business.Enterprise.AlertsEnterprise;
 import Business.Enterprise.Enterprise;
-import Business.Enterprise.ReliefOrganizationEnterprise;
-import Business.UserAccount.UserAccount;
 import Business.WorkQueue.ReliefOrganizationWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -31,6 +29,9 @@ public class AlertRequestsJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
         populateJTable();
+        jLabel1.setVisible(false);
+        submitBtn.setVisible(false);
+        resultTxt.setVisible(false);
     }
 
     public void populateJTable() {
@@ -67,6 +68,9 @@ public class AlertRequestsJPanel extends javax.swing.JPanel {
         alertTbl = new javax.swing.JTable();
         backButton = new javax.swing.JButton();
         requestButton = new javax.swing.JButton();
+        resultTxt = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        submitBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 253, 208));
 
@@ -79,7 +83,7 @@ public class AlertRequestsJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Sender", "Receiver", "Event", "Status", "Result"
+                "Sender", "Receiver", "Event", "Status", "Message"
             }
         ));
         jScrollPane1.setViewportView(alertTbl);
@@ -93,10 +97,19 @@ public class AlertRequestsJPanel extends javax.swing.JPanel {
         });
 
         requestButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        requestButton.setText("Request");
+        requestButton.setText("Process");
         requestButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 requestButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Result:");
+
+        submitBtn.setText("Submit");
+        submitBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitBtnActionPerformed(evt);
             }
         });
 
@@ -107,11 +120,20 @@ public class AlertRequestsJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(107, 107, 107)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(requestButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(requestButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(65, 65, 65)
+                                .addComponent(resultTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(submitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(156, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -123,12 +145,35 @@ public class AlertRequestsJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(requestButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 100, Short.MAX_VALUE))
+                .addGap(62, 62, 62)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(resultTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(submitBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 156, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void requestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestButtonActionPerformed
         // TODO add your handling code here:
+        int selectedRow = alertTbl.getSelectedRow();
+
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(this, "Please Select a Row.");
+            return;
+        }else{
+
+        ReliefOrganizationWorkRequest request = (ReliefOrganizationWorkRequest)alertTbl.getValueAt(selectedRow, 2);
+        request.setStatus("Processing");
+        
+        jLabel1.setVisible(true);
+        submitBtn.setVisible(true);
+        resultTxt.setVisible(true);
+        
+        request.setStatus(resultTxt.getText());
+        
+        }
     }//GEN-LAST:event_requestButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -138,11 +183,29 @@ public class AlertRequestsJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backButtonActionPerformed
 
+    private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = alertTbl.getSelectedRow();
+
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(this, "Please Select a Row.");
+            return;
+        }else{
+
+        ReliefOrganizationWorkRequest request = (ReliefOrganizationWorkRequest)alertTbl.getValueAt(selectedRow, 2);
+        request.setStatus(resultTxt.getText());
+        populateJTable();
+        }
+    }//GEN-LAST:event_submitBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable alertTbl;
     private javax.swing.JButton backButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton requestButton;
+    private javax.swing.JTextField resultTxt;
+    private javax.swing.JButton submitBtn;
     // End of variables declaration//GEN-END:variables
 }

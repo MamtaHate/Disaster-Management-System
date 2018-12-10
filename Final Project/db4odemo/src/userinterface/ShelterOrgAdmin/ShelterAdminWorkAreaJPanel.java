@@ -47,6 +47,7 @@ public class ShelterAdminWorkAreaJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
         viewRequestsButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -58,7 +59,7 @@ public class ShelterAdminWorkAreaJPanel extends javax.swing.JPanel {
                 manageUserJButtonActionPerformed(evt);
             }
         });
-        add(manageUserJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 360, 60));
+        add(manageUserJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 360, 60));
 
         manageOrganizationJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         manageOrganizationJButton.setText("MANAGE ORGANIZATION");
@@ -67,7 +68,7 @@ public class ShelterAdminWorkAreaJPanel extends javax.swing.JPanel {
                 manageOrganizationJButtonActionPerformed(evt);
             }
         });
-        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 360, 60));
+        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 360, 60));
 
         manageEmployeeJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         manageEmployeeJButton.setText("MANAGE EMPLOYEE");
@@ -76,19 +77,19 @@ public class ShelterAdminWorkAreaJPanel extends javax.swing.JPanel {
                 manageEmployeeJButtonActionPerformed(evt);
             }
         });
-        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 360, 60));
+        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 360, 60));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("WELCOME TO SHELTER ADMIN WORK AREA");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, 41));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, 41));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("ENTERPRISE:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 130, 40));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 130, 40));
 
         valueLabel.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 210, 40));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 210, 40));
 
         viewRequestsButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         viewRequestsButton.setText("MANAGE REQUESTS");
@@ -97,7 +98,10 @@ public class ShelterAdminWorkAreaJPanel extends javax.swing.JPanel {
                 viewRequestsButtonActionPerformed(evt);
             }
         });
-        add(viewRequestsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 490, 370, 60));
+        add(viewRequestsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 500, 370, 60));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/house-512.png"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, 420, 390));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
@@ -133,6 +137,7 @@ public class ShelterAdminWorkAreaJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton manageEmployeeJButton;
     private javax.swing.JButton manageOrganizationJButton;
     private javax.swing.JButton manageUserJButton;

@@ -52,13 +52,14 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         requestButton = new javax.swing.JButton();
         reportIncident = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("WELCOME TO STAFF WORK AREA");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, -1, 41));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, 41));
 
         requestButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         requestButton.setText(" REQUEST MANAGEMENT");
@@ -67,7 +68,7 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
                 requestButtonActionPerformed(evt);
             }
         });
-        add(requestButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 330, 70));
+        add(requestButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 330, 70));
 
         reportIncident.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         reportIncident.setText("REPORT INCIDENT");
@@ -76,7 +77,10 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
                 reportIncidentActionPerformed(evt);
             }
         });
-        add(reportIncident, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 330, 70));
+        add(reportIncident, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 330, 70));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/staff.png"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, 420, 350));
     }// </editor-fold>//GEN-END:initComponents
 
     private void reportIncidentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportIncidentActionPerformed
@@ -103,6 +107,7 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton reportIncident;
     private javax.swing.JButton requestButton;
     // End of variables declaration//GEN-END:variables

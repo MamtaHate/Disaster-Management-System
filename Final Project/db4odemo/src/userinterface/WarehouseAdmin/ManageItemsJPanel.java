@@ -153,7 +153,7 @@ public class ManageItemsJPanel extends javax.swing.JPanel {
         });
         jPanel1.add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 50));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1180, 640));
 
         bindingGroup.bind();
     }// </editor-fold>//GEN-END:initComponents

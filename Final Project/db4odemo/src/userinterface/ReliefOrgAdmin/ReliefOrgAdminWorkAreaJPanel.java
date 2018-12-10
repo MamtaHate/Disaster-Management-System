@@ -53,6 +53,7 @@ public class ReliefOrgAdminWorkAreaJPanel extends javax.swing.JPanel {
         viewIncidentJButton = new javax.swing.JButton();
         approveDonations = new javax.swing.JButton();
         approveDonations1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -64,7 +65,7 @@ public class ReliefOrgAdminWorkAreaJPanel extends javax.swing.JPanel {
                 manageUserJButtonActionPerformed(evt);
             }
         });
-        add(manageUserJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 320, 60));
+        add(manageUserJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 320, 60));
 
         manageOrganizationJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         manageOrganizationJButton.setText("MANAGE ORGANIZATION");
@@ -73,7 +74,7 @@ public class ReliefOrgAdminWorkAreaJPanel extends javax.swing.JPanel {
                 manageOrganizationJButtonActionPerformed(evt);
             }
         });
-        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 320, 60));
+        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 320, 60));
 
         manageEmployeeJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         manageEmployeeJButton.setText("MANAGE EMPLOYEE");
@@ -82,19 +83,19 @@ public class ReliefOrgAdminWorkAreaJPanel extends javax.swing.JPanel {
                 manageEmployeeJButtonActionPerformed(evt);
             }
         });
-        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 320, 60));
+        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 320, 60));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("WELCOME TO RELIEF ORGANIZATION ADMIN WORK AREA");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, 41));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, 41));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("ENTERPRISE:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 130, 40));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 130, 40));
 
         valueLabel.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 210, 40));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 210, 40));
 
         viewIncidentJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         viewIncidentJButton.setText("VIEW INCIDENTS REPORTED");
@@ -103,7 +104,7 @@ public class ReliefOrgAdminWorkAreaJPanel extends javax.swing.JPanel {
                 viewIncidentJButtonActionPerformed(evt);
             }
         });
-        add(viewIncidentJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, 320, 60));
+        add(viewIncidentJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 430, 320, 60));
 
         approveDonations.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         approveDonations.setText("DONATION STATS");
@@ -112,7 +113,7 @@ public class ReliefOrgAdminWorkAreaJPanel extends javax.swing.JPanel {
                 approveDonationsActionPerformed(evt);
             }
         });
-        add(approveDonations, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 560, 320, 60));
+        add(approveDonations, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 570, 320, 60));
 
         approveDonations1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         approveDonations1.setText("APPROVE DONATIONS");
@@ -121,7 +122,10 @@ public class ReliefOrgAdminWorkAreaJPanel extends javax.swing.JPanel {
                 approveDonations1ActionPerformed(evt);
             }
         });
-        add(approveDonations1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 490, 320, 60));
+        add(approveDonations1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 500, 320, 60));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/relief.png"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, 260, 250));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
@@ -175,6 +179,7 @@ public class ReliefOrgAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton approveDonations1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton manageEmployeeJButton;
     private javax.swing.JButton manageOrganizationJButton;
     private javax.swing.JButton manageUserJButton;

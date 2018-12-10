@@ -52,14 +52,14 @@ public class VolunteerWorkAreaPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         donationButton = new javax.swing.JButton();
         reportIncidentButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("WELCOME TO VOLUNTEER WORK AREA");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, 41));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, 41));
 
         donationButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         donationButton.setText("MAKE DONATION");
@@ -68,7 +68,7 @@ public class VolunteerWorkAreaPanel extends javax.swing.JPanel {
                 donationButtonActionPerformed(evt);
             }
         });
-        add(donationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 310, 60));
+        add(donationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 310, 60));
 
         reportIncidentButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         reportIncidentButton.setText("REPORT INCIDENT");
@@ -77,8 +77,11 @@ public class VolunteerWorkAreaPanel extends javax.swing.JPanel {
                 reportIncidentButtonActionPerformed(evt);
             }
         });
-        add(reportIncidentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 310, 60));
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 220, 230));
+        add(reportIncidentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 310, 60));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/volunteer-icon.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 60, 370, 390));
     }// </editor-fold>//GEN-END:initComponents
 
     private void reportIncidentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportIncidentButtonActionPerformed
@@ -101,7 +104,7 @@ public class VolunteerWorkAreaPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton donationButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton reportIncidentButton;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,0 +1,8 @@
+sysadmin	sysadmin
+rcAdmin		rcAdmin
+shAdmin		shAdmin
+alertAdmin	alertAdmin
+hospAdmin	hospAdmin
+lMat		lMat
+hFord		hFord
+whAdmin		whAdmin

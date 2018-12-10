@@ -24,34 +24,38 @@ public class ProcessMissingPersonJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private MissingPersonRequest request;
     private DisasterVictimOrganization organization;
-    public ProcessMissingPersonJPanel(JPanel userProcessContainer, MissingPersonRequest request,DisasterVictimOrganization organization) {
+
+    public ProcessMissingPersonJPanel(JPanel userProcessContainer, MissingPersonRequest request, DisasterVictimOrganization organization) {
         initComponents();
-        this.userProcessContainer=userProcessContainer;
-        this.request=request;
-        this.organization=organization;
+        this.userProcessContainer = userProcessContainer;
+        this.request = request;
+        this.organization = organization;
         populateTable();
+        String search = "";
+        searchTxt.setText(request.getPersonName());
     }
 
     public void populateTable() {
         DefaultTableModel model = (DefaultTableModel) victimTbl.getModel();
         model.setRowCount(0);
         System.out.println("outside");
-        for(DisasterVictim dv: organization.getDisasterVictimDirectory().getVictimList()){
+        for (DisasterVictim dv : organization.getDisasterVictimDirectory().getVictimList()) {
             System.out.println("in");
-            //if(dv.getType().equals(request)){
+            if (dv.getType().equals("Missing Person")) {
                 System.out.println("inside");
                 Object[] row = new Object[model.getColumnCount()];
-                    row[0] = dv;
-                    row[1] = dv.getAge();
-                    row[2] = dv.getGender();
-                    row[3] = dv.getAddress();
-                    row[4] = dv.getContact();
-                    row[5] = dv.getNationality();
-                    row[6] = dv.getType();
-                    model.addRow(row);
-            //}
-            
+                row[0] = dv;
+                row[1] = dv.getAge();
+                row[2] = dv.getGender();
+                row[3] = dv.getAddress();
+                row[4] = dv.getContact();
+                row[5] = dv.getNationality();
+                row[6] = dv.getType();
+                model.addRow(row);
+
+            }
         }
+    }
         //if(victimCombo.getSelectedItem().equals("Missing Person")){
 //            for(DisasterVictim dv : organization.getDisasterVictimDirectory().getVictimList()) {
 //                if(dv.getType().equals("Missing Person")){
@@ -65,9 +69,31 @@ public class ProcessMissingPersonJPanel extends javax.swing.JPanel {
 //                    row[6] = dv.getType();
 //                    model.addRow(row);
 //                } 
-     //   } 
+    //   } 
+
+    public void populateTables(String search) {
+        DefaultTableModel model = (DefaultTableModel) victimTbl.getModel();
+        model.setRowCount(0);
+        System.out.println("outside");
+        for (DisasterVictim dv : organization.getDisasterVictimDirectory().getVictimList()) {
+            System.out.println("in");
+          //  if (dv.getType().equals("Missing Person")) {
+                if (search.equals(request.getPersonName())) {
+                    System.out.println("inside");
+                    Object[] row = new Object[model.getColumnCount()];
+                    row[0] = search;
+                    row[1] = dv.getAge();
+                    row[2] = dv.getGender();
+                    row[3] = dv.getAddress();
+                    row[4] = dv.getContact();
+                    row[5] = dv.getNationality();
+                    row[6] = dv.getType();
+                    model.addRow(row);
+                }
+            //}
+        }
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -109,6 +135,11 @@ public class ProcessMissingPersonJPanel extends javax.swing.JPanel {
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton2.setText("Search");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         searchTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,31 +151,31 @@ public class ProcessMissingPersonJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(257, 257, 257))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(137, 137, 137))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(98, 98, 98)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(178, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(89, 89, 89)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(160, 160, 160))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -158,6 +189,22 @@ public class ProcessMissingPersonJPanel extends javax.swing.JPanel {
     private void searchTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_searchTxtActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+
+        if (searchTxt.getText().equalsIgnoreCase(request.getPersonName())) {
+            populateTables(searchTxt.getText());
+        }
+        if (searchTxt.getText().equalsIgnoreCase(request.getPersonName()) || searchTxt.getText().equalsIgnoreCase(request.getGender()) || searchTxt.getText().equalsIgnoreCase(request.getAddress())
+                || searchTxt.getText().equalsIgnoreCase(request.getMessageTpe())) {
+            populateTables(searchTxt.getText());
+        }
+//        if((search.equalsIgnoreCase(request.getPersonName())) || (search.equalsIgnoreCase(request.getMessageTpe())) || (search.equalsIgnoreCase(request.getGender()))
+//                (search.equalsIgnoreCase(request.getAddress()))){
+//        
+//    }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

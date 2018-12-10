@@ -27,18 +27,19 @@
                       <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="backBtn" min="-2" pref="89" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="subjectTxt" min="-2" pref="226" max="-2" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                          <Component id="sendBtn" min="-2" pref="107" max="-2" attributes="0"/>
+                          <Component id="sendBtn" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="216" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="backBtn" min="-2" pref="48" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -51,27 +52,31 @@
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="jLabel9" min="-2" pref="41" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="subjectTxt" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="backBtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" pref="29" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="sendBtn" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="backBtn" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="109" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <Component id="sendBtn" min="-2" pref="36" max="-2" attributes="0"/>
+              <EmptySpace pref="191" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -134,7 +139,10 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Back"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/userinterface/images/arrow-back-icon_1_40x40.png"/>
+        </Property>
+        <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backBtnActionPerformed"/>

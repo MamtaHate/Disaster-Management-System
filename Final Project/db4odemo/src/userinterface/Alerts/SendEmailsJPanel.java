@@ -6,16 +6,19 @@
 package userinterface.Alerts;
 
 import Business.Email.SendMailUsingAuthentication;
+import Business.Enterprise.Enterprise;
 import Business.UserAccount.UserAccount;
-import com.sun.org.apache.bcel.internal.generic.InstructionConstants;
-import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
+import Business.WorkQueue.ReliefOrganizationWorkRequest;
+import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 //import javax.mail.MessagingException;
 import javax.swing.JPanel;
-import javax.mail.Message;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import userinterface.ReliefOrgAdmin.ManageRequests;
 
 /**
  *
@@ -28,12 +31,16 @@ public class SendEmailsJPanel extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     private UserAccount account;
-
-    public SendEmailsJPanel(JPanel userProcessContainer, UserAccount account) {
+    private Enterprise enterprise;
+    private ArrayList<String> emailList;
+    
+    public SendEmailsJPanel(JPanel userProcessContainer, UserAccount account,Enterprise enterprise) {
 
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
+        this.enterprise=enterprise;
+        emailList = new ArrayList<String>();
     }
 
     /**
@@ -150,9 +157,26 @@ public class SendEmailsJPanel extends javax.swing.JPanel {
             try {
                 //String []patientRelative =new String[2];
                 String message = messageTxt.getText();
-                String sender = "mamtahate@gmail.com";
+                String sender = "mamta.disasterproject@gmail.com";
                 String subject = subjectTxt.getText();
-                String[] patientRelative = {"chowdhury.sw@husky.neu.edu"};
+                //ManageRequests manage = 
+                
+//            DefaultTableModel model = (DefaultTableModel) alertTbl.getModel();
+//            model.setRowCount(0);
+           String[] patientRelative = new String[2];
+            for (WorkRequest req : enterprise.getWorkQueue().getWorkRequestList()) {
+                if (req instanceof ReliefOrganizationWorkRequest) {
+//                   patientRelative = ((String)((ReliefOrganizationWorkRequest) req).getEmailList()).toArray();
+                    emailList.addAll(((ReliefOrganizationWorkRequest) req).getEmailList());
+                    patientRelative = new String[emailList.size()];
+                    for(int i=0; i< emailList.size(); i++) {
+                        patientRelative[i] = emailList.get(i);
+                    }
+                   // patientRelative = (String[]) emailList.toArray();
+                }
+
+        }
+                
                 SendMailUsingAuthentication.postMail(patientRelative, message, subject, sender);
                 JOptionPane.showMessageDialog(this, "Email Sent");
             } catch (javax.mail.MessagingException ex) {

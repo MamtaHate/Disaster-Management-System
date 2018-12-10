@@ -83,7 +83,7 @@ public class AlertsWorkAreaJPanel extends javax.swing.JPanel {
 
     private void sendNotificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendNotificationActionPerformed
         // TODO add your handling code here:
-        SendEmailsJPanel sendEmailsJPanel = new SendEmailsJPanel(userProcessContainer, account);
+        SendEmailsJPanel sendEmailsJPanel = new SendEmailsJPanel(userProcessContainer, account,enterprise);
         userProcessContainer.add("sendEmailsJPanel", sendEmailsJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

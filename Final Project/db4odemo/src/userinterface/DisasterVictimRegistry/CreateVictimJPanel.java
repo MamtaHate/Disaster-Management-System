@@ -7,10 +7,7 @@ package userinterface.DisasterVictimRegistry;
 
 import Business.DisasterRegistry.DisasterVictim;
 import Business.DisasterRegistry.DisasterVictim.NationalityType;
-import Business.Employee.Employee;
 import Business.Organization.DisasterVictimOrganization;
-import Business.Organization.Organization;
-import Business.WorkQueue.WorkQueue;
 import java.awt.CardLayout;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -337,7 +334,14 @@ public class CreateVictimJPanel extends javax.swing.JPanel {
             String type = victimCombo.getSelectedItem().toString();
 
             //System.out.println(gender);
-            organization.getDisasterVictimDirectory().createVictimRegistry(nameTxt.getText(), Integer.parseInt(ageTxt.getText()), gender, contact, address, nationality, file, type);
+         //if(victimCombo.getSelectedItem().toString().equals("Victim")){
+             organization.getDisasterVictimDirectory().createVictimRegistry(nameTxt.getText(), Integer.parseInt(ageTxt.getText()), gender, contact, address, nationality, file, type);
+            
+         //}
+         //else{
+           //  organization.getMissingPersonDiretory().createMissingRegistry(nameTxt.getText(), Integer.parseInt(ageTxt.getText()), gender, contact, address, nationality, file, type);
+           //JOptionPane.showMessageDialog(null, "Details saved successfully");
+         //}
             JOptionPane.showMessageDialog(null, "Details saved successfully");
             System.out.println("Disaster victim details saved...");
             // wq.getWorkRequestList().add(disasterVictim);

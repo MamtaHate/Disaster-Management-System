@@ -65,7 +65,11 @@
                       <Component id="saveBtn" min="-2" pref="87" max="-2" attributes="0"/>
                   </Group>
               </Group>
+<<<<<<< HEAD
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+=======
+              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+>>>>>>> 7efa31bd41260dd2e469794c692d56a5a935d42e
               <Component id="lbl" min="-2" pref="177" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
           </Group>

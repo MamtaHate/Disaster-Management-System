@@ -6,6 +6,7 @@
 package Business.Organization;
 
 import Business.DisasterRegistry.DisasterVictimDirectory;
+import Business.DisasterRegistry.MissingPersonDirectory;
 import Business.Role.DisasterVictimRegistryRole;
 import Business.Role.Role;
 import java.util.ArrayList;
@@ -16,10 +17,20 @@ import java.util.ArrayList;
  */
 public class DisasterVictimOrganization extends Organization{
         private DisasterVictimDirectory disasterVictimDirectory;
+        private MissingPersonDirectory missingPersonDiretory;
     
         public DisasterVictimOrganization() {
         super(OrganizationType.DisasterVictimRegistry.getValue());
         disasterVictimDirectory = new DisasterVictimDirectory();
+        missingPersonDiretory = new MissingPersonDirectory();
+    }
+
+    public MissingPersonDirectory getMissingPersonDiretory() {
+        return missingPersonDiretory;
+    }
+
+    public void setMissingPersonDiretory(MissingPersonDirectory missingPersonDiretory) {
+        this.missingPersonDiretory = missingPersonDiretory;
     }
     
     public DisasterVictimDirectory getDisasterVictimDirectory() {

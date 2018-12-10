@@ -36,6 +36,7 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
     }
     
     public void populate() {
+
             for (WorkRequest req : organization.getWorkQueue().getWorkRequestList()) {
             if (req.getStatus().equals("Assigned")) {
                 patientNameTxt.setText(((PatientRegistry) req).toString());
@@ -49,6 +50,7 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
                 }
             }
         }
+
 
     }
 

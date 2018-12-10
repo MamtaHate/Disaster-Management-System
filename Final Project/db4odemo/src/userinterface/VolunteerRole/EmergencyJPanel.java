@@ -307,18 +307,19 @@ public class EmergencyJPanel extends javax.swing.JPanel {
                 request.getDonation().setCloth_quantity(Float.parseFloat(clothesWeightTextField.getText()));
             }
         }
-
+        System.out.println("======Emergency Donation WorkRequest========");
         request.setDonationType(DonationWorkRequest.DonationType.Emergency);
         request.setSender(account);
         request.setStatus("Donated");
         request.getDonation().setDonatedTo(incident.getCity());
-
+        System.out.println("Request Status:"+  request.getStatus());
         for (Network network : business.getNetworkList()) {
             if (network.getNetworkName().equals(enterprise.getNetworkName())) {
                 for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
                     if (enterprise instanceof ReliefOrganizationEnterprise) {
                         enterprise.getWorkQueue().getWorkRequestList().add(request);
                         account.getWorkQueue().getWorkRequestList().add(request);
+                        System.out.println("Request added to Relief Organization");
                     }
                 }
             }

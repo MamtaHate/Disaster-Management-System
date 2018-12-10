@@ -182,6 +182,7 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
                         WorkRequest req = (WarehouseRequest) requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 0);
                         req.setReceiver(account);
                         req.setStatus("Approved");
+                        System.out.println("Approving request by Warehouse");
                         req.setResolveDate(new Date());
                         if (((WarehouseRequest) req).getRemaining() - (Integer) requestsJTable.getValueAt(requestsJTable.getSelectedRow(), 1) < 0) {
                             remaining = 0;

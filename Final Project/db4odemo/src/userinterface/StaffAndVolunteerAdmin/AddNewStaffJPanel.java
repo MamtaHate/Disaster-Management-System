@@ -43,6 +43,7 @@ public class AddNewStaffJPanel extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.business = business;
         populateComboBox();
+        txtOtherSkills.setEnabled(false);
     }
 
     public void populateComboBox() {
@@ -203,7 +204,6 @@ public class AddNewStaffJPanel extends javax.swing.JPanel {
         jLabel9.setText("Other Skills (if any):");
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 760, 170, -1));
 
-        txtOtherSkills.setEditable(false);
         txtOtherSkills.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtOtherSkillsActionPerformed(evt);

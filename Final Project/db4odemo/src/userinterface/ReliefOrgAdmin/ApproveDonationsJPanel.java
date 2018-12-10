@@ -128,10 +128,12 @@ public class ApproveDonationsJPanel extends javax.swing.JPanel {
             if (donationRequests.getValueAt(donationRequests.getSelectedRow(), 5).toString().equals("Approved")) {
                  JOptionPane.showMessageDialog(this, "This donation is already approved");
             } else {
+                System.out.println("===Donation work request approval====");
                 WorkRequest request = (DonationWorkRequest) donationRequests.getValueAt(donationRequests.getSelectedRow(), 0);
                 request.setReceiver(account);
                 request.setResolveDate(new Date());
                 request.setStatus("Approved");
+                System.out.println("Request status:" + request.getStatus());
                 populateTable();
             }
 

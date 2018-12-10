@@ -152,6 +152,7 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
         request.setRequestDate(new Date());
         request.setSender(account);
         request.setStatus("Pending");
+        System.out.println("Request: " + request.getStatus());
 
         account.getWorkQueue().getWorkRequestList().add(request);
 
@@ -161,6 +162,7 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
             }
         }
 
+        
         JOptionPane.showMessageDialog(this, "Request submitted");
     }//GEN-LAST:event_btnSubmitActionPerformed
 

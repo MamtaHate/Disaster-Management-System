@@ -178,11 +178,15 @@ public class AllocateShelterJPanel extends javax.swing.JPanel {
         int required;
         if (housingJTable.getSelectedRow() >= 0) {
             if (!housingJTable.getValueAt(housingJTable.getSelectedRow(), 4).toString().equals("Approved")) {
+                System.out.println("------Housing Request--------------");
                 WorkRequest req = (HousingWorkRequest) housingJTable.getValueAt(housingJTable.getSelectedRow(), 6);
                 required = Integer.parseInt((String) housingJTable.getValueAt(housingJTable.getSelectedRow(), 0));
                 house.setHouseCapacity(Integer.toString(occupancy - required));
                 req.setStatus("Approved");
+                System.out.println("Request Status" + req.getStatus());
                 req.setResolveDate(new Date());
+                req.setSender(userAccount);
+                System.out.println("Approved On" + req.getStatus());
                 populateTable();
                 availableHouses.setText("Available Occupancy for " + (Integer.parseInt(house.getHouseCapacity()) < 0 ? "0" : house.getHouseCapacity()));
             }

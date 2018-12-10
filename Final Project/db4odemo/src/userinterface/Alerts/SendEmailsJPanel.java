@@ -153,6 +153,7 @@ public class SendEmailsJPanel extends javax.swing.JPanel {
                 String[] patientRelative = {"chowdhury.sw@husky.neu.edu"};
                 SendMailUsingAuthentication.postMail(patientRelative, message, subject, sender);
                 JOptionPane.showMessageDialog(this, "Email Sent");
+                System.out.println("Email sent successfully!");
             } catch (javax.mail.MessagingException ex) {
                 Logger.getLogger(SendEmailsJPanel.class.getName()).log(Level.SEVERE, null, ex);
             }

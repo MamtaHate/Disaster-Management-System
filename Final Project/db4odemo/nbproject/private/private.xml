@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/G:/college-stuff/aed/workspace/final/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/WarehouseAdmin/WarehouseAdminWorkAreaJPanel.java</file>
             <file>file:/G:/college-stuff/aed/workspace/final/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/ShelterOrgAdmin/ManageUserAccountJPanel.java</file>
             <file>file:/G:/college-stuff/aed/workspace/final/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/VolunteerRole/ConfirmDonationJPanel.java</file>
@@ -70,6 +71,16 @@
             <file>file:/G:/college-stuff/aed/workspace/final/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/StaffAndVolunteerAdmin/StaffAndVolunteerAdminWorkAreaJPanel.java</file>
             <file>file:/G:/college-stuff/aed/workspace/final/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/ShelterOrgAdmin/ManageOrganizationJPanel.java</file>
             <file>file:/G:/college-stuff/aed/workspace/final/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/StaffAndVolunteerAdmin/ViewStaffJPanel.java</file>
+=======
+            <file>file:/C:/Users/Sweta%20Chowdhury/AED_Demo/AED_ASSIGNMENT_DEMO/group_assignment_trimurti/Final%20Project/db4odemo/src/Business/WorkQueue/ReliefOrganizationWorkRequest.java</file>
+            <file>file:/C:/Users/Sweta%20Chowdhury/AED_Demo/AED_ASSIGNMENT_DEMO/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/DisasterVictimRegistry/RequestVictimWorkAreaJPanel.java</file>
+            <file>file:/C:/Users/Sweta%20Chowdhury/AED_Demo/AED_ASSIGNMENT_DEMO/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/Incident/ManageIncidentsJPanel.java</file>
+            <file>file:/C:/Users/Sweta%20Chowdhury/AED_Demo/AED_ASSIGNMENT_DEMO/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/StaffRole/ReqInventoryJPanel.java</file>
+            <file>file:/C:/Users/Sweta%20Chowdhury/AED_Demo/AED_ASSIGNMENT_DEMO/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/StaffRole/ManageRequestsJPanel.java</file>
+            <file>file:/C:/Users/Sweta%20Chowdhury/AED_Demo/AED_ASSIGNMENT_DEMO/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/Hospital/ManageEmployeeJPanel.java</file>
+            <file>file:/C:/Users/Sweta%20Chowdhury/AED_Demo/AED_ASSIGNMENT_DEMO/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/StaffRole/StaffWorkAreaPanel.java</file>
+            <file>file:/C:/Users/Sweta%20Chowdhury/AED_Demo/AED_ASSIGNMENT_DEMO/group_assignment_trimurti/Final%20Project/db4odemo/src/userinterface/Alerts/SendEmailsJPanel.java</file>
+>>>>>>> c1c8c2c629ff5a5e725effc49831d4df125fbee7
         </group>
     </open-files>
 </project-private>

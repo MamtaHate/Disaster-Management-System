@@ -245,7 +245,7 @@ public class IncidentReportingJPanel extends javax.swing.JPanel {
             incident.setCity(cityJTextField.getText());
             incident.setPostCode(postalCodeTextField.getText());
             incident.setComments(commentsJTextArea.getText());
-
+            System.out.println("=====Incident Report=========");
             JOptionPane.showMessageDialog(this, "Reported Successfully");
         }
 

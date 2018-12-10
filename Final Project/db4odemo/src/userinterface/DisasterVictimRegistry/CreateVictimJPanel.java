@@ -271,6 +271,7 @@ public class CreateVictimJPanel extends javax.swing.JPanel {
            //JOptionPane.showMessageDialog(null, "Details saved successfully");
          //}
             JOptionPane.showMessageDialog(null, "Details saved successfully");
+            System.out.println("Disaster victim details saved...");
             // wq.getWorkRequestList().add(disasterVictim);
         }
 

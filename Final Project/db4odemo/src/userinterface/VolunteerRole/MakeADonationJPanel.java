@@ -7,10 +7,14 @@ package userinterface.VolunteerRole;
 
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
+import Business.Incident.Incident;
 import Business.Organization.StaffOrganization;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -33,11 +37,25 @@ public class MakeADonationJPanel extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.userAccount = account;
         this.business = business;
+        populateIncidents();
     }
 
     
     public void populateIncidents() {
-        
+        DefaultTableModel model = (DefaultTableModel) incidentsJTable.getModel();
+        model.setRowCount(0);
+
+        for(Incident incident: enterprise.getIncidentDirectory().getIncidentList()) {
+            Object[] row = new Object[model.getColumnCount()];
+                row[0] = incident;
+                row[1] = incident.getEventType();
+                row[2] = incident.getIncidentType();
+                row[3] = incident.getDateOccured();
+                row[4] = incident.getCity();
+               
+                model.addRow(row);
+        }
+      
     }
     
     /**
@@ -50,50 +68,60 @@ public class MakeADonationJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         nonEmergencyButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
+        emergencyButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        incidentsJTable = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("MAKE A DONATION!");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, -1, 41));
 
-        jTable1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Area", "Disaster Type", "Event Alert"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 680, 150));
-
         nonEmergencyButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        nonEmergencyButton.setText("Donate");
+        nonEmergencyButton.setText("Non Emergency");
         nonEmergencyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nonEmergencyButtonActionPerformed(evt);
             }
         });
-
-        add(nonEmergencyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 240, 50));
-
+        add(nonEmergencyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 370, 240, 50));
 
         backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        backJButton.setText("<<BACK");
+        backJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backJButton.setContentAreaFilled(false);
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 160, 50));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 50, 50));
+
+        emergencyButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        emergencyButton.setText("Emergency");
+        emergencyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emergencyButtonActionPerformed(evt);
+            }
+        });
+        add(emergencyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 250, 50));
+
+        incidentsJTable.setBackground(new java.awt.Color(255, 253, 208));
+        incidentsJTable.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        incidentsJTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Incident Name", "Event Type", "Incident Type", "Date of Occurrence", "Location"
+            }
+        ));
+        jScrollPane1.setViewportView(incidentsJTable);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 960, 210));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -107,16 +135,36 @@ public class MakeADonationJPanel extends javax.swing.JPanel {
         NonEmergencyJPanel donationJPanel = new NonEmergencyJPanel(userProcessContainer, organization, userAccount, enterprise, business);
         userProcessContainer.add("donationJPanel", donationJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);      
+    }//GEN-LAST:event_nonEmergencyButtonActionPerformed
+
+    private void emergencyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emergencyButtonActionPerformed
+        // TODO add your handling code here:
+        
+        int selectedRow = incidentsJTable.getSelectedRow();
+        
+        if(selectedRow <0)
+        {
+            JOptionPane.showMessageDialog(null, "Select a disaster event to donate");
+            return;
+        }
+        
+        Incident incident = (Incident) incidentsJTable.getValueAt(selectedRow, 0);
+                
+        EmergencyJPanel emergencyJPanel = new EmergencyJPanel(userProcessContainer, organization, userAccount, enterprise, business, incident);
+        userProcessContainer.add("emergencyJPanel", emergencyJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
         
-    }//GEN-LAST:event_nonEmergencyButtonActionPerformed
+    }//GEN-LAST:event_emergencyButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
+    private javax.swing.JButton emergencyButton;
+    private javax.swing.JTable incidentsJTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton nonEmergencyButton;
     // End of variables declaration//GEN-END:variables
 }

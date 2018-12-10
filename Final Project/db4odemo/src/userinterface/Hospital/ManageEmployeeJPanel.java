@@ -10,7 +10,6 @@ import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Organization.PatientResgistryOrganization;
-import static com.sun.org.apache.bcel.internal.Repository.instanceOf;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -99,6 +98,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         createEmployeeButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
 
+        jPanel1.setBackground(new java.awt.Color(255, 253, 208));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -162,13 +162,14 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         jPanel1.add(createEmployeeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 470, 280, 50));
 
         backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        backJButton.setText("<<BACK");
+        backJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backJButton.setContentAreaFilled(false);
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 620, 170, 50));
+        jPanel1.add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 50, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

@@ -72,7 +72,7 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
         assignButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -114,13 +114,14 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
         add(assignButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 310, 230, 50));
 
         backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        backJButton.setText("<<BACK");
+        backJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backJButton.setContentAreaFilled(false);
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 170, 50));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 50, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void shelterTablePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_shelterTablePropertyChange
@@ -137,6 +138,7 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
             // assignButton.setText("Assign to " + shelterTable.getValueAt(shelterTable.getSelectedRow(), 4) + " Organization");
             if (!shelterTable.getValueAt(shelterTable.getSelectedRow(), 3).toString().equals("In Progress")) {
                 if (shelterTable.getValueAt(shelterTable.getSelectedRow(), 4).toString() == "Housing") {
+                    System.out.println("======Housing request under Shelter Admin==========");
                     WorkRequest req = (HousingWorkRequest) shelterTable.getValueAt(shelterTable.getSelectedRow(), 4);
                     for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
                         if (org instanceof HousingOrganization) {
@@ -147,9 +149,11 @@ public class ManageRequestsJPanel extends javax.swing.JPanel {
                         this.org.getWorkQueue().getWorkRequestList().add(req);
                         for (UserAccount user : this.org.getUserAccountDirectory().getUserAccountList()) {
                             if (user.getRole().toString().equals(RoleType.HousingAdminRole.getValue())) {
+                                System.out.println("Request sent to Housing admin");
                                 req.setReceiver(user);
                                 req.setMessage(req.getMessage() + "Sent to Housing Admin");
                                 req.setStatus("In Progress");
+                                System.out.println("Request status" + req.getStatus());
                                 JOptionPane.showMessageDialog(this, "Request sent to housing facility");
                                 populateJTable();
                             }

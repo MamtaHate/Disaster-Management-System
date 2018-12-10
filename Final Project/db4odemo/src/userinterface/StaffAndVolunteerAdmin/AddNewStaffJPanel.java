@@ -43,6 +43,7 @@ public class AddNewStaffJPanel extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.business = business;
         populateComboBox();
+        txtOtherSkills.setEnabled(false);
     }
 
     public void populateComboBox() {
@@ -88,7 +89,7 @@ public class AddNewStaffJPanel extends javax.swing.JPanel {
         txtOtherSkills = new javax.swing.JTextField();
         chkNone = new javax.swing.JCheckBox();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -178,13 +179,14 @@ public class AddNewStaffJPanel extends javax.swing.JPanel {
         add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 810, 160, 50));
 
         backButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        backButton.setText("<<BACK");
+        backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backButton.setContentAreaFilled(false);
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 870, 130, 40));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 50, 50));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel7.setText("Type:");
@@ -202,7 +204,6 @@ public class AddNewStaffJPanel extends javax.swing.JPanel {
         jLabel9.setText("Other Skills (if any):");
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 760, 170, -1));
 
-        txtOtherSkills.setEditable(false);
         txtOtherSkills.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtOtherSkillsActionPerformed(evt);

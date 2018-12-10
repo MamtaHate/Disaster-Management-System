@@ -10,7 +10,7 @@ package Business.WorkQueue;
  * @author Sweta Chowdhury
  */
 public class HousingWorkRequest extends WorkRequest {
-    private int shelter;
+    private String shelter;
     private String result;
     private String noOfPeople;
 
@@ -30,11 +30,11 @@ public class HousingWorkRequest extends WorkRequest {
         this.result = result;
     }
 
-    public int getShelter() {
+    public String getShelter() {
         return shelter;
     }
 
-    public void setShelter(int shelter) {
+    public void setShelter(String shelter) {
         this.shelter = shelter;
     }  
      @Override

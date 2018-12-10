@@ -87,6 +87,7 @@ public class ManageShelterJPanel extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         shelterContactPerson = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -115,13 +116,14 @@ public class ManageShelterJPanel extends javax.swing.JPanel {
         add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 440, 250, 40));
 
         backJButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        backJButton.setText("<<BACK");
+        backJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backJButton.setContentAreaFilled(false);
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 170, 40));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 60, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setText("Email:");
@@ -239,6 +241,7 @@ public class ManageShelterJPanel extends javax.swing.JPanel {
                 housing.setHouseCapacity(shelterCapacity.getText());
                 housing.setHouseStatus(shelterStatusJComboBox.getSelectedItem().toString());
                 housing.setContactPerson(shelterContactPerson.getText());
+                System.out.println("=====Shelter Created=======");
 
                 JOptionPane.showMessageDialog(null, "Shelter added successfully", "Warning", JOptionPane.INFORMATION_MESSAGE);
                 shelterName.setText(null);

@@ -5,17 +5,29 @@
  */
 package Business.Patient;
 
+import Business.DisasterRegistry.DisasterVictim;
+import java.io.File;
+
 /**
  *
  * @author mamta
  */
 public class Patient {
     private String patientName;
-    private String age;
+    private String gender;
     private String indentification;
     private String height;
     private String synopsis;
+    private int room;
 
+    public int getRoom() {
+        return room;
+    }
+
+    public void setRoom(int room) {
+        this.room = room;
+    }
+    
     public String getPatientName() {
         return patientName;
     }
@@ -24,12 +36,12 @@ public class Patient {
         this.patientName = patientName;
     }
 
-    public String getAge() {
-        return age;
+    public String getGender() {
+        return gender;
     }
 
-    public void setAge(String age) {
-        this.age = age;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getIndentification() {
@@ -56,4 +68,8 @@ public class Patient {
         this.synopsis = synopsis;
     }
     
+   @Override
+    public String toString() {
+        return this.patientName;
+    }
 }

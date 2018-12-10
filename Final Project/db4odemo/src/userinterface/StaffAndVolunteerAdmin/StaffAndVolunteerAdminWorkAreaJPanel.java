@@ -49,10 +49,9 @@ public class StaffAndVolunteerAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         manageOrganizationJButton = new javax.swing.JButton();
-        requestsButton = new javax.swing.JButton();
         userAccountsButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -67,15 +66,6 @@ public class StaffAndVolunteerAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 360, 60));
-
-        requestsButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        requestsButton.setText("MANAGE REQUESTS");
-        requestsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                requestsButtonActionPerformed(evt);
-            }
-        });
-        add(requestsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, 360, 60));
 
         userAccountsButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         userAccountsButton.setText("MANAGE USER ACCOUNTS");
@@ -102,16 +92,10 @@ public class StaffAndVolunteerAdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_userAccountsButtonActionPerformed
 
-    private void requestsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestsButtonActionPerformed
-        // TODO add your handling code here:
-     
-    }//GEN-LAST:event_requestsButtonActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton manageOrganizationJButton;
-    private javax.swing.JButton requestsButton;
     private javax.swing.JButton userAccountsButton;
     // End of variables declaration//GEN-END:variables
 }

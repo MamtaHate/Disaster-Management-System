@@ -70,7 +70,7 @@ public class UpdateItemJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         qtyText = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -127,13 +127,14 @@ public class UpdateItemJPanel extends javax.swing.JPanel {
         add(chkKit, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, -1, -1));
 
         backJButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        backJButton.setText("<<BACK");
+        backJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backJButton.setContentAreaFilled(false);
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 540, 170, 50));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 60, 50));
 
         itemCategory.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         add(itemCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, 170, 40));

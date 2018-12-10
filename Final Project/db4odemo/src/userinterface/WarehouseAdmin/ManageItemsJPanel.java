@@ -67,17 +67,17 @@ public class ManageItemsJPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         itemsJTable = new javax.swing.JTable();
-        backJButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         organizationJTable1 = new javax.swing.JTable();
         viewJButton = new javax.swing.JButton();
-        backJButton1 = new javax.swing.JButton();
         addJButton = new javax.swing.JButton();
+        backJButton = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        itemsJTable.setBackground(new java.awt.Color(255, 253, 208));
         itemsJTable.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         itemsJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,16 +95,7 @@ public class ManageItemsJPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 710, 220));
 
-        backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        backJButton.setText("<<BACK");
-        backJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButtonActionPerformed(evt);
-            }
-        });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 170, 50));
-
-        jPanel1.setBackground(new java.awt.Color(214, 217, 224));
+        jPanel1.setBackground(new java.awt.Color(255, 253, 208));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -143,15 +134,6 @@ public class ManageItemsJPanel extends javax.swing.JPanel {
         });
         jPanel1.add(viewJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 390, 170, 50));
 
-        backJButton1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        backJButton1.setText("<<BACK");
-        backJButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(backJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 170, 50));
-
         addJButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         addJButton.setText("ADD ITEM");
         addJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -160,6 +142,16 @@ public class ManageItemsJPanel extends javax.swing.JPanel {
             }
         });
         jPanel1.add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 390, 170, 50));
+
+        backJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        backJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backJButton.setContentAreaFilled(false);
+        backJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backJButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 50));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -193,15 +185,10 @@ public class ManageItemsJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_viewJButtonActionPerformed
 
-    private void backJButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_backJButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addJButton;
     private javax.swing.JButton backJButton;
-    private javax.swing.JButton backJButton1;
     private javax.swing.JTable itemsJTable;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

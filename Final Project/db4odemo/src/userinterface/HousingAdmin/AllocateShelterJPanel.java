@@ -103,7 +103,7 @@ public class AllocateShelterJPanel extends javax.swing.JPanel {
         availableHouses = new javax.swing.JLabel();
         shelterNamesJComboBox = new javax.swing.JComboBox();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -120,13 +120,14 @@ public class AllocateShelterJPanel extends javax.swing.JPanel {
         add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, 250, 40));
 
         backJButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        backJButton.setText("<<BACK");
+        backJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backJButton.setContentAreaFilled(false);
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 170, 40));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 50, 50));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("Housing Organization : ");
@@ -177,11 +178,15 @@ public class AllocateShelterJPanel extends javax.swing.JPanel {
         int required;
         if (housingJTable.getSelectedRow() >= 0) {
             if (!housingJTable.getValueAt(housingJTable.getSelectedRow(), 4).toString().equals("Approved")) {
+                System.out.println("------Housing Request--------------");
                 WorkRequest req = (HousingWorkRequest) housingJTable.getValueAt(housingJTable.getSelectedRow(), 6);
                 required = Integer.parseInt((String) housingJTable.getValueAt(housingJTable.getSelectedRow(), 0));
                 house.setHouseCapacity(Integer.toString(occupancy - required));
                 req.setStatus("Approved");
+                System.out.println("Request Status" + req.getStatus());
                 req.setResolveDate(new Date());
+                req.setSender(userAccount);
+                System.out.println("Approved On" + req.getStatus());
                 populateTable();
                 availableHouses.setText("Available Occupancy for " + (Integer.parseInt(house.getHouseCapacity()) < 0 ? "0" : house.getHouseCapacity()));
             }

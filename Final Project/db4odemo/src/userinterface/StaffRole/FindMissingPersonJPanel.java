@@ -58,7 +58,7 @@ public class FindMissingPersonJPanel extends javax.swing.JPanel {
         submitRequest = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -97,13 +97,14 @@ public class FindMissingPersonJPanel extends javax.swing.JPanel {
         add(submitRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, 220, 40));
 
         backButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        backButton.setText("<<BACK");
+        backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backButton.setContentAreaFilled(false);
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 168, 40));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 50, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitRequestActionPerformed
@@ -114,6 +115,8 @@ public class FindMissingPersonJPanel extends javax.swing.JPanel {
         allowSubmit = validateInput();
 
         if (allowSubmit) {
+            
+            System.out.println("====Missing person request=============");
             MissingPersonRequest request = new MissingPersonRequest();
             request.setPersonName(personNameTextField.getText());
             if (genderGroup.isSelected(rdbMale.getModel())) {
@@ -124,12 +127,13 @@ public class FindMissingPersonJPanel extends javax.swing.JPanel {
             request.setAddress(addressTextField.getText());
             request.setSender(account);
             request.setStatus("Missing");
-
+            System.out.println("Request Status"+ request.getStatus());
             account.getWorkQueue().getWorkRequestList().add(request);
 
             for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
                 if (organization instanceof DisasterVictimOrganization) {
                     organization.getWorkQueue().getWorkRequestList().add(request);
+                     System.out.println("Request "+ request.getStatus());
                 }
             }
 

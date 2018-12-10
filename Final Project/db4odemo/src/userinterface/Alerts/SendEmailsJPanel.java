@@ -7,8 +7,6 @@ package userinterface.Alerts;
 
 import Business.Email.SendMailUsingAuthentication;
 import Business.UserAccount.UserAccount;
-import com.sun.org.apache.bcel.internal.generic.InstructionConstants;
-import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
 import java.awt.CardLayout;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -54,7 +52,7 @@ public class SendEmailsJPanel extends javax.swing.JPanel {
         backBtn = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setText("Enter Message:");
@@ -155,6 +153,7 @@ public class SendEmailsJPanel extends javax.swing.JPanel {
                 String[] patientRelative = {"chowdhury.sw@husky.neu.edu"};
                 SendMailUsingAuthentication.postMail(patientRelative, message, subject, sender);
                 JOptionPane.showMessageDialog(this, "Email Sent");
+                System.out.println("Email sent successfully!");
             } catch (javax.mail.MessagingException ex) {
                 Logger.getLogger(SendEmailsJPanel.class.getName()).log(Level.SEVERE, null, ex);
             }

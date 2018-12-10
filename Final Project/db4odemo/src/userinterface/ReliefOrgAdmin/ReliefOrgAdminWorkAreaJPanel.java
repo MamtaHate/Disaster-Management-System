@@ -52,8 +52,9 @@ public class ReliefOrgAdminWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel = new javax.swing.JLabel();
         viewIncidentJButton = new javax.swing.JButton();
         approveDonations = new javax.swing.JButton();
+        approveDonations1 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         manageUserJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -63,7 +64,7 @@ public class ReliefOrgAdminWorkAreaJPanel extends javax.swing.JPanel {
                 manageUserJButtonActionPerformed(evt);
             }
         });
-        add(manageUserJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, 320, 60));
+        add(manageUserJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 320, 60));
 
         manageOrganizationJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         manageOrganizationJButton.setText("MANAGE ORGANIZATION");
@@ -81,7 +82,7 @@ public class ReliefOrgAdminWorkAreaJPanel extends javax.swing.JPanel {
                 manageEmployeeJButtonActionPerformed(evt);
             }
         });
-        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 320, 60));
+        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 320, 60));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("WELCOME TO RELIEF ORGANIZATION ADMIN WORK AREA");
@@ -102,16 +103,25 @@ public class ReliefOrgAdminWorkAreaJPanel extends javax.swing.JPanel {
                 viewIncidentJButtonActionPerformed(evt);
             }
         });
-        add(viewIncidentJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 490, 320, 60));
+        add(viewIncidentJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, 320, 60));
 
         approveDonations.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        approveDonations.setText("APPROVE DONATIONS");
+        approveDonations.setText("DONATION STATS");
         approveDonations.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 approveDonationsActionPerformed(evt);
             }
         });
-        add(approveDonations, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 590, 320, 60));
+        add(approveDonations, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 560, 320, 60));
+
+        approveDonations1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        approveDonations1.setText("APPROVE DONATIONS");
+        approveDonations1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                approveDonations1ActionPerformed(evt);
+            }
+        });
+        add(approveDonations1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 490, 320, 60));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
@@ -145,15 +155,24 @@ public class ReliefOrgAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void approveDonationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approveDonationsActionPerformed
         // TODO add your handling code here:
+        DonationAnalysis viewIncidentJPanel = new DonationAnalysis(userProcessContainer, enterprise, account, system);
+        userProcessContainer.add("DonationAnalysis", viewIncidentJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_approveDonationsActionPerformed
+
+    private void approveDonations1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approveDonations1ActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
         ApproveDonationsJPanel viewIncidentJPanel = new ApproveDonationsJPanel(userProcessContainer, enterprise, account, system);
         userProcessContainer.add("viewIncidentJPanel", viewIncidentJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-        
-    }//GEN-LAST:event_approveDonationsActionPerformed
+    }//GEN-LAST:event_approveDonations1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton approveDonations;
+    private javax.swing.JButton approveDonations1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton manageEmployeeJButton;

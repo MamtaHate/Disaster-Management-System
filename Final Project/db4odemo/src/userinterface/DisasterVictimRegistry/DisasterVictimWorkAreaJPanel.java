@@ -25,11 +25,13 @@ public class DisasterVictimWorkAreaJPanel extends javax.swing.JPanel {
     private DisasterVictimOrganization organization;
     private EcoSystem system;
     private UserAccount account;
-    public DisasterVictimWorkAreaJPanel(JPanel userProcessContainer, DisasterVictimOrganization organization,EcoSystem system, UserAccount account) {
+    private Enterprise enterprise;
+    public DisasterVictimWorkAreaJPanel(JPanel userProcessContainer, DisasterVictimOrganization organization,EcoSystem system, UserAccount account,Enterprise enterprise) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.organization = organization;
         this.system = system;
+        this.enterprise = enterprise;
         this.account = account;
     }
 
@@ -47,9 +49,9 @@ public class DisasterVictimWorkAreaJPanel extends javax.swing.JPanel {
         requestBtn = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
 
-        createBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        createBtn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         createBtn.setText("CREATE VICTIM RECORDS");
         createBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,7 +59,7 @@ public class DisasterVictimWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        viewBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        viewBtn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         viewBtn.setText("VIEW VICTIM RECORDS");
         viewBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,7 +67,7 @@ public class DisasterVictimWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        requestBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        requestBtn.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         requestBtn.setText("MANAGE REQUESTS");
         requestBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,7 +111,7 @@ public class DisasterVictimWorkAreaJPanel extends javax.swing.JPanel {
 
     private void requestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestBtnActionPerformed
         // TODO add your handling code here:
-        RequestVictimWorkAreaJPanel requestVictimJPanel = new RequestVictimWorkAreaJPanel(userProcessContainer,system,account);
+        RequestVictimWorkAreaJPanel requestVictimJPanel = new RequestVictimWorkAreaJPanel(userProcessContainer,system,account,organization,enterprise);
         userProcessContainer.add("requestVictimJPanel", requestVictimJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

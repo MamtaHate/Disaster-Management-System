@@ -69,7 +69,7 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
         btnSubmit = new javax.swing.JButton();
         itemCategory = new javax.swing.JComboBox();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -88,13 +88,14 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 140, 40));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jButton1.setText("< Back");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 110, 40));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 50, 50));
 
         btnSubmit.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnSubmit.setText("Submit Request");
@@ -140,7 +141,10 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
         for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
             if (org instanceof WarehouseOrganization) {
                 for (Item i : ((WarehouseOrganization) org).getItemCatalog().getItemList()) {
-                    remaining = i.getQty();
+                    if(i.getCategory().toString().equals(itemCategory.getSelectedItem().toString())) {
+                        remaining = i.getQty();
+                        request.setItem(i); 
+                    }             
                 }
             }
         }
@@ -148,6 +152,7 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
         request.setRequestDate(new Date());
         request.setSender(account);
         request.setStatus("Pending");
+        System.out.println("Request: " + request.getStatus());
 
         account.getWorkQueue().getWorkRequestList().add(request);
 
@@ -157,6 +162,7 @@ public class ReqInventoryJPanel extends javax.swing.JPanel {
             }
         }
 
+        
         JOptionPane.showMessageDialog(this, "Request submitted");
     }//GEN-LAST:event_btnSubmitActionPerformed
 

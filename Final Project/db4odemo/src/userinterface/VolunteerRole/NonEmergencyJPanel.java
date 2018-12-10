@@ -112,7 +112,7 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
         confirmButton = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -123,6 +123,7 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
         jLabel2.setText("Donation Type:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 140, 30));
 
+        fundCheck.setBackground(new java.awt.Color(255, 253, 208));
         fundCheck.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         fundCheck.setText("Funds");
         fundCheck.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +133,7 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
         });
         add(fundCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, -1, -1));
 
+        foodCheck.setBackground(new java.awt.Color(255, 253, 208));
         foodCheck.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         foodCheck.setText("Food");
         foodCheck.addActionListener(new java.awt.event.ActionListener() {
@@ -141,6 +143,7 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
         });
         add(foodCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, -1, -1));
 
+        clothesCheck.setBackground(new java.awt.Color(255, 253, 208));
         clothesCheck.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         clothesCheck.setText("Clothing");
         clothesCheck.addActionListener(new java.awt.event.ActionListener() {
@@ -239,13 +242,14 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
         add(confirmButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 370, 180, 50));
 
         backJButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        backJButton.setText("<<BACK");
+        backJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backJButton.setContentAreaFilled(false);
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 620, 160, 50));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 50, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void donateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donateButtonActionPerformed
@@ -299,17 +303,18 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
                 request.getDonation().setCloth_quantity(Float.parseFloat(clothesWeightTextField.getText()));
             }
         }
-
+        System.out.println("======Non-Emergency Donation WorkRequest========");
         request.setDonationType(DonationWorkRequest.DonationType.NonEmergency);
         request.setSender(account);
         request.setStatus("Donated");
-
+        System.out.println("Request Status:"+  request.getStatus());
         for (Network network : business.getNetworkList()) {
             if (network.getNetworkName().equals(enterprise.getNetworkName())) {
                 for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
                     if (enterprise instanceof ReliefOrganizationEnterprise) {
                         enterprise.getWorkQueue().getWorkRequestList().add(request);
                         account.getWorkQueue().getWorkRequestList().add(request);
+                        System.out.println("Request added to Relief Organization");
                     }
                 }
             }
@@ -318,7 +323,7 @@ public class NonEmergencyJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, "Thank you for your donation");
         //******************************************************************************
 
-         final String from = "csweta27@gmail.com";
+        final String from = "csweta27@gmail.com";
         final String pass = "Media0cean";
         String add = emailTextField.getText();
         String[] to = {add};

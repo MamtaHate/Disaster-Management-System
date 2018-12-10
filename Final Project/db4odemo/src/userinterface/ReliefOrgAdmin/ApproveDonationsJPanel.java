@@ -75,7 +75,7 @@ public class ApproveDonationsJPanel extends javax.swing.JPanel {
         backJButton = new javax.swing.JButton();
         approveButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -96,13 +96,14 @@ public class ApproveDonationsJPanel extends javax.swing.JPanel {
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 130, 780, 140));
 
         backJButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        backJButton.setText("<<BACK");
+        backJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backJButton.setContentAreaFilled(false);
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 170, 40));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 50, 50));
 
         approveButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         approveButton.setText("Approve");
@@ -127,10 +128,12 @@ public class ApproveDonationsJPanel extends javax.swing.JPanel {
             if (donationRequests.getValueAt(donationRequests.getSelectedRow(), 5).toString().equals("Approved")) {
                  JOptionPane.showMessageDialog(this, "This donation is already approved");
             } else {
+                System.out.println("===Donation work request approval====");
                 WorkRequest request = (DonationWorkRequest) donationRequests.getValueAt(donationRequests.getSelectedRow(), 0);
                 request.setReceiver(account);
                 request.setResolveDate(new Date());
                 request.setStatus("Approved");
+                System.out.println("Request status:" + request.getStatus());
                 populateTable();
             }
 

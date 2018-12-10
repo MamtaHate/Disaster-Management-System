@@ -126,7 +126,7 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
         txtOtherSkills = new javax.swing.JTextField();
         chkNone = new javax.swing.JCheckBox();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -150,12 +150,14 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
         jLabel6.setText("Gender:");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 110, 30));
 
+        rdbMale.setBackground(new java.awt.Color(255, 253, 208));
         genderGroup.add(rdbMale);
         rdbMale.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         rdbMale.setText("Male");
         rdbMale.setEnabled(false);
         add(rdbMale, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, 90, -1));
 
+        rdbFemale.setBackground(new java.awt.Color(255, 253, 208));
         genderGroup.add(rdbFemale);
         rdbFemale.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         rdbFemale.setText("Female");
@@ -220,13 +222,14 @@ public class ViewStaffJPanel extends javax.swing.JPanel {
         add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 600, 160, 40));
 
         backButton.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        backButton.setText("<<BACK");
+        backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/arrow-back-icon_1_40x40.png"))); // NOI18N
+        backButton.setContentAreaFilled(false);
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
-        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 600, 140, 40));
+        add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 60, 50));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel7.setText("Type:");

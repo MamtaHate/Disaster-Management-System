@@ -54,7 +54,7 @@ public class VolunteerWorkAreaPanel extends javax.swing.JPanel {
         reportIncidentButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(214, 217, 224));
+        setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -91,8 +91,8 @@ public class VolunteerWorkAreaPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_reportIncidentButtonActionPerformed
 
     private void donationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donationButtonActionPerformed
-        NonEmergencyJPanel donationJPanel = new NonEmergencyJPanel(userProcessContainer, organization, userAccount, enterprise, business);
-        userProcessContainer.add("donationJPanel", donationJPanel);
+        MakeADonationJPanel makeADonationJPanel = new MakeADonationJPanel(userProcessContainer, userAccount, organization, enterprise, business);
+        userProcessContainer.add("makeADonationJPanel", makeADonationJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_donationButtonActionPerformed

@@ -50,13 +50,14 @@ public class StaffAndVolunteerAdminWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         manageOrganizationJButton = new javax.swing.JButton();
         userAccountsButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 253, 208));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("WELCOME TO STAFF AND VOLUNTEER ADMIN WORK AREA");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, -1, 41));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, 41));
 
         manageOrganizationJButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         manageOrganizationJButton.setText("MANAGE STAFF AND VOLUNTEERS");
@@ -65,7 +66,7 @@ public class StaffAndVolunteerAdminWorkAreaJPanel extends javax.swing.JPanel {
                 manageOrganizationJButtonActionPerformed(evt);
             }
         });
-        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 360, 60));
+        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 360, 60));
 
         userAccountsButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         userAccountsButton.setText("MANAGE USER ACCOUNTS");
@@ -74,7 +75,10 @@ public class StaffAndVolunteerAdminWorkAreaJPanel extends javax.swing.JPanel {
                 userAccountsButtonActionPerformed(evt);
             }
         });
-        add(userAccountsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 360, 60));
+        add(userAccountsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 360, 60));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/images/group-512.png"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 130, 410, 300));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
@@ -95,6 +99,7 @@ public class StaffAndVolunteerAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton manageOrganizationJButton;
     private javax.swing.JButton userAccountsButton;
     // End of variables declaration//GEN-END:variables

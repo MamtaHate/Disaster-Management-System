@@ -1,9 +1,0 @@
-nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
-
-# ignore a file type
-*.class
